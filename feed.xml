@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI 知识流日报</title>
+    <link>https://example.com</link>
+    <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
+    <lastBuildDate>Thu, 12 Feb 2026 07:43:39 GMT</lastBuildDate>
+    <atom:link href="https://example.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-02-12</title>
+      <link>https://example.com/daily/2026-02-12.html</link>
+      <description> 知识流日报 20260212 共 1 条（来自 Google Scholar / Bing 等）。 （以下含抓取正文，便于阅读后判断是否接入 AI。未调用任何 AI API。） 1. thepaper.cn https://m.thepaper.cn 链接：https://m.thepaper.cn/newsDetail_forward_31891254 来源：bing 摘要：2025年11月5日 · 具身智能全景分析 过去两年，“具身智能”是最响亮的AI词汇之一。它被称作AI的最后一公里，是让大模型走出屏幕、进入物理世界的关键。2025年，随着“具身智能”首次写入中国政府工作 … 正文（抓取，非 AI） 具身智能全景分析，读这一篇就够了 澎湃号·湃客 &gt; 具身智能全景分析，读这一篇就够了 制造前沿News 智造前沿（山东）工业科技有限公司 20251105 13:41 山东 具身智能全景分析 过去两年，“具身智能”是最响亮的AI词汇之一。它被称作AI的最后一公里，是让大模型走出屏幕、进入物理世界的关键。2025年，随着“具身智能”首次写入中国政府工作报告，这一融合人工智能、机械科学…</description>
+      <pubDate>2026-02-12 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://example.com/daily/2026-02-12.html</guid>
+    </item>
+  </channel>
+</rss>

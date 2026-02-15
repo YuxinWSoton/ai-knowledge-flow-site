@@ -5,12 +5,12 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Sun, 15 Feb 2026 04:08:42 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 15 Feb 2026 04:26:16 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>知识流日报 2026-02-15</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-15.html</link>
-      <description> 知识流日报 20260215 共 11 条（来自 Google Scholar / Bing 等）。 （以下含抓取正文，便于阅读。CSDN/掘金等链接已优先排前以尽量抓取到正文。未调用任何 AI API。） 1. 马斯克的脑机接口公司 Neuralink 的业务有哪些？ 知乎 链接：https://www.zhihu.com/question/11001083491 来源：bing 摘要：Neuralink 是由马斯克（Elon Musk）创办的脑机接口公司，成立的初衷是希望通过将人类大脑与计算机技术连接起来，解决一些人类健康问题，同时为人类大脑的增强提供可能。至今，它的业务和研究方向 … 正文 （抓取失败或无可提取正文） 2. 马斯克脑机接口公司 Neuralink 首次公开人体试验安全数据 ... 链接：https://www.zhihu.com/question/1958466173294347683 来源：bing 摘要：马斯克脑机接口公司 Neuralink 首次公开人体试验安全数据论文，这一举动有何重要意义和潜在影响？ 10 月 5 日消息，马斯克旗下脑机接口公司 Neu…</description>
+      <description> 知识流日报 20260215 共 11 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） 1. 【3DCNN基础】CSDN博客 链接：https://blog.csdn.net/qq_43561603/article/details/130123847 来源：bing 摘要：2024年9月21日 · 3DCNN是一种处理3D输入数据的深度学习模型，其结构类似2DCNN，但计算资源需求更大。3D卷积层和池化层分别用于提取和减少数据维度，全连接层则用于分类或回归任 … 正文（抓取，非 AI） 【概述】 3DCNN是可以处理３D输入数据的卷积神经网络，结构与２DCNN相同，但是比２DCNN占用更多的内存空间和运行时间。另一方面，由于输入数据的信息很丰富，３DCNN可以给出更精确的结果。CNN架构包括resnet, LeNet, Densenet等，这些架构也以三维形式提供。 【３D卷积层】 卷积层采用卷积来检索图像信号中包含的特征。卷积层的输出称为特征图或者激活图。３D卷积操作比２D卷积操作更为复杂。…</description>
       <pubDate>2026-02-15 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-15.html</guid>
     </item>

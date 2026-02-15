@@ -27,11 +27,12 @@
   }
   a { color: #a8d4ff; text-decoration: none; }
   a:hover { text-decoration: underline; }
- h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;}</style>
+ h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;}</style>
 </head>
 <body>
 <p><a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/">← 返回首页</a></p>
 <h1>知识流日报 2026-02-13</h1>
+<p class="meta" style="margin-top:0;">最后更新：2026-02-15 13:59</p>
 <p class="toolbar"><button id="btnNext" onclick="nextArticle()">下一篇</button> <span id="readStatus"></span> <span style="color:rgba(255,255,255,0.65);font-size:0.85em;">（每按一次跳至下一篇并朗读；荣耀/华为若无效可用浏览器「朗读」）</span></p>
 <div class="content">
 <h1>知识流日报 2026-02-13</h1>
@@ -135,9 +136,8 @@
 </div>
 <script>
 var articles=[]; var currentArticleIdx=-1; var maxSpeakChars=3500;
-function buildArticles(){ var c=document.querySelector('.content'); if(!c) return; var ch=Array.from(c.children); var cur=[]; for(var i=0;i<ch.length;i++){ if(ch[i].tagName==='H2'){ if(cur.length){ articles.push({nodes:cur, h2:cur[0]}); cur=[]; } cur=[ch[i]]; } else { if(cur.length) cur.push(ch[i]); } }
- if(cur.length) articles.push({nodes:cur, h2:cur[0]}); }
-function getArticleText(nodes){ var t=nodes.map(function(n){ return n.innerText||''; }).join('\n').replace(/\s+/g,' ').trim(); return t.length>maxSpeakChars ? t.slice(0,maxSpeakChars)+'…（内容过长已截断）' : t; }
+function buildArticles(){ var c=document.querySelector('.content'); if(!c) return; var h2s=c.querySelectorAll('h2'); for(var i=0;i<h2s.length;i++){ var start=h2s[i], end=i+1<h2s.length?h2s[i+1]:null; var r=document.createRange(); r.setStart(start,0); if(end) r.setEnd(end,0); else { var last=c.lastElementChild||c; r.setEndAfter(last); } var t=r.toString().replace(/\s+/g,' ').trim(); if(t.length>maxSpeakChars) t=t.slice(0,maxSpeakChars)+'…（内容过长已截断）'; articles.push({h2:start,text:t}); }
+ articles.sort(function(a,b){ return a.text.length-b.text.length; }); }
 function speakText(t){ if(!t){ document.getElementById('readStatus').textContent=''; return; }
  speechSynthesis.cancel(); var status=document.getElementById('readStatus'); status.textContent='准备中…';
  var chunks=[]; var maxLen=280; for(var i=0;i<t.length;i+=maxLen){ var s=t.slice(i,i+maxLen); var j=s.lastIndexOf('。'); if(j>80){ chunks.push(s.slice(0,j+1)); i-=s.length-(j+1); } else chunks.push(s); }
@@ -146,7 +146,7 @@ function speakText(t){ if(!t){ document.getElementById('readStatus').textContent
  if(speechSynthesis.getVoices().length) speakNext(); else speechSynthesis.onvoiceschanged=function(){ speechSynthesis.onvoiceschanged=null; speakNext(); }; }
 function nextArticle(){ if(articles.length===0) buildArticles(); if(articles.length===0){ document.getElementById('readStatus').textContent='无可读内容'; return; }
  speechSynthesis.cancel(); currentArticleIdx++; if(currentArticleIdx>=articles.length){ currentArticleIdx=0; document.getElementById('readStatus').textContent='已读完，共 '+articles.length+' 篇。再按从第 1 篇开始'; return; }
- var a=articles[currentArticleIdx]; a.h2.scrollIntoView({behavior:'smooth',block:'start'}); var t=getArticleText(a.nodes); document.getElementById('readStatus').textContent='第 '+(currentArticleIdx+1)+' / '+articles.length+' 篇'; speakText(t); }
+ var a=articles[currentArticleIdx]; a.h2.scrollIntoView({behavior:'smooth',block:'start'}); document.getElementById('readStatus').textContent='第 '+(currentArticleIdx+1)+' / '+articles.length+' 篇（按长度从短到长）'; speakText(a.text); }
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', buildArticles); else buildArticles();
 </script>
 </body>

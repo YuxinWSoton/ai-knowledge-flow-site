@@ -5,12 +5,12 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Tue, 17 Feb 2026 02:41:35 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Feb 2026 03:03:30 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>知识流日报 2026-02-17：注意力机制</title>
+      <title>知识流日报 2026-02-17：伴随函数</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</link>
-      <description> 知识流日报 20260217：注意力机制 共 2 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） 1. 注意力机制到底在做什么，Q/K/V怎么来的？一文读懂 ... 链接：https://www.zhihu.com/tardis/zm/art/414084879 来源：bing 摘要：2023年2月2日 · Transformer [^1]论文中使用了注意力Attention机制，注意力Attention机制的最核心的公式为： 这个公式中的 Q 、 K 和 V 分别代表Query、Key和Value，他们之间进行的数学计算并不容易 … 正文（抓取，非 AI） 本文同时发布于我的个人网站，公式图片显示效果更好，欢迎访问： https:// lulaoshi.info/machinel earning/attention/transformerattention.html Transformer[^1]论文中使用了注意力Attention机制，注意力Atten…</description>
+      <description> 知识流日报 20260217：伴随函数 共 1 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） 1. 什么是伴随函数 百度知道 链接：https://zhidao.baidu.com/question/1872777398361080387.html 来源：bing 摘要：2024年8月22日 · 这个条件表明伴随算子满足对偶性质：将原始算子 A 中的向量和伴随空间中对应的伴随向量进行对偶运算后，得到的结果和对调了算子的顺序是相同的。 这里，W和V分别是 W 和 V 的 … 正文（抓取，非 AI） 什么是伴随函数_百度知道 百度首页 商城 注册 登录 首页 用户 认证用户 认证团队 合伙人 热推榜单 企业 媒体 政府 其他组织 商城 法律 手机答题 我的 什么是伴随函数 1个回答 热议 应届生在签三方时要注意什么？ 校企律说法 20240822 · 校企小百科，知识无边界。 校企律说法 向TA提问 关注 展开全部 在数学中，&quot;伴随函数&quot;通常指某个函数（一般…</description>
       <pubDate>2026-02-17 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</guid>
     </item>

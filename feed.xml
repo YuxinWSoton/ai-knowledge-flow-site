@@ -5,12 +5,12 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Tue, 17 Feb 2026 10:59:06 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Feb 2026 11:35:36 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>知识流日报 2026-02-17</title>
+      <title>知识流日报 2026-02-17：softmax、交叉熵</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</link>
-      <description> 知识流日报 20260217 共 23 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。正文抓取未调用 AI。） （部分条目含模型提取的「易漏细节」关键点。） 1. 宇树科技 文档中心 unitree 链接：https://support.unitree.com/main/zh 来源：bing 摘要：2025年11月18日 · 宇树文档中心提供全面的技术支持和资源，帮助用户了解和使用宇树科技的产品及服务。 关键点（易漏细节）： 技术支持和资源 全面的文档支持 产品及服务使用指导 正文（抓取，非 AI） 宇树科技 文档中心 2. 宇树科技王兴兴：2026年多款全新产品正在研发中|Unitree R1 ... 链接：https://finance.sina.cn/20260216/detailinhmzsfz9788130.d.html?vt=4 来源：bing 摘要：1 天前 · 王兴兴揭秘机器人“练功秘籍”） 人民财讯2月16日电，央视新闻记者对话宇树科技创始人王兴兴和2026年总台春…</description>
+      <description> 知识流日报 20260217：softmax、交叉熵 共 3 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （部分条目含模型提取的「易漏细节」关键点，页面上以颜色区分。） 1. 一文揭秘Softmax函数：解锁机器学习多类分类之门 链接：https://www.zhihu.com/tardis/bd/art/683697682 来源：bing 摘要：2024年2月24日 · 1. 引言 Softmax函数的定义和基本概念 Softmax函数，也称为归一化指数函数，是一个将向量映射到另一个向量的函数，其中输出向量的元素值代表了一个概率分布。 在机器学习中，特 … 关键点（易漏细节）： &lt;ul class=&quot;insightdetail&quot;&gt; &lt;li&gt;Softmax函数将向量映射到概率分布&lt;/li&gt; &lt;li&gt;Softmax函数输出元素范围在(0, 1)之间&lt;/li&gt; &lt;li&gt;所有输出元素之和为1&lt;/li&gt; &lt;li&gt;Softmax用于多类分类问题&lt;/li&gt; &lt;li…</description>
       <pubDate>2026-02-17 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</guid>
     </item>

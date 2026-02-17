@@ -30,7 +30,7 @@
  .meta{color:rgba(255,255,255,0.75);font-size:0.9em;} input,textarea{width:100%;max-width:100%;box-sizing:border-box;padding:0.5rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:#fff;border-radius:6px;} textarea{min-height:200px;font-family:inherit;} button{padding:0.5rem 1rem;background:#a8d4ff;color:#0a0e1a;border:none;border-radius:6px;cursor:pointer;}</style>
 </head>
 <body>
-<p><a href="./">← 返回首页</a> | <a href="posts.html">查看已发表</a></p>
+<p><a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/">← 返回首页</a> | <a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/posts.html">查看已发表</a></p>
 <h1>发表</h1>
 <p class="meta">内容保存在本机浏览器，无需 git push。发表后可到「查看已发表」朗读。</p>
 <form id="f">
@@ -42,7 +42,7 @@
 <script>
 var KEY='ai_kf_posts';
 document.getElementById('f').onsubmit=function(e){ e.preventDefault(); var title=document.getElementById('title').value.trim(); var body=document.getElementById('body').value.trim(); if(!title){ document.getElementById('msg').textContent='请填写标题'; return; }
-var list=JSON.parse(localStorage.getItem(KEY)||'[]'); var d=new Date(); var date=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); list.push({id:Date.now(),date:date,title:title,body_md:body}); localStorage.setItem(KEY,JSON.stringify(list)); document.getElementById('msg').innerHTML='已保存。 <a href="posts.html">查看已发表</a> 即可朗读。'; document.getElementById('title').value=''; document.getElementById('body').value=''; };
+var list=JSON.parse(localStorage.getItem(KEY)||'[]'); var d=new Date(); var date=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); list.push({id:Date.now(),date:date,title:title,body_md:body}); localStorage.setItem(KEY,JSON.stringify(list)); document.getElementById('msg').innerHTML='已保存。 <a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/posts.html">查看已发表</a> 即可朗读。'; document.getElementById('title').value=''; document.getElementById('body').value=''; };
 </script>
 </body>
 </html>

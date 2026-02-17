@@ -31,7 +31,7 @@
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-<p><a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/">← 返回首页</a> | <a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/publish.html">发表新内容</a></p>
+<p><a href="./">← 返回首页</a> | <a href="publish.html">发表新内容</a></p>
 <h1>已发表</h1>
 <p class="toolbar"><button onclick="nextArticle()">下一篇</button> <button onclick="readSelected()">朗读这段</button> <span id="readStatus"></span></p>
 <p class="meta">（点任意段落即可朗读，与日报页相同）</p>
@@ -39,7 +39,7 @@
 <script>
 var KEY='ai_kf_posts';
 var list=JSON.parse(localStorage.getItem(KEY)||'[]'); var c=document.querySelector('.content');
-if(list.length===0){ c.innerHTML='<p class="meta">暂无发表。请到 <a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/publish.html">发表</a> 撰写。</p>'; } else {
+if(list.length===0){ c.innerHTML='<p class="meta">暂无发表。请到 <a href="publish.html">发表</a> 撰写。</p>'; } else {
 c.innerHTML=''; list.forEach(function(p){ var h2=document.createElement('h2'); h2.textContent=p.title+' ('+p.date+')'; c.appendChild(h2); var div=document.createElement('div'); div.innerHTML=(typeof marked!=='undefined'?marked.parse(p.body_md||''):p.body_md.replace(/</g,'&lt;')); c.appendChild(div); }); }
 var articles=[]; var currentArticleIdx=-1; var maxSpeakChars=3500;
 function buildArticles(){ var c=document.querySelector('.content'); if(!c) return; var h2s=c.querySelectorAll('h2'); for(var i=0;i<h2s.length;i++){ var start=h2s[i], end=i+1<h2s.length?h2s[i+1]:null; var r=document.createRange(); r.setStart(start,0); if(end) r.setEnd(end,0); else { var last=c.lastElementChild||c; r.setEndAfter(last); } var t=r.toString().replace(/\s+/g,' ').trim(); if(t.length>maxSpeakChars) t=t.slice(0,maxSpeakChars)+'…（内容过长已截断）'; articles.push({h2:start,text:t}); } articles.sort(function(a,b){ return a.text.length-b.text.length; }); }

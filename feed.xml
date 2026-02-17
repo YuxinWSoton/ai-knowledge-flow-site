@@ -3,37 +3,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AI 知识流日报</title>
-    <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
+    <link>https://example.com</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Tue, 17 Feb 2026 03:47:07 GMT</lastBuildDate>
-    <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Tue, 17 Feb 2026 10:49:12 GMT</lastBuildDate>
+    <atom:link href="https://example.com/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>知识流日报 2026-02-17：softmax、千问、千问：1.3、消息称英国监管机构考虑调、消息称英国监、宇树科技王兴兴、宇树科技王兴、央行报告、央行报告：2、2026春节档总票房破8、2026春节、中欧班列“中通道”今年通、中欧班列“中、“十四五”期间长三角地区、“十四五”期、马斯克、马斯克：Cy、银河通用机器人、银河通用机器、爱尔兰监管机构对马斯克旗、爱尔兰监管机、宇树科技、宇树科技：U、苹果公司将在播客应用中新、苹果公司将在、蚂蚁阿福亮相马年春晚舞台</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</link>
-      <description> 知识流日报 20260217：softmax、千问、千问：1.3、消息称英国监管机构考虑调、消息称英国监、宇树科技王兴兴、宇树科技王兴、央行报告、央行报告：2、2026春节档总票房破8、2026春节、中欧班列“中通道”今年通、中欧班列“中、“十四五”期间长三角地区、“十四五”期、马斯克、马斯克：Cy、银河通用机器人、银河通用机器、爱尔兰监管机构对马斯克旗、爱尔兰监管机、宇树科技、宇树科技：U、苹果公司将在播客应用中新、苹果公司将在、蚂蚁阿福亮相马年春晚舞台 共 23 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） 1. 宇树科技 文档中心 unitree 链接：https://support.unitree.com/main/zh 来源：bing 摘要：2025年11月18日 · 宇树文档中心提供全面的技术支持和资源，帮助用户了解和使用宇树科技的产品及服务。 正文（抓取，非 AI） 宇树科技 文档中心 2. 宇树科技王兴兴：2026年多款全新产品正在研发中…</description>
+      <title>知识流日报 2026-02-17</title>
+      <link>https://example.com/daily/2026-02-17.html</link>
+      <description> 知识流日报 20260217 共 55 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 1. 千问大模型 知乎 链接：https://www.zhihu.com/org/qwen398 来源：bing 摘要：2026年2月9日 · 通义千问Qwen在知乎的官方主页，提供关于其模型和技术的讨论与分享。 2. 阿里Qwen 同名个人AI助理「千问」APP 开始公测，该产品 ... 链接：https://www.zhihu.com/question/1973700569139995365 来源：bing 摘要：现在叫千问app了，其实名字更好，毕竟qwen模型的名字，其实也是从「千问」这两个字的拼音组合而来的。 「通义」是实验室的名字，「千问」是产品名。 我个人认为，千问很多功能，似 … 3. 千问和豆包哪个更强? 知乎 链接：https://www.zhihu.com/question/1979184295328384357 来源：bing 摘要：2026年1月11日 · 千问全球开源第一，豆包c端第一，哪个综合实力…</description>
       <pubDate>2026-02-17 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</guid>
+      <guid isPermaLink="true">https://example.com/daily/2026-02-17.html</guid>
     </item>
     <item>
       <title>知识流日报 2026-02-15：3D卷积、3D CNN、图神经网络、注意力机制、Transformer、扩散模型、强化学习、多模态、大模型、知识蒸馏、神经架构搜索、第一性原理、具身智能、预训练、自监督学习、伴随函数</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-15.html</link>
+      <link>https://example.com/daily/2026-02-15.html</link>
       <description> 知识流日报 20260215：3D卷积、3D CNN、图神经网络、注意力机制、Transformer、扩散模型、强化学习、多模态、大模型、知识蒸馏、神经架构搜索、第一性原理、具身智能、预训练、自监督学习、伴随函数 共 13 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） 1. 3D CNN Picassooo 博客园 链接：https://www.cnblogs.com/picassooo/p/13458454.html 来源：bing 摘要：2020年8月8日 · 从2D卷积到3D卷积，都有什么不一样(动态图演示) 3D卷积（3D Convolution) 论文笔记：基于3D卷积神经网络的人体行为识别(3D CNN) 理解3D CNN 第一种理解方式： 视频输 … 正文（抓取，非 AI） 3D CNN Picassooo 博客园 Picassooo 博客园 首页 新随笔 联系 订阅 管理 3D CNN 从2D卷积到3D卷积，都有什么不一样(动态图演示) …</description>
       <pubDate>2026-02-15 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-15.html</guid>
+      <guid isPermaLink="true">https://example.com/daily/2026-02-15.html</guid>
     </item>
     <item>
       <title>知识流日报 2026-02-13</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-13.html</link>
+      <link>https://example.com/daily/2026-02-13.html</link>
       <description> 知识流日报 20260213 共 12 条（来自 Google Scholar / Bing 等）。 （以下含抓取正文，便于阅读后判断是否接入 AI。未调用任何 AI API。） 1. 什么是第一性原理，它有什么重要意义？ 知乎 链接：https://www.zhihu.com/question/21459243 来源：bing 摘要：虽然是第一性原理来自于物理学，但是我想从商业的角度来说说自己的理解。 全文较长，因此我把提炼的观点先放到最前面： 1、第一性定理思维是一种演绎法思维，但与追本溯源法是不同的； 2、用第一 … 正文 （抓取失败或无可提取正文） 2. 什么是第一性原理，它有什么重要意义？ 链接：https://www.zhihu.com/tardis/bd/ans/2394948683 来源：bing 摘要：2022年3月25日 · 这个原理是硅谷钢铁侠——马斯克带火的，下面通过2个例子来解释下： 第一性原理（First principle thinking，又称“第一原理”），是古希腊哲学家亚里士多德提出的一个哲学术语： 每个 … 正文 （抓取失败或无可提取正文） 3.…</description>
       <pubDate>2026-02-13 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-13.html</guid>
+      <guid isPermaLink="true">https://example.com/daily/2026-02-13.html</guid>
     </item>
     <item>
       <title>知识流日报 2026-02-12</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-12.html</link>
+      <link>https://example.com/daily/2026-02-12.html</link>
       <description> 知识流日报 20260212 共 12 条（来自 Google Scholar / Bing 等）。 （以下含抓取正文，便于阅读后判断是否接入 AI。未调用任何 AI API。） 1. 什么是第一性原理，它有什么重要意义？ 知乎 链接：https://www.zhihu.com/question/21459243 来源：bing 摘要：虽然是第一性原理来自于物理学，但是我想从商业的角度来说说自己的理解。 全文较长，因此我把提炼的观点先放到最前面： 1、第一性定理思维是一种演绎法思维，但与追本溯源法是不同的； 2、用第一 … 正文 （抓取失败或无可提取正文） 2. 什么是第一性原理，它有什么重要意义？ 链接：https://www.zhihu.com/tardis/bd/ans/2394948683 来源：bing 摘要：2022年3月25日 · 这个原理是硅谷钢铁侠——马斯克带火的，下面通过2个例子来解释下： 第一性原理（First principle thinking，又称“第一原理”），是古希腊哲学家亚里士多德提出的一个哲学术语： 每个 … 正文（抓取，非 AI） 什么是第一性原…</description>
       <pubDate>2026-02-12 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-12.html</guid>
+      <guid isPermaLink="true">https://example.com/daily/2026-02-12.html</guid>
     </item>
   </channel>
 </rss>

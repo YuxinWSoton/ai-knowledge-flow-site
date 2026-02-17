@@ -5,12 +5,12 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Tue, 17 Feb 2026 12:01:05 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Feb 2026 12:34:43 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>知识流日报 2026-02-17：softmax、交叉熵、感受野</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</link>
-      <description> 知识流日报 20260217：softmax、交叉熵、感受野 共 4 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （部分条目含模型提取的「易漏细节」关键点，页面上以颜色区分。） 1. 如何理解CNN中的感受野（receptivefield）？ 链接：https://www.zhihu.com/tardis/bd/ans/1910838113 来源：bing 摘要：2021年6月2日 · 和显示一样 ，它基本遵循着“近大远小”的逻辑。或者从另外一个角度说，能够看到近处的范围有限，能够看到远处更广泛的视野。 在CNN中，感受野的概念： • 卷积神经网络（CNN）中， … 关键点（易漏细节）： &lt;ul class=&quot;insightdetail&quot;&gt; &lt;li&gt;感受野是指每个神经元能够访问的原始图像的区域大小。&lt;/li&gt; &lt;li&gt;感受野遵循“近大远小”的逻辑。&lt;/li&gt; &lt;li&gt;感受野的概念在CNN中指每一层输出的特征图上，每个像素点在原始图像上映射的区域大小。&lt;…</description>
+      <description> 知识流日报 20260217：softmax、交叉熵、感受野 共 4 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （部分条目含模型提取的「易漏细节」关键点，页面上以颜色区分。） 1. 如何理解CNN中的感受野（receptivefield）？ 链接：https://www.zhihu.com/tardis/bd/ans/1910838113 来源：bing 摘要：2021年6月2日 · 和显示一样 ，它基本遵循着“近大远小”的逻辑。或者从另外一个角度说，能够看到近处的范围有限，能够看到远处更广泛的视野。 在CNN中，感受野的概念： • 卷积神经网络（CNN）中， … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;感受野的大小与卷积核的大小和卷积层数密切相关。首先，感受野大小与卷积核大小直接相关，较大的卷积核能够覆盖更大的原始图像范围，而较小的卷积核则更倾向于捕捉局部和细节特征。其次，感受野大小还与卷积层数相关，卷积层数越多，感受野…</description>
       <pubDate>2026-02-17 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</guid>
     </item>

@@ -5,12 +5,12 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Tue, 17 Feb 2026 03:07:31 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Feb 2026 03:27:09 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>知识流日报 2026-02-17：softmax</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</link>
-      <description> 知识流日报 20260217：softmax 共 2 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） 1. 一文揭秘Softmax函数：解锁机器学习多类分类之门 链接：https://www.zhihu.com/tardis/bd/art/683697682 来源：bing 摘要：2024年2月24日 · 1. 引言 Softmax函数的定义和基本概念 Softmax函数，也称为归一化指数函数，是一个将向量映射到另一个向量的函数，其中输出向量的元素值代表了一个概率分布。 在机器学习中，特 … 正文（抓取，非 AI） 省流版 这篇文章介绍了在机器学习多酚类问题中非常重要的一类函数：softmax函数。我们介绍了其数学原理、特点、应用以及python实现方法，非常值得你收藏起来反复学习。在保研考研、数据分析、算法等面试环节均有可能出现。 文中部分内容来自GPT生成，他已经成为我最重要的生产力工具。但我了解到还有部分朋友苦于不知道怎么在国内使用正版GPT，可以参…</description>
+      <description> 知识流日报 20260217：softmax 共 3 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） 1. Categorical Reparameterization with GumbelSoftmax 链接：https://xueshu.baidu.com/usercenter/paper/show?paperid=1d3c47dd063c77ba9add305a71a07c5d&amp;site=xueshu_se 来源：baidu_scholar 正文（抓取，非 AI） Categorical Reparameterization with GumbelSoftmax 百度学术  意见反馈 登录 注册 高级搜索 包含全部检索词 包含精确检索词 包含至少一个检索词 不包含检索词 出现检索词的位置 文章任何位置 位于文章标题 作者 机构 出版物 期刊 会议 发表时间 语言检索范围 不限 不限 英文 中文  文献 期刊 学者 订阅 收藏 论文查重 优惠 …</description>
       <pubDate>2026-02-17 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</guid>
     </item>

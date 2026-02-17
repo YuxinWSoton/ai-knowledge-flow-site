@@ -5,12 +5,12 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Tue, 17 Feb 2026 02:26:04 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Feb 2026 02:41:35 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>知识流日报 2026-02-17：transformer、伴随函数非线性</title>
+      <title>知识流日报 2026-02-17：注意力机制</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</link>
-      <description> 知识流日报 20260217：transformer、伴随函数非线性 共 2 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） 1. 一文了解Transformer全貌（图解Transformer） 链接：https://www.zhihu.com/tardis/zm/art/600773858 来源：bing 摘要：2025年9月26日 · 网上有关Transformer原理的介绍很多，在本文中我们将尽量模型简化，让普通读者也能轻松理解。 1. Transformer整体结构 在机器翻译中，Transformer可以将一种语言翻译成另一种语 … 正文（抓取，非 AI） 打个小广告 ☻，知乎专栏 《大模型前沿应用》 的内容已经收录在新书 《揭秘大模型：从原理到实战》 中。感兴趣的朋友可以购买，多谢支持！♥♥ 自2017年Google推出Transformer以来，基于其架构的语言模型便如雨后春笋般涌现，其中Bert、T5等备受瞩目，而近期风靡全球的大模型Ch…</description>
+      <description> 知识流日报 20260217：注意力机制 共 2 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） 1. 注意力机制到底在做什么，Q/K/V怎么来的？一文读懂 ... 链接：https://www.zhihu.com/tardis/zm/art/414084879 来源：bing 摘要：2023年2月2日 · Transformer [^1]论文中使用了注意力Attention机制，注意力Attention机制的最核心的公式为： 这个公式中的 Q 、 K 和 V 分别代表Query、Key和Value，他们之间进行的数学计算并不容易 … 正文（抓取，非 AI） 本文同时发布于我的个人网站，公式图片显示效果更好，欢迎访问： https:// lulaoshi.info/machinel earning/attention/transformerattention.html Transformer[^1]论文中使用了注意力Attention机制，注意力Atten…</description>
       <pubDate>2026-02-17 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</guid>
     </item>

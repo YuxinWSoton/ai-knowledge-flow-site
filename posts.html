@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>已发表 · AI 知识流日报</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: #fff;
+    min-height: 100vh;
+    background: #0a0e1a;
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.9), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1.5px 1.5px at 90px 40px, rgba(255,255,255,0.8), transparent),
+      radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1.5px 1.5px at 160px 120px, rgba(255,255,255,0.7), transparent),
+      radial-gradient(ellipse 120% 100% at 50% 0%, rgba(88,60,120,0.25), transparent 50%),
+      radial-gradient(ellipse 80% 80% at 80% 20%, rgba(40,60,100,0.2), transparent 40%);
+    background-size: 200px 200px;
+    background-repeat: repeat;
+  }
+  a { color: #a8d4ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+ h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;} .content p,.content div,.content h2,.content h3,.content h4,.content li,.content pre{cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0.15);}</style>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+<p><a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/">← 返回首页</a> | <a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/publish.html">发表新内容</a></p>
+<h1>已发表</h1>
+<p class="toolbar"><button onclick="nextArticle()">下一篇</button> <button onclick="readSelected()">朗读这段</button> <span id="readStatus"></span></p>
+<p class="meta">（点任意段落即可朗读，与日报页相同）</p>
+<div class="content">加载中…</div>
+<script>
+var KEY='ai_kf_posts';
+var list=JSON.parse(localStorage.getItem(KEY)||'[]'); var c=document.querySelector('.content');
+if(list.length===0){ c.innerHTML='<p class="meta">暂无发表。请到 <a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/publish.html">发表</a> 撰写。</p>'; } else {
+c.innerHTML=''; list.forEach(function(p){ var h2=document.createElement('h2'); h2.textContent=p.title+' ('+p.date+')'; c.appendChild(h2); var div=document.createElement('div'); div.innerHTML=(typeof marked!=='undefined'?marked.parse(p.body_md||''):p.body_md.replace(/</g,'&lt;')); c.appendChild(div); }); }
+var articles=[]; var currentArticleIdx=-1; var maxSpeakChars=3500;
+function buildArticles(){ var c=document.querySelector('.content'); if(!c) return; var h2s=c.querySelectorAll('h2'); for(var i=0;i<h2s.length;i++){ var start=h2s[i], end=i+1<h2s.length?h2s[i+1]:null; var r=document.createRange(); r.setStart(start,0); if(end) r.setEnd(end,0); else { var last=c.lastElementChild||c; r.setEndAfter(last); } var t=r.toString().replace(/\s+/g,' ').trim(); if(t.length>maxSpeakChars) t=t.slice(0,maxSpeakChars)+'…（内容过长已截断）'; articles.push({h2:start,text:t}); } articles.sort(function(a,b){ return a.text.length-b.text.length; }); }
+function speakText(t){ if(!t){ document.getElementById('readStatus').textContent=''; return; } speechSynthesis.cancel(); var status=document.getElementById('readStatus'); status.textContent='准备中…'; var chunks=[]; var maxLen=280; for(var i=0;i<t.length;i+=maxLen){ var s=t.slice(i,i+maxLen); var j=s.lastIndexOf('。'); if(j>80){ chunks.push(s.slice(0,j+1)); i-=s.length-(j+1); } else chunks.push(s); } if(chunks.length===0) chunks=[t]; var idx=0; function speakNext(){ if(idx>=chunks.length){ status.textContent=''; return; } var u=new SpeechSynthesisUtterance(chunks[idx]); u.lang='zh-CN'; u.rate=0.95; var v=speechSynthesis.getVoices().filter(function(x){ return x.lang.indexOf('zh')>=0; })[0]; if(v) u.voice=v; u.onend=function(){ idx++; setTimeout(speakNext,80); }; u.onerror=function(){ idx++; setTimeout(speakNext,80); }; status.textContent='朗读中 '+(idx+1)+'/'+chunks.length+'…'; speechSynthesis.speak(u); } if(speechSynthesis.getVoices().length) speakNext(); else speechSynthesis.onvoiceschanged=function(){ speechSynthesis.onvoiceschanged=null; speakNext(); }; }
+function nextArticle(){ if(articles.length===0) buildArticles(); if(articles.length===0){ document.getElementById('readStatus').textContent='无可读内容'; return; } speechSynthesis.cancel(); currentArticleIdx++; if(currentArticleIdx>=articles.length){ currentArticleIdx=0; document.getElementById('readStatus').textContent='已读完，共 '+articles.length+' 篇。再按从第 1 篇开始'; return; } var a=articles[currentArticleIdx]; a.h2.scrollIntoView({behavior:'smooth',block:'start'}); document.getElementById('readStatus').textContent='第 '+(currentArticleIdx+1)+' / '+articles.length+' 篇'; speakText(a.text); }
+function readSelected(){ var sel=window.getSelection(); var t=(sel&&sel.toString)?sel.toString():''; t=t.replace(/\s+/g,' ').trim(); if(!t){ document.getElementById('readStatus').textContent='请先选中要朗读的段落'; return; } speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读选中内容…'; speakText(t); }
+function getBlockForTap(el){ var c=document.querySelector('.content'); var blockTags=['P','DIV','H2','H3','H4','LI','PRE']; while(el&&el!==c){ if(c.contains(el)&&blockTags.indexOf(el.tagName)!==-1) return el; el=el.parentElement; } return null; }
+function onContentTap(e){ if(e.target.closest&&e.target.closest('a')) return; var block=getBlockForTap(e.target); if(block){ var t=(block.innerText||'').trim().replace(/\s+/g,' '); if(t){ e.preventDefault(); speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读本段…'; speakText(t); } } }
+setTimeout(function(){ buildArticles(); c.addEventListener('click',onContentTap); },100);
+</script>
+</body>
+</html>

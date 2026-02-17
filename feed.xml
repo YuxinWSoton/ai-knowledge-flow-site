@@ -5,8 +5,15 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Sun, 15 Feb 2026 05:59:20 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Feb 2026 02:26:04 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-02-17：transformer、伴随函数非线性</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</link>
+      <description> 知识流日报 20260217：transformer、伴随函数非线性 共 2 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） 1. 一文了解Transformer全貌（图解Transformer） 链接：https://www.zhihu.com/tardis/zm/art/600773858 来源：bing 摘要：2025年9月26日 · 网上有关Transformer原理的介绍很多，在本文中我们将尽量模型简化，让普通读者也能轻松理解。 1. Transformer整体结构 在机器翻译中，Transformer可以将一种语言翻译成另一种语 … 正文（抓取，非 AI） 打个小广告 ☻，知乎专栏 《大模型前沿应用》 的内容已经收录在新书 《揭秘大模型：从原理到实战》 中。感兴趣的朋友可以购买，多谢支持！♥♥ 自2017年Google推出Transformer以来，基于其架构的语言模型便如雨后春笋般涌现，其中Bert、T5等备受瞩目，而近期风靡全球的大模型Ch…</description>
+      <pubDate>2026-02-17 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-02-15：3D卷积、3D CNN、图神经网络、注意力机制、Transformer、扩散模型、强化学习、多模态、大模型、知识蒸馏、神经架构搜索、第一性原理、具身智能、预训练、自监督学习、伴随函数</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-15.html</link>

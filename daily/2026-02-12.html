@@ -27,13 +27,14 @@
   }
   a { color: #a8d4ff; text-decoration: none; }
   a:hover { text-decoration: underline; }
- h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;}</style>
+ h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;} .content p,.content div,.content h2,.content h3,.content h4,.content li,.content pre{cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0.15);}</style>
 </head>
 <body>
 <p><a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/">← 返回首页</a></p>
 <h1>知识流日报 2026-02-12</h1>
-<p class="meta" style="margin-top:0;">最后更新：2026-02-15 13:59</p>
-<p class="toolbar"><button id="btnNext" onclick="nextArticle()">下一篇</button> <span id="readStatus"></span> <span style="color:rgba(255,255,255,0.65);font-size:0.85em;">（每按一次跳至下一篇并朗读；荣耀/华为若无效可用浏览器「朗读」）</span></p>
+<p class="meta" style="margin-top:0;">最后更新：2026-02-17 10:26</p>
+<p class="toolbar"><button id="btnNext" onclick="nextArticle()">下一篇</button> <button id="btnSel" onclick="readSelected()">朗读这段</button> <span id="readStatus"></span></p>
+<p class="meta" style="margin-top:0;">（点任意段落即可朗读，手机/触屏友好；也可选中后点「朗读这段」或点「下一篇」按条朗读）</p>
 <div class="content">
 <h1>知识流日报 2026-02-12</h1>
 <p>共 12 条（来自 Google Scholar / Bing 等）。</p>
@@ -588,8 +589,11 @@ function speakText(t){ if(!t){ document.getElementById('readStatus').textContent
  if(speechSynthesis.getVoices().length) speakNext(); else speechSynthesis.onvoiceschanged=function(){ speechSynthesis.onvoiceschanged=null; speakNext(); }; }
 function nextArticle(){ if(articles.length===0) buildArticles(); if(articles.length===0){ document.getElementById('readStatus').textContent='无可读内容'; return; }
  speechSynthesis.cancel(); currentArticleIdx++; if(currentArticleIdx>=articles.length){ currentArticleIdx=0; document.getElementById('readStatus').textContent='已读完，共 '+articles.length+' 篇。再按从第 1 篇开始'; return; }
- var a=articles[currentArticleIdx]; a.h2.scrollIntoView({behavior:'smooth',block:'start'}); document.getElementById('readStatus').textContent='第 '+(currentArticleIdx+1)+' / '+articles.length+' 篇（按长度从短到长）'; speakText(a.text); }
-if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', buildArticles); else buildArticles();
+ var a=articles[currentArticleIdx]; a.h2.scrollIntoView({behavior:'smooth',block:'start'}); document.getElementById('readStatus').textContent='第 '+(currentArticleIdx+1)+' / '+articles.length+' 篇'; speakText(a.text); }
+function readSelected(){ var sel=window.getSelection(); var t=(sel&&sel.toString)?sel.toString():''; t=t.replace(/\\s+/g,' ').trim(); if(!t){ document.getElementById('readStatus').textContent='请先选中要朗读的段落'; return; } speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读选中内容…'; speakText(t); }
+function getBlockForTap(el){ var c=document.querySelector('.content'); var blockTags=['P','DIV','H2','H3','H4','LI','PRE']; while(el&&el!==c){ if(c.contains(el)&&blockTags.indexOf(el.tagName)!==-1) return el; el=el.parentElement; } return null; }
+function onContentTap(e){ if(e.target.closest&&e.target.closest('a')) return; var block=getBlockForTap(e.target); if(block){ var t=(block.innerText||'').trim().replace(/\\s+/g,' '); if(t){ e.preventDefault(); speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读本段…'; speakText(t); } } }
+if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', function(){ buildArticles(); var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }); } else { buildArticles(); var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }
 </script>
 </body>
 </html>

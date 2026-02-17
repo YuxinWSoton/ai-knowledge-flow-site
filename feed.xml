@@ -5,12 +5,12 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Tue, 17 Feb 2026 03:03:30 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Feb 2026 03:07:31 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>知识流日报 2026-02-17：伴随函数</title>
+      <title>知识流日报 2026-02-17：softmax</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</link>
-      <description> 知识流日报 20260217：伴随函数 共 1 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） 1. 什么是伴随函数 百度知道 链接：https://zhidao.baidu.com/question/1872777398361080387.html 来源：bing 摘要：2024年8月22日 · 这个条件表明伴随算子满足对偶性质：将原始算子 A 中的向量和伴随空间中对应的伴随向量进行对偶运算后，得到的结果和对调了算子的顺序是相同的。 这里，W和V分别是 W 和 V 的 … 正文（抓取，非 AI） 什么是伴随函数_百度知道 百度首页 商城 注册 登录 首页 用户 认证用户 认证团队 合伙人 热推榜单 企业 媒体 政府 其他组织 商城 法律 手机答题 我的 什么是伴随函数 1个回答 热议 应届生在签三方时要注意什么？ 校企律说法 20240822 · 校企小百科，知识无边界。 校企律说法 向TA提问 关注 展开全部 在数学中，&quot;伴随函数&quot;通常指某个函数（一般…</description>
+      <description> 知识流日报 20260217：softmax 共 2 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） 1. 一文揭秘Softmax函数：解锁机器学习多类分类之门 链接：https://www.zhihu.com/tardis/bd/art/683697682 来源：bing 摘要：2024年2月24日 · 1. 引言 Softmax函数的定义和基本概念 Softmax函数，也称为归一化指数函数，是一个将向量映射到另一个向量的函数，其中输出向量的元素值代表了一个概率分布。 在机器学习中，特 … 正文（抓取，非 AI） 省流版 这篇文章介绍了在机器学习多酚类问题中非常重要的一类函数：softmax函数。我们介绍了其数学原理、特点、应用以及python实现方法，非常值得你收藏起来反复学习。在保研考研、数据分析、算法等面试环节均有可能出现。 文中部分内容来自GPT生成，他已经成为我最重要的生产力工具。但我了解到还有部分朋友苦于不知道怎么在国内使用正版GPT，可以参…</description>
       <pubDate>2026-02-17 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</guid>
     </item>

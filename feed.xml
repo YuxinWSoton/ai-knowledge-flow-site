@@ -5,12 +5,12 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Wed, 18 Feb 2026 13:11:44 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Feb 2026 13:39:02 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>知识流日报 2026-02-18：Neural Scaling Laws</title>
+      <title>知识流日报 2026-02-18：Task-Agnostic、Reinforcement Learning、LLM、Sim-to-Real、D-Optimal、Parameter-Robust、Continual Learning、Test-Time Adaptation、Non-Destructive LLM Editing、Partial Observability、Multi-Agent Systems、Large Language Models、Standardized Reusability、Agentic AI、Functional Coverage-Guided Verification、Quantum-Native、Sparse Reinforcement Learning、NN Accelerators、Compute Near-Register File、Reconfigurable、Sparsity-Aware、SW-HW Co-Design、Rowhammer-mitigated、Near-Cache、Compute-in-Memory、Microscaling、Floating-Point Charge-Trap Transistor、Transformer Accelerator</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-18.html</link>
-      <description> 知识流日报 20260218：Neural Scaling Laws 共 10 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （部分条目含模型提取的「易漏细节」关键点，页面上以颜色区分。） 1. 如何简单形象又有趣地讲解神经网络是什么？ 知乎 链接：https://www.zhihu.com/question/22553761 来源：bing 摘要：这里面的概念并不是整个网络的输出，是网络中间层神经元的偏好，它们为后面的神经元服务。虽然每一个神经元都傻不拉几的（只会切一刀），但是65万个神经元能学到的东西还真是深邃呢。 [1] … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;首先，中间层神经元的偏好是关键，每个神经元仅执行简单的操作，这使得它们能够专注于特定的特征或模式。其次，尽管单个神经元的功能有限，但通过大量的神经元协同工作，它们能够共同学习和识别复杂的信息。因此，成千上万的神经元通过组合和协作，能够处理和理解更为复杂的输入，…</description>
+      <description> 知识流日报 20260218：TaskAgnostic、Reinforcement Learning、LLM、SimtoReal、DOptimal、ParameterRobust、Continual Learning、TestTime Adaptation、NonDestructive LLM Editing、Partial Observability、MultiAgent Systems、Large Language Models、Standardized Reusability、Agentic AI、Functional CoverageGuided Verification、QuantumNative、Sparse Reinforcement Learning、NN Accelerators、Compute NearRegister File、Reconfigurable、SparsityAware、SWHW CoDesign、Rowhammermitigated、NearCache、ComputeinMemory、Microscaling、FloatingPoint Char…</description>
       <pubDate>2026-02-18 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-18.html</guid>
     </item>

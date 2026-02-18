@@ -5,12 +5,12 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Wed, 18 Feb 2026 03:17:50 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Feb 2026 12:05:22 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>知识流日报 2026-02-18：Ensemble-size-dependence、Operationalising、Dex4D、Perceptive Humanoid Parkour、CrispEdit、Stabilizing Test-Time Adaptation、Solving Parameter-Robust Avoid、Developing AI Agents、Task-Agnostic Continual Learning、Decision Quality Evaluation Framework、The Geometry of Alignment Collapse、Enhancing Building Semantics Preservation、This human study did not involve human subjects、Neural Scaling Laws、GlobeDiff、Tool-Aware Planning、ReusStdFlow、Model Context Protocol、EmbeWebAgent、Configuring Agentic AI Coding Tools、The Value of Effective Pull Request Description、Consistent or Sensitive、Automated Code Revision Tools、Automated Classification of Source Code Changes、An Empirical Study of the Evolution of GitHub Actions Workflows、When Security Meets Usability、LongCLI-Bench、AutoWebWorld、Introduction to Digital Twins、Every Maintenance Has Its Exemplar、From SFT to RL、Iterative LLM-Based Assertion Generation、Human-AI Interaction、The Turbo-Charged Mapper、Fast and Fusiest、Qute、RNM-TD3、Scope、ABI、Probabilistic approximate optimization、Implementation and Performance Evaluation、ORAP、TriGen、DPUConfig、Arcalis、MXFormer</title>
+      <title>知识流日报 2026-02-18：TriGen</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-18.html</link>
-      <description> 知识流日报 20260218：Ensemblesizedependence、Operationalising、Dex4D、Perceptive Humanoid Parkour、CrispEdit、Stabilizing TestTime Adaptation、Solving ParameterRobust Avoid、Developing AI Agents、TaskAgnostic Continual Learning、Decision Quality Evaluation Framework、The Geometry of Alignment Collapse、Enhancing Building Semantics Preservation、This human study did not involve human subjects、Neural Scaling Laws、GlobeDiff、ToolAware Planning、ReusStdFlow、Model Context Protocol、EmbeWebAgent、Configuring Agentic AI Co…</description>
+      <description> 知识流日报 20260218：TriGen 共 10 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （部分条目含模型提取的「易漏细节」关键点，页面上以颜色区分。） 1. TRIGEN Automotive | 特种车辆制造商 链接：https://www.trigenautomotive.com/cn/ 来源：bing 摘要：TRIGEN Automotive is a leading manufacturer of special function vehicles that are driven by innovation and performance. 正文（抓取，非 AI） TRIGEN Automotive | 特种车辆制造商 火灾响应车 TUMBLER ELEMENT 能在日益拥挤的城市环境中对紧急情况作出快速反应。作为第一响应车，能够有效压制住宅区和工业区的火灾事故。 了解更多! RESPONDERS PERFORMANCE VEHICL…</description>
       <pubDate>2026-02-18 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-18.html</guid>
     </item>
@@ -22,9 +22,9 @@
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</guid>
     </item>
     <item>
-      <title>知识流日报 2026-02-15：3D卷积、3D CNN、图神经网络、注意力机制、Transformer、扩散模型、强化学习、多模态、大模型、知识蒸馏、神经架构搜索、第一性原理、具身智能、预训练、自监督学习、伴随函数</title>
+      <title>知识流日报 2026-02-15</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-15.html</link>
-      <description> 知识流日报 20260215：3D卷积、3D CNN、图神经网络、注意力机制、Transformer、扩散模型、强化学习、多模态、大模型、知识蒸馏、神经架构搜索、第一性原理、具身智能、预训练、自监督学习、伴随函数 共 13 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） 1. 3D CNN Picassooo 博客园 链接：https://www.cnblogs.com/picassooo/p/13458454.html 来源：bing 摘要：2020年8月8日 · 从2D卷积到3D卷积，都有什么不一样(动态图演示) 3D卷积（3D Convolution) 论文笔记：基于3D卷积神经网络的人体行为识别(3D CNN) 理解3D CNN 第一种理解方式： 视频输 … 正文（抓取，非 AI） 3D CNN Picassooo 博客园 Picassooo 博客园 首页 新随笔 联系 订阅 管理 3D CNN 从2D卷积到3D卷积，都有什么不一样(动态图演示) …</description>
+      <description> 知识流日报 20260215 共 11 条（来自 Google Scholar / Bing 等）。 （以下含抓取正文，便于阅读。CSDN/掘金等链接已优先排前以尽量抓取到正文。未调用任何 AI API。） 1. 马斯克的脑机接口公司 Neuralink 的业务有哪些？ 知乎 链接：https://www.zhihu.com/question/11001083491 来源：bing 摘要：Neuralink 是由马斯克（Elon Musk）创办的脑机接口公司，成立的初衷是希望通过将人类大脑与计算机技术连接起来，解决一些人类健康问题，同时为人类大脑的增强提供可能。至今，它的业务和研究方向 … 正文 （抓取失败或无可提取正文） 2. 马斯克脑机接口公司 Neuralink 首次公开人体试验安全数据 ... 链接：https://www.zhihu.com/question/1958466173294347683 来源：bing 摘要：马斯克脑机接口公司 Neuralink 首次公开人体试验安全数据论文，这一举动有何重要意义和潜在影响？ 10 月 5 日消息，马斯克旗下脑机接口公司 Neu…</description>
       <pubDate>2026-02-15 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-15.html</guid>
     </item>

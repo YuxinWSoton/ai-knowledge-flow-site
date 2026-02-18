@@ -5,8 +5,15 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Tue, 17 Feb 2026 12:53:10 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Feb 2026 02:42:35 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-02-18：arcface loss、图像金字塔、mtcnn、Cold-Start Personalization、ThermEval: A Structured Benchmark、Tool-Aware Planning、ReusStdFlow: A Standardized Reusability、Model Context Protocol (MCP)、EmbeWebAgent: Embedding Web Agents、Configuring Agentic AI、The Value of Effective Pull Request、Consistent or Sensitive?、Automated Classification of Source Code、An Empirical Study of the Evolution、When Security Meets Usability、LongCLI-Bench: A Preliminary Benchmark、AutoWebWorld: Synthesizing Infinite、Introduction to Digital Twins、Every Maintenance Has Its Exemplar、From SFT to RL、Qute: Towards Quantum-Native、RNM-TD3: N:M Semi-structured、Scope: A Scalable Merged、ABI: A tightly integrated、Probabilistic approximate optimization、Implementation and Performance、ORAP: Optimized Row Access、TriGen: NPU Architecture、DPUConfig: Optimizing ML、Arcalis: Accelerating Remote、MXFormer: A Microscaling、CacheMind: From Miss Rates、MING: An Automated CNN-to-Edge、Device-Circuit Co-Design、Benchmarking for Single Feature、Microarchitecture Cliffs</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-18.html</link>
+      <description> 知识流日报 20260218：arcface loss、图像金字塔、mtcnn、ColdStart Personalization、ThermEval: A Structured Benchmark、ToolAware Planning、ReusStdFlow: A Standardized Reusability、Model Context Protocol (MCP)、EmbeWebAgent: Embedding Web Agents、Configuring Agentic AI、The Value of Effective Pull Request、Consistent or Sensitive?、Automated Classification of Source Code、An Empirical Study of the Evolution、When Security Meets Usability、LongCLIBench: A Preliminary Benchmark、AutoWebWorld: Synthesizing Infinite、Introduction…</description>
+      <pubDate>2026-02-18 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-18.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-02-17：softmax、交叉熵、感受野</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</link>

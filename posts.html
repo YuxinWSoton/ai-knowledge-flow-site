@@ -48,7 +48,7 @@ function nextArticle(){ if(articles.length===0) buildArticles(); if(articles.len
 function readSelected(){ var sel=window.getSelection(); var t=(sel&&sel.toString)?sel.toString():''; t=t.replace(/\s+/g,' ').trim(); if(!t){ document.getElementById('readStatus').textContent='请先选中要朗读的段落'; return; } speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读选中内容…'; speakText(t); }
 function getBlockForTap(el){ var c=document.querySelector('.content'); var blockTags=['P','DIV','H2','H3','H4','LI','PRE']; while(el&&el!==c){ if(c.contains(el)&&blockTags.indexOf(el.tagName)!==-1) return el; el=el.parentElement; } return null; }
 function onContentTap(e){ if(e.target.closest&&e.target.closest('a')) return; var block=getBlockForTap(e.target); if(block){ var t=(block.innerText||'').trim().replace(/\s+/g,' '); if(t){ e.preventDefault(); speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读本段…'; speakText(t); } } }
-setTimeout(function(){ buildArticles(); c.addEventListener('click',onContentTap); },100);
+setTimeout(function(){ buildArticles(); c.addEventListener('click',onContentTap); try{ var u=new SpeechSynthesisUtterance('\u200b'); u.volume=0; speechSynthesis.speak(u); }catch(e){} },100);
 </script>
 </body>
 </html>

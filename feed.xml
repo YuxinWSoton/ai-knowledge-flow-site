@@ -5,8 +5,15 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Thu, 19 Feb 2026 11:50:08 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Feb 2026 02:36:11 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-02-20：谐振抑制、掺氢燃烧、区内AGC、主动深度学习、深度强化学习、随机低碳调度、混合系统稳定性、多阶段优化规划、EEMD-LSTM、PMU电压数据重构、构网型变流器稳定性、总体框架与功能设计、油浸式变压器故障辨识、分级自适应倾斜决策树、大规模先进压缩空气储能</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-20.html</link>
+      <description> 知识流日报 20260220：谐振抑制、掺氢燃烧、区内AGC、主动深度学习、深度强化学习、随机低碳调度、混合系统稳定性、多阶段优化规划、EEMDLSTM、PMU电压数据重构、构网型变流器稳定性、总体框架与功能设计、油浸式变压器故障辨识、分级自适应倾斜决策树、大规模先进压缩空气储能 共 62 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 基于经济性和稳定性优化的火电机组一次调频控制方法与流程 链接：https://www.xjishu.com/zhuanli/60/202511099349.html 来源：bing 摘要：2025年9月5日 · 图片加载失败.... 本发明涉及电力系统控制，具体是涉及基于经济性和稳定性优化的火电机组一次调频控制方…</description>
+      <pubDate>2026-02-20 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-20.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-02-19：LLM、MMP、AAS、谐振抑制、演进过程、数字孪生、AGC机组、掺氢燃烧特性、主动深度学习、随机低碳调度、恶意软件检测、超短期负荷预测、分布式协同控制、多阶段优化规划、细粒度指标识别</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-19.html</link>

@@ -5,12 +5,12 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Fri, 20 Feb 2026 02:36:11 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Feb 2026 05:23:21 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>知识流日报 2026-02-20：谐振抑制、掺氢燃烧、区内AGC、主动深度学习、深度强化学习、随机低碳调度、混合系统稳定性、多阶段优化规划、EEMD-LSTM、PMU电压数据重构、构网型变流器稳定性、总体框架与功能设计、油浸式变压器故障辨识、分级自适应倾斜决策树、大规模先进压缩空气储能</title>
+      <title>知识流日报 2026-02-20：MDS算法、麻雀优化算法</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-20.html</link>
-      <description> 知识流日报 20260220：谐振抑制、掺氢燃烧、区内AGC、主动深度学习、深度强化学习、随机低碳调度、混合系统稳定性、多阶段优化规划、EEMDLSTM、PMU电压数据重构、构网型变流器稳定性、总体框架与功能设计、油浸式变压器故障辨识、分级自适应倾斜决策树、大规模先进压缩空气储能 共 62 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 基于经济性和稳定性优化的火电机组一次调频控制方法与流程 链接：https://www.xjishu.com/zhuanli/60/202511099349.html 来源：bing 摘要：2025年9月5日 · 图片加载失败.... 本发明涉及电力系统控制，具体是涉及基于经济性和稳定性优化的火电机组一次调频控制方…</description>
+      <description> 知识流日报 20260220：MDS算法、麻雀优化算法 共 8 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 8 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 9 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 什么是多维尺度分析（MDS）？ 知乎 链接：https://www.zhihu.com/question/47430677 来源：bing 摘要：2022年12月25日 · 这篇是继 PCA 和 KPCA 、 tSNE 三种降维方法后的第4篇。 在大数据时代，我们不断面临高维度数据的挑战。为了更好地理解这些数据，MDS算法应运而生。本文将详细介绍MDS算法 … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;MDS（多维尺度分析）是一种用于降维的方法，其主要目的是将高维数据映射到低维空间，以便更好地理解这些数据。MDS通…</description>
       <pubDate>2026-02-20 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-20.html</guid>
     </item>

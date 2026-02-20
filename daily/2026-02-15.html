@@ -27,125 +27,146 @@
   }
   a { color: #a8d4ff; text-decoration: none; }
   a:hover { text-decoration: underline; }
- h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;} .content p,.content div,.content h2,.content h3,.content h4,.content li,.content pre{cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0.15);} .content .insight-summary{color:#c9a0dc;margin:0.5em 0 0.8em 0;} .content .insight-detail,.content .insight-detail li{color:#8dd4e8;list-style:disc;margin-left:1.2em;padding-left:0.3em;} .content .article-body-details{margin:0.8em 0;} .content .article-body-details summary{cursor:pointer;color:rgba(255,255,255,0.85);}</style>
+ html{scroll-behavior:smooth;} .content h2,.content h3{scroll-margin-top:1rem;} h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;} .toc{margin:1rem 0;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border-radius:6px;} .toc .toc-title{margin:0 0 0.5rem 0;font-weight:bold;color:rgba(255,255,255,0.9);} .toc ul{list-style:none;padding-left:0;margin:0;} .toc li{margin:0.35rem 0;} .toc li.toc-h3{padding-left:1em;font-size:0.95em;} .toc a{color:#a8d4ff;text-decoration:none;} .toc a:hover{text-decoration:underline;} .content p,.content div,.content h2,.content h3,.content h4,.content li,.content pre{cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0.15);} .content .insight-summary{color:#c9a0dc;margin:0.5em 0 0.8em 0;} .content .insight-detail,.content .insight-detail li{color:#8dd4e8;list-style:disc;margin-left:1.2em;padding-left:0.3em;} .content .article-body-details{margin:0.8em 0;} .content .article-body-details summary{cursor:pointer;color:rgba(255,255,255,0.85);}</style>
 </head>
 <body>
 <p><a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/">← 返回首页</a></p>
 <h1>知识流日报 2026-02-15</h1>
-<p class="meta" style="margin-top:0;">最后更新：2026-02-20 10:36</p>
-<p class="toolbar"><button id="btnNext" onclick="nextArticle()">下一篇</button> <button id="btnSel" onclick="readSelected()">朗读这段</button> <span id="readStatus"></span></p>
-<p class="meta" style="margin-top:0;">（点任意段落即可朗读，手机/触屏友好；也可选中后点「朗读这段」或点「下一篇」按条朗读）</p>
+<p class="meta" style="margin-top:0;">最后更新：2026-02-20 13:23</p>
+<p class="toolbar"><button id="btnFull" onclick="readFullText()">全文朗读</button> <span id="readStatus"></span></p>
+<p class="meta" style="margin-top:0;">（点任意段落可朗读该段；「全文朗读」读本页全部内容）</p>
+<nav class="toc" aria-label="目录">
+<p class="toc-title">目录</p>
+<ul>
+  <li><a href="#toc-0">1. 马斯克的脑机接口公司 Neuralink 的业务有哪些？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-1">正文</a></li>
+  <li><a href="#toc-2">2. 马斯克脑机接口公司 Neuralink 首次公开人体试验安全数据 ...</a></li>
+  <li class="toc-h3"><a href="#toc-3">正文</a></li>
+  <li><a href="#toc-4">3. 几句话说清楚，马斯克的脑机接口Neuralink究竟是什么？</a></li>
+  <li class="toc-h3"><a href="#toc-5">正文</a></li>
+  <li><a href="#toc-6">4. 马斯克称 Neuralink 完成首例人类脑机接口设备植入，志愿者 ...</a></li>
+  <li class="toc-h3"><a href="#toc-7">正文</a></li>
+  <li><a href="#toc-8">5. 如何评价伊隆·马斯克创办的脑机接口公司 Neuralink</a></li>
+  <li class="toc-h3"><a href="#toc-9">正文</a></li>
+  <li><a href="#toc-10">6. 脑机接口公司 Neuralink 首次提交包含人体数据的论文，这 ...</a></li>
+  <li class="toc-h3"><a href="#toc-11">正文</a></li>
+  <li><a href="#toc-12">7. 马斯克宣布 2026 年 Neuralink 将大规模量产，已经有上万人 ...</a></li>
+  <li class="toc-h3"><a href="#toc-13">正文</a></li>
+  <li><a href="#toc-14">8. 马斯克旗下脑机公司 Neuralink 将开展首次人体试验，对瘫痪 ...</a></li>
+  <li class="toc-h3"><a href="#toc-15">正文</a></li>
+  <li><a href="#toc-16">9. 马斯克脑机接口公司 Neuralink ，公布实验最新进展「患者能 ...</a></li>
+  <li class="toc-h3"><a href="#toc-17">正文</a></li>
+  <li><a href="#toc-18">10. 如何评价马斯克Neuralink的最新发布会？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-19">正文</a></li>
+  <li><a href="#toc-20">11. 灵巧机械臂  - 百度图片</a></li>
+  <li class="toc-h3"><a href="#toc-21">正文（抓取，非 AI）</a></li>
+</ul>
+</nav>
 <div class="content">
 <h1>知识流日报 2026-02-15</h1>
 <p>共 11 条（来自 Google Scholar / Bing 等）。</p>
 <p>（以下含抓取正文，便于阅读。CSDN/掘金等链接已优先排前以尽量抓取到正文。未调用任何 AI API。）</p>
-<h2>1. 马斯克的脑机接口公司 Neuralink 的业务有哪些？ - 知乎</h2>
+<h2 id="toc-0">1. 马斯克的脑机接口公司 Neuralink 的业务有哪些？ - 知乎</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/11001083491</li>
 <li>来源：bing</li>
 <li>摘要：Neuralink 是由马斯克（Elon Musk）创办的脑机接口公司，成立的初衷是希望通过将人类大脑与计算机技术连接起来，解决一些人类健康问题，同时为人类大脑的增强提供可能。至今，它的业务和研究方向 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-1">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>2. 马斯克脑机接口公司 Neuralink 首次公开人体试验安全数据 ...</h2>
+</div></details><h2 id="toc-2">2. 马斯克脑机接口公司 Neuralink 首次公开人体试验安全数据 ...</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/1958466173294347683</li>
 <li>来源：bing</li>
 <li>摘要：马斯克脑机接口公司 Neuralink 首次公开人体试验安全数据论文，这一举动有何重要意义和潜在影响？ 10 月 5 日消息，马斯克旗下脑机接口公司 Neuralink 已向《新英格兰医学杂志》提交了首个包含其人体 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-3">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>3. 几句话说清楚，马斯克的脑机接口Neuralink究竟是什么？</h2>
+</div></details><h2 id="toc-4">3. 几句话说清楚，马斯克的脑机接口Neuralink究竟是什么？</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/638675321</li>
 <li>来源：bing</li>
 <li>摘要：2024年1月8日 · Neuralink 是由 埃隆·马斯克 创立的一家公司，专注于开发 脑机接口 技术。其核心产品是一种植入人脑的微型设备，旨在建立人脑和电脑之间的直接通信链接。这种技术的目标是治疗神经系 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-5">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>4. 马斯克称 Neuralink 完成首例人类脑机接口设备植入，志愿者 ...</h2>
+</div></details><h2 id="toc-6">4. 马斯克称 Neuralink 完成首例人类脑机接口设备植入，志愿者 ...</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/641937663</li>
 <li>来源：bing</li>
 <li>摘要：Neuralink的R1 是个更自动化的立体定位仪。 探头直径40微米（可以看成留置针的套管针），里面包裹电极导线，穿透脑膜插到运动皮层。 整个电极侵入手术不需要开脑膜，降低了感染风险。 它每分钟插 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-7">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>5. 如何评价伊隆·马斯克创办的脑机接口公司 Neuralink</h2>
+</div></details><h2 id="toc-8">5. 如何评价伊隆·马斯克创办的脑机接口公司 Neuralink</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/57713553</li>
 <li>来源：bing</li>
 <li>摘要：Neuralink采取的也是这种模式。 Neuralink的创立缘于马斯克对人工智能飞速发展的忧虑。 自2014年以来，马斯克在多种场合反复警告过人工智能的危险性，认为人工智能发展的速度太快，未来可能远超人 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-9">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>6. 脑机接口公司 Neuralink 首次提交包含人体数据的论文，这 ...</h2>
+</div></details><h2 id="toc-10">6. 脑机接口公司 Neuralink 首次提交包含人体数据的论文，这 ...</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/1958579976002601948</li>
 <li>来源：bing</li>
 <li>摘要：Neuralink 的高层曾设想在 2030 年左右 探索向健康人群植入的可能性，但临床合作方与多数独立专家强调当前阶段应优先关注病患福利、安全性与长期随访数据。 伦理问题包括大规模植入后的数据隐私 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-11">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>7. 马斯克宣布 2026 年 Neuralink 将大规模量产，已经有上万人 ...</h2>
+</div></details><h2 id="toc-12">7. 马斯克宣布 2026 年 Neuralink 将大规模量产，已经有上万人 ...</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/1991445531877142706</li>
 <li>来源：bing</li>
 <li>摘要：2026年1月6日 · Neuralink 的N1芯片本身不难量产，难的是植入。 只有R1机器人才能将 64 根比头发丝细20倍的线，避开血管精准插入大脑。 2026 年想要实现“大规模”的话，那就意味着必须量产这台医疗 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-13">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>8. 马斯克旗下脑机公司 Neuralink 将开展首次人体试验，对瘫痪 ...</h2>
+</div></details><h2 id="toc-14">8. 马斯克旗下脑机公司 Neuralink 将开展首次人体试验，对瘫痪 ...</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/622892778</li>
 <li>来源：bing</li>
 <li>摘要：Neuralink 此前在实验动物身上展示的手术机器人 R1 的主要卖点是植入速度较快 [2] 而相对准确、相对容易实现较多的电极数量 [3]，对生物相容性无特殊贡献。 Neuralink 目前声称其设备将封装在生物相容 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-15">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>9. 马斯克脑机接口公司 Neuralink ，公布实验最新进展「患者能 ...</h2>
+</div></details><h2 id="toc-16">9. 马斯克脑机接口公司 Neuralink ，公布实验最新进展「患者能 ...</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/649459772</li>
 <li>来源：bing</li>
 <li>摘要：凤凰网科技讯 3月21日，马斯克的脑机接口公司Neuralink更新了首位大脑植入患者的情况，这位四肢瘫痪患者…</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-17">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>10. 如何评价马斯克Neuralink的最新发布会？ - 知乎</h2>
+</div></details><h2 id="toc-18">10. 如何评价马斯克Neuralink的最新发布会？ - 知乎</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/1922309310303668031</li>
 <li>来源：bing</li>
 <li>摘要：Neuralink的接口目前为止有7位病人，每周使用时长约50小时。 值得注意的是新获得了加拿大、英国、和阿联酋的临床试验许可。 尽管没有给出更细分的数据（操作频率？ 几个有效的信号点？ ），仅据此 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-19">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>11. 灵巧机械臂  - 百度图片</h2>
+</div></details><h2 id="toc-20">11. 灵巧机械臂  - 百度图片</h2>
 <ul>
 <li>链接：https://image.baidu.com/search/index?tn=baiduimage&amp;ct=201326592&amp;lm=-1&amp;cl=2&amp;ie=utf8&amp;sa=vs_ala_img&amp;fr=ala&amp;ala=1&amp;alatpl=normal&amp;pos=3&amp;dyTabStr=MCwzLDEsMiwxMyw3LDYsNSwxMiw5&amp;word=%E7%81%B5%E5%B7%A7%E6%9C%BA%E6%A2%B0%E8%87%82&amp;lid=c67a3b2600050930&amp;topic=%E7%81%B5%E5%B7%A7%E6%9C%BA%E6%A2%B0%E8%87%82</li>
 <li>来源：baidu</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文（抓取，非 AI）</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-21">正文（抓取，非 AI）</h3>
 <p>百度图片搜索<br/>
 加载失败，请关闭「JavaScript执行禁用功能」后重试<br/>
 百度一下</p></div></details>
 </div>
 <script>
-var articles=[]; var currentArticleIdx=-1; var maxSpeakChars=3500;
-function buildArticles(){ var c=document.querySelector('.content'); if(!c) return; var h2s=c.querySelectorAll('h2'); for(var i=0;i<h2s.length;i++){ var start=h2s[i], end=i+1<h2s.length?h2s[i+1]:null; var r=document.createRange(); r.setStart(start,0); if(end) r.setEnd(end,0); else { var last=c.lastElementChild||c; r.setEndAfter(last); } var t=r.toString().replace(/\s+/g,' ').trim(); if(t.length>maxSpeakChars) t=t.slice(0,maxSpeakChars)+'…（内容过长已截断）'; articles.push({h2:start,text:t}); }
- articles.sort(function(a,b){ return a.text.length-b.text.length; }); }
 function speakText(t){ if(!t){ document.getElementById('readStatus').textContent=''; return; }
  speechSynthesis.cancel(); var status=document.getElementById('readStatus'); status.textContent='准备中…';
  var chunks=[]; var maxLen=280; for(var i=0;i<t.length;i+=maxLen){ var s=t.slice(i,i+maxLen); var j=s.lastIndexOf('。'); if(j>80){ chunks.push(s.slice(0,j+1)); i-=s.length-(j+1); } else chunks.push(s); }
  if(chunks.length===0) chunks=[t]; var idx=0; function speakNext(){ if(idx>=chunks.length){ status.textContent=''; return; } var u=new SpeechSynthesisUtterance(chunks[idx]); u.lang='zh-CN'; u.rate=0.95; var v=speechSynthesis.getVoices().filter(function(x){ return x.lang.indexOf('zh')>=0; })[0]; if(v) u.voice=v;
  u.onend=function(){ idx++; setTimeout(speakNext,80); }; u.onerror=function(){ idx++; setTimeout(speakNext,80); }; status.textContent='朗读中 '+(idx+1)+'/'+chunks.length+'…'; speechSynthesis.speak(u); }
  if(speechSynthesis.getVoices().length) speakNext(); else speechSynthesis.onvoiceschanged=function(){ speechSynthesis.onvoiceschanged=null; speakNext(); }; }
-function nextArticle(){ if(articles.length===0) buildArticles(); if(articles.length===0){ document.getElementById('readStatus').textContent='无可读内容'; return; }
- speechSynthesis.cancel(); currentArticleIdx++; if(currentArticleIdx>=articles.length){ currentArticleIdx=0; document.getElementById('readStatus').textContent='已读完，共 '+articles.length+' 篇。再按从第 1 篇开始'; return; }
- var a=articles[currentArticleIdx]; a.h2.scrollIntoView({behavior:'smooth',block:'start'}); document.getElementById('readStatus').textContent='第 '+(currentArticleIdx+1)+' / '+articles.length+' 篇'; speakText(a.text); }
-function readSelected(){ var sel=window.getSelection(); var t=(sel&&sel.toString)?sel.toString():''; t=t.replace(/\\s+/g,' ').trim(); if(!t){ document.getElementById('readStatus').textContent='请先选中要朗读的段落'; return; } speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读选中内容…'; speakText(t); }
+function readFullText(){ var c=document.querySelector('.content'); if(!c){ document.getElementById('readStatus').textContent='无可读内容'; return; } var t=(c.innerText||'').trim().replace(/\\s+/g,' '); if(!t){ document.getElementById('readStatus').textContent='无可读内容'; return; } speechSynthesis.cancel(); document.getElementById('readStatus').textContent='全文朗读…'; speakText(t); }
 function getBlockForTap(el){ var c=document.querySelector('.content'); var blockTags=['P','DIV','H2','H3','H4','LI','PRE']; while(el&&el!==c){ if(c.contains(el)&&blockTags.indexOf(el.tagName)!==-1) return el; el=el.parentElement; } return null; }
 function onContentTap(e){ if(e.target.closest&&e.target.closest('a')) return; var block=getBlockForTap(e.target); if(block){ var t=(block.innerText||'').trim().replace(/\\s+/g,' '); if(t){ e.preventDefault(); speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读本段…'; speakText(t); } } }
-if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', function(){ buildArticles(); var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }); } else { buildArticles(); var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }
+if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', function(){ var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }); } else { var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }
 setTimeout(function(){ try{ var u=new SpeechSynthesisUtterance('\u200b'); u.volume=0; speechSynthesis.speak(u); }catch(e){} }, 300);
 </script>
 </body>

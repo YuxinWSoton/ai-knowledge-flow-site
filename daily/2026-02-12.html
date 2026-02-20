@@ -27,33 +27,62 @@
   }
   a { color: #a8d4ff; text-decoration: none; }
   a:hover { text-decoration: underline; }
- h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;} .content p,.content div,.content h2,.content h3,.content h4,.content li,.content pre{cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0.15);} .content .insight-summary{color:#c9a0dc;margin:0.5em 0 0.8em 0;} .content .insight-detail,.content .insight-detail li{color:#8dd4e8;list-style:disc;margin-left:1.2em;padding-left:0.3em;} .content .article-body-details{margin:0.8em 0;} .content .article-body-details summary{cursor:pointer;color:rgba(255,255,255,0.85);}</style>
+ html{scroll-behavior:smooth;} .content h2,.content h3{scroll-margin-top:1rem;} h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;} .toc{margin:1rem 0;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border-radius:6px;} .toc .toc-title{margin:0 0 0.5rem 0;font-weight:bold;color:rgba(255,255,255,0.9);} .toc ul{list-style:none;padding-left:0;margin:0;} .toc li{margin:0.35rem 0;} .toc li.toc-h3{padding-left:1em;font-size:0.95em;} .toc a{color:#a8d4ff;text-decoration:none;} .toc a:hover{text-decoration:underline;} .content p,.content div,.content h2,.content h3,.content h4,.content li,.content pre{cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0.15);} .content .insight-summary{color:#c9a0dc;margin:0.5em 0 0.8em 0;} .content .insight-detail,.content .insight-detail li{color:#8dd4e8;list-style:disc;margin-left:1.2em;padding-left:0.3em;} .content .article-body-details{margin:0.8em 0;} .content .article-body-details summary{cursor:pointer;color:rgba(255,255,255,0.85);}</style>
 </head>
 <body>
 <p><a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/">← 返回首页</a></p>
 <h1>知识流日报 2026-02-12</h1>
-<p class="meta" style="margin-top:0;">最后更新：2026-02-20 10:36</p>
-<p class="toolbar"><button id="btnNext" onclick="nextArticle()">下一篇</button> <button id="btnSel" onclick="readSelected()">朗读这段</button> <span id="readStatus"></span></p>
-<p class="meta" style="margin-top:0;">（点任意段落即可朗读，手机/触屏友好；也可选中后点「朗读这段」或点「下一篇」按条朗读）</p>
+<p class="meta" style="margin-top:0;">最后更新：2026-02-20 13:23</p>
+<p class="toolbar"><button id="btnFull" onclick="readFullText()">全文朗读</button> <span id="readStatus"></span></p>
+<p class="meta" style="margin-top:0;">（点任意段落可朗读该段；「全文朗读」读本页全部内容）</p>
+<nav class="toc" aria-label="目录">
+<p class="toc-title">目录</p>
+<ul>
+  <li><a href="#toc-0">1. 什么是第一性原理，它有什么重要意义？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-1">正文</a></li>
+  <li><a href="#toc-2">2. 什么是第一性原理，它有什么重要意义？</a></li>
+  <li class="toc-h3"><a href="#toc-3">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-4">3. 什么是第一性原理，它有什么重要意义？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-5">正文</a></li>
+  <li><a href="#toc-6">4. 思维方式 | 深入浅出解释“第一性原理”</a></li>
+  <li class="toc-h3"><a href="#toc-7">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-8">5. 什么是第一性原理，该如何应用在生活中？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-9">正文</a></li>
+  <li><a href="#toc-10">6. 什么是第一性原理？为什么大佬喜欢这个？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-11">正文</a></li>
+  <li><a href="#toc-12">7. 第一性原理 - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-13">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-14">8. 一篇文章讲透什么是“第一性原理”</a></li>
+  <li class="toc-h3"><a href="#toc-15">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-16">9. 如何理解埃隆·马斯克的“第一性原理思维”？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-17">正文</a></li>
+  <li><a href="#toc-18">10. 第一原理 - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-19">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-20">11. 马斯克说，人形机器人最难的不是大脑，而是灵巧手和量产 ...</a></li>
+  <li class="toc-h3"><a href="#toc-21">正文</a></li>
+  <li><a href="#toc-22">12. 第一性原理 - 视频大全 - 高清在线观看</a></li>
+  <li class="toc-h3"><a href="#toc-23">正文（抓取，非 AI）</a></li>
+</ul>
+</nav>
 <div class="content">
 <h1>知识流日报 2026-02-12</h1>
 <p>共 12 条（来自 Google Scholar / Bing 等）。</p>
 <p>（以下含抓取正文，便于阅读后判断是否接入 AI。未调用任何 AI API。）</p>
-<h2>1. 什么是第一性原理，它有什么重要意义？ - 知乎</h2>
+<h2 id="toc-0">1. 什么是第一性原理，它有什么重要意义？ - 知乎</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/21459243</li>
 <li>来源：bing</li>
 <li>摘要：虽然是第一性原理来自于物理学，但是我想从商业的角度来说说自己的理解。 全文较长，因此我把提炼的观点先放到最前面： 1、第一性定理思维是一种演绎法思维，但与追本溯源法是不同的； 2、用第一 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-1">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>2. 什么是第一性原理，它有什么重要意义？</h2>
+</div></details><h2 id="toc-2">2. 什么是第一性原理，它有什么重要意义？</h2>
 <ul>
 <li>链接：https://www.zhihu.com/tardis/bd/ans/2394948683</li>
 <li>来源：bing</li>
 <li>摘要：2022年3月25日 · 这个原理是硅谷钢铁侠——马斯克带火的，下面通过2个例子来解释下： 第一性原理（First principle thinking，又称“第一原理”），是古希腊哲学家亚里士多德提出的一个哲学术语： 每个 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文（抓取，非 AI）</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-3">正文（抓取，非 AI）</h3>
 <p>什么是第一性原理，它有什么重要意义？<br/>
 什么是第一性原理，它有什么重要意义？<br/>
 1<br/>
@@ -74,21 +103,21 @@
 了解现有架构——拆解——优化——重新组合<br/>
 ，这就是第一性原理的思考模型。<br/>
 编辑于 2022-03-25 · 著作权归作者所有</p>
-</div></details><h2>3. 什么是第一性原理，它有什么重要意义？ - 知乎</h2>
+</div></details><h2 id="toc-4">3. 什么是第一性原理，它有什么重要意义？ - 知乎</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/21459243/answers/updated</li>
 <li>来源：bing</li>
 <li>摘要：而第一性原理之所以再次被世界广为认知并推崇，是因为马斯克，他将这个原理用于科技研发与企业管理获得了巨大的成功，并取得了举世瞩目的成就，他的表述是：“第一性原理是用物理学的角度看待世 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-5">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>4. 思维方式 | 深入浅出解释“第一性原理”</h2>
+</div></details><h2 id="toc-6">4. 思维方式 | 深入浅出解释“第一性原理”</h2>
 <ul>
 <li>链接：https://www.zhihu.com/tardis/zm/art/26551274</li>
 <li>来源：bing</li>
 <li>摘要：2023年4月2日 · 中国的互联网知识媒体们从2017年3月份开始讨论这个“第一性原理”。互联网从业者们如果还不知道“第一性原理”，那说明落伍了。 “第一性原理是超越因果律的第一因，且是唯一因，同时 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文（抓取，非 AI）</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-7">正文（抓取，非 AI）</h3>
 <p>思维方式 | 深入浅出解释“第一性原理”<br/>
 思维方式 | 深入浅出解释“第一性原理”<br/>
 吴晓布<br/>
@@ -152,29 +181,29 @@
 每当我发现有新的思维模式，仔细研究之后就会忍不住想起这张教你如何画出一匹马的漫画，两者竟有惊人的相似之处。就像第一性原理，你了解到这是一种思维工具，剩下的就要靠你去使用工具。<br/>
 如果不开始使用这种工具，看再多思维方式的文章都没有实质作用。<br/>
 编辑于 2023-04-02 · 著作权归作者所有</p>
-</div></details><h2>5. 什么是第一性原理，该如何应用在生活中？ - 知乎</h2>
+</div></details><h2 id="toc-8">5. 什么是第一性原理，该如何应用在生活中？ - 知乎</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/462661756</li>
 <li>来源：bing</li>
 <li>摘要：简单翻译一下，大概意思就是说，只有那些“最基本的”、“不证自明的”知识，才能称之为第一原理。 怎么理解“最基本、不证自明”呢？下面我们通过一个例子来理解。 这个例子就是欧几里得的五大公理和五 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-9">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>6. 什么是第一性原理？为什么大佬喜欢这个？ - 知乎</h2>
+</div></details><h2 id="toc-10">6. 什么是第一性原理？为什么大佬喜欢这个？ - 知乎</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/3589268346</li>
 <li>来源：bing</li>
 <li>摘要：一、第一性原理的核心概念和起源 第一性原理（FirstPrinciples）是一种通过分析问题的最基本、最不可简化的元素来思考的方式。这种方法可以追溯到古希腊哲学家亚里士多德，他提出通过最基础的原理 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-11">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>7. 第一性原理 - 知乎</h2>
+</div></details><h2 id="toc-12">7. 第一性原理 - 知乎</h2>
 <ul>
 <li>链接：https://www.zhihu.com/topic/20135258/intro</li>
 <li>来源：bing</li>
 <li>摘要：2020年4月24日 · 第一性原理计算方法即从头算（ab initio）被广泛应用在化学、物理、生命科学和材料学等领域。它的基本思想是将多个原子构成的体系看成是由多个电子和原子核组成的系统，并根据量子 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文（抓取，非 AI）</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-13">正文（抓取，非 AI）</h3>
 <p>第一性原理 - 知乎<br/>
 第一性原理<br/>
 根据原子核和电子互相作用的原理及其基本运动规律，运用量子力学原理，从具体要求出发，经过一些近似处理后直接求解薛定谔方程的算法，习惯上称为第一性原理。但是就某个特定的问题，第一性原理和经验参数没有明…<br/>
@@ -227,13 +256,13 @@
 1550 万<br/>
 讨论量<br/>
 1 万</p>
-</div></details><h2>8. 一篇文章讲透什么是“第一性原理”</h2>
+</div></details><h2 id="toc-14">8. 一篇文章讲透什么是“第一性原理”</h2>
 <ul>
 <li>链接：https://www.zhihu.com/tardis/bd/art/341746570</li>
 <li>来源：bing</li>
 <li>摘要：2002年3月14日 · 本文首发于公众号：晓布研习社。 2017年4月，我写了一篇阐述“第一性原理”的文章 吴晓布：思维方式 | 深入浅出解释“第一性原理” 同步发在知乎《认知升级》专栏的这几年，点赞者寥寥 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文（抓取，非 AI）</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-15">正文（抓取，非 AI）</h3>
 <p>一篇文章讲透什么是“第一性原理”<br/>
 一篇文章讲透什么是“第一性原理”<br/>
 453<br/>
@@ -391,21 +420,21 @@ QQ第一个版本在设计的时候，列出了十几个功能列表，最后做
 做手机的企业，只需要把心目中的手机参数和性能提供给“产业链方案解决商”，对方会根据你的要求，给出主板设计，然后根据你的要求，给出最便宜的零件部件采购清单组合，甚至帮你找到加工制造的企业。<br/>
 企业只要出钱，不需要拥有多个部门，养一堆闲人。把“专业的事情交给专业的公司去做吧”这句口号听起来如此美妙。<br/>
 事实上这种产业链优化升级，通过对每个环节引入优化（包括用人工智能大幅提高过往效率），来降低产业成本的方向没有</p>
-</div></details><h2>9. 如何理解埃隆·马斯克的“第一性原理思维”？ - 知乎</h2>
+</div></details><h2 id="toc-16">9. 如何理解埃隆·马斯克的“第一性原理思维”？ - 知乎</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/323804134</li>
 <li>来源：bing</li>
 <li>摘要：1. 从头开始 “物理学教你从第一原理而不是类比来推理。所以我说，好吧，让我们看看首要原则。火箭是用什么做的？” 第一性原则思维意味着你从头开始。 这听起来很简单，但这需要你把你的想法从任何 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-17">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>10. 第一原理 - 知乎</h2>
+</div></details><h2 id="toc-18">10. 第一原理 - 知乎</h2>
 <ul>
 <li>链接：https://www.zhihu.com/topic/21326460/intro</li>
 <li>来源：bing</li>
 <li>摘要：概述 第一原理又称“第一性原理” (first principle)，是古希腊哲学家亚里士多德提出的一个哲学术语：“每个系统中存在一个最基本的命题，它不能被违背或删除。” [1] 第一原理通常是跟计算联系在一起的 释义 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文（抓取，非 AI）</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-19">正文（抓取，非 AI）</h3>
 <p>第一原理 - 知乎<br/>
 第一原理<br/>
 第一原理又称“第一性原理”(first principle)，是古希腊哲学家亚里士多德提出的一个哲学术语：“每个系统中存在一个最基本的命题，它不能被违背或删除。”...<br/>
@@ -470,20 +499,20 @@ P、Bi 掺杂TiO2 的4×2×1 的超晶胞结构图<br/>
 13.3 万<br/>
 讨论量<br/>
 124</p>
-</div></details><h2>11. 马斯克说，人形机器人最难的不是大脑，而是灵巧手和量产 ...</h2>
+</div></details><h2 id="toc-20">11. 马斯克说，人形机器人最难的不是大脑，而是灵巧手和量产 ...</h2>
 <ul>
 <li>链接：https://www.zhihu.com/question/1950897949698668255</li>
 <li>来源：bing</li>
 <li>摘要：我之前就是做灵巧手的。现在做灵巧手的公司已经很多了，但是距离人手的灵巧，触觉，控制还有一定距离。 人形机器人，按照马斯克喜欢的第一性原理，肯定是越仿人越好，毕竟人的身体结构，是千万 …</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-21">正文</h3>
 <p>（抓取失败或无可提取正文）</p>
-</div></details><h2>12. 第一性原理 - 视频大全 - 高清在线观看</h2>
+</div></details><h2 id="toc-22">12. 第一性原理 - 视频大全 - 高清在线观看</h2>
 <ul>
 <li>链接：https://www.baidu.com/sf/vsearch?pd=video&amp;wd=%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86&amp;tn=vsearch&amp;lid=8c14ddd30002f995&amp;ie=utf-8&amp;rsv_pq=8c14ddd30002f995&amp;rsv_spt=5&amp;rsv_bp=1&amp;f=8&amp;atn=index</li>
 <li>来源：baidu</li>
 </ul>
-<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3>正文（抓取，非 AI）</h3>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-23">正文（抓取，非 AI）</h3>
 <p>第一性原理_百度视频搜索<br/>
 第一性原理<br/>
 百度一下<br/>
@@ -578,22 +607,16 @@ P、Bi 掺杂TiO2 的4×2×1 的超晶胞结构图<br/>
 辅助模式</p></div></details>
 </div>
 <script>
-var articles=[]; var currentArticleIdx=-1; var maxSpeakChars=3500;
-function buildArticles(){ var c=document.querySelector('.content'); if(!c) return; var h2s=c.querySelectorAll('h2'); for(var i=0;i<h2s.length;i++){ var start=h2s[i], end=i+1<h2s.length?h2s[i+1]:null; var r=document.createRange(); r.setStart(start,0); if(end) r.setEnd(end,0); else { var last=c.lastElementChild||c; r.setEndAfter(last); } var t=r.toString().replace(/\s+/g,' ').trim(); if(t.length>maxSpeakChars) t=t.slice(0,maxSpeakChars)+'…（内容过长已截断）'; articles.push({h2:start,text:t}); }
- articles.sort(function(a,b){ return a.text.length-b.text.length; }); }
 function speakText(t){ if(!t){ document.getElementById('readStatus').textContent=''; return; }
  speechSynthesis.cancel(); var status=document.getElementById('readStatus'); status.textContent='准备中…';
  var chunks=[]; var maxLen=280; for(var i=0;i<t.length;i+=maxLen){ var s=t.slice(i,i+maxLen); var j=s.lastIndexOf('。'); if(j>80){ chunks.push(s.slice(0,j+1)); i-=s.length-(j+1); } else chunks.push(s); }
  if(chunks.length===0) chunks=[t]; var idx=0; function speakNext(){ if(idx>=chunks.length){ status.textContent=''; return; } var u=new SpeechSynthesisUtterance(chunks[idx]); u.lang='zh-CN'; u.rate=0.95; var v=speechSynthesis.getVoices().filter(function(x){ return x.lang.indexOf('zh')>=0; })[0]; if(v) u.voice=v;
  u.onend=function(){ idx++; setTimeout(speakNext,80); }; u.onerror=function(){ idx++; setTimeout(speakNext,80); }; status.textContent='朗读中 '+(idx+1)+'/'+chunks.length+'…'; speechSynthesis.speak(u); }
  if(speechSynthesis.getVoices().length) speakNext(); else speechSynthesis.onvoiceschanged=function(){ speechSynthesis.onvoiceschanged=null; speakNext(); }; }
-function nextArticle(){ if(articles.length===0) buildArticles(); if(articles.length===0){ document.getElementById('readStatus').textContent='无可读内容'; return; }
- speechSynthesis.cancel(); currentArticleIdx++; if(currentArticleIdx>=articles.length){ currentArticleIdx=0; document.getElementById('readStatus').textContent='已读完，共 '+articles.length+' 篇。再按从第 1 篇开始'; return; }
- var a=articles[currentArticleIdx]; a.h2.scrollIntoView({behavior:'smooth',block:'start'}); document.getElementById('readStatus').textContent='第 '+(currentArticleIdx+1)+' / '+articles.length+' 篇'; speakText(a.text); }
-function readSelected(){ var sel=window.getSelection(); var t=(sel&&sel.toString)?sel.toString():''; t=t.replace(/\\s+/g,' ').trim(); if(!t){ document.getElementById('readStatus').textContent='请先选中要朗读的段落'; return; } speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读选中内容…'; speakText(t); }
+function readFullText(){ var c=document.querySelector('.content'); if(!c){ document.getElementById('readStatus').textContent='无可读内容'; return; } var t=(c.innerText||'').trim().replace(/\\s+/g,' '); if(!t){ document.getElementById('readStatus').textContent='无可读内容'; return; } speechSynthesis.cancel(); document.getElementById('readStatus').textContent='全文朗读…'; speakText(t); }
 function getBlockForTap(el){ var c=document.querySelector('.content'); var blockTags=['P','DIV','H2','H3','H4','LI','PRE']; while(el&&el!==c){ if(c.contains(el)&&blockTags.indexOf(el.tagName)!==-1) return el; el=el.parentElement; } return null; }
 function onContentTap(e){ if(e.target.closest&&e.target.closest('a')) return; var block=getBlockForTap(e.target); if(block){ var t=(block.innerText||'').trim().replace(/\\s+/g,' '); if(t){ e.preventDefault(); speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读本段…'; speakText(t); } } }
-if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', function(){ buildArticles(); var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }); } else { buildArticles(); var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }
+if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', function(){ var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }); } else { var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }
 setTimeout(function(){ try{ var u=new SpeechSynthesisUtterance('\u200b'); u.volume=0; speechSynthesis.speak(u); }catch(e){} }, 300);
 </script>
 </body>

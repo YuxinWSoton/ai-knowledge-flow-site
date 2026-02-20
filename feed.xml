@@ -5,12 +5,12 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Fri, 20 Feb 2026 05:23:21 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Feb 2026 07:22:09 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>知识流日报 2026-02-20：MDS算法、麻雀优化算法</title>
+      <title>知识流日报 2026-02-20：流-热场耦合仿真、EEMD-LSTM网络、MDS算法、麻雀优化算法、粒子群算法</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-20.html</link>
-      <description> 知识流日报 20260220：MDS算法、麻雀优化算法 共 8 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 8 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 9 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 什么是多维尺度分析（MDS）？ 知乎 链接：https://www.zhihu.com/question/47430677 来源：bing 摘要：2022年12月25日 · 这篇是继 PCA 和 KPCA 、 tSNE 三种降维方法后的第4篇。 在大数据时代，我们不断面临高维度数据的挑战。为了更好地理解这些数据，MDS算法应运而生。本文将详细介绍MDS算法 … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;MDS（多维尺度分析）是一种用于降维的方法，其主要目的是将高维数据映射到低维空间，以便更好地理解这些数据。MDS通…</description>
+      <description> 知识流日报 20260220：流热场耦合仿真、EEMDLSTM网络、MDS算法、麻雀优化算法、粒子群算法 共 24 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 24 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 25 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 如何形象的理解计算机中“流”的概念？ 知乎 链接：https://www.zhihu.com/question/38075755 来源：bing 摘要：2018年10月23日 · 你这个流究竟是说Stream还是说Flow啊，这两个意思是不同的，后一个在“网络流”当中用，是完全另一个概念。 Stream的话，在计算机里就是顺序读取或者写入的字节序列。这是很多现 … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;Stream在计算机中指的是顺序读取或写入的字节序列，…</description>
       <pubDate>2026-02-20 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-20.html</guid>
     </item>

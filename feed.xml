@@ -5,8 +5,15 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Sat, 21 Feb 2026 04:59:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Feb 2026 02:55:59 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-02-22：gold volatility forecasting machine learning、gold price determinants real interest rate、financial time series structural break regime、LSTM volatility prediction、gold price forecasting survey</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-22.html</link>
+      <description> 知识流日报 20260222：gold volatility forecasting machine learning、gold price determinants real interest rate、financial time series structural break regime、LSTM volatility prediction、gold price forecasting survey 共 48 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 48 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 49 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 如何最简单、通俗地理解LSTM？ 知乎 链接：https://www.zhihu.com/question/445411028 来源：bing 摘要：LSTM 小结 以上，就是LSTM…</description>
+      <pubDate>2026-02-22 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-22.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-02-21：MARS、SMAC、huff、FAMOSE、Ethics、Reverso、超短期负荷预测、A.R.I.S.、流-热场耦合仿真、LLM Agent、NLP Tools、EEMD-LSTM网络、有源和无源阻尼协同控制、iTransformer、油浸式变压器热点温度快速预测</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-21.html</link>

@@ -5,12 +5,19 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Sun, 22 Feb 2026 02:55:59 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 23 Feb 2026 07:20:30 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>知识流日报 2026-02-22：gold volatility forecasting machine learning、gold price determinants real interest rate、financial time series structural break regime、LSTM volatility prediction、gold price forecasting survey</title>
+      <title>知识流日报 2026-02-23：谐振抑制、多阶段优化规划、互联新能源电力系统、光伏直流升压汇集系统、新型电力系统平衡机理、EEMD-LSTM网络、有源和无源阻尼协同控制、大规模先进压缩空气储能、基于时空多视图学习算法、PMU电压数据重构方法、iTransformer、基于改进型主动深度学习框架、区内AGC机组分布式协同控制、跟网型和构网型变流器混合系统、新型电力系统形态量化推演方法</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-23.html</link>
+      <description> 知识流日报 20260223：谐振抑制、多阶段优化规划、互联新能源电力系统、光伏直流升压汇集系统、新型电力系统平衡机理、EEMDLSTM网络、有源和无源阻尼协同控制、大规模先进压缩空气储能、基于时空多视图学习算法、PMU电压数据重构方法、iTransformer、基于改进型主动深度学习框架、区内AGC机组分布式协同控制、跟网型和构网型变流器混合系统、新型电力系统形态量化推演方法 共 44 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 44 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 45 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 互联网的10大主要用途有哪些？ 知乎 链接：https://www.zhihu.com/question/650602330 来源：bing 摘要：未来，互联网的发展趋势将更加多元化和智能化。 一方面，随着5G、物…</description>
+      <pubDate>2026-02-23 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-23.html</guid>
+    </item>
+    <item>
+      <title>知识流日报 2026-02-22：谐振抑制、多阶段优化规划、互联新能源电力系统、光伏直流升压汇集系统、新型电力系统平衡机理、EEMD-LSTM网络、有源和无源阻尼协同控制、大规模先进压缩空气储能、基于时空多视图学习算法、PMU电压数据重构方法、iTransformer、基于改进型主动深度学习框架、区内AGC机组分布式协同控制、跟网型和构网型变流器混合系统、新型电力系统形态量化推演方法</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-22.html</link>
-      <description> 知识流日报 20260222：gold volatility forecasting machine learning、gold price determinants real interest rate、financial time series structural break regime、LSTM volatility prediction、gold price forecasting survey 共 48 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 48 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 49 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 如何最简单、通俗地理解LSTM？ 知乎 链接：https://www.zhihu.com/question/445411028 来源：bing 摘要：LSTM 小结 以上，就是LSTM…</description>
+      <description> 知识流日报 20260222：谐振抑制、多阶段优化规划、互联新能源电力系统、光伏直流升压汇集系统、新型电力系统平衡机理、EEMDLSTM网络、有源和无源阻尼协同控制、大规模先进压缩空气储能、基于时空多视图学习算法、PMU电压数据重构方法、iTransformer、基于改进型主动深度学习框架、区内AGC机组分布式协同控制、跟网型和构网型变流器混合系统、新型电力系统形态量化推演方法 共 52 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 电路中的谐振和振荡有什么具体区别吗？ 知乎 链接：https://www.zhihu.com/question/265398672 来源：bing 摘要：2018年1月10日 · 简单说一下。首先说下谐振。所谓谐振…</description>
       <pubDate>2026-02-22 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-22.html</guid>
     </item>

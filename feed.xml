@@ -5,8 +5,15 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Mon, 23 Feb 2026 14:59:28 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Feb 2026 01:06:28 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-02-24</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-24.html</link>
+      <description> 知识流日报 20260224 共 22 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 22 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 23 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 怎么通俗的理解“多模态”这个词? 知乎 链接：https://www.zhihu.com/question/7297942343 来源：bing 摘要：2024年12月19日 · GPT4o就能&quot;看图说话&quot;，这就是典型的多模态模型。 你给它看一张图片，它不仅能看懂图片内容，还能用文字描述出来，甚至能回答关于图片的问题。 ️ 技术的进步不是为了取代人类 … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;多模态模型因其能够处理多种类型的数据而显得尤为重要，这不仅包括图像，还包括文本、声音等多种信息形式。首先，多模态模型能够理解图片的内容，提取…</description>
+      <pubDate>2026-02-24 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-24.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-02-23：PPO、PTM、谐振抑制、智能调度、SCFC、ZS-IP、表面燃烧器、稳定性机理、FedZMG、构网型变流器、随机低碳调度、超短期负荷预测、有源和无源阻尼、多阶段优化规划、ChatQDA</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-23.html</link>

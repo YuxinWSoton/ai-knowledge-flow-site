@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>知识流日报 2026-02-24</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: #fff;
+    min-height: 100vh;
+    background: #0a0e1a;
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.9), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1.5px 1.5px at 90px 40px, rgba(255,255,255,0.8), transparent),
+      radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1.5px 1.5px at 160px 120px, rgba(255,255,255,0.7), transparent),
+      radial-gradient(ellipse 120% 100% at 50% 0%, rgba(88,60,120,0.25), transparent 50%),
+      radial-gradient(ellipse 80% 80% at 80% 20%, rgba(40,60,100,0.2), transparent 40%);
+    background-size: 200px 200px;
+    background-repeat: repeat;
+  }
+  a { color: #a8d4ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+ html{scroll-behavior:smooth;} .content h2,.content h3{scroll-margin-top:1rem;} h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;} .toc{margin:1rem 0;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border-radius:6px;} .toc .toc-title{margin:0 0 0.5rem 0;font-weight:bold;color:rgba(255,255,255,0.9);} .toc ul{list-style:none;padding-left:0;margin:0;} .toc li{margin:0.35rem 0;} .toc li.toc-h3{padding-left:1em;font-size:0.95em;} .toc a{color:#a8d4ff;text-decoration:none;} .toc a:hover{text-decoration:underline;} .content p,.content div,.content h2,.content h3,.content h4,.content li,.content pre{cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0.15);} .content .insight-summary{color:#c9a0dc;margin:0.5em 0 0.8em 0;} .content .insight-detail,.content .insight-detail li{color:#8dd4e8;list-style:disc;margin-left:1.2em;padding-left:0.3em;} .content .article-body-details{margin:0.8em 0;} .content .article-body-details summary{cursor:pointer;color:rgba(255,255,255,0.85);}</style>
+</head>
+<body>
+<p><a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/">← 返回首页</a></p>
+<h1>知识流日报 2026-02-24</h1>
+<p class="meta" style="margin-top:0;">最后更新：2026-02-24 09:06</p>
+<p class="toolbar"><button id="btnFull" onclick="readFullText()">全文朗读</button> <span id="readStatus"></span></p>
+<p class="meta" style="margin-top:0;">（点任意段落可朗读该段；「全文朗读」读本页全部内容）</p>
+<nav class="toc" aria-label="目录">
+<p class="toc-title">目录</p>
+<ul>
+  <li><a href="#toc-0">1. 怎么通俗的理解“多模态”这个词? - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-1">正文</a></li>
+  <li><a href="#toc-2">2. 2025 CVPR 医学影像领域有哪些值得关注的创新趋势？多 ...</a></li>
+  <li class="toc-h3"><a href="#toc-3">正文</a></li>
+  <li><a href="#toc-4">3. 什么是多模态？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-5">正文</a></li>
+  <li><a href="#toc-6">4. 多模态机器学习如何入门？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-7">正文</a></li>
+  <li><a href="#toc-8">5. 2025 年 CVPR/AAAI 顶会中，多模态融合领域有哪些突破级 ...</a></li>
+  <li class="toc-h3"><a href="#toc-9">正文</a></li>
+  <li><a href="#toc-10">6. 新手多模态大模型学习路线，请各位分享自己的来时路？</a></li>
+  <li class="toc-h3"><a href="#toc-11">正文</a></li>
+  <li><a href="#toc-12">7. 有什么常见的多模态模型？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-13">正文</a></li>
+  <li><a href="#toc-14">8. 多模态大模型的时代真的来了吗？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-15">正文</a></li>
+  <li><a href="#toc-16">9. ai多模态是什么意思? - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-17">正文</a></li>
+  <li><a href="#toc-18">10. 全模态、多模态和跨模态有什么区别吗？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-19">正文</a></li>
+  <li><a href="#toc-20">11. BLM-Guard: Explainable Multimodal Ad Moderation with Chain-of-Thought and Policy-Aligned Rewards</a></li>
+  <li class="toc-h3"><a href="#toc-21">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-22">12. FENCE: A Financial and Multimodal Jailbreak Detection Dataset</a></li>
+  <li class="toc-h3"><a href="#toc-23">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-24">13. On the Adversarial Robustness of Discrete Image Tokenizers</a></li>
+  <li class="toc-h3"><a href="#toc-25">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-26">14. Participation Ratio as a Quantum Probe of Hierarchical Stickiness</a></li>
+  <li class="toc-h3"><a href="#toc-27">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-28">15. Diffusing to Coordinate: Efficient Online Multi-Agent Diffusion Policies</a></li>
+  <li class="toc-h3"><a href="#toc-29">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-30">16. Continual-NExT: A Unified Comprehension And Generation Continual Learning Framework</a></li>
+  <li class="toc-h3"><a href="#toc-31">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-32">17. RoEL: Robust Event-based 3D Line Reconstruction</a></li>
+  <li class="toc-h3"><a href="#toc-33">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-34">18. Super-Resolution Structured-Illumination X-Ray Microscopy based on Fourier Decomposition</a></li>
+  <li class="toc-h3"><a href="#toc-35">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-36">19. Scaling Audio-Text Retrieval with Multimodal Large Language Models</a></li>
+  <li class="toc-h3"><a href="#toc-37">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-38">20. Towards LLM-centric Affective Visual Customization via Efficient and Precise Emotion Manipulating</a></li>
+  <li class="toc-h3"><a href="#toc-39">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-40">21. 3DMedAgent: Unified Perception-to-Understanding for 3D Medical Analysis</a></li>
+  <li class="toc-h3"><a href="#toc-41">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-42">22. Context-Aware Mapping of 2D Drawing Annotations to 3D CAD Features Using LLM-Assisted Reasoning for Manufacturing Automation</a></li>
+  <li class="toc-h3"><a href="#toc-43">正文（抓取，非 AI）</a></li>
+</ul>
+</nav>
+<div class="content">
+<h1>知识流日报 2026-02-24</h1>
+<p>共 22 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。</p>
+<p>（以下含抓取正文，便于阅读。未调用任何 AI API。）</p>
+<p>（仅前 22 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 23 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。）</p>
+<h2 id="toc-0">1. 怎么通俗的理解“多模态”这个词? - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/7297942343</li>
+<li>来源：bing</li>
+<li>摘要：2024年12月19日 · GPT-4o就能"看图说话"，这就是典型的多模态模型。 你给它看一张图片，它不仅能看懂图片内容，还能用文字描述出来，甚至能回答关于图片的问题。 ️ 技术的进步不是为了取代人类 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">多模态模型因其能够处理多种类型的数据而显得尤为重要，这不仅包括图像，还包括文本、声音等多种信息形式。首先，多模态模型能够理解图片的内容，提取出其中的关键信息；其次，它还能生成相应的文字描述，将视觉信息转化为语言表达；此外，多模态模型更进一步地能够回答与图片相关的问题，提供更为全面和准确的信息支持。因此，这种模型在处理复杂信息和实现跨模态交互方面具有显著优势，使得信息的获取和处理更加高效和全面。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>多模态模型能够处理多种类型的数据；多模态模型不仅能理解图片内容，还能生成文字描述；多模态模型可以回答与图片相关的问题。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-1">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-2">2. 2025 CVPR 医学影像领域有哪些值得关注的创新趋势？多 ...</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/1961836548543746105</li>
+<li>来源：bing</li>
+<li>摘要：2025 CVPR 医学影像领域有哪些值得关注的创新趋势？多模态技术为何能成为当下发文热门方向？</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">多模态技术能够整合不同类型的医学影像数据，如X光片、CT扫描和MRI图像等，通过综合分析这些数据，可以提高诊断的准确性。首先，这种技术能够提供更全面的患者信息，帮助医生从多个角度观察病变情况，从而做出更准确的判断。其次，不同类型的影像数据具有不同的特点和优势，例如X光片可以清晰显示骨骼结构，而CT扫描则能提供详细的解剖结构信息，MRI则擅长显示软组织。因此，通过多模态技术的整合，可以充分利用这些数据的优势，提高诊断的精确度和可靠性。此外，这种技术的应用还能够减少对单一影像数据的依赖，降低因影像数据不足而导致误诊的风险。因此，多模态技术在医学影像诊断中的应用具有重要意义。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>多模态技术可以整合不同类型的医学影像数据，提高诊断准确性。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-3">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-4">3. 什么是多模态？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/501003463</li>
+<li>来源：bing</li>
+<li>摘要：2021年11月23日 · 多模态 LLM 的图示，它可以接受不同的输入模式（音频、文本、图像和视频）并返回文本作为输出模式。 1. 多模态 LLM 的用例 什么是多模态 LLM？正如介绍中提到的，多模态 LLM 是 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">多模态模型因其能够接受多种类型的输入而显得尤为强大，这些输入包括音频、文本、图像和视频等不同模式。这种多样性使得多模态模型能够综合处理来自不同感官的信息，从而提供更为全面和准确的分析。值得注意的是，尽管多模态模型能够处理多种输入，其最终输出却是文本形式。因此，这种模型不仅能够处理包括音频、文本、图像和视频在内的不同输入模式，还能将这些复杂的信息转化为易于理解和处理的文本形式，使得信息的传递和处理更为高效。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>多模态模型可以接受多种类型的输入。</li>
+<li>多模态模型的输出是文本。</li>
+<li>多模态模型能够处理包括音频、文本、图像和视频在内的不同输入模式。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-5">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-6">4. 多模态机器学习如何入门？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/350442791</li>
+<li>来源：bing</li>
+<li>摘要：多模态学习相关概念介绍 那么，我们先来聊聊什么是多模态学习。 模态（Modality）可能是大家比较陌生的词汇，但实际上，在我们日常生活中，经常会接触到不同的模态的数据，例如文字、语音、图片等 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">模态是指数据的不同表现形式或类型，这在日常生活中经常接触到多种模态的数据时显得尤为重要。然而，模态词汇可能对部分读者来说较为陌生，因此理解模态的概念对于更好地处理和分析不同类型的数据至关重要。模态不仅涵盖了文本、图像、音频等多种形式，还涉及到数据的不同维度和特征，使得数据处理和分析更加复杂但也更具多样性。因此，掌握模态的概念有助于更全面地理解和利用各种形式的数据。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>模态是指数据的不同表现形式或类型。</li>
+<li>模态词汇可能对部分读者来说较为陌生。</li>
+<li>日常生活中经常接触到多种模态的数据。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-7">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-8">5. 2025 年 CVPR/AAAI 顶会中，多模态融合领域有哪些突破级 ...</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/1964759918683877644</li>
+<li>来源：bing</li>
+<li>摘要：2025 年 CVPR/AAAI 顶会中，多模态融合领域有哪些突破级成果？ 求框架和创新思路总结？ 最近在跟进多模态融合的研究，发现 2025 年顶会（CVPR、AAAI、ICLR）出了不少新成果，但文献太多筛选起 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">突破级成果往往涉及多种模态数据的高效融合方法，这不仅需要新颖的表示学习技术来处理不同模态的数据，还可能引入新的评价指标体系来衡量融合效果。此外，研究还可能探索长尾分布问题在多模态数据中的应用，以及模态间依赖关系建模的新方法，以提高融合的准确性和鲁棒性。突破级成果还可能包含大规模数据集的构建与应用，以及跨域多模态数据的融合技术，这要求研究者在跨模态信息对齐上进行创新，以确保不同来源的数据能够有效融合。此外，研究还可能关注于多模态数据的隐私保护问题，确保在融合过程中数据的安全性和隐私性得到保障。因此，突破级成果不仅涵盖了多模态生成模型的新进展，还涉及了从数据收集到融合应用的全方位技术革新。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>突破级成果往往涉及多种模态数据的高效融合方法。</li>
+<li>多模态融合研究可能包括新颖的表示学习技术。</li>
+<li>创新思路可能体现在跨模态信息对齐的新算法上。</li>
+<li>突破级成果可能包含大规模数据集的构建与应用。</li>
+<li>多模态融合可能引入新的评价指标体系。</li>
+<li>研究可能探索长尾分布问题在多模态数据中的应用。</li>
+<li>创新可能体现在模态间依赖关系建模的新方法上。</li>
+<li>突破级成果可能涉及跨域多模态数据的融合技术。</li>
+<li>研究可能关注于多模态数据的隐私保护问题。</li>
+<li>突破级成果可能包含多模态生成模型的新进展。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-9">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-10">6. 新手多模态大模型学习路线，请各位分享自己的来时路？</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/14222627229</li>
+<li>来源：bing</li>
+<li>摘要：2025年9月1日 · 大部分知名的模型一般都是 开源权重，并没有开源训练代码，对于个人学习作用不大。而一些个人项目大多数只会在开源项目上进行微调或者只进行 Pretrain 和 SFT 或者借用了 trl 等三方 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">开源权重并不意味着开源训练代码，这是许多初学者容易混淆的一点。实际上，大多数知名模型的训练代码并未开源，这使得个人项目多仅进行微调或预训练。为了简化这一过程，三方库如trl常被用于项目中，这些库提供了便捷的工具和方法，使得开发者能够更轻松地进行模型的微调和预训练。因此，了解这些区别对于选择合适的工具和方法至关重要。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>开源权重并不意味着开源训练代码。</li>
+<li>大多数知名模型的训练代码并未开源。</li>
+<li>个人项目多仅进行微调或预训练。</li>
+<li>三方库如trl常被用于项目中。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-11">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-12">7. 有什么常见的多模态模型？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/637573230</li>
+<li>来源：bing</li>
+<li>摘要：2024年3月1日 · 主流技术范式演进 多模态大模型的范式从 双编码器对齐 向 端到端统一建模 发展，核心范式包括： 视觉-语言预训练（VLP）：如CLIP的对比学习，通过图文对构建跨模态语义空间，缺点 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">双编码器对齐是早期的多模态模型范式，通过对比学习构建跨模态语义空间，如CLIP所展示的那样，有效地促进了视觉和语言的对齐。然而，这种方法存在一定的局限性，无法完全满足当前的发展需求。因此，端到端统一建模成为当前的发展趋势，它能够更全面地整合多模态数据，实现更加高效和准确的跨模态理解。此外，视觉-语言预训练作为主流的多模态模型之一，通过大规模的数据集进行预训练，进一步提升了模型的泛化能力和鲁棒性。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>双编码器对齐是早期的多模态模型范式。</li>
+<li>端到端统一建模是当前的发展趋势。</li>
+<li>视觉-语言预训练是主流的多模态模型之一。</li>
+<li>CLIP通过对比学习构建跨模态语义空间。</li>
+<li>双编码器对齐方法存在一定的局限性。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-13">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-14">8. 多模态大模型的时代真的来了吗？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/614080027</li>
+<li>来源：bing</li>
+<li>摘要：在知乎撰文的时候通常我会把结论写在开头然后再慢慢陈述论证过程，但对于多模态大模型这个一直非常吸引我的人工智能细分领域，容许我留点悬念，逐步把结果抛出来。 多模态大模型的发展历史和现 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">首先，多模态大模型作为人工智能的一个细分领域，其发展和应用日益广泛，但结论未必会在文章的开头提出，这表明作者可能选择在适当的时候揭示最终观点，以增强文章的吸引力和说服力。其次，悬念设置会影响文章结构，通过设置悬念，可以引导读者持续关注文章内容，从而更好地传达信息和观点。因此，多模态大模型的研究和应用不仅需要技术上的突破，还需要在文章结构和写作技巧上进行精心设计，以达到最佳的传播效果。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>结论未必会在开头提出。</li>
+<li>悬念设置会影响文章结构。</li>
+<li>多模态大模型是人工智能的一个细分领域。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-15">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-16">9. ai多模态是什么意思? - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/644805401</li>
+<li>来源：bing</li>
+<li>摘要：2024年2月28日 · AI多模态 （Multimodal AI）是指结合了多种感知模式或数据类型的人工智能系统。在多模态系统中，AI能够处理和理解来自不同感官通道的信息，如视觉（图像、视频）、听觉（声音、语 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">AI多模态系统能够处理和理解来自不同感官通道的信息，这使得它能够综合多种感知模式或数据类型，从而提供更全面和准确的分析。首先，多模态AI系统结合了多种感知模式或数据类型，如视觉和听觉，这些是多模态系统中常见的信息来源。其次，通过整合这些不同的信息来源，AI系统能够更全面地理解和处理复杂情境，从而提高其性能和应用范围。因此，多模态AI系统不仅能够处理视觉和听觉信息，还能处理其他感官信息，如触觉、嗅觉等，进一步增强其理解和分析能力。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>AI多模态系统能够处理和理解来自不同感官通道的信息。</li>
+<li>多模态AI系统结合了多种感知模式或数据类型。</li>
+<li>视觉和听觉是多模态系统中常见的信息来源。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-17">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-18">10. 全模态、多模态和跨模态有什么区别吗？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/662365573</li>
+<li>来源：bing</li>
+<li>摘要：2025年9月7日 · 那目前多数的模型，假装成多模态，其实都是跨模态。 所以出的很多“不可思议的乱想”，其实都是文字翻译和文字理解的问题。 那GPT4的诸多GPTs，其实都是文字在底层交互。 想想就 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">多数模型所谓的多模态实际上是跨模态，即主要依赖文字进行底层交互。这种情况下，所谓的多模态模型并不真正具备多种模态的能力，而更像是文字在不同模态间的桥梁。例如，GPT4虽然具备多种语言处理能力，但其内部机制仅限于文字层面的交互，无法直接处理图像、音频等其他形式的数据。因此，这些模型在处理实际多模态任务时，往往需要额外的转换步骤，将非文本数据转化为文本形式，再进行处理。这种转换不仅增加了复杂性，还可能降低处理效率和准确性。因此，理解这些概念之间的关系有助于更好地评估模型的实际应用能力。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>多数模型所谓的多模态实际上是跨模态。</li>
+<li>跨模态模型本质上是文字在底层交互。</li>
+<li>多模态模型并非真正具备多种模态能力。</li>
+<li>GPT4的诸多GPTs仅限于文字层面的交互。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-19">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-20">11. BLM-Guard: Explainable Multimodal Ad Moderation with Chain-of-Thought and Policy-Aligned Rewards</h2>
+<ul>
+<li>链接：https://arxiv.org/abs/2602.18193v1</li>
+<li>来源：arxiv</li>
+<li>摘要：Short-video platforms now host vast multimodal ads whose deceptive visuals, speech and subtitles demand finer-grained, policy-driven moderation than community safety filters. We present BLM-Guard, a content-audit framework for commercial ads that fuses Chain-of-Thought reasoning with rule-based policy principles and a critic-guided reward. A rule-driven ICoT data-synthesis pipeline jump-starts training by generating structured scene descriptions, reasoning chains and labels, cutting annotation costs. Reinforcement learning then refines the model using a composite reward balancing causal coherence with policy adherence. A multitask architecture models intra-modal manipulations (e.g., exaggerated imagery) and cross-modal mismatches (e.g., subtitle-speech drift), boosting robustness. Experiments on real short-video ads show BLM-Guard surpasses strong baselines in accuracy, consistency and generalization.</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">细粒度的政策驱动审核比社区安全过滤器更为必要，因为它能够识别更为复杂的广告欺诈行为，确保广告内容符合商业政策要求。ICoT数据合成管道通过生成结构化场景描述、推理链和标签来降低标注成本，其规则驱动的方式生成结构化信息，有助于提升模型的鲁棒性。复合奖励机制平衡了模型的优化方向，既考虑因果连贯性又考虑政策遵从性，从而提高模型的准确性和泛化能力。多任务架构能够建模跨模态不匹配，进一步提升模型的鲁棒性。实验表明，BLM-Guard在准确性和泛化能力上优于基准模型，其框架融合了链式思维推理和规则导向的政策原则，确保了细粒度的审核要求比社区安全过滤器更为严格。因此，细粒度的审核不仅能够提升模型的性能，还能确保广告内容的合规性。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>细粒度的政策驱动审核比社区安全过滤器更为必要。</li>
+<li>ICoT数据合成管道通过生成结构化场景描述、推理链和标签来降低标注成本。</li>
+<li>因果连贯性与政策遵从性之间的复合奖励平衡了模型的优化方向。</li>
+<li>多任务架构能够建模跨模态不匹配，提升模型的鲁棒性。</li>
+<li>实验表明BLM-Guard在准确性和泛化能力上优于基准模型。</li>
+<li>细粒度的审核要求比社区安全过滤器更为严格。</li>
+<li>ICoT数据合成管道通过规则驱动的方式生成结构化信息。</li>
+<li>复合奖励机制有助于提高模型的因果连贯性和政策遵从性。</li>
+<li>BLM-Guard框架融合了链式思维推理和规则导向的政策原则。</li>
+<li>细粒度的审核能够识别更为复杂的广告欺诈行为。</li>
+<li>政策导向的审核能够确保广告内容符合商业政策要求。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-21">正文（抓取，非 AI）</h3>
+<p>[2602.18193v1] BLM-Guard: Explainable Multimodal Ad Moderation with Chain-of-Thought and Policy-Aligned Rewards Computer Science &gt; Computer Vision and Pattern Recognition arXiv:2602.18193v1 (cs) [Submitted on 20 Feb 2026] Title: BLM-Guard: Explainable Multimodal Ad Moderation with Chain-of-Thought and Policy-Aligned Rewards Authors: Yiran Yang , Zhaowei Liu , Yuan Yuan , Yukun Song , Xiong Ma , Yinghao Song , Xiangji Zeng , Lu Sun , Yulu Wang , Hai Zhou , Shuai Cui , Zhaohan Gong , Jiefei Zhang View a PDF of the paper titled BLM-Guard: Explainable Multimodal Ad Moderation with Chain-of-Thought and Policy-Aligned Rewards, by Yiran Yang and 12 other authors View PDF HTML (experimental) Abstract: Short-video platforms now host vast multimodal ads whose deceptive visuals, speech and subtitles demand finer-grained, policy-driven moderation than community safety filters. We present BLM-Guard, a content-audit framework for commercial ads that fuses Chain-of-Thought reasoning with rule-based policy principles and a critic-guided reward. A rule-driven ICoT data-synthesis pipeline jump-starts training by generating structured scene descriptions, reasoning chains and labels, cutting annotation costs. Reinforcement learning then refines the model using a composite reward balancing causal coherence with policy adherence. A multitask architecture models intra-modal manipulations (e.g., exaggerated imagery) and cross-modal mismatches (e.g., subtitle-speech drift), boosting robustness. Experiments on real short-video ads show BLM-Guard surpasses strong baselines in accuracy, consistency and generalization. Comments: 7 pages, 3 figures. To appear in AAAI 2026 Subjects: Computer Vision and Pattern Recognition (cs.CV) Cite as: arXiv:2602.18193 [cs.CV] (or arXiv:2602.18193v1 [cs.CV] for this version) https://doi.org/10.48550/arXiv.2602.18193 Focus to learn more arXiv-issued DOI via DataCite (pending registration) Submission history From: Zhaowei Liu [ view email ] [v1] Fri, 20 Feb 2026 12:59:27 UTC (8,694 KB) Full-text links: Access Paper: View a PDF of the paper titled BLM-Guard: Explainable Multimodal Ad Moderation with Chain-of-Thought and Policy-Aligned Rewards, by Yiran Yang and 12 other authors View PDF HTML (experimental) TeX Source view license Current browse context: cs.CV &lt; prev | next &gt; new | recent | 2026-02 Change to browse by: cs References &amp; Citations NASA ADS Google Scholar Semantic Scholar export BibTeX citation Loading... BibTeX formatted citation × loading... Data provided by: Bookmark Bibliographic Tools Bibliographic and Citation Tools Bibliographic Explorer Toggle Bibliographic Explorer ( What is the Explorer? ) Connected Papers Toggle Connected Papers ( What is Connected Papers? ) Litmaps Toggle Litmaps ( What is Litmaps? ) scite.ai Toggle scite Smart Citations ( What are Smart Citations? ) Code, Data, Media Code, Data and Media Associated with this Article alphaXiv Toggle alphaXiv ( What is alphaXiv? ) Links to Code Toggle CatalyzeX Code Finder for Papers ( What is CatalyzeX? ) DagsHub Toggle DagsHub ( What is DagsHub? ) GotitPub Toggle Gotit.pub ( What is GotitPub? ) Huggingface Toggle Hugging Face ( What is Huggingface? ) Links to Code Toggle Papers with Code ( What is Papers with Code? ) ScienceCast Toggle ScienceCast ( What is ScienceCast? ) Demos Demos Replicate Toggle Replicate ( What is Replicate? ) Spaces Toggle Hugging Face Spaces ( What is Spaces? ) Spaces Toggle TXYZ.AI ( What is TXYZ.AI? ) Related Papers Recommenders and Search Tools Link to Influence Flower Influence Flower ( What are Influence Flowers? ) Core recommender toggle CORE Recommender ( What is CORE? ) Author Venue Institution Topic About arXivLabs arXivLabs: experimental projects with community collaborators arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs . Which authors of this paper are endorsers? | Disable MathJax ( What is MathJax? )</p>
+</div></details><h2 id="toc-22">12. FENCE: A Financial and Multimodal Jailbreak Detection Dataset</h2>
+<ul>
+<li>链接：https://arxiv.org/abs/2602.18154v1</li>
+<li>来源：arxiv</li>
+<li>摘要：Jailbreaking poses a significant risk to the deployment of Large Language Models (LLMs) and Vision Language Models (VLMs). VLMs are particularly vulnerable because they process both text and images, creating broader attack surfaces. However, available resources for jailbreak detection are scarce, particularly in finance. To address this gap, we present FENCE, a bilingual (Korean-English) multimodal dataset for training and evaluating jailbreak detectors in financial applications. FENCE emphasizes domain realism through finance-relevant queries paired with image-grounded threats. Experiments with commercial and open-source VLMs reveal consistent vulnerabilities, with GPT-4o showing measurable attack success rates and open-source models displaying greater exposure. A baseline detector trained on FENCE achieves 99 percent in-distribution accuracy and maintains strong performance on external benchmarks, underscoring the dataset's robustness for training reliable detection models. FENCE provides a focused resource for advancing multimodal jailbreak detection in finance and for supporting safer, more reliable AI systems in sensitive domains. Warning: This paper includes example data that</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">jailbreaking 威胁大语言模型和视觉语言模型的安全部署，尤其是这些模型处理文本和图像时增加了攻击面。现有资源，尤其是在金融领域的资源，相对匮乏。为此，fence 数据集填补了这一空白，特别强调了金融相关查询和图像基础的威胁。实验结果揭示，即使是像 GPT-4o 这样的商业模型和开源模型都存在漏洞。fence 基线检测器在内部和外部基准上表现良好，有助于金融领域的多模态劫持检测。值得注意的是，示例数据可能具有冒犯性，因此在使用过程中需谨慎处理。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>jailbreaking 威胁大语言模型和视觉语言模型的安全部署。</li>
+<li>vlm 处理文本和图像，增加了攻击面。</li>
+<li>现有资源缺乏，尤其是金融领域。</li>
+<li>fence 数据集填补了这一空白，强调金融相关查询和图像基础威胁。</li>
+<li>实验揭示 gpt-4o 和开源模型存在漏洞。</li>
+<li>fence 基线检测器在内部和外部基准上表现良好。</li>
+<li>fence 有助于金融领域的多模态劫持检测。</li>
+<li>示例数据可能具有冒犯性。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-23">正文（抓取，非 AI）</h3>
+<p>[2602.18154v1] FENCE: A Financial and Multimodal Jailbreak Detection Dataset Computer Science &gt; Computation and Language arXiv:2602.18154v1 (cs) [Submitted on 20 Feb 2026] Title: FENCE: A Financial and Multimodal Jailbreak Detection Dataset Authors: Mirae Kim , Seonghun Jeong , Youngjun Kwak View a PDF of the paper titled FENCE: A Financial and Multimodal Jailbreak Detection Dataset, by Mirae Kim and 2 other authors View PDF HTML (experimental) Abstract: Jailbreaking poses a significant risk to the deployment of Large Language Models (LLMs) and Vision Language Models (VLMs). VLMs are particularly vulnerable because they process both text and images, creating broader attack surfaces. However, available resources for jailbreak detection are scarce, particularly in finance. To address this gap, we present FENCE, a bilingual (Korean-English) multimodal dataset for training and evaluating jailbreak detectors in financial applications. FENCE emphasizes domain realism through finance-relevant queries paired with image-grounded threats. Experiments with commercial and open-source VLMs reveal consistent vulnerabilities, with GPT-4o showing measurable attack success rates and open-source models displaying greater exposure. A baseline detector trained on FENCE achieves 99 percent in-distribution accuracy and maintains strong performance on external benchmarks, underscoring the dataset's robustness for training reliable detection models. FENCE provides a focused resource for advancing multimodal jailbreak detection in finance and for supporting safer, more reliable AI systems in sensitive domains. Warning: This paper includes example data that may be offensive. Comments: lrec 2026 accepted paper Subjects: Computation and Language (cs.CL) ; Artificial Intelligence (cs.AI); Databases (cs.DB) Cite as: arXiv:2602.18154 [cs.CL] (or arXiv:2602.18154v1 [cs.CL] for this version) https://doi.org/10.48550/arXiv.2602.18154 Focus to learn more arXiv-issued DOI via DataCite (pending registration) Submission history From: Youngjun Kwak [ view email ] [v1] Fri, 20 Feb 2026 11:40:41 UTC (6,062 KB) Full-text links: Access Paper: View a PDF of the paper titled FENCE: A Financial and Multimodal Jailbreak Detection Dataset, by Mirae Kim and 2 other authors View PDF HTML (experimental) TeX Source view license Current browse context: cs.CL &lt; prev | next &gt; new | recent | 2026-02 Change to browse by: cs cs.AI cs.DB References &amp; Citations NASA ADS Google Scholar Semantic Scholar export BibTeX citation Loading... BibTeX formatted citation × loading... Data provided by: Bookmark Bibliographic Tools Bibliographic and Citation Tools Bibliographic Explorer Toggle Bibliographic Explorer ( What is the Explorer? ) Connected Papers Toggle Connected Papers ( What is Connected Papers? ) Litmaps Toggle Litmaps ( What is Litmaps? ) scite.ai Toggle scite Smart Citations ( What are Smart Citations? ) Code, Data, Media Code, Data and Media Associated with this Article alphaXiv Toggle alphaXiv ( What is alphaXiv? ) Links to Code Toggle CatalyzeX Code Finder for Papers ( What is CatalyzeX? ) DagsHub Toggle DagsHub ( What is DagsHub? ) GotitPub Toggle Gotit.pub ( What is GotitPub? ) Huggingface Toggle Hugging Face ( What is Huggingface? ) Links to Code Toggle Papers with Code ( What is Papers with Code? ) ScienceCast Toggle ScienceCast ( What is ScienceCast? ) Demos Demos Replicate Toggle Replicate ( What is Replicate? ) Spaces Toggle Hugging Face Spaces ( What is Spaces? ) Spaces Toggle TXYZ.AI ( What is TXYZ.AI? ) Related Papers Recommenders and Search Tools Link to Influence Flower Influence Flower ( What are Influence Flowers? ) Core recommender toggle CORE Recommender ( What is CORE? ) Author Venue Institution Topic About arXivLabs arXivLabs: experimental projects with community collaborators arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs . Which authors of this paper are endorsers? | Disable MathJax ( What is MathJax? )</p>
+</div></details><h2 id="toc-24">13. On the Adversarial Robustness of Discrete Image Tokenizers</h2>
+<ul>
+<li>链接：https://arxiv.org/abs/2602.18252v1</li>
+<li>来源：arxiv</li>
+<li>摘要：Discrete image tokenizers encode visual inputs as sequences of tokens from a finite vocabulary and are gaining popularity in multimodal systems, including encoder-only, encoder-decoder, and decoder-only models. However, unlike CLIP encoders, their vulnerability to adversarial attacks has not been explored. Ours being the first work studying this topic, we first formulate attacks that aim to perturb the features extracted by discrete tokenizers, and thus change the extracted tokens. These attacks are computationally efficient, application-agnostic, and effective across classification, multimodal retrieval, and captioning tasks. Second, to defend against this vulnerability, inspired by recent work on robust CLIP encoders, we fine-tune popular tokenizers with unsupervised adversarial training, keeping all other components frozen. While unsupervised and task-agnostic, our approach significantly improves robustness to both unsupervised and end-to-end supervised attacks and generalizes well to unseen tasks and data. Unlike supervised adversarial training, our approach can leverage unlabeled images, making it more versatile. Overall, our work highlights the critical role of tokenizer robu</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">对抗攻击可以扰动离散分词器提取的特征，从而改变提取的令牌。为此，无监督的对抗训练能够提高模型对无监督和端到端监督攻击的鲁棒性，使得未标记图像也能被利用，从而增强模型的灵活性。离散图像分词器在多模态系统中越来越受欢迎，但它们的对抗鲁棒性尚未被研究。首次研究离散图像分词器的对抗鲁棒性的工作揭示了它们的脆弱性，所提出的攻击方法计算效率高且适用于各种应用。因此，对抗攻击的鲁棒性对于开发安全的多模态基础模型至关重要。此外，分词器的鲁棒性对下游任务在多模态系统中的表现至关重要，而所提出的方法在面对未见过的任务和数据时具有良好的泛化能力。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>adversarial attacks can perturb features extracted by discrete tokenizers, changing the extracted tokens.</li>
+<li>unsupervised adversarial training can improve robustness to both unsupervised and end-to-end supervised attacks.</li>
+<li>unlabeled images can be leveraged by the proposed approach, making it more versatile than supervised adversarial training.</li>
+<li>tokenizer robustness is critical for downstream tasks in multimodal systems.</li>
+<li>the proposed approach generalizes well to unseen tasks and data.</li>
+<li>discrete image tokenizers are gaining popularity in multimodal systems but have not been studied for adversarial robustness.</li>
+<li>first work studying adversarial robustness of discrete image tokenizers highlights their vulnerability.</li>
+<li>attacks formulated in this work are computationally efficient and application-agnostic.</li>
+<li>robustness to adversarial attacks is important for developing safe multimodal foundation models.</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-25">正文（抓取，非 AI）</h3>
+<p>[2602.18252v1] On the Adversarial Robustness of Discrete Image Tokenizers Computer Science &gt; Computer Vision and Pattern Recognition arXiv:2602.18252v1 (cs) [Submitted on 20 Feb 2026] Title: On the Adversarial Robustness of Discrete Image Tokenizers Authors: Rishika Bhagwatkar , Irina Rish , Nicolas Flammarion , Francesco Croce View a PDF of the paper titled On the Adversarial Robustness of Discrete Image Tokenizers, by Rishika Bhagwatkar and 3 other authors View PDF HTML (experimental) Abstract: Discrete image tokenizers encode visual inputs as sequences of tokens from a finite vocabulary and are gaining popularity in multimodal systems, including encoder-only, encoder-decoder, and decoder-only models. However, unlike CLIP encoders, their vulnerability to adversarial attacks has not been explored. Ours being the first work studying this topic, we first formulate attacks that aim to perturb the features extracted by discrete tokenizers, and thus change the extracted tokens. These attacks are computationally efficient, application-agnostic, and effective across classification, multimodal retrieval, and captioning tasks. Second, to defend against this vulnerability, inspired by recent work on robust CLIP encoders, we fine-tune popular tokenizers with unsupervised adversarial training, keeping all other components frozen. While unsupervised and task-agnostic, our approach significantly improves robustness to both unsupervised and end-to-end supervised attacks and generalizes well to unseen tasks and data. Unlike supervised adversarial training, our approach can leverage unlabeled images, making it more versatile. Overall, our work highlights the critical role of tokenizer robustness in downstream tasks and presents an important step in the development of safe multimodal foundation models. Subjects: Computer Vision and Pattern Recognition (cs.CV) ; Artificial Intelligence (cs.AI) Cite as: arXiv:2602.18252 [cs.CV] (or arXiv:2602.18252v1 [cs.CV] for this version) https://doi.org/10.48550/arXiv.2602.18252 Focus to learn more arXiv-issued DOI via DataCite (pending registration) Submission history From: Rishika Bhagwatkar [ view email ] [v1] Fri, 20 Feb 2026 14:39:17 UTC (7,133 KB) Full-text links: Access Paper: View a PDF of the paper titled On the Adversarial Robustness of Discrete Image Tokenizers, by Rishika Bhagwatkar and 3 other authors View PDF HTML (experimental) TeX Source view license Current browse context: cs.CV &lt; prev | next &gt; new | recent | 2026-02 Change to browse by: cs cs.AI References &amp; Citations NASA ADS Google Scholar Semantic Scholar export BibTeX citation Loading... BibTeX formatted citation × loading... Data provided by: Bookmark Bibliographic Tools Bibliographic and Citation Tools Bibliographic Explorer Toggle Bibliographic Explorer ( What is the Explorer? ) Connected Papers Toggle Connected Papers ( What is Connected Papers? ) Litmaps Toggle Litmaps ( What is Litmaps? ) scite.ai Toggle scite Smart Citations ( What are Smart Citations? ) Code, Data, Media Code, Data and Media Associated with this Article alphaXiv Toggle alphaXiv ( What is alphaXiv? ) Links to Code Toggle CatalyzeX Code Finder for Papers ( What is CatalyzeX? ) DagsHub Toggle DagsHub ( What is DagsHub? ) GotitPub Toggle Gotit.pub ( What is GotitPub? ) Huggingface Toggle Hugging Face ( What is Huggingface? ) Links to Code Toggle Papers with Code ( What is Papers with Code? ) ScienceCast Toggle ScienceCast ( What is ScienceCast? ) Demos Demos Replicate Toggle Replicate ( What is Replicate? ) Spaces Toggle Hugging Face Spaces ( What is Spaces? ) Spaces Toggle TXYZ.AI ( What is TXYZ.AI? ) Related Papers Recommenders and Search Tools Link to Influence Flower Influence Flower ( What are Influence Flowers? ) Core recommender toggle CORE Recommender ( What is CORE? ) Author Venue Institution Topic About arXivLabs arXivLabs: experimental projects with community collaborators arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs . Which authors of this paper are endorsers? | Disable MathJax ( What is MathJax? )</p>
+</div></details><h2 id="toc-26">14. Participation Ratio as a Quantum Probe of Hierarchical Stickiness</h2>
+<ul>
+<li>链接：https://arxiv.org/abs/2602.18412v1</li>
+<li>来源：arxiv</li>
+<li>摘要：We investigate how quantum localization encodes the hierarchical stickiness that governs transport in mixed classical phase spaces. Using the periodically driven kicked top, we show that the participation ratio (PR) of coherent states in the Floquet eigenbasis resolves the same layered structure that appears classically as a multimodal distribution of finite-time Lyapunov exponents (FTLEs). To establish a quantitative correspondence, we introduce a Gaussian coarse graining of the FTLE matched to the intrinsic semiclassical resolution of coherent states. Both local correlations and global comparisons of probability distributions demonstrate that quantum and classical indicators agree optimally within a finite window of evolution times, where sticky structures are most clearly resolved. Our results promote the participation ratio from a global measure of chaos to a sensitive probe of hierarchical transport and provide a practical route for diagnosing anomalous localization in driven quantum systems.</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">量子局域化编码了混合经典相空间中层级粘性的结构，这一现象揭示了量子系统在有限演化时间窗口内最优一致的粘性结构。参与度比（PR）在Floquet本征基下的相干态参与度揭示了与经典FTLEs分布相同的分层结构，这表明量子系统与经典系统在层级粘性方面具有相似的分层特征。FTLEs的高斯粗粒化匹配相干态的固有半经典分辨率，进一步证明了量子系统在层级传输中的敏感性。局部相关性和全局概率分布比较展示了量子和经典指标在有限演化时间窗口内的一致性，使得粘性结构在有限时间内最清晰地被解决。因此，参与度比从一个全局混沌度量转变为一个敏感的层级传输探针，提供了一种诊断驱动量子系统异常局域化的实用途径。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>量子局域化编码了混合经典相空间中层级粘性的结构。</li>
+<li>参与度比（PR）在Floquet本征基下的相干态参与度揭示了与经典FTLEs分布相同的分层结构。</li>
+<li>FTLEs的高斯粗粒化匹配相干态的固有半经典分辨率。</li>
+<li>局部相关性和全局概率分布比较展示了量子和经典指标在有限演化时间窗口内最优一致。</li>
+<li>粘性结构在有限演化时间窗口内最清晰地被解决。</li>
+<li>参与度比从一个全局混沌度量转变为一个敏感的层级传输探针。</li>
+<li>参与度比提供了一种诊断驱动量子系统异常局域化的实用途径。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-27">正文（抓取，非 AI）</h3>
+<p>[2602.18412v1] Participation Ratio as a Quantum Probe of Hierarchical Stickiness Quantum Physics arXiv:2602.18412v1 (quant-ph) [Submitted on 20 Feb 2026] Title: Participation Ratio as a Quantum Probe of Hierarchical Stickiness Authors: Ariel A. Galindo Duque (1), Miguel A. Prado Reynoso (1 and 2), Miguel Gonzalez (1 and 3), Jorge G. Hirsch (1) ((1) Instituto de Ciencias Nucleares, Universidad Nacional Autónoma de México, México. (2) Nonlinear Dynamics, Chaos and Complex Systems Group, Departamento de Física, Universidad Rey Juan Carlos, España. (3) Center for Theoretical Physics of Complex Systems, Institute for Basic Science (IBS), Republic of Korea.) View a PDF of the paper titled Participation Ratio as a Quantum Probe of Hierarchical Stickiness, by Ariel A. Galindo Duque (1) and 10 other authors View PDF Abstract: We investigate how quantum localization encodes the hierarchical stickiness that governs transport in mixed classical phase spaces. Using the periodically driven kicked top, we show that the participation ratio (PR) of coherent states in the Floquet eigenbasis resolves the same layered structure that appears classically as a multimodal distribution of finite-time Lyapunov exponents (FTLEs). To establish a quantitative correspondence, we introduce a Gaussian coarse graining of the FTLE matched to the intrinsic semiclassical resolution of coherent states. Both local correlations and global comparisons of probability distributions demonstrate that quantum and classical indicators agree optimally within a finite window of evolution times, where sticky structures are most clearly resolved. Our results promote the participation ratio from a global measure of chaos to a sensitive probe of hierarchical transport and provide a practical route for diagnosing anomalous localization in driven quantum systems. Comments: 9 pages, 4 figures Subjects: Quantum Physics (quant-ph) ; Chaotic Dynamics (nlin.CD) Cite as: arXiv:2602.18412 [quant-ph] (or arXiv:2602.18412v1 [quant-ph] for this version) https://doi.org/10.48550/arXiv.2602.18412 Focus to learn more arXiv-issued DOI via DataCite (pending registration) Submission history From: Ariel Aketzalli Galindo Duque [ view email ] [v1] Fri, 20 Feb 2026 18:23:41 UTC (8,145 KB) Full-text links: Access Paper: View a PDF of the paper titled Participation Ratio as a Quantum Probe of Hierarchical Stickiness, by Ariel A. Galindo Duque (1) and 10 other authors View PDF TeX Source view license Current browse context: quant-ph &lt; prev | next &gt; new | recent | 2026-02 Change to browse by: nlin nlin.CD References &amp; Citations INSPIRE HEP NASA ADS Google Scholar Semantic Scholar export BibTeX citation Loading... BibTeX formatted citation × loading... Data provided by: Bookmark Bibliographic Tools Bibliographic and Citation Tools Bibliographic Explorer Toggle Bibliographic Explorer ( What is the Explorer? ) Connected Papers Toggle Connected Papers ( What is Connected Papers? ) Litmaps Toggle Litmaps ( What is Litmaps? ) scite.ai Toggle scite Smart Citations ( What are Smart Citations? ) Code, Data, Media Code, Data and Media Associated with this Article alphaXiv Toggle alphaXiv ( What is alphaXiv? ) Links to Code Toggle CatalyzeX Code Finder for Papers ( What is CatalyzeX? ) DagsHub Toggle DagsHub ( What is DagsHub? ) GotitPub Toggle Gotit.pub ( What is GotitPub? ) Huggingface Toggle Hugging Face ( What is Huggingface? ) Links to Code Toggle Papers with Code ( What is Papers with Code? ) ScienceCast Toggle ScienceCast ( What is ScienceCast? ) Demos Demos Replicate Toggle Replicate ( What is Replicate? ) Spaces Toggle Hugging Face Spaces ( What is Spaces? ) Spaces Toggle TXYZ.AI ( What is TXYZ.AI? ) Related Papers Recommenders and Search Tools Link to Influence Flower Influence Flower ( What are Influence Flowers? ) Core recommender toggle CORE Recommender ( What is CORE? ) Author Venue Institution Topic About arXivLabs arXivLabs: experimental projects with community collaborators arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs . Which authors of this paper are endorsers? | Disable MathJax ( What is MathJax? )</p>
+</div></details><h2 id="toc-28">15. Diffusing to Coordinate: Efficient Online Multi-Agent Diffusion Policies</h2>
+<ul>
+<li>链接：https://arxiv.org/abs/2602.18291v1</li>
+<li>来源：arxiv</li>
+<li>摘要：Online Multi-Agent Reinforcement Learning (MARL) is a prominent framework for efficient agent coordination. Crucially, enhancing policy expressiveness is pivotal for achieving superior performance. Diffusion-based generative models are well-positioned to meet this demand, having demonstrated remarkable expressiveness and multimodal representation in image generation and offline settings. Yet, their potential in online MARL remains largely under-explored. A major obstacle is that the intractable likelihoods of diffusion models impede entropy-based exploration and coordination. To tackle this challenge, we propose among the first \underline{O}nline off-policy \underline{MA}RL framework using \underline{D}iffusion policies (\textbf{OMAD}) to orchestrate coordination. Our key innovation is a relaxed policy objective that maximizes scaled joint entropy, facilitating effective exploration without relying on tractable likelihood. Complementing this, within the centralized training with decentralized execution (CTDE) paradigm, we employ a joint distributional value function to optimize decentralized diffusion policies. It leverages tractable entropy-augmented targets to guide the simultane</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">在处理难以计算的扩散模型的概率时，难以直接利用基于熵的方法进行探索和协调，因为这些概率的计算复杂性使得基于熵的探索变得困难。为了解决这一问题，研究人员提出了一个放松政策目标的方法，通过最大化联合熵的缩放值来促进有效的探索。这种方法在连续时间动态环境（CTDE）框架下优化分散的扩散策略，通过增加联合熵的目标来引导扩散策略的同时更新，从而实现稳定协调。此外，OMAD框架展示了在各种任务中显著提高样本效率的能力，证明了这种方法的有效性。因此，通过这些改进，扩散模型的探索和协调变得更加高效和稳定。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>intractable likelihoods of diffusion models hinder entropy-based exploration and coordination.</li>
+<li>relaxed policy objective maximizes scaled joint entropy to facilitate effective exploration.</li>
+<li>joint distributional value function optimizes decentralized diffusion policies within CTDE paradigm.</li>
+<li>entropy-augmented targets guide simultaneous updates of diffusion policies for stable coordination.</li>
+<li>OMAD framework demonstrates remarkable improvement in sample efficiency across diverse tasks.</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-29">正文（抓取，非 AI）</h3>
+<p>[2602.18291v1] Diffusing to Coordinate: Efficient Online Multi-Agent Diffusion Policies Computer Science &gt; Artificial Intelligence arXiv:2602.18291v1 (cs) [Submitted on 20 Feb 2026] Title: Diffusing to Coordinate: Efficient Online Multi-Agent Diffusion Policies Authors: Zhuoran Li , Hai Zhong , Xun Wang , Qingxin Xia , Lihua Zhang , Longbo Huang View a PDF of the paper titled Diffusing to Coordinate: Efficient Online Multi-Agent Diffusion Policies, by Zhuoran Li and 5 other authors View PDF HTML (experimental) Abstract: Online Multi-Agent Reinforcement Learning (MARL) is a prominent framework for efficient agent coordination. Crucially, enhancing policy expressiveness is pivotal for achieving superior performance. Diffusion-based generative models are well-positioned to meet this demand, having demonstrated remarkable expressiveness and multimodal representation in image generation and offline settings. Yet, their potential in online MARL remains largely under-explored. A major obstacle is that the intractable likelihoods of diffusion models impede entropy-based exploration and coordination. To tackle this challenge, we propose among the first \underline{O}nline off-policy \underline{MA}RL framework using \underline{D}iffusion policies (\textbf{OMAD}) to orchestrate coordination. Our key innovation is a relaxed policy objective that maximizes scaled joint entropy, facilitating effective exploration without relying on tractable likelihood. Complementing this, within the centralized training with decentralized execution (CTDE) paradigm, we employ a joint distributional value function to optimize decentralized diffusion policies. It leverages tractable entropy-augmented targets to guide the simultaneous updates of diffusion policies, thereby ensuring stable coordination. Extensive evaluations on MPE and MAMuJoCo establish our method as the new state-of-the-art across $10$ diverse tasks, demonstrating a remarkable $2.5\times$ to $5\times$ improvement in sample efficiency. Subjects: Artificial Intelligence (cs.AI) Cite as: arXiv:2602.18291 [cs.AI] (or arXiv:2602.18291v1 [cs.AI] for this version) https://doi.org/10.48550/arXiv.2602.18291 Focus to learn more arXiv-issued DOI via DataCite (pending registration) Submission history From: Zhuoran Li [ view email ] [v1] Fri, 20 Feb 2026 15:38:02 UTC (6,699 KB) Full-text links: Access Paper: View a PDF of the paper titled Diffusing to Coordinate: Efficient Online Multi-Agent Diffusion Policies, by Zhuoran Li and 5 other authors View PDF HTML (experimental) TeX Source view license Current browse context: cs.AI &lt; prev | next &gt; new | recent | 2026-02 Change to browse by: cs References &amp; Citations NASA ADS Google Scholar Semantic Scholar export BibTeX citation Loading... BibTeX formatted citation × loading... Data provided by: Bookmark Bibliographic Tools Bibliographic and Citation Tools Bibliographic Explorer Toggle Bibliographic Explorer ( What is the Explorer? ) Connected Papers Toggle Connected Papers ( What is Connected Papers? ) Litmaps Toggle Litmaps ( What is Litmaps? ) scite.ai Toggle scite Smart Citations ( What are Smart Citations? ) Code, Data, Media Code, Data and Media Associated with this Article alphaXiv Toggle alphaXiv ( What is alphaXiv? ) Links to Code Toggle CatalyzeX Code Finder for Papers ( What is CatalyzeX? ) DagsHub Toggle DagsHub ( What is DagsHub? ) GotitPub Toggle Gotit.pub ( What is GotitPub? ) Huggingface Toggle Hugging Face ( What is Huggingface? ) Links to Code Toggle Papers with Code ( What is Papers with Code? ) ScienceCast Toggle ScienceCast ( What is ScienceCast? ) Demos Demos Replicate Toggle Replicate ( What is Replicate? ) Spaces Toggle Hugging Face Spaces ( What is Spaces? ) Spaces Toggle TXYZ.AI ( What is TXYZ.AI? ) Related Papers Recommenders and Search Tools Link to Influence Flower Influence Flower ( What are Influence Flowers? ) Core recommender toggle CORE Recommender ( What is CORE? ) Author Venue Institution Topic About arXivLabs arXivLabs: experimental projects with community collaborators arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs . Which authors of this paper are endorsers? | Disable MathJax ( What is MathJax? )</p>
+</div></details><h2 id="toc-30">16. Continual-NExT: A Unified Comprehension And Generation Continual Learning Framework</h2>
+<ul>
+<li>链接：https://arxiv.org/abs/2602.18055v1</li>
+<li>来源：arxiv</li>
+<li>摘要：Dual-to-Dual MLLMs refer to Multimodal Large Language Models, which can enable unified multimodal comprehension and generation through text and image modalities. Although exhibiting strong instantaneous learning and generalization capabilities, Dual-to-Dual MLLMs still remain deficient in lifelong evolution, significantly affecting continual adaptation to dynamic real-world scenarios. One of the challenges is that learning new tasks inevitably destroys the learned knowledge. Beyond traditional catastrophic forgetting, Dual-to-Dual MLLMs face other challenges, including hallucination, instruction unfollowing, and failures in cross-modal knowledge transfer. However, no standardized continual learning framework for Dual-to-Dual MLLMs has been established yet, leaving these challenges unexplored. Thus, in this paper, we establish Continual-NExT, a continual learning framework for Dual-to-Dual MLLMs with deliberately-architected evaluation metrics. To improve the continual learning capability of Dual-to-Dual MLLMs, we propose an efficient MAGE (Mixture and Aggregation of General LoRA and Expert LoRA) method to further facilitate knowledge transfer across modalities and mitigate forgetti</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">Dual-to-Dual 多层语言模型（MLLMs）在学习新任务时面临诸多挑战，不仅会破坏已学知识，还会出现幻觉、指令不遵循以及跨模态知识转移失败的问题。这些问题使得 Dual-to-Dual MLLMs 的持续学习能力受到严重影响。目前，缺乏一个标准化的持续学习框架来应对这些问题。为了解决这些问题，Continual-NExT 框架通过精心设计的评估指标来提高 Dual-to-Dual MLLMs 的持续学习能力。其中，MAGE 方法在跨模态知识转移方面表现出色，有助于减轻遗忘问题。实验结果表明，MAGE 方法在持续学习性能上优于其他方法，达到了最佳性能。因此，MAGE 方法为解决 Dual-to-Dual MLLMs 的持续学习问题提供了一个有效的解决方案。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>Dual-to-Dual MLLMs面临学习新任务时会破坏已学知识的问题。</li>
+<li>Dual-to-Dual MLLMs除了传统灾难性遗忘外，还面临幻觉、指令不遵循和跨模态知识转移失败的问题。</li>
+<li>没有标准化的Dual-to-Dual MLLMs的持续学习框架。</li>
+<li>Continual-NExT框架通过精心设计的评估指标来提高Dual-to-Dual MLLMs的持续学习能力。</li>
+<li>MAGE方法有助于跨模态的知识转移并减轻遗忘。</li>
+<li>实验表明MAGE方法优于其他持续学习方法，达到最佳性能。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-31">正文（抓取，非 AI）</h3>
+<p>[2602.18055v1] Continual-NExT: A Unified Comprehension And Generation Continual Learning Framework Computer Science &gt; Machine Learning arXiv:2602.18055v1 (cs) [Submitted on 20 Feb 2026] Title: Continual-NExT: A Unified Comprehension And Generation Continual Learning Framework Authors: Jingyang Qiao , Zhizhong Zhang , Xin Tan , Jingyu Gong , Yanyun Qu , Yuan Xie View a PDF of the paper titled Continual-NExT: A Unified Comprehension And Generation Continual Learning Framework, by Jingyang Qiao and Zhizhong Zhang and Xin Tan and Jingyu Gong and Yanyun Qu and Yuan Xie View PDF HTML (experimental) Abstract: Dual-to-Dual MLLMs refer to Multimodal Large Language Models, which can enable unified multimodal comprehension and generation through text and image modalities. Although exhibiting strong instantaneous learning and generalization capabilities, Dual-to-Dual MLLMs still remain deficient in lifelong evolution, significantly affecting continual adaptation to dynamic real-world scenarios. One of the challenges is that learning new tasks inevitably destroys the learned knowledge. Beyond traditional catastrophic forgetting, Dual-to-Dual MLLMs face other challenges, including hallucination, instruction unfollowing, and failures in cross-modal knowledge transfer. However, no standardized continual learning framework for Dual-to-Dual MLLMs has been established yet, leaving these challenges unexplored. Thus, in this paper, we establish Continual-NExT, a continual learning framework for Dual-to-Dual MLLMs with deliberately-architected evaluation metrics. To improve the continual learning capability of Dual-to-Dual MLLMs, we propose an efficient MAGE (Mixture and Aggregation of General LoRA and Expert LoRA) method to further facilitate knowledge transfer across modalities and mitigate forgetting. Extensive experiments demonstrate that MAGE outperforms other continual learning methods and achieves state-of-the-art performance. Subjects: Machine Learning (cs.LG) Cite as: arXiv:2602.18055 [cs.LG] (or arXiv:2602.18055v1 [cs.LG] for this version) https://doi.org/10.48550/arXiv.2602.18055 Focus to learn more arXiv-issued DOI via DataCite (pending registration) Submission history From: Yuan Xie [ view email ] [v1] Fri, 20 Feb 2026 08:15:28 UTC (16,223 KB) Full-text links: Access Paper: View a PDF of the paper titled Continual-NExT: A Unified Comprehension And Generation Continual Learning Framework, by Jingyang Qiao and Zhizhong Zhang and Xin Tan and Jingyu Gong and Yanyun Qu and Yuan Xie View PDF HTML (experimental) TeX Source view license Current browse context: cs.LG &lt; prev | next &gt; new | recent | 2026-02 Change to browse by: cs References &amp; Citations NASA ADS Google Scholar Semantic Scholar export BibTeX citation Loading... BibTeX formatted citation × loading... Data provided by: Bookmark Bibliographic Tools Bibliographic and Citation Tools Bibliographic Explorer Toggle Bibliographic Explorer ( What is the Explorer? ) Connected Papers Toggle Connected Papers ( What is Connected Papers? ) Litmaps Toggle Litmaps ( What is Litmaps? ) scite.ai Toggle scite Smart Citations ( What are Smart Citations? ) Code, Data, Media Code, Data and Media Associated with this Article alphaXiv Toggle alphaXiv ( What is alphaXiv? ) Links to Code Toggle CatalyzeX Code Finder for Papers ( What is CatalyzeX? ) DagsHub Toggle DagsHub ( What is DagsHub? ) GotitPub Toggle Gotit.pub ( What is GotitPub? ) Huggingface Toggle Hugging Face ( What is Huggingface? ) Links to Code Toggle Papers with Code ( What is Papers with Code? ) ScienceCast Toggle ScienceCast ( What is ScienceCast? ) Demos Demos Replicate Toggle Replicate ( What is Replicate? ) Spaces Toggle Hugging Face Spaces ( What is Spaces? ) Spaces Toggle TXYZ.AI ( What is TXYZ.AI? ) Related Papers Recommenders and Search Tools Link to Influence Flower Influence Flower ( What are Influence Flowers? ) Core recommender toggle CORE Recommender ( What is CORE? ) IArxiv recommender toggle IArxiv Recommender ( What is IArxiv? ) Author Venue Institution Topic About arXivLabs arXivLabs: experimental projects with community collaborators arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs . Which authors of this paper are endorsers? | Disable MathJax ( What is MathJax? )</p>
+</div></details><h2 id="toc-32">17. RoEL: Robust Event-based 3D Line Reconstruction</h2>
+<ul>
+<li>链接：https://arxiv.org/abs/2602.18258v1</li>
+<li>来源：arxiv</li>
+<li>摘要：Event cameras in motion tend to detect object boundaries or texture edges, which produce lines of brightness changes, especially in man-made environments. While lines can constitute a robust intermediate representation that is consistently observed, the sparse nature of lines may lead to drastic deterioration with minor estimation errors. Only a few previous works, often accompanied by additional sensors, utilize lines to compensate for the severe domain discrepancies of event sensors along with unpredictable noise characteristics. We propose a method that can stably extract tracks of varying appearances of lines using a clever algorithmic process that observes multiple representations from various time slices of events, compensating for potential adversaries within the event data. We then propose geometric cost functions that can refine the 3D line maps and camera poses, eliminating projective distortions and depth ambiguities. The 3D line maps are highly compact and can be equipped with our proposed cost function, which can be adapted for any observations that can detect and extract line structures or projections of them, including 3D point cloud maps or image observations. We de</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">亮度变化的线是由于运动中的事件相机检测物体边界或纹理边缘产生的，这些线可以构成一个稳健的中间表示，但其稀疏性可能导致轻微估计错误导致大幅恶化。为了利用线来补偿事件传感器的严重领域差异和不可预测的噪声特性，需要额外传感器。我们的方法能够稳定地提取线的多种外观，并且可以补偿事件数据中的潜在对手。通过使用几何代价函数，可以细化3D线图和相机姿态，消除投影失真和深度歧义。D线图非常紧凑，能够适应任何可以检测和提取线结构或其投影的观测。因此，我们的方法在多种数据集上展示了显著的性能提升，适用于多模态场景，提出的基于线的方法是稳健且有效的，适用于事件感知模块的实际部署。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>亮度变化的线是由于运动中的事件相机检测物体边界或纹理边缘产生的。</li>
+<li>线可以构成一个稳健的中间表示，但稀疏性可能导致轻微估计错误导致大幅恶化。</li>
+<li>利用线来补偿事件传感器的严重领域差异和不可预测的噪声特性需要额外传感器。</li>
+<li>我们的方法可以稳定地提取线的多种外观，补偿事件数据中的潜在对手。</li>
+<li>几何代价函数可以细化3D线图和相机姿态，消除投影失真和深度歧义。</li>
+<li>D线图非常紧凑，可以适应任何可以检测和提取线结构或其投影的观测。</li>
+<li>我们的方法在多种数据集上展示了显著的性能提升，适用于多模态场景。</li>
+<li>提出的基于线的方法是稳健且有效的，适用于事件感知模块的实际部署。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-33">正文（抓取，非 AI）</h3>
+<p>[2602.18258v1] RoEL: Robust Event-based 3D Line Reconstruction Computer Science &gt; Robotics arXiv:2602.18258v1 (cs) [Submitted on 20 Feb 2026] Title: RoEL: Robust Event-based 3D Line Reconstruction Authors: Gwangtak Bae , Jaeho Shin , Seunggu Kang , Junho Kim , Ayoung Kim , Young Min Kim View a PDF of the paper titled RoEL: Robust Event-based 3D Line Reconstruction, by Gwangtak Bae and 5 other authors View PDF HTML (experimental) Abstract: Event cameras in motion tend to detect object boundaries or texture edges, which produce lines of brightness changes, especially in man-made environments. While lines can constitute a robust intermediate representation that is consistently observed, the sparse nature of lines may lead to drastic deterioration with minor estimation errors. Only a few previous works, often accompanied by additional sensors, utilize lines to compensate for the severe domain discrepancies of event sensors along with unpredictable noise characteristics. We propose a method that can stably extract tracks of varying appearances of lines using a clever algorithmic process that observes multiple representations from various time slices of events, compensating for potential adversaries within the event data. We then propose geometric cost functions that can refine the 3D line maps and camera poses, eliminating projective distortions and depth ambiguities. The 3D line maps are highly compact and can be equipped with our proposed cost function, which can be adapted for any observations that can detect and extract line structures or projections of them, including 3D point cloud maps or image observations. We demonstrate that our formulation is powerful enough to exhibit a significant performance boost in event-based mapping and pose refinement across diverse datasets, and can be flexibly applied to multimodal scenarios. Our results confirm that the proposed line-based formulation is a robust and effective approach for the practical deployment of event-based perceptual modules. Project page: this https URL Comments: IEEE Transactions on Robotics (T-RO) Subjects: Robotics (cs.RO) ; Computer Vision and Pattern Recognition (cs.CV) Cite as: arXiv:2602.18258 [cs.RO] (or arXiv:2602.18258v1 [cs.RO] for this version) https://doi.org/10.48550/arXiv.2602.18258 Focus to learn more arXiv-issued DOI via DataCite (pending registration) Submission history From: Gwangtak Bae [ view email ] [v1] Fri, 20 Feb 2026 14:43:46 UTC (13,899 KB) Full-text links: Access Paper: View a PDF of the paper titled RoEL: Robust Event-based 3D Line Reconstruction, by Gwangtak Bae and 5 other authors View PDF HTML (experimental) TeX Source view license Current browse context: cs.RO &lt; prev | next &gt; new | recent | 2026-02 Change to browse by: cs cs.CV References &amp; Citations NASA ADS Google Scholar Semantic Scholar export BibTeX citation Loading... BibTeX formatted citation × loading... Data provided by: Bookmark Bibliographic Tools Bibliographic and Citation Tools Bibliographic Explorer Toggle Bibliographic Explorer ( What is the Explorer? ) Connected Papers Toggle Connected Papers ( What is Connected Papers? ) Litmaps Toggle Litmaps ( What is Litmaps? ) scite.ai Toggle scite Smart Citations ( What are Smart Citations? ) Code, Data, Media Code, Data and Media Associated with this Article alphaXiv Toggle alphaXiv ( What is alphaXiv? ) Links to Code Toggle CatalyzeX Code Finder for Papers ( What is CatalyzeX? ) DagsHub Toggle DagsHub ( What is DagsHub? ) GotitPub Toggle Gotit.pub ( What is GotitPub? ) Huggingface Toggle Hugging Face ( What is Huggingface? ) Links to Code Toggle Papers with Code ( What is Papers with Code? ) ScienceCast Toggle ScienceCast ( What is ScienceCast? ) Demos Demos Replicate Toggle Replicate ( What is Replicate? ) Spaces Toggle Hugging Face Spaces ( What is Spaces? ) Spaces Toggle TXYZ.AI ( What is TXYZ.AI? ) Related Papers Recommenders and Search Tools Link to Influence Flower Influence Flower ( What are Influence Flowers? ) Core recommender toggle CORE Recommender ( What is CORE? ) Author Venue Institution Topic About arXivLabs arXivLabs: experimental projects with community collaborators arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs . Which authors of this paper are endorsers? | Disable MathJax ( What is MathJax? )</p>
+</div></details><h2 id="toc-34">18. Super-Resolution Structured-Illumination X-Ray Microscopy based on Fourier Decomposition</h2>
+<ul>
+<li>链接：https://arxiv.org/abs/2602.18343v1</li>
+<li>来源：arxiv</li>
+<li>摘要：We present a structured-illumination technique for full-field super-resolution transmission X-ray microscopy, which employs Fourier spectral decomposition inspired by established methods in visible-light microscopy. A 2D grating creating this illumination is stepped across one period to acquire a set of images at unique illumination positions. The Fourier domain of each image is described as a linear combination of replicated sample information at each frequency harmonic. As this superposition is created independently of detection, it contains spatial information exceeding native detector resolution. Recovering the encoded high-frequency components enables the population of an expanded frequency space. We demonstrate the presence of additional sample information in the Fourier spectrum and introduce a method to recover it. We achieve a resolution improvement by a factor of 2.1 for the projection image of a resolution test pattern. We further demonstrate seamless integration into standard X-ray tomography acquisition schemes. The acquisition is inherently multimodal, as phase-contrast and dark-field images can be computed from the same data using methods such as unified modulated pa</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">Fourier域中的信息独立于检测过程生成，因此包含超越检测器分辨率的空间信息。高频率成分的恢复使得频谱空间扩展成为可能，进而重建的图像分辨率提高了2.1倍。这一技术不仅能够从相同数据中计算出相位对比和暗场图像，还能无缝集成到标准X射线断层扫描采集方案中。提供的额外超分辨率传输通道可以用于非破坏性测试和生物医学成像，缓解了光子计数检测器的像素大小限制和光学放大引起的样本大小限制。因此，这种方法不仅提高了图像的分辨率，还扩展了应用范围，增强了检测的灵活性和实用性。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>Fourier域中的信息独立于检测过程生成，因此包含超越检测器分辨率的空间信息。</li>
+<li>高频率成分的恢复使频谱空间扩展成为可能。</li>
+<li>重建的图像分辨率提高了2.1倍。</li>
+<li>相位对比和暗场图像可以从相同数据中计算出来。</li>
+<li>该技术可以无缝集成到标准X射线断层扫描采集方案中。</li>
+<li>提供的额外超分辨率传输通道可以用于非破坏性测试和生物医学成像。</li>
+<li>这种方法缓解了光子计数检测器的像素大小限制和光学放大引起的样本大小限制。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-35">正文（抓取，非 AI）</h3>
+<p>[2602.18343v1] Super-Resolution Structured-Illumination X-Ray Microscopy based on Fourier Decomposition Physics &gt; Optics arXiv:2602.18343v1 (physics) [Submitted on 20 Feb 2026] Title: Super-Resolution Structured-Illumination X-Ray Microscopy based on Fourier Decomposition Authors: Stefan Schwaiger , Lennart Forster , Martin Dierolf , Franz Pfeiffer , Benedikt Günther View a PDF of the paper titled Super-Resolution Structured-Illumination X-Ray Microscopy based on Fourier Decomposition, by Stefan Schwaiger and 4 other authors View PDF HTML (experimental) Abstract: We present a structured-illumination technique for full-field super-resolution transmission X-ray microscopy, which employs Fourier spectral decomposition inspired by established methods in visible-light microscopy. A 2D grating creating this illumination is stepped across one period to acquire a set of images at unique illumination positions. The Fourier domain of each image is described as a linear combination of replicated sample information at each frequency harmonic. As this superposition is created independently of detection, it contains spatial information exceeding native detector resolution. Recovering the encoded high-frequency components enables the population of an expanded frequency space. We demonstrate the presence of additional sample information in the Fourier spectrum and introduce a method to recover it. We achieve a resolution improvement by a factor of 2.1 for the projection image of a resolution test pattern. We further demonstrate seamless integration into standard X-ray tomography acquisition schemes. The acquisition is inherently multimodal, as phase-contrast and dark-field images can be computed from the same data using methods such as unified modulated pattern analysis, while providing an additional super-resolved transmission channel. These results indicate broad potential for non-destructive testing and biomedical imaging, as they alleviate pixel-size limitations in photon-counting detectors and sample-size restrictions imposed by optical magnification. Subjects: Optics (physics.optics) Cite as: arXiv:2602.18343 [physics.optics] (or arXiv:2602.18343v1 [physics.optics] for this version) https://doi.org/10.48550/arXiv.2602.18343 Focus to learn more arXiv-issued DOI via DataCite (pending registration) Submission history From: Stefan Schwaiger [ view email ] [v1] Fri, 20 Feb 2026 16:51:44 UTC (7,510 KB) Full-text links: Access Paper: View a PDF of the paper titled Super-Resolution Structured-Illumination X-Ray Microscopy based on Fourier Decomposition, by Stefan Schwaiger and 4 other authors View PDF HTML (experimental) TeX Source view license Current browse context: physics.optics &lt; prev | next &gt; new | recent | 2026-02 Change to browse by: physics References &amp; Citations NASA ADS Google Scholar Semantic Scholar export BibTeX citation Loading... BibTeX formatted citation × loading... Data provided by: Bookmark Bibliographic Tools Bibliographic and Citation Tools Bibliographic Explorer Toggle Bibliographic Explorer ( What is the Explorer? ) Connected Papers Toggle Connected Papers ( What is Connected Papers? ) Litmaps Toggle Litmaps ( What is Litmaps? ) scite.ai Toggle scite Smart Citations ( What are Smart Citations? ) Code, Data, Media Code, Data and Media Associated with this Article alphaXiv Toggle alphaXiv ( What is alphaXiv? ) Links to Code Toggle CatalyzeX Code Finder for Papers ( What is CatalyzeX? ) DagsHub Toggle DagsHub ( What is DagsHub? ) GotitPub Toggle Gotit.pub ( What is GotitPub? ) Huggingface Toggle Hugging Face ( What is Huggingface? ) Links to Code Toggle Papers with Code ( What is Papers with Code? ) ScienceCast Toggle ScienceCast ( What is ScienceCast? ) Demos Demos Replicate Toggle Replicate ( What is Replicate? ) Spaces Toggle Hugging Face Spaces ( What is Spaces? ) Spaces Toggle TXYZ.AI ( What is TXYZ.AI? ) Related Papers Recommenders and Search Tools Link to Influence Flower Influence Flower ( What are Influence Flowers? ) Core recommender toggle CORE Recommender ( What is CORE? ) Author Venue Institution Topic About arXivLabs arXivLabs: experimental projects with community collaborators arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs . Which authors of this paper are endorsers? | Disable MathJax ( What is MathJax? )</p>
+</div></details><h2 id="toc-36">19. Scaling Audio-Text Retrieval with Multimodal Large Language Models</h2>
+<ul>
+<li>链接：https://arxiv.org/abs/2602.18010v1</li>
+<li>来源：arxiv</li>
+<li>摘要：Audio-text retrieval is crucial for bridging acoustic signals and natural language. While contrastive dual-encoder architectures like CLAP have shown promise, they are fundamentally limited by the capacity of small-scale encoders. Specifically, the text encoders struggle to understand complex queries that require reasoning or world knowledge. In this paper, we propose AuroLA, a novel contrastive language-audio pre-training framework that re-purposes Multimodal Large Language Models (MLLMs) as a unified backbone for retrieval. Specifically, we make three contributions: (i) we construct a scalable data pipeline that curates diverse audio from multiple sources and generates multi-granular captions, ranging from long descriptions to structured tags, via automated annotation; (ii) we adapt an MLLM for retrieval by prompting it to summarize the audio/text input and using the hidden state of a special token as audio/text embeddings. For model training, we devise a novel Hybrid-NCE loss, which employs multi-granular supervision and hard-negative reweighting to robustly align audio with diverse textual supervision; and (iii) we design an MLLM-based bidirectional re-ranking module that refin</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">对比双编码器架构如CLAP在处理需要推理或世界知识的复杂查询时存在困难，AuroLA采用大规模语言模型（MLLMs）作为统一的音频-文本检索骨干，有效解决了小型编码器的局限性。AuroLA的数据管道收集来自多个来源的多样化音频，并生成多粒度的字幕，同时通过提示MLLMs对音频/文本输入进行总结来适应检索任务。为了实现与多样文本监督的稳健对齐，AuroLA采用了混合负对数似然（Hybrid-NCE）损失，并引入了双向重排序模块以促进深层次的跨模态交互。实验结果表明，AuroLA在使用少量训练数据的情况下仍能超越现有最佳模型。此外，MLLMs在音频-文本检索中的表现显示出明显的规模趋势，即随着数据集大小和模型容量的增加，其性能也会提升。AuroLA的方法充分利用了MLLMs处理复杂查询和多样化监督的能力，从而显著提升了音频-文本检索的性能。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>contrastive dual-encoder architectures like CLAP struggle with complex queries requiring reasoning or world knowledge.</li>
+<li>AuroLA uses MLLMs as a unified backbone for audio-text retrieval, addressing limitations of small-scale encoders.</li>
+<li>AuroLA's data pipeline curates diverse audio from multiple sources and generates multi-granular captions.</li>
+<li>MLLMs are adapted for retrieval by prompting them to summarize audio/text inputs.</li>
+<li>AuroLA employs a Hybrid-NCE loss for robust alignment with diverse textual supervision.</li>
+<li>AuroLA includes a bidirectional re-ranking module for deep cross-modal interaction.</li>
+<li>Experiments show AuroLA outperforms state-of-the-art models with minimal training data.</li>
+<li>MLLMs show clear scaling trends in dataset size and model capacity for audio-text retrieval.</li>
+<li>AuroLA's approach leverages the capacity of MLLMs to handle complex queries and diverse supervision.</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-37">正文（抓取，非 AI）</h3>
+<p>[2602.18010v1] Scaling Audio-Text Retrieval with Multimodal Large Language Models Computer Science &gt; Sound arXiv:2602.18010v1 (cs) [Submitted on 20 Feb 2026] Title: Scaling Audio-Text Retrieval with Multimodal Large Language Models Authors: Jilan Xu , Carl Thomé , Danijela Horak , Weidi Xie , Andrew Zisserman View a PDF of the paper titled Scaling Audio-Text Retrieval with Multimodal Large Language Models, by Jilan Xu and 4 other authors View PDF HTML (experimental) Abstract: Audio-text retrieval is crucial for bridging acoustic signals and natural language. While contrastive dual-encoder architectures like CLAP have shown promise, they are fundamentally limited by the capacity of small-scale encoders. Specifically, the text encoders struggle to understand complex queries that require reasoning or world knowledge. In this paper, we propose AuroLA, a novel contrastive language-audio pre-training framework that re-purposes Multimodal Large Language Models (MLLMs) as a unified backbone for retrieval. Specifically, we make three contributions: (i) we construct a scalable data pipeline that curates diverse audio from multiple sources and generates multi-granular captions, ranging from long descriptions to structured tags, via automated annotation; (ii) we adapt an MLLM for retrieval by prompting it to summarize the audio/text input and using the hidden state of a special token as audio/text embeddings. For model training, we devise a novel Hybrid-NCE loss, which employs multi-granular supervision and hard-negative reweighting to robustly align audio with diverse textual supervision; and (iii) we design an MLLM-based bidirectional re-ranking module that refines retrieval candidates through deep cross-modal interaction. Extensive experiments demonstrate that AuroLA consistently outperforms state-of-the-art models, including the recent PE-AV, while utilizing only approximately 1% of PE-AV's training data. Lastly, we observe clear scaling trends regarding dataset size and model capacity, validating the effectiveness of MLLM as a unified backbone for audio-text retrieval. Code is available at this https URL . Comments: Technical Report Subjects: Sound (cs.SD) Cite as: arXiv:2602.18010 [cs.SD] (or arXiv:2602.18010v1 [cs.SD] for this version) https://doi.org/10.48550/arXiv.2602.18010 Focus to learn more arXiv-issued DOI via DataCite (pending registration) Submission history From: Jilan Xu [ view email ] [v1] Fri, 20 Feb 2026 05:48:51 UTC (4,508 KB) Full-text links: Access Paper: View a PDF of the paper titled Scaling Audio-Text Retrieval with Multimodal Large Language Models, by Jilan Xu and 4 other authors View PDF HTML (experimental) TeX Source view license Current browse context: cs.SD &lt; prev | next &gt; new | recent | 2026-02 Change to browse by: cs References &amp; Citations NASA ADS Google Scholar Semantic Scholar export BibTeX citation Loading... BibTeX formatted citation × loading... Data provided by: Bookmark Bibliographic Tools Bibliographic and Citation Tools Bibliographic Explorer Toggle Bibliographic Explorer ( What is the Explorer? ) Connected Papers Toggle Connected Papers ( What is Connected Papers? ) Litmaps Toggle Litmaps ( What is Litmaps? ) scite.ai Toggle scite Smart Citations ( What are Smart Citations? ) Code, Data, Media Code, Data and Media Associated with this Article alphaXiv Toggle alphaXiv ( What is alphaXiv? ) Links to Code Toggle CatalyzeX Code Finder for Papers ( What is CatalyzeX? ) DagsHub Toggle DagsHub ( What is DagsHub? ) GotitPub Toggle Gotit.pub ( What is GotitPub? ) Huggingface Toggle Hugging Face ( What is Huggingface? ) Links to Code Toggle Papers with Code ( What is Papers with Code? ) ScienceCast Toggle ScienceCast ( What is ScienceCast? ) Demos Demos Replicate Toggle Replicate ( What is Replicate? ) Spaces Toggle Hugging Face Spaces ( What is Spaces? ) Spaces Toggle TXYZ.AI ( What is TXYZ.AI? ) Related Papers Recommenders and Search Tools Link to Influence Flower Influence Flower ( What are Influence Flowers? ) Core recommender toggle CORE Recommender ( What is CORE? ) Author Venue Institution Topic About arXivLabs arXivLabs: experimental projects with community collaborators arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs . Which authors of this paper are endorsers? | Disable MathJax ( What is MathJax? )</p>
+</div></details><h2 id="toc-38">20. Towards LLM-centric Affective Visual Customization via Efficient and Precise Emotion Manipulating</h2>
+<ul>
+<li>链接：https://arxiv.org/abs/2602.18016v1</li>
+<li>来源：arxiv</li>
+<li>摘要：Previous studies on visual customization primarily rely on the objective alignment between various control signals (e.g., language, layout and canny) and the edited images, which largely ignore the subjective emotional contents, and more importantly lack general-purpose foundation models for affective visual customization. With this in mind, this paper proposes an LLM-centric Affective Visual Customization (L-AVC) task, which focuses on generating images within modifying their subjective emotions via Multimodal LLM. Further, this paper contends that how to make the model efficiently align emotion conversion in semantics (named inter-emotion semantic conversion) and how to precisely retain emotion-agnostic contents (named exter-emotion semantic retaining) are rather important and challenging in this L-AVC task. To this end, this paper proposes an Efficient and Precise Emotion Manipulating approach for editing subjective emotions in images. Specifically, an Efficient Inter-emotion Converting (EIC) module is tailored to make the LLM efficiently align emotion conversion in semantics before and after editing, followed by a Precise Exter-emotion Retaining (PER) module to precisely retain</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">客观对齐主要依赖于各种控制信号（如语言、布局和Canny边缘）与编辑图像之间的匹配，但忽视了主观情感内容。缺乏通用的基础模型来实现情感视觉定制，使得情感视觉定制（L-AVC）任务需要生成修改主观情感的图像。如何使模型高效地在语义上对情感转换进行对齐（即间情感语义转换）是一个重要挑战，而如何精确保留与情感无关的内容（即外情感语义保留）也是一个重要挑战。为此，Efficient Inter-emotion Converting (EIC)模块使LLM在编辑前后高效地对情感进行语义对齐，而Precise Exter-emotion Retaining (PER)模块则精确保留与情感无关的内容。实验结果证明了EPEM方法在L-AVC任务上的优势，情感信息对于L-AVC任务至关重要，EPEM方法在高效和精确地操控情感信息方面是有效的。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>客观对齐主要依赖于各种控制信号（如语言、布局和Canny边缘）与编辑图像之间的匹配，而忽视了主观情感内容。</li>
+<li>缺乏通用的基础模型来实现情感视觉定制。</li>
+<li>情感视觉定制（L-AVC）任务需要生成修改主观情感的图像。</li>
+<li>如何使模型高效地在语义上对情感转换进行对齐（即间情感语义转换）是一个重要挑战。</li>
+<li>如何精确保留与情感无关的内容（即外情感语义保留）也是一个重要挑战。</li>
+<li>Efficient Inter-emotion Converting (EIC)模块使LLM在编辑前后高效地对情感进行语义对齐。</li>
+<li>Precise Exter-emotion Retaining (PER)模块精确保留与情感无关的内容。</li>
+<li>实验结果证明了EPEM方法在L-AVC任务上的优势。</li>
+<li>情感信息对于L-AVC任务至关重要。</li>
+<li>EPEM方法在高效和精确地操控情感信息方面是有效的。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-39">正文（抓取，非 AI）</h3>
+<p>[2602.18016v1] Towards LLM-centric Affective Visual Customization via Efficient and Precise Emotion Manipulating Computer Science &gt; Computer Vision and Pattern Recognition arXiv:2602.18016v1 (cs) [Submitted on 20 Feb 2026] Title: Towards LLM-centric Affective Visual Customization via Efficient and Precise Emotion Manipulating Authors: Jiamin Luo , Xuqian Gu , Jingjing Wang , Jiahong Lu View a PDF of the paper titled Towards LLM-centric Affective Visual Customization via Efficient and Precise Emotion Manipulating, by Jiamin Luo and 3 other authors View PDF HTML (experimental) Abstract: Previous studies on visual customization primarily rely on the objective alignment between various control signals (e.g., language, layout and canny) and the edited images, which largely ignore the subjective emotional contents, and more importantly lack general-purpose foundation models for affective visual customization. With this in mind, this paper proposes an LLM-centric Affective Visual Customization (L-AVC) task, which focuses on generating images within modifying their subjective emotions via Multimodal LLM. Further, this paper contends that how to make the model efficiently align emotion conversion in semantics (named inter-emotion semantic conversion) and how to precisely retain emotion-agnostic contents (named exter-emotion semantic retaining) are rather important and challenging in this L-AVC task. To this end, this paper proposes an Efficient and Precise Emotion Manipulating approach for editing subjective emotions in images. Specifically, an Efficient Inter-emotion Converting (EIC) module is tailored to make the LLM efficiently align emotion conversion in semantics before and after editing, followed by a Precise Exter-emotion Retaining (PER) module to precisely retain the emotion-agnostic contents. Comprehensive experimental evaluations on our constructed L-AVC dataset demonstrate the great advantage of the proposed EPEM approach to the L-AVC task over several state-of-the-art baselines. This justifies the importance of emotion information for L-AVC and the effectiveness of EPEM in efficiently and precisely manipulating such information. Subjects: Computer Vision and Pattern Recognition (cs.CV) Cite as: arXiv:2602.18016 [cs.CV] (or arXiv:2602.18016v1 [cs.CV] for this version) https://doi.org/10.48550/arXiv.2602.18016 Focus to learn more arXiv-issued DOI via DataCite (pending registration) Related DOI : https://doi.org/10.1145/3774904.3792585 Focus to learn more DOI(s) linking to related resources Submission history From: Jiamin Luo [ view email ] [v1] Fri, 20 Feb 2026 06:12:48 UTC (777 KB) Full-text links: Access Paper: View a PDF of the paper titled Towards LLM-centric Affective Visual Customization via Efficient and Precise Emotion Manipulating, by Jiamin Luo and 3 other authors View PDF HTML (experimental) TeX Source view license Current browse context: cs.CV &lt; prev | next &gt; new | recent | 2026-02 Change to browse by: cs References &amp; Citations NASA ADS Google Scholar Semantic Scholar export BibTeX citation Loading... BibTeX formatted citation × loading... Data provided by: Bookmark Bibliographic Tools Bibliographic and Citation Tools Bibliographic Explorer Toggle Bibliographic Explorer ( What is the Explorer? ) Connected Papers Toggle Connected Papers ( What is Connected Papers? ) Litmaps Toggle Litmaps ( What is Litmaps? ) scite.ai Toggle scite Smart Citations ( What are Smart Citations? ) Code, Data, Media Code, Data and Media Associated with this Article alphaXiv Toggle alphaXiv ( What is alphaXiv? ) Links to Code Toggle CatalyzeX Code Finder for Papers ( What is CatalyzeX? ) DagsHub Toggle DagsHub ( What is DagsHub? ) GotitPub Toggle Gotit.pub ( What is GotitPub? ) Huggingface Toggle Hugging Face ( What is Huggingface? ) Links to Code Toggle Papers with Code ( What is Papers with Code? ) ScienceCast Toggle ScienceCast ( What is ScienceCast? ) Demos Demos Replicate Toggle Replicate ( What is Replicate? ) Spaces Toggle Hugging Face Spaces ( What is Spaces? ) Spaces Toggle TXYZ.AI ( What is TXYZ.AI? ) Related Papers Recommenders and Search Tools Link to Influence Flower Influence Flower ( What are Influence Flowers? ) Core recommender toggle CORE Recommender ( What is CORE? ) Author Venue Institution Topic About arXivLabs arXivLabs: experimental projects with community collaborators arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs . Which authors of this paper are endorsers? | Disable MathJax ( What is MathJax? )</p>
+</div></details><h2 id="toc-40">21. 3DMedAgent: Unified Perception-to-Understanding for 3D Medical Analysis</h2>
+<ul>
+<li>链接：https://arxiv.org/abs/2602.18064v1</li>
+<li>来源：arxiv</li>
+<li>摘要：3D CT analysis spans a continuum from low-level perception to high-level clinical understanding. Existing 3D-oriented analysis methods adopt either isolated task-specific modeling or task-agnostic end-to-end paradigms to produce one-hop outputs, impeding the systematic accumulation of perceptual evidence for downstream reasoning. In parallel, recent multimodal large language models (MLLMs) exhibit improved visual perception and can integrate visual and textual information effectively, yet their predominantly 2D-oriented designs fundamentally limit their ability to perceive and analyze volumetric medical data. To bridge this gap, we propose 3DMedAgent, a unified agent that enables 2D MLLMs to perform general 3D CT analysis without 3D-specific fine-tuning. 3DMedAgent coordinates heterogeneous visual and textual tools through a flexible MLLM agent, progressively decomposing complex 3D analysis into tractable subtasks that transition from global to regional views, from 3D volumes to informative 2D slices, and from visual evidence to structured textual representations. Central to this design, 3DMedAgent maintains a long-term structured memory that aggregates intermediate tool outputs an</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">D CT分析从低级感知到高级临床理解是一个连续过程，这一过程要求对3D CT图像进行细致的分析和综合理解。现有的3D分析方法要么采用孤立的任务特定建模，要么采用任务无关的端到端范式，但这些方法都存在局限性。相比之下，D MLLMs在进行3D CT分析时无需3D特定微调，能够更灵活地适应不同的任务需求。为此，DMedAgent通过一个灵活的MLLM代理协调异质的视觉和文本工具，将复杂的3D分析分解为可处理的子任务，从而实现更细致和准确的分析。此外，DMedAgent维护一个长期的结构化记忆，以支持查询适应性和证据驱动的多步推理，这使得它在多个任务上的表现优于一般、医学和3D特定的MLLMs。因此，DMedAgent为3D胸腔成像提供了一个统一的感知到理解的基准，其设计强调了从视觉证据到结构化文本表示的逐步过渡，使得整个分析过程更加系统化和高效。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>D CT分析从低级感知到高级临床理解是一个连续过程。</li>
+<li>现有的3D分析方法要么采用孤立的任务特定建模，要么采用任务无关的端到端范式。</li>
+<li>D MLLMs在进行3D CT分析时无需3D特定微调。</li>
+<li>DMedAgent通过一个灵活的MLLM代理协调异质的视觉和文本工具。</li>
+<li>DMedAgent将复杂的3D分析分解为可处理的子任务。</li>
+<li>DMedAgent维护一个长期的结构化记忆，以支持查询适应性和证据驱动的多步推理。</li>
+<li>DMedAgent在多个任务上的表现优于一般、医学和3D特定的MLLMs。</li>
+<li>DMedAgent为3D胸腔成像提供了一个统一的感知到理解的基准。</li>
+<li>DMedAgent的设计强调了从视觉证据到结构化文本表示的逐步过渡。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-41">正文（抓取，非 AI）</h3>
+<p>[2602.18064v1] 3DMedAgent: Unified Perception-to-Understanding for 3D Medical Analysis Computer Science &gt; Computer Vision and Pattern Recognition arXiv:2602.18064v1 (cs) [Submitted on 20 Feb 2026] Title: 3DMedAgent: Unified Perception-to-Understanding for 3D Medical Analysis Authors: Ziyue Wang , Linghan Cai , Chang Han Low , Haofeng Liu , Junde Wu , Jingyu Wang , Rui Wang , Lei Song , Jiang Bian , Jingjing Fu , Yueming Jin View a PDF of the paper titled 3DMedAgent: Unified Perception-to-Understanding for 3D Medical Analysis, by Ziyue Wang and 10 other authors View PDF HTML (experimental) Abstract: 3D CT analysis spans a continuum from low-level perception to high-level clinical understanding. Existing 3D-oriented analysis methods adopt either isolated task-specific modeling or task-agnostic end-to-end paradigms to produce one-hop outputs, impeding the systematic accumulation of perceptual evidence for downstream reasoning. In parallel, recent multimodal large language models (MLLMs) exhibit improved visual perception and can integrate visual and textual information effectively, yet their predominantly 2D-oriented designs fundamentally limit their ability to perceive and analyze volumetric medical data. To bridge this gap, we propose 3DMedAgent, a unified agent that enables 2D MLLMs to perform general 3D CT analysis without 3D-specific fine-tuning. 3DMedAgent coordinates heterogeneous visual and textual tools through a flexible MLLM agent, progressively decomposing complex 3D analysis into tractable subtasks that transition from global to regional views, from 3D volumes to informative 2D slices, and from visual evidence to structured textual representations. Central to this design, 3DMedAgent maintains a long-term structured memory that aggregates intermediate tool outputs and supports query-adaptive, evidence-driven multi-step reasoning. We further introduce the DeepChestVQA benchmark for evaluating unified perception-to-understanding capabilities in 3D thoracic imaging. Experiments across over 40 tasks demonstrate that 3DMedAgent consistently outperforms general, medical, and 3D-specific MLLMs, highlighting a scalable path toward general-purpose 3D clinical this http URL and data are available at \href{ this https URL }{ this https URL }. Comments: 19 pages, 7 figures Subjects: Computer Vision and Pattern Recognition (cs.CV) Cite as: arXiv:2602.18064 [cs.CV] (or arXiv:2602.18064v1 [cs.CV] for this version) https://doi.org/10.48550/arXiv.2602.18064 Focus to learn more arXiv-issued DOI via DataCite (pending registration) Submission history From: Ziyue Wang [ view email ] [v1] Fri, 20 Feb 2026 08:31:26 UTC (5,734 KB) Full-text links: Access Paper: View a PDF of the paper titled 3DMedAgent: Unified Perception-to-Understanding for 3D Medical Analysis, by Ziyue Wang and 10 other authors View PDF HTML (experimental) TeX Source view license Current browse context: cs.CV &lt; prev | next &gt; new | recent | 2026-02 Change to browse by: cs References &amp; Citations NASA ADS Google Scholar Semantic Scholar export BibTeX citation Loading... BibTeX formatted citation × loading... Data provided by: Bookmark Bibliographic Tools Bibliographic and Citation Tools Bibliographic Explorer Toggle Bibliographic Explorer ( What is the Explorer? ) Connected Papers Toggle Connected Papers ( What is Connected Papers? ) Litmaps Toggle Litmaps ( What is Litmaps? ) scite.ai Toggle scite Smart Citations ( What are Smart Citations? ) Code, Data, Media Code, Data and Media Associated with this Article alphaXiv Toggle alphaXiv ( What is alphaXiv? ) Links to Code Toggle CatalyzeX Code Finder for Papers ( What is CatalyzeX? ) DagsHub Toggle DagsHub ( What is DagsHub? ) GotitPub Toggle Gotit.pub ( What is GotitPub? ) Huggingface Toggle Hugging Face ( What is Huggingface? ) Links to Code Toggle Papers with Code ( What is Papers with Code? ) ScienceCast Toggle ScienceCast ( What is ScienceCast? ) Demos Demos Replicate Toggle Replicate ( What is Replicate? ) Spaces Toggle Hugging Face Spaces ( What is Spaces? ) Spaces Toggle TXYZ.AI ( What is TXYZ.AI? ) Related Papers Recommenders and Search Tools Link to Influence Flower Influence Flower ( What are Influence Flowers? ) Core recommender toggle CORE Recommender ( What is CORE? ) Author Venue Institution Topic About arXivLabs arXivLabs: experimental projects with community collaborators arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs . Which authors of this paper are endorsers? | Disable MathJax ( What is MathJax? )</p>
+</div></details><h2 id="toc-42">22. Context-Aware Mapping of 2D Drawing Annotations to 3D CAD Features Using LLM-Assisted Reasoning for Manufacturing Automation</h2>
+<ul>
+<li>链接：https://arxiv.org/abs/2602.18296v1</li>
+<li>来源：arxiv</li>
+<li>摘要：Manufacturing automation in process planning, inspection planning, and digital-thread integration depends on a unified specification that binds the geometric features of a 3D CAD model to the geometric dimensioning and tolerancing (GD&amp;T) callouts, datum definitions, and surface requirements carried by the corresponding 2D engineering drawing. Although Model-Based Definition (MBD) allows such specifications to be embedded directly in 3D models, 2D drawings remain the primary carrier of manufacturing intent in automotive, aerospace, shipbuilding, and heavy-machinery industries. Correctly linking drawing annotations to the corresponding 3D features is difficult because of contextual ambiguity, repeated feature patterns, and the need for transparent and traceable decisions. This paper presents a deterministic-first, context-aware framework that maps 2D drawing entities to 3D CAD features to produce a unified manufacturing specification. Drawing callouts are first semantically enriched and then scored against candidate features using an interpretable metric that combines type compatibility, tolerance-aware dimensional agreement, and conservative context consistency, along with engineeri</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">D图纸中的注释可能与3D CAD特征存在上下文模糊性，这增加了将2D注释正确链接到3D特征的难度。透明和可追溯的决策对于解决这一问题至关重要。系统首先使用确定性规则进行评分，当无法解决歧义时，会升级到多模态和约束大语言模型推理。为了确保决策的透明性，系统保留未解决的案例进行人工审查。通过优先考虑确定性规则和保留未解决的案例进行人工审查，该系统为实际工业环境中的制造自动化提供了实用基础。实验结果表明，该系统在20个真实CAD-图纸对上的平均精度为83.67%，召回率为90.46%，F1分为86.29%。每个管道组件都对整体准确性有所贡献，完整的系统优于所有减少的变体。通过保留未解决的案例进行人工审查，系统确保了决策的透明性。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>D图纸中的注释可能与3D CAD特征存在上下文模糊性。</li>
+<li>重复的特征模式会增加将2D注释正确链接到3D特征的难度。</li>
+<li>透明和可追溯的决策对于正确链接至关重要。</li>
+<li>系统首先使用确定性规则进行评分，当无法解决歧义时，会升级到多模态和约束大语言模型推理。</li>
+<li>保留未解决的案例进行人工审查有助于确保决策的透明性。</li>
+<li>框架通过优先考虑确定性规则和保留未解决的案例进行人工审查，为实际工业环境中的制造自动化提供了实用基础。</li>
+<li>实验结果表明，该系统在20个真实CAD-图纸对上的平均精度为83.67%，召回率为90.46%，F1分为86.29%。</li>
+<li>每个管道组件都对整体准确性有所贡献，完整的系统优于所有减少的变体。</li>
+<li>通过保留未解决的案例进行人工审查，系统确保了决策的透明性。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-43">正文（抓取，非 AI）</h3>
+<p>[2602.18296v1] Context-Aware Mapping of 2D Drawing Annotations to 3D CAD Features Using LLM-Assisted Reasoning for Manufacturing Automation Computer Science &gt; Computational Engineering, Finance, and Science arXiv:2602.18296v1 (cs) [Submitted on 20 Feb 2026] Title: Context-Aware Mapping of 2D Drawing Annotations to 3D CAD Features Using LLM-Assisted Reasoning for Manufacturing Automation Authors: Muhammad Tayyab Khana , Lequn Chen , Wenhe Feng , Seung Ki Moon View a PDF of the paper titled Context-Aware Mapping of 2D Drawing Annotations to 3D CAD Features Using LLM-Assisted Reasoning for Manufacturing Automation, by Muhammad Tayyab Khana and 3 other authors View PDF HTML (experimental) Abstract: Manufacturing automation in process planning, inspection planning, and digital-thread integration depends on a unified specification that binds the geometric features of a 3D CAD model to the geometric dimensioning and tolerancing (GD&amp;T) callouts, datum definitions, and surface requirements carried by the corresponding 2D engineering drawing. Although Model-Based Definition (MBD) allows such specifications to be embedded directly in 3D models, 2D drawings remain the primary carrier of manufacturing intent in automotive, aerospace, shipbuilding, and heavy-machinery industries. Correctly linking drawing annotations to the corresponding 3D features is difficult because of contextual ambiguity, repeated feature patterns, and the need for transparent and traceable decisions. This paper presents a deterministic-first, context-aware framework that maps 2D drawing entities to 3D CAD features to produce a unified manufacturing specification. Drawing callouts are first semantically enriched and then scored against candidate features using an interpretable metric that combines type compatibility, tolerance-aware dimensional agreement, and conservative context consistency, along with engineering-domain heuristics. When deterministic scoring cannot resolve an ambiguity, the system escalates to multimodal and constrained large-language-model reasoning, followed by a single human-in-the-loop (HITL) review step. Experiments on 20 real CAD-drawing pairs achieve a mean precision of 83.67%, recall of 90.46%, and F1 score of 86.29%. An ablation study shows that each pipeline component contributes to overall accuracy, with the full system outperforming all reduced variants. By prioritizing deterministic rules, clear decision tracking, and retaining unresolved cases for human review, the framework provides a practical foundation for downstream manufacturing automation in real-world industrial environments. Subjects: Computational Engineering, Finance, and Science (cs.CE) Cite as: arXiv:2602.18296 [cs.CE] (or arXiv:2602.18296v1 [cs.CE] for this version) https://doi.org/10.48550/arXiv.2602.18296 Focus to learn more arXiv-issued DOI via DataCite (pending registration) Submission history From: Lequn Chen [ view email ] [v1] Fri, 20 Feb 2026 15:46:57 UTC (3,875 KB) Full-text links: Access Paper: View a PDF of the paper titled Context-Aware Mapping of 2D Drawing Annotations to 3D CAD Features Using LLM-Assisted Reasoning for Manufacturing Automation, by Muhammad Tayyab Khana and 3 other authors View PDF HTML (experimental) TeX Source view license Current browse context: cs.CE &lt; prev | next &gt; new | recent | 2026-02 Change to browse by: cs References &amp; Citations NASA ADS Google Scholar Semantic Scholar export BibTeX citation Loading... BibTeX formatted citation × loading... Data provided by: Bookmark Bibliographic Tools Bibliographic and Citation Tools Bibliographic Explorer Toggle Bibliographic Explorer ( What is the Explorer? ) Connected Papers Toggle Connected Papers ( What is Connected Papers? ) Litmaps Toggle Litmaps ( What is Litmaps? ) scite.ai Toggle scite Smart Citations ( What are Smart Citations? ) Code, Data, Media Code, Data and Media Associated with this Article alphaXiv Toggle alphaXiv ( What is alphaXiv? ) Links to Code Toggle CatalyzeX Code Finder for Papers ( What is CatalyzeX? ) DagsHub Toggle DagsHub ( What is DagsHub? ) GotitPub Toggle Gotit.pub ( What is GotitPub? ) Huggingface Toggle Hugging Face ( What is Huggingface? ) Links to Code Toggle Papers with Code ( What is Papers with Code? ) ScienceCast Toggle ScienceCast ( What is ScienceCast? ) Demos Demos Replicate Toggle Replicate ( What is Replicate? ) Spaces Toggle Hugging Face Spaces ( What is Spaces? ) Spaces Toggle TXYZ.AI ( What is TXYZ.AI? ) Related Papers Recommenders and Search Tools Link to Influence Flower Influence Flower ( What are Influence Flowers? ) Core recommender toggle CORE Recommender ( What is CORE? ) Author Venue Institution Topic About arXivLabs arXivLabs: experimental projects with community collaborators arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs . Which authors of this paper are endorsers? | Disable MathJax ( What is MathJax? )</p></div></details>
+</div>
+<script>
+function speakText(t){ if(!t){ document.getElementById('readStatus').textContent=''; return; }
+ speechSynthesis.cancel(); var status=document.getElementById('readStatus'); status.textContent='准备中…';
+ var chunks=[]; var maxLen=280; for(var i=0;i<t.length;i+=maxLen){ var s=t.slice(i,i+maxLen); var j=s.lastIndexOf('。'); if(j>80){ chunks.push(s.slice(0,j+1)); i-=s.length-(j+1); } else chunks.push(s); }
+ if(chunks.length===0) chunks=[t]; var idx=0; function speakNext(){ if(idx>=chunks.length){ status.textContent=''; return; } var u=new SpeechSynthesisUtterance(chunks[idx]); u.lang='zh-CN'; u.rate=0.95; var v=speechSynthesis.getVoices().filter(function(x){ return x.lang.indexOf('zh')>=0; })[0]; if(v) u.voice=v;
+ u.onend=function(){ idx++; setTimeout(speakNext,80); }; u.onerror=function(){ idx++; setTimeout(speakNext,80); }; status.textContent='朗读中 '+(idx+1)+'/'+chunks.length+'…'; speechSynthesis.speak(u); }
+ if(speechSynthesis.getVoices().length) speakNext(); else speechSynthesis.onvoiceschanged=function(){ speechSynthesis.onvoiceschanged=null; speakNext(); }; }
+function readFullText(){ var c=document.querySelector('.content'); if(!c){ document.getElementById('readStatus').textContent='无可读内容'; return; } var t=(c.innerText||'').trim().replace(/\\s+/g,' '); if(!t){ document.getElementById('readStatus').textContent='无可读内容'; return; } speechSynthesis.cancel(); document.getElementById('readStatus').textContent='全文朗读…'; speakText(t); }
+function getBlockForTap(el){ var c=document.querySelector('.content'); var blockTags=['P','DIV','H2','H3','H4','LI','PRE']; while(el&&el!==c){ if(c.contains(el)&&blockTags.indexOf(el.tagName)!==-1) return el; el=el.parentElement; } return null; }
+function onContentTap(e){ if(e.target.closest&&e.target.closest('a')) return; var block=getBlockForTap(e.target); if(block){ var t=(block.innerText||'').trim().replace(/\\s+/g,' '); if(t){ e.preventDefault(); speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读本段…'; speakText(t); } } }
+if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', function(){ var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }); } else { var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }
+setTimeout(function(){ try{ var u=new SpeechSynthesisUtterance('\u200b'); u.volume=0; speechSynthesis.speak(u); }catch(e){} }, 300);
+</script>
+</body>
+</html>

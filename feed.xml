@@ -5,8 +5,15 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Tue, 24 Feb 2026 03:28:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Feb 2026 01:33:54 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-02-26：NoRD、谐振抑制、量子软件、数字孪生、SELAUR、掺氢燃烧特性、随机低碳调度、PVminer、超短期负荷预测、独立自注意力机制、流-热场耦合仿真、PMU电压数据重构、MIP Candy、KV binding、Ψ-Samplers</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-26.html</link>
+      <description> 知识流日报 20260226：NoRD、谐振抑制、量子软件、数字孪生、SELAUR、掺氢燃烧特性、随机低碳调度、PVminer、超短期负荷预测、独立自注意力机制、流热场耦合仿真、PMU电压数据重构、MIP Candy、KV binding、ΨSamplers 共 127 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. FP谐振腔的实际应用是什么，工作原理是什么？ 知乎 链接：https://www.zhihu.com/question/56707047 来源：bing 摘要：FP谐振腔是法布里珀罗（FabryPérot）谐振腔的简称，它是由两个平行的反射镜构成的光学谐振腔。 FP谐振腔在光学和激光领域有着广泛的应用，用于光学干涉、激光器、传感器、…</description>
+      <pubDate>2026-02-26 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-26.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-02-24</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-24.html</link>

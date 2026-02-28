@@ -5,12 +5,19 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Thu, 26 Feb 2026 02:16:04 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Feb 2026 08:25:58 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>知识流日报 2026-02-26：bounding boxes in network、feature map in newwork、anchor and proposal</title>
+      <title>知识流日报 2026-02-28：SOCP、CL4SE、GRAVE2、ParamMem、FlashOptim、coarse data、iTransformer、utilizing LLMs、LLM Novice Uplift、model disagreement、occlusion reasoning、dataset distillation、active depth learning</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-28.html</link>
+      <description> 知识流日报 20260228：SOCP、CL4SE、GRAVE2、ParamMem、FlashOptim、coarse data、iTransformer、utilizing LLMs、LLM Novice Uplift、model disagreement、occlusion reasoning、dataset distillation、active depth learning 共 116 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 如何理解finegrained和coarsegrained？ 知乎 链接：https://www.zhihu.com/question/299171510 来源：bing 摘要：2018年10月19日 · 如…</description>
+      <pubDate>2026-02-28 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-28.html</guid>
+    </item>
+    <item>
+      <title>知识流日报 2026-02-26：anchor boxes in network、锚框 偏移量学习</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-26.html</link>
-      <description> 知识流日报 20260226：bounding boxes in network、feature map in newwork、anchor and proposal 共 39 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 39 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 40 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. ground truth 和 bounding box 和 anchor box有什么区别？ 知乎 链接：https://www.zhihu.com/question/521559167 来源：bing 摘要：Ground truth是真实标注框，也就是人工标注，一般被看作“真值” Bounding box 一般认为（为什么是一般认为，原因参照下面一段最后括号中的内容） 是网络最终预测的结果，也就是“可能值”，因为网络可 ……</description>
+      <description> 知识流日报 20260226：anchor boxes in network、锚框 偏移量学习 共 29 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 29 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 30 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 什么是anchorbased 和anchor free？ 知乎 链接：https://www.zhihu.com/question/356551927 来源：bing 摘要：2019年12月9日 · FSAF既有根据先验设定的anchorbased分支，也有anchorfree分支增强对异常ratio目标的检测能力 2.anchor（也被称为anchor box）是在训练之前，在训练集上利用kmeans等方法聚类 … 正文 （知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。） 2. 目标…</description>
       <pubDate>2026-02-26 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-26.html</guid>
     </item>

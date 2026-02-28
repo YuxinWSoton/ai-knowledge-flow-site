@@ -27,14 +27,14 @@
   }
   a { color: #a8d4ff; text-decoration: none; }
   a:hover { text-decoration: underline; }
- html{scroll-behavior:smooth;} .content h2,.content h3{scroll-margin-top:1rem;} h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;} .toc{margin:1rem 0;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border-radius:6px;} .toc .toc-title{margin:0 0 0.5rem 0;font-weight:bold;color:rgba(255,255,255,0.9);} .toc ul{list-style:none;padding-left:0;margin:0;} .toc li{margin:0.35rem 0;} .toc li.toc-h3{padding-left:1em;font-size:0.95em;} .toc a{color:#a8d4ff;text-decoration:none;} .toc a:hover{text-decoration:underline;} .content p,.content div,.content h2,.content h3,.content h4,.content li,.content pre{cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0.15);} .content .insight-summary{color:#c9a0dc;margin:0.5em 0 0.8em 0;} .content .insight-detail,.content .insight-detail li{color:#8dd4e8;list-style:disc;margin-left:1.2em;padding-left:0.3em;} .content .article-body-details{margin:0.8em 0;} .content .article-body-details summary{cursor:pointer;color:rgba(255,255,255,0.85);}</style>
+ html{scroll-behavior:smooth;} .content h2,.content h3{scroll-margin-top:1rem;} .content .reading-highlight{background:rgba(255,255,255,0.12);border-left:3px solid rgba(255,255,255,0.5);border-radius:2px;} h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;} .toc{margin:1rem 0;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border-radius:6px;} .toc .toc-title{margin:0 0 0.5rem 0;font-weight:bold;color:rgba(255,255,255,0.9);} .toc ul{list-style:none;padding-left:0;margin:0;} .toc li{margin:0.35rem 0;} .toc li.toc-h3{padding-left:1em;font-size:0.95em;} .toc a{color:#a8d4ff;text-decoration:none;} .toc a:hover{text-decoration:underline;} .content p,.content div,.content h2,.content h3,.content h4,.content li,.content pre{cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0.15);} .content .insight-summary{color:#c9a0dc;margin:0.5em 0 0.8em 0;} .content .insight-detail,.content .insight-detail li{color:#8dd4e8;list-style:disc;margin-left:1.2em;padding-left:0.3em;} .content .article-body-details{margin:0.8em 0;} .content .article-body-details summary{cursor:pointer;color:rgba(255,255,255,0.85);}</style>
 </head>
 <body>
 <p><a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/">← 返回首页</a></p>
 <h1>知识流日报 2026-02-15</h1>
-<p class="meta" style="margin-top:0;">最后更新：2026-02-26 10:16</p>
+<p class="meta" style="margin-top:0;">最后更新：2026-02-28 16:25</p>
 <p class="toolbar"><button id="btnFull" onclick="readFullText()">全文朗读</button> <span id="readStatus"></span></p>
-<p class="meta" style="margin-top:0;">（点任意段落可朗读该段；「全文朗读」读本页全部内容）</p>
+<p class="meta" style="margin-top:0;">（点任意段落可朗读该段；「全文朗读」读本页全部内容，当前读到的段落会自动滚动到视野内并高亮）</p>
 <nav class="toc" aria-label="目录">
 <p class="toc-title">目录</p>
 <ul>
@@ -157,13 +157,36 @@
 百度一下</p></div></details>
 </div>
 <script>
-function speakText(t){ if(!t){ document.getElementById('readStatus').textContent=''; return; }
+var READING_HIGHLIGHT_CLASS='reading-highlight';
+function getBlocksInOrder(container){
+ var blocks=[]; var blockTags=['P','DIV','H2','H3','H4','LI','PRE'];
+ function walk(el){
+  if(!el||!container.contains(el))return;
+  if(blockTags.indexOf(el.tagName)!==-1){
+   var hasBlockChild=false;
+   for(var k=0;k<el.children.length;k++){ var c=el.children[k]; if(blockTags.indexOf(c.tagName)!==-1){ hasBlockChild=true; break; } }
+   if(!hasBlockChild){ var t=(el.innerText||'').trim().replace(/\\s+/g,' '); if(t)blocks.push({el:el,text:t}); }
+   else for(k=0;k<el.children.length;k++)walk(el.children[k]);
+  } else for(k=0;k<el.children.length;k++)walk(el.children[k]);
+ }
+ walk(container); return blocks;
+}
+function speakText(t,onDone){ if(!t){ document.getElementById('readStatus').textContent=''; if(onDone)onDone(); return; }
  speechSynthesis.cancel(); var status=document.getElementById('readStatus'); status.textContent='准备中…';
  var chunks=[]; var maxLen=280; for(var i=0;i<t.length;i+=maxLen){ var s=t.slice(i,i+maxLen); var j=s.lastIndexOf('。'); if(j>80){ chunks.push(s.slice(0,j+1)); i-=s.length-(j+1); } else chunks.push(s); }
- if(chunks.length===0) chunks=[t]; var idx=0; function speakNext(){ if(idx>=chunks.length){ status.textContent=''; return; } var u=new SpeechSynthesisUtterance(chunks[idx]); u.lang='zh-CN'; u.rate=0.95; var v=speechSynthesis.getVoices().filter(function(x){ return x.lang.indexOf('zh')>=0; })[0]; if(v) u.voice=v;
- u.onend=function(){ idx++; setTimeout(speakNext,80); }; u.onerror=function(){ idx++; setTimeout(speakNext,80); }; status.textContent='朗读中 '+(idx+1)+'/'+chunks.length+'…'; speechSynthesis.speak(u); }
- if(speechSynthesis.getVoices().length) speakNext(); else speechSynthesis.onvoiceschanged=function(){ speechSynthesis.onvoiceschanged=null; speakNext(); }; }
-function readFullText(){ var c=document.querySelector('.content'); if(!c){ document.getElementById('readStatus').textContent='无可读内容'; return; } var t=(c.innerText||'').trim().replace(/\\s+/g,' '); if(!t){ document.getElementById('readStatus').textContent='无可读内容'; return; } speechSynthesis.cancel(); document.getElementById('readStatus').textContent='全文朗读…'; speakText(t); }
+ if(chunks.length===0)chunks=[t]; var idx=0;
+ function speakNext(){ if(idx>=chunks.length){ status.textContent=''; if(onDone)onDone(); return; } var u=new SpeechSynthesisUtterance(chunks[idx]); u.lang='zh-CN'; u.rate=0.95; var v=speechSynthesis.getVoices().filter(function(x){ return x.lang.indexOf('zh')>=0; })[0]; if(v)u.voice=v;
+  u.onend=function(){ idx++; setTimeout(speakNext,80); }; u.onerror=function(){ idx++; setTimeout(speakNext,80); }; status.textContent='朗读中 '+(idx+1)+'/'+chunks.length+'…'; speechSynthesis.speak(u); }
+ if(speechSynthesis.getVoices().length)speakNext(); else speechSynthesis.onvoiceschanged=function(){ speechSynthesis.onvoiceschanged=null; speakNext(); }; }
+function readFullText(){ var c=document.querySelector('.content'); if(!c){ document.getElementById('readStatus').textContent='无可读内容'; return; }
+ var segments=getBlocksInOrder(c); if(!segments.length){ document.getElementById('readStatus').textContent='无可读内容'; return; }
+ speechSynthesis.cancel(); document.querySelectorAll('.content .'+READING_HIGHLIGHT_CLASS).forEach(function(el){ el.classList.remove(READING_HIGHLIGHT_CLASS); });
+ var status=document.getElementById('readStatus'); var idx=0;
+ function runSegment(){ if(idx>=segments.length){ status.textContent=''; document.querySelectorAll('.content .'+READING_HIGHLIGHT_CLASS).forEach(function(el){ el.classList.remove(READING_HIGHLIGHT_CLASS); }); return; }
+  var seg=segments[idx]; seg.el.scrollIntoView({behavior:'smooth',block:'center'}); document.querySelectorAll('.content .'+READING_HIGHLIGHT_CLASS).forEach(function(el){ el.classList.remove(READING_HIGHLIGHT_CLASS); }); seg.el.classList.add(READING_HIGHLIGHT_CLASS);
+  status.textContent='朗读 '+(idx+1)+'/'+segments.length+'…';
+  speakText(seg.text,function(){ seg.el.classList.remove(READING_HIGHLIGHT_CLASS); idx++; setTimeout(runSegment,120); }); }
+ runSegment(); }
 function getBlockForTap(el){ var c=document.querySelector('.content'); var blockTags=['P','DIV','H2','H3','H4','LI','PRE']; while(el&&el!==c){ if(c.contains(el)&&blockTags.indexOf(el.tagName)!==-1) return el; el=el.parentElement; } return null; }
 function onContentTap(e){ if(e.target.closest&&e.target.closest('a')) return; var block=getBlockForTap(e.target); if(block){ var t=(block.innerText||'').trim().replace(/\\s+/g,' '); if(t){ e.preventDefault(); speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读本段…'; speakText(t); } } }
 if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', function(){ var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }); } else { var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }

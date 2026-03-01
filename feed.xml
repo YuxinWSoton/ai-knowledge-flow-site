@@ -5,8 +5,15 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Sat, 28 Feb 2026 17:46:19 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2026 13:41:55 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-03-01：average pooling</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-01.html</link>
+      <description> 知识流日报 20260301：average pooling 共 12 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 12 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 13 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. Excel怎么求平均值，AVERAGE函数公式值得拥有！ 链接：https://www.zhihu.com/tardis/bd/art/719130156 来源：bing 摘要：2024年9月9日 · 一、使用 AVERAGE 函数 AVERAGE 函数是 Excel 中最直接用来计算平均值的函数。 操作步骤： 选择一个空白单元格来显示计算结果。 输入公式： =AVERAGE(数据区域)。 例如，如果你 … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;AVERAGE函数可以直接计算数值的平均值，选择空白单…</description>
+      <pubDate>2026-03-01 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-01.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-02-28：SOCP、CL4SE、GRAVE2、ParamMem、FlashOptim、coarse data、iTransformer、utilizing LLMs、LLM Novice Uplift、model disagreement、occlusion reasoning、dataset distillation、active depth learning</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-28.html</link>

@@ -5,12 +5,12 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Sat, 28 Feb 2026 08:25:58 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Feb 2026 17:46:19 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>知识流日报 2026-02-28：SOCP、CL4SE、GRAVE2、ParamMem、FlashOptim、coarse data、iTransformer、utilizing LLMs、LLM Novice Uplift、model disagreement、occlusion reasoning、dataset distillation、active depth learning</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-28.html</link>
-      <description> 知识流日报 20260228：SOCP、CL4SE、GRAVE2、ParamMem、FlashOptim、coarse data、iTransformer、utilizing LLMs、LLM Novice Uplift、model disagreement、occlusion reasoning、dataset distillation、active depth learning 共 116 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 如何理解finegrained和coarsegrained？ 知乎 链接：https://www.zhihu.com/question/299171510 来源：bing 摘要：2018年10月19日 · 如…</description>
+      <description> 知识流日报 20260228：SOCP、CL4SE、GRAVE2、ParamMem、FlashOptim、coarse data、iTransformer、utilizing LLMs、LLM Novice Uplift、model disagreement、occlusion reasoning、dataset distillation、active depth learning 共 90 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. Cyclic sieving for a class of rectangular domino tableaux 链接：https://arxiv.org/abs/2602.23343v1 来源：arxiv …</description>
       <pubDate>2026-02-28 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-28.html</guid>
     </item>
@@ -94,7 +94,7 @@
     <item>
       <title>知识流日报 2026-02-12</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-12.html</link>
-      <description> 知识流日报 20260212 共 12 条（来自 Google Scholar / Bing 等）。 （以下含抓取正文，便于阅读后判断是否接入 AI。未调用任何 AI API。） 1. 什么是第一性原理，它有什么重要意义？ 知乎 链接：https://www.zhihu.com/question/21459243 来源：bing 摘要：虽然是第一性原理来自于物理学，但是我想从商业的角度来说说自己的理解。 全文较长，因此我把提炼的观点先放到最前面： 1、第一性定理思维是一种演绎法思维，但与追本溯源法是不同的； 2、用第一 … 正文 （抓取失败或无可提取正文） 2. 什么是第一性原理，它有什么重要意义？ 链接：https://www.zhihu.com/tardis/bd/ans/2394948683 来源：bing 摘要：2022年3月25日 · 这个原理是硅谷钢铁侠——马斯克带火的，下面通过2个例子来解释下： 第一性原理（First principle thinking，又称“第一原理”），是古希腊哲学家亚里士多德提出的一个哲学术语： 每个 … 正文（抓取，非 AI） 什么是第一性原…</description>
+      <description> 知识流日报 20260212 共 1 条（来自 Google Scholar / Bing 等）。 （以下含抓取正文，便于阅读后判断是否接入 AI。未调用任何 AI API。） 1. thepaper.cn https://m.thepaper.cn 链接：https://m.thepaper.cn/newsDetail_forward_31891254 来源：bing 摘要：2025年11月5日 · 具身智能全景分析 过去两年，“具身智能”是最响亮的AI词汇之一。它被称作AI的最后一公里，是让大模型走出屏幕、进入物理世界的关键。2025年，随着“具身智能”首次写入中国政府工作 … 正文（抓取，非 AI） 具身智能全景分析，读这一篇就够了 澎湃号·湃客 &gt; 具身智能全景分析，读这一篇就够了 制造前沿News 智造前沿（山东）工业科技有限公司 20251105 13:41 山东 具身智能全景分析 过去两年，“具身智能”是最响亮的AI词汇之一。它被称作AI的最后一公里，是让大模型走出屏幕、进入物理世界的关键。2025年，随着“具身智能”首次写入中国政府工作报告，这一融合人工智能、机械科学…</description>
       <pubDate>2026-02-12 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-12.html</guid>
     </item>

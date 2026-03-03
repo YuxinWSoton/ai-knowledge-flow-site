@@ -5,8 +5,15 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Sun, 01 Mar 2026 13:41:55 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2026 14:18:42 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-03-03：特征融合、YOLOV4 concatenate、CBL （leaky-relu）、swish mish sigmoiud tanh、注意力（NLP、图像）、L1 L2 mooshL1、GIOU loss</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-03.html</link>
+      <description> 知识流日报 20260303：特征融合、YOLOV4 concatenate、CBL （leakyrelu）、swish mish sigmoiud tanh、注意力（NLP、图像）、L1 L2 mooshL1、GIOU loss 共 93 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 广义交并比（GIOU）损失函数替代传统的交并比（IOU ... 链接：https://www.cnblogs.com/Dongmy/p/18775939 来源：bing 摘要：2025年3月16日 · GIOU损失函数的公式如下： GIOU Loss=1−GIOU 其中，GIOU表示广义交并比，它不仅考虑了预测框和目标框的交集和并集，还考虑了它们相对于最小外接矩…</description>
+      <pubDate>2026-03-03 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-03.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-03-01：average pooling</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-01.html</link>

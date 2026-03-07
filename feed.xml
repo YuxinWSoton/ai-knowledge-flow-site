@@ -5,8 +5,15 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Fri, 06 Mar 2026 12:16:19 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2026 02:47:58 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-03-07：ReLU TLU FRN</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-07.html</link>
+      <description> 知识流日报 20260307：ReLU TLU FRN 共 15 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 15 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 16 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. Generalization Bounds of Stochastic Gradient Descent in Homogeneous Neural Networks 链接：https://arxiv.org/abs/2602.22936v1 来源：arxiv 摘要：Algorithmic stability is among the most potent techniques in generalization analysis. However, its derivation usually requires a stepsiz…</description>
+      <pubDate>2026-03-07 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-07.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-03-06：. 上采样后的通道数应减半以保持&quot;主角:辅助 = 2:1&quot;的比例。、2. 主干网络的特征是局部细节丰富的&quot;主角&quot;、而上采样的特征是全局信息的&quot;辅助&quot;。、3. 上采样通道数减半是为了避免全局信息淹没局部细节。、4. 深层特征上采样能提供全局上下文有助于目标定位。、5. YOLOv3通过独立残差连接提高梯度流畅性训练更深。、6. YOLOv3的三尺度检测头能大幅提升小目标检测效果。、7. YOLOv3的多标签分类器支持检测目标的同时预测多个类别。、8. 上采样+Concat策略结合了深层语义和浅层细节。、9. 主干网络的特征设计保持了局部信息的丰富性。、10. YOLOv3的检测头设计能覆盖从大到小的各种目标尺度。、11. YOLOv3通过不同尺度的检测头实现多目标的同时检测。、12. YOLOv3的Anchor设计从单尺度扩展到三尺度覆盖更多目标。、13. YOLOv3的Anchor形状设计能适应不同物体的长宽比。、14. YOLOv3的输出张量结构能同时预测多个Anchor的85维信息。、15. DBL表示Darknet Convolutional Block包含卷积、BN和激活。、16. Res Unit表示残差单元通过跳跃连接保持尺寸。、17. ResX表示残差单元重复X次增强网络深度。、18. Conv Set表示卷积集通过多层卷积融合通道信息。、19. UpSample表示上采样通过最近邻插值或双线性插值放大2倍。、20. YOLOv2只能检测单尺度的大目标而YOLOv3能检测三尺度的目标。、21. YOLOv3的三尺度检测头能大幅提升小目标检测效果。、22. Darknet-53的53层计算量主要来自第3组和第4组的残差单元。、23. YOLOv3通过尺度解耦实现大/中/小目标的分别检测。、24. YOLOv3通过特征融合提供全局上下文和局部细节。、25. YOLOv3通过合理分配通道保持&quot;主角:辅助 = 2:1&quot;的比例。</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-06.html</link>

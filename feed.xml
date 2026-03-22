@@ -5,8 +5,22 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Wed, 18 Mar 2026 10:30:37 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Mar 2026 11:54:44 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-03-22：F2LLM-v2、MIDST Challenge、Nemotron-Cascade</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-22.html</link>
+      <description> 知识流日报 20260322：F2LLMv2、MIDST Challenge、NemotronCascade 共 15 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 15 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 16 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. F2LLMv2: Inclusive, Performant, and Efficient Embeddings for a Multilingual World 链接：https://arxiv.org/abs/2603.19223v1 来源：arxiv 摘要：We present F2LLMv2, a new family of generalpurpose, multilingual embedding models in 8 distinct sizes ranging f…</description>
+      <pubDate>2026-03-22 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-22.html</guid>
+    </item>
+    <item>
+      <title>知识流日报 2026-03-20：SOMA、ManiTwin、SocialOmni、InCoder-32B、video reasoning、edge deployment、interactive VSR、network analysis、robotic manipulation、conformal prediction、stochastic resetting、large language models、data-generation-ready、code foundation model、D scene reconstruction</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-20.html</link>
+      <description> 知识流日报 20260320：SOMA、ManiTwin、SocialOmni、InCoder32B、video reasoning、edge deployment、interactive VSR、network analysis、robotic manipulation、conformal prediction、stochastic resetting、large language models、datagenerationready、code foundation model、D scene reconstruction 共 21 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 21 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 22 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. How Do Language Models Acquire C…</description>
+      <pubDate>2026-03-20 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-20.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-03-18：SOMA、ManiTwin、SocialOmni、InCoder-32B、video reasoning、edge deployment、interactive VSR、network analysis、robotic manipulation、conformal prediction、stochastic resetting、large language models、data-generation-ready、code foundation model、D scene reconstruction</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-18.html</link>

@@ -5,126 +5,14 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Sun, 22 Mar 2026 11:54:44 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 23 Mar 2026 14:41:15 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>知识流日报 2026-03-22：F2LLM-v2、MIDST Challenge、Nemotron-Cascade</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-22.html</link>
-      <description> 知识流日报 20260322：F2LLMv2、MIDST Challenge、NemotronCascade 共 15 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 15 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 16 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. F2LLMv2: Inclusive, Performant, and Efficient Embeddings for a Multilingual World 链接：https://arxiv.org/abs/2603.19223v1 来源：arxiv 摘要：We present F2LLMv2, a new family of generalpurpose, multilingual embedding models in 8 distinct sizes ranging f…</description>
-      <pubDate>2026-03-22 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-22.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-03-20：SOMA、ManiTwin、SocialOmni、InCoder-32B、video reasoning、edge deployment、interactive VSR、network analysis、robotic manipulation、conformal prediction、stochastic resetting、large language models、data-generation-ready、code foundation model、D scene reconstruction</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-20.html</link>
-      <description> 知识流日报 20260320：SOMA、ManiTwin、SocialOmni、InCoder32B、video reasoning、edge deployment、interactive VSR、network analysis、robotic manipulation、conformal prediction、stochastic resetting、large language models、datagenerationready、code foundation model、D scene reconstruction 共 21 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 21 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 22 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. How Do Language Models Acquire C…</description>
-      <pubDate>2026-03-20 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-20.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-03-18：SOMA、ManiTwin、SocialOmni、InCoder-32B、video reasoning、edge deployment、interactive VSR、network analysis、robotic manipulation、conformal prediction、stochastic resetting、large language models、data-generation-ready、code foundation model、D scene reconstruction</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-18.html</link>
-      <description> 知识流日报 20260318：SOMA、ManiTwin、SocialOmni、InCoder32B、video reasoning、edge deployment、interactive VSR、network analysis、robotic manipulation、conformal prediction、stochastic resetting、large language models、datagenerationready、code foundation model、D scene reconstruction 共 74 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. Exponential stability of datadri…</description>
-      <pubDate>2026-03-18 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-18.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-03-07：ResNet</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-07.html</link>
-      <description> 知识流日报 20260307：ResNet 共 10 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 10 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 11 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. IU: Imperceptible Universal Backdoor Attack 链接：https://arxiv.org/abs/2603.00711v1 来源：arxiv 摘要：Backdoor attacks pose a critical threat to the security of deep neural networks, yet existing efforts on universal backdoors often rely on visually salient patterns, making them easi…</description>
-      <pubDate>2026-03-07 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-07.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-03-06：. 上采样后的通道数应减半以保持&quot;主角:辅助 = 2:1&quot;的比例。、2. 主干网络的特征是局部细节丰富的&quot;主角&quot;、而上采样的特征是全局信息的&quot;辅助&quot;。、3. 上采样通道数减半是为了避免全局信息淹没局部细节。、4. 深层特征上采样能提供全局上下文有助于目标定位。、5. YOLOv3通过独立残差连接提高梯度流畅性训练更深。、6. YOLOv3的三尺度检测头能大幅提升小目标检测效果。、7. YOLOv3的多标签分类器支持检测目标的同时预测多个类别。、8. 上采样+Concat策略结合了深层语义和浅层细节。、9. 主干网络的特征设计保持了局部信息的丰富性。、10. YOLOv3的检测头设计能覆盖从大到小的各种目标尺度。、11. YOLOv3通过不同尺度的检测头实现多目标的同时检测。、12. YOLOv3的Anchor设计从单尺度扩展到三尺度覆盖更多目标。、13. YOLOv3的Anchor形状设计能适应不同物体的长宽比。、14. YOLOv3的输出张量结构能同时预测多个Anchor的85维信息。、15. DBL表示Darknet Convolutional Block包含卷积、BN和激活。、16. Res Unit表示残差单元通过跳跃连接保持尺寸。、17. ResX表示残差单元重复X次增强网络深度。、18. Conv Set表示卷积集通过多层卷积融合通道信息。、19. UpSample表示上采样通过最近邻插值或双线性插值放大2倍。、20. YOLOv2只能检测单尺度的大目标而YOLOv3能检测三尺度的目标。、21. YOLOv3的三尺度检测头能大幅提升小目标检测效果。、22. Darknet-53的53层计算量主要来自第3组和第4组的残差单元。、23. YOLOv3通过尺度解耦实现大/中/小目标的分别检测。、24. YOLOv3通过特征融合提供全局上下文和局部细节。、25. YOLOv3通过合理分配通道保持&quot;主角:辅助 = 2:1&quot;的比例。</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-06.html</link>
-      <description> 知识流日报 20260306：. 上采样后的通道数应减半以保持&quot;主角:辅助 = 2:1&quot;的比例。、2. 主干网络的特征是局部细节丰富的&quot;主角&quot;、而上采样的特征是全局信息的&quot;辅助&quot;。、3. 上采样通道数减半是为了避免全局信息淹没局部细节。、4. 深层特征上采样能提供全局上下文有助于目标定位。、5. YOLOv3通过独立残差连接提高梯度流畅性训练更深。、6. YOLOv3的三尺度检测头能大幅提升小目标检测效果。、7. YOLOv3的多标签分类器支持检测目标的同时预测多个类别。、8. 上采样+Concat策略结合了深层语义和浅层细节。、9. 主干网络的特征设计保持了局部信息的丰富性。、10. YOLOv3的检测头设计能覆盖从大到小的各种目标尺度。、11. YOLOv3通过不同尺度的检测头实现多目标的同时检测。、12. YOLOv3的Anchor设计从单尺度扩展到三尺度覆盖更多目标。、13. YOLOv3的Anchor形状设计能适应不同物体的长宽比。、14. YOLOv3的输出张量结构能同时预测多个Anchor的85维信息。、15. DBL表示Darknet Convolutional Bl…</description>
-      <pubDate>2026-03-06 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-06.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-03-03：特征融合、YOLOV4 concatenate、CBL （leaky-relu）、swish mish sigmoiud tanh、注意力（NLP、图像）、L1 L2 mooshL1、GIOU loss</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-03.html</link>
-      <description> 知识流日报 20260303：特征融合、YOLOV4 concatenate、CBL （leakyrelu）、swish mish sigmoiud tanh、注意力（NLP、图像）、L1 L2 mooshL1、GIOU loss 共 93 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 广义交并比（GIOU）损失函数替代传统的交并比（IOU ... 链接：https://www.cnblogs.com/Dongmy/p/18775939 来源：bing 摘要：2025年3月16日 · GIOU损失函数的公式如下： GIOU Loss=1−GIOU 其中，GIOU表示广义交并比，它不仅考虑了预测框和目标框的交集和并集，还考虑了它们相对于最小外接矩…</description>
-      <pubDate>2026-03-03 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-03.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-03-01：average pooling</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-01.html</link>
-      <description> 知识流日报 20260301：average pooling 共 12 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 12 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 13 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. Excel怎么求平均值，AVERAGE函数公式值得拥有！ 链接：https://www.zhihu.com/tardis/bd/art/719130156 来源：bing 摘要：2024年9月9日 · 一、使用 AVERAGE 函数 AVERAGE 函数是 Excel 中最直接用来计算平均值的函数。 操作步骤： 选择一个空白单元格来显示计算结果。 输入公式： =AVERAGE(数据区域)。 例如，如果你 … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;AVERAGE函数可以直接计算数值的平均值，选择空白单…</description>
-      <pubDate>2026-03-01 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-01.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-02-28：SOCP、CL4SE、GRAVE2、ParamMem、FlashOptim、coarse data、iTransformer、utilizing LLMs、LLM Novice Uplift、model disagreement、occlusion reasoning、dataset distillation、active depth learning</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-28.html</link>
-      <description> 知识流日报 20260228：SOCP、CL4SE、GRAVE2、ParamMem、FlashOptim、coarse data、iTransformer、utilizing LLMs、LLM Novice Uplift、model disagreement、occlusion reasoning、dataset distillation、active depth learning 共 116 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 如何理解finegrained和coarsegrained？ 知乎 链接：https://www.zhihu.com/question/299171510 来源：bing 摘要：2018年10月19日 · 如…</description>
-      <pubDate>2026-02-28 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-28.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-02-26：anchor boxes in network、锚框 偏移量学习</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-26.html</link>
-      <description> 知识流日报 20260226：anchor boxes in network、锚框 偏移量学习 共 29 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 29 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 30 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 什么是anchorbased 和anchor free？ 知乎 链接：https://www.zhihu.com/question/356551927 来源：bing 摘要：2019年12月9日 · FSAF既有根据先验设定的anchorbased分支，也有anchorfree分支增强对异常ratio目标的检测能力 2.anchor（也被称为anchor box）是在训练之前，在训练集上利用kmeans等方法聚类 … 正文 （知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。） 2. 目标…</description>
-      <pubDate>2026-02-26 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-26.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-02-24</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-24.html</link>
-      <description> 知识流日报 20260224 共 22 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 22 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 23 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 怎么通俗的理解“多模态”这个词? 知乎 链接：https://www.zhihu.com/question/7297942343 来源：bing 摘要：2024年12月19日 · GPT4o就能&quot;看图说话&quot;，这就是典型的多模态模型。 你给它看一张图片，它不仅能看懂图片内容，还能用文字描述出来，甚至能回答关于图片的问题。 ️ 技术的进步不是为了取代人类 … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;多模态模型因其能够处理多种类型的数据而显得尤为重要，这不仅包括图像，还包括文本、声音等多种信息形式。首先，多模态模型能够理解图片的内容，提取…</description>
-      <pubDate>2026-02-24 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-24.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-02-23：PPO、PTM、谐振抑制、智能调度、SCFC、ZS-IP、表面燃烧器、稳定性机理、FedZMG、构网型变流器、随机低碳调度、超短期负荷预测、有源和无源阻尼、多阶段优化规划、ChatQDA</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-23.html</link>
-      <description> 知识流日报 20260223：PPO、PTM、谐振抑制、智能调度、SCFC、ZSIP、表面燃烧器、稳定性机理、FedZMG、构网型变流器、随机低碳调度、超短期负荷预测、有源和无源阻尼、多阶段优化规划、ChatQDA 共 72 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 深度强化学习SAC、PPO、TD3、DDPG比较？ 知乎 链接：https://www.zhihu.com/question/6699179413 来源：bing 摘要：该页面讨论了深度强化学习中SAC、PPO、TD3和DDPG算法的比较，适合对相关领域感兴趣的读者深入了解。 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;SAC算法基于软Q学习，具有更好的…</description>
-      <pubDate>2026-02-23 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-23.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-02-22：谐振抑制、多阶段优化规划、互联新能源电力系统、光伏直流升压汇集系统、新型电力系统平衡机理、EEMD-LSTM网络、有源和无源阻尼协同控制、大规模先进压缩空气储能、基于时空多视图学习算法、PMU电压数据重构方法、iTransformer、基于改进型主动深度学习框架、区内AGC机组分布式协同控制、跟网型和构网型变流器混合系统、新型电力系统形态量化推演方法</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-22.html</link>
-      <description> 知识流日报 20260222：谐振抑制、多阶段优化规划、互联新能源电力系统、光伏直流升压汇集系统、新型电力系统平衡机理、EEMDLSTM网络、有源和无源阻尼协同控制、大规模先进压缩空气储能、基于时空多视图学习算法、PMU电压数据重构方法、iTransformer、基于改进型主动深度学习框架、区内AGC机组分布式协同控制、跟网型和构网型变流器混合系统、新型电力系统形态量化推演方法 共 52 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 电路中的谐振和振荡有什么具体区别吗？ 知乎 链接：https://www.zhihu.com/question/265398672 来源：bing 摘要：2018年1月10日 · 简单说一下。首先说下谐振。所谓谐振…</description>
-      <pubDate>2026-02-22 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-22.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-02-21：MARS、SMAC、huff、FAMOSE、Ethics、Reverso、超短期负荷预测、A.R.I.S.、流-热场耦合仿真、LLM Agent、NLP Tools、EEMD-LSTM网络、有源和无源阻尼协同控制、iTransformer、油浸式变压器热点温度快速预测</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-21.html</link>
-      <description> 知识流日报 20260221：MARS、SMAC、huff、FAMOSE、Ethics、Reverso、超短期负荷预测、A.R.I.S.、流热场耦合仿真、LLM Agent、NLP Tools、EEMDLSTM网络、有源和无源阻尼协同控制、iTransformer、油浸式变压器热点温度快速预测 共 51 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. A.R.I.S.: Automated Recycling Identification System for ... 链接：https://bytez.com/docs/arxiv/2602.17642/paper 来源：bing 摘要：Traditional electronic recycli…</description>
-      <pubDate>2026-02-21 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-21.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-02-20：流-热场耦合仿真、EEMD-LSTM网络、MDS算法、麻雀优化算法、粒子群算法</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-20.html</link>
-      <description> 知识流日报 20260220：流热场耦合仿真、EEMDLSTM网络、MDS算法、麻雀优化算法、粒子群算法 共 24 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 24 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 25 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 如何形象的理解计算机中“流”的概念？ 知乎 链接：https://www.zhihu.com/question/38075755 来源：bing 摘要：2018年10月23日 · 你这个流究竟是说Stream还是说Flow啊，这两个意思是不同的，后一个在“网络流”当中用，是完全另一个概念。 Stream的话，在计算机里就是顺序读取或者写入的字节序列。这是很多现 … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;Stream在计算机中指的是顺序读取或写入的字节序列，…</description>
-      <pubDate>2026-02-20 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-20.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-02-19：LLM、MMP、AAS、谐振抑制、演进过程、数字孪生、AGC机组、掺氢燃烧特性、主动深度学习、随机低碳调度、恶意软件检测、超短期负荷预测、分布式协同控制、多阶段优化规划、细粒度指标识别</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-19.html</link>
-      <description> 知识流日报 20260219：LLM、MMP、AAS、谐振抑制、演进过程、数字孪生、AGC机组、掺氢燃烧特性、主动深度学习、随机低碳调度、恶意软件检测、超短期负荷预测、分布式协同控制、多阶段优化规划、细粒度指标识别 共 88 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （部分条目含模型提取的「易漏细节」关键点，页面上以颜色区分。） 1. 想学习大语言模型 (LLM)，应该从哪个开源模型开始？ 链接：https://www.zhihu.com/question/608820310 来源：bing 摘要：2）场景领域微调，金融任务LLM、法律LLM、医学LLM、电商LLM Llama系列\Gemma系列中文增量预训练：先做Llama3.1, 等待Llama4，期望Llama5 RAG落地：搭建领域问答机器人、知识问答助手 大模 … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;学习大语言模型时，应关注开源模型的更新，特别是从Llama…</description>
-      <pubDate>2026-02-19 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-19.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-02-18：Task-Agnostic、Reinforcement Learning、LLM、Sim-to-Real、D-Optimal、Parameter-Robust、Continual Learning、Test-Time Adaptation、Non-Destructive LLM Editing、Partial Observability、Multi-Agent Systems、Large Language Models、Standardized Reusability、Agentic AI、Functional Coverage-Guided Verification、Quantum-Native、Sparse Reinforcement Learning、NN Accelerators、Compute Near-Register File、Reconfigurable、Sparsity-Aware、SW-HW Co-Design、Rowhammer-mitigated、Near-Cache、Compute-in-Memory、Microscaling、Floating-Point Charge-Trap Transistor、Transformer Accelerator</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-18.html</link>
-      <description> 知识流日报 20260218：TaskAgnostic、Reinforcement Learning、LLM、SimtoReal、DOptimal、ParameterRobust、Continual Learning、TestTime Adaptation、NonDestructive LLM Editing、Partial Observability、MultiAgent Systems、Large Language Models、Standardized Reusability、Agentic AI、Functional CoverageGuided Verification、QuantumNative、Sparse Reinforcement Learning、NN Accelerators、Compute NearRegister File、Reconfigurable、SparsityAware、SWHW CoDesign、Rowhammermitigated、NearCache、ComputeinMemory、Microscaling、FloatingPoint Char…</description>
-      <pubDate>2026-02-18 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-18.html</guid>
-    </item>
-    <item>
-      <title>知识流日报 2026-02-17：softmax、交叉熵、感受野</title>
-      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</link>
-      <description> 知识流日报 20260217：softmax、交叉熵、感受野 共 3 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （部分条目含模型提取的「易漏细节」关键点，页面上以颜色区分。） 1. 如何理解CNN中的感受野（receptivefield）？ 链接：https://www.zhihu.com/tardis/bd/ans/1910838113 来源：bing 摘要：2021年6月2日 · 和显示一样 ，它基本遵循着“近大远小”的逻辑。或者从另外一个角度说，能够看到近处的范围有限，能够看到远处更广泛的视野。 在CNN中，感受野的概念： • 卷积神经网络（CNN）中， … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;感受野的大小与卷积核大小、卷积层数以及卷积操作密切相关。首先，感受野大小与卷积核大小相关，较小的卷积核能增强网络容量，而较大的卷积核则能减少参数数量。其次，感受野大小与卷积层数相关，卷积层数越多，感受野越大，接触到的原始图…</description>
-      <pubDate>2026-02-17 12:00:00 +0800</pubDate>
-      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-02-17.html</guid>
+      <title>知识流日报 2026-03-23：BERT、VGG</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-23.html</link>
+      <description> 知识流日报 20260323：BERT、VGG 共 30 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 30 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 31 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. The GELATO Dataset for Legislative NER 链接：https://arxiv.org/abs/2603.14130v1 来源：arxiv 摘要：This paper introduces GELATO (Government, Executive, Legislative, and Treaty Ontology), a dataset of U.S. House and Senate bills from the 118th Congress annotated using a novel twolevel…</description>
+      <pubDate>2026-03-23 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-23.html</guid>
     </item>
     <item>
       <title>知识流日报 2026-02-15</title>

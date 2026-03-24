@@ -32,9 +32,9 @@
 <body>
 <p><a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/">← 返回首页</a></p>
 <h1>知识流日报 2026-02-13</h1>
-<p class="meta" style="margin-top:0;">最后更新：2026-03-23 22:41</p>
+<p class="meta" style="margin-top:0;">最后更新：2026-03-24 21:37</p>
 <p class="toolbar"><button id="btnFull" onclick="readFullText()">全文朗读</button> <span id="readStatus"></span></p>
-<p class="meta" style="margin-top:0;">（点任意段落可朗读该段；「全文朗读」读本页全部内容，当前读到的段落会自动滚动到视野内并高亮）</p>
+<p class="meta" style="margin-top:0;">（点任意段落可朗读该段；「全文朗读」读本页全部内容并高亮当前段。为稳定朗读，默认不自动滚动。）</p>
 <nav class="toc" aria-label="目录">
 <p class="toc-title">目录</p>
 <ul>
@@ -184,14 +184,17 @@ function speakText(t,onDone){ if(!t){ document.getElementById('readStatus').text
  var chunks=[]; var maxLen=280; for(var i=0;i<t.length;i+=maxLen){ var s=t.slice(i,i+maxLen); var j=s.lastIndexOf('。'); if(j>80){ chunks.push(s.slice(0,j+1)); i-=s.length-(j+1); } else chunks.push(s); }
  if(chunks.length===0)chunks=[t]; var idx=0;
  function speakNext(){ if(idx>=chunks.length){ status.textContent=''; if(onDone)onDone(); return; } var u=new SpeechSynthesisUtterance(chunks[idx]); u.lang='zh-CN'; u.rate=0.95; var v=speechSynthesis.getVoices().filter(function(x){ return x.lang.indexOf('zh')>=0; })[0]; if(v)u.voice=v;
-  var finished=false; var curLen=(chunks[idx]||'').length; var safetyMs=Math.min(30000,6000+curLen*60); var safety=setTimeout(function(){ if(finished)return; finished=true; idx++; setTimeout(speakNext,80); }, safetyMs); u.onend=function(){ if(finished)return; finished=true; clearTimeout(safety); idx++; setTimeout(speakNext,80); }; u.onerror=function(){ if(finished)return; finished=true; clearTimeout(safety); idx++; setTimeout(speakNext,80); }; status.textContent='朗读中 '+(idx+1)+'/'+chunks.length+'…'; speechSynthesis.speak(u); }
+  var done=false; var timeoutMs=Math.max(4500, Math.min(20000, chunks[idx].length*220)); var watchdog=setTimeout(function(){ if(done) return; done=true; try{ speechSynthesis.cancel(); }catch(e){} idx++; setTimeout(speakNext,120); }, timeoutMs);
+  u.onend=function(){ if(done) return; done=true; clearTimeout(watchdog); idx++; setTimeout(speakNext,80); };
+  u.onerror=function(){ if(done) return; done=true; clearTimeout(watchdog); idx++; setTimeout(speakNext,80); };
+  status.textContent='朗读中 '+(idx+1)+'/'+chunks.length+'…'; speechSynthesis.speak(u); }
  if(speechSynthesis.getVoices().length)speakNext(); else speechSynthesis.onvoiceschanged=function(){ speechSynthesis.onvoiceschanged=null; speakNext(); }; }
 function readFullText(){ var c=document.querySelector('.content'); if(!c){ document.getElementById('readStatus').textContent='无可读内容'; return; }
  var segments=getBlocksInOrder(c); if(!segments.length){ document.getElementById('readStatus').textContent='无可读内容'; return; }
  speechSynthesis.cancel(); document.querySelectorAll('.content .'+READING_HIGHLIGHT_CLASS).forEach(function(el){ el.classList.remove(READING_HIGHLIGHT_CLASS); });
  var status=document.getElementById('readStatus'); var idx=0;
  function runSegment(){ if(idx>=segments.length){ status.textContent=''; document.querySelectorAll('.content .'+READING_HIGHLIGHT_CLASS).forEach(function(el){ el.classList.remove(READING_HIGHLIGHT_CLASS); }); return; }
-  var seg=segments[idx]; seg.el.scrollIntoView({behavior:'smooth',block:'center'}); document.querySelectorAll('.content .'+READING_HIGHLIGHT_CLASS).forEach(function(el){ el.classList.remove(READING_HIGHLIGHT_CLASS); }); seg.el.classList.add(READING_HIGHLIGHT_CLASS);
+  var seg=segments[idx]; if(FOLLOW_SCROLL_DURING_TTS){ try{ seg.el.scrollIntoView({behavior:'auto',block:'center'}); }catch(e){} } document.querySelectorAll('.content .'+READING_HIGHLIGHT_CLASS).forEach(function(el){ el.classList.remove(READING_HIGHLIGHT_CLASS); }); seg.el.classList.add(READING_HIGHLIGHT_CLASS);
   status.textContent='朗读 '+(idx+1)+'/'+segments.length+'…';
   speakText(seg.text,function(){ seg.el.classList.remove(READING_HIGHLIGHT_CLASS); idx++; setTimeout(runSegment,120); }); }
  runSegment(); }

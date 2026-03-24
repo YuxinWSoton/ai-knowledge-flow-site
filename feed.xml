@@ -5,8 +5,15 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Mon, 23 Mar 2026 14:41:15 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Mar 2026 13:37:12 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-03-24：跳跃连接 skip connections、U-Net、latent-dim、nn.Sequential、nn.ConvTranspose2d、t-SNE/UMAP、FCN-AE、Upsample</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-24.html</link>
+      <description> 知识流日报 20260324：跳跃连接 skip connections、UNet、latentdim、nn.Sequential、nn.ConvTranspose2d、tSNE/UMAP、FCNAE、Upsample 共 34 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 34 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 35 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. A note on polynomial equidistribution and recurrence in finite characteristic 链接：https://arxiv.org/abs/2603.22143v1 来源：arxiv 摘要：This paper addresses the topic of equidistribution and recur…</description>
+      <pubDate>2026-03-24 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-24.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-03-23：BERT、VGG</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-23.html</link>

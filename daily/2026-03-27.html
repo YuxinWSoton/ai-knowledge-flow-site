@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>知识流日报 2026-03-27：稀疏自编码、降噪自编码、收缩自编码、堆叠自编码、深度自编码</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: #fff;
+    min-height: 100vh;
+    background: #0a0e1a;
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.9), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1.5px 1.5px at 90px 40px, rgba(255,255,255,0.8), transparent),
+      radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1.5px 1.5px at 160px 120px, rgba(255,255,255,0.7), transparent),
+      radial-gradient(ellipse 120% 100% at 50% 0%, rgba(88,60,120,0.25), transparent 50%),
+      radial-gradient(ellipse 80% 80% at 80% 20%, rgba(40,60,100,0.2), transparent 40%);
+    background-size: 200px 200px;
+    background-repeat: repeat;
+  }
+  a { color: #a8d4ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+ html{scroll-behavior:smooth;} .content h2,.content h3{scroll-margin-top:1rem;} .content .reading-highlight{background:rgba(255,255,255,0.12);border-left:3px solid rgba(255,255,255,0.5);border-radius:2px;} h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;} .toc{margin:1rem 0;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border-radius:6px;} .toc .toc-title{margin:0 0 0.5rem 0;font-weight:bold;color:rgba(255,255,255,0.9);} .toc ul{list-style:none;padding-left:0;margin:0;} .toc li{margin:0.35rem 0;} .toc li.toc-h3{padding-left:1em;font-size:0.95em;} .toc a{color:#a8d4ff;text-decoration:none;} .toc a:hover{text-decoration:underline;} .content p,.content div,.content h2,.content h3,.content h4,.content li,.content pre{cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0.15);} .content .insight-summary{color:#c9a0dc;margin:0.5em 0 0.8em 0;} .content .insight-detail,.content .insight-detail li{color:#8dd4e8;list-style:disc;margin-left:1.2em;padding-left:0.3em;} .content .article-body-details{margin:0.8em 0;} .content .article-body-details summary{cursor:pointer;color:rgba(255,255,255,0.85);}</style>
+</head>
+<body>
+<p><a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/">← 返回首页</a></p>
+<h1>知识流日报 2026-03-27：稀疏自编码、降噪自编码、收缩自编码、堆叠自编码、深度自编码</h1>
+<p class="meta" style="margin-top:0;">最后更新：2026-03-28 17:20</p>
+<p class="toolbar"><button id="btnFull" onclick="readFullText()">全文朗读</button> <span id="readStatus"></span></p>
+<p class="meta" style="margin-top:0;">（点任意段落朗读该段；「全文朗读」合并本页全部可读块后连续播报，避免正文被折成单段时只听到一截）</p>
+<nav class="toc" aria-label="目录">
+<p class="toc-title">目录</p>
+<ul>
+  <li><a href="#toc-0">1. 稀疏的解释|稀疏的意思|汉典“稀疏”词语的解释</a></li>
+  <li class="toc-h3"><a href="#toc-1">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-2">2. 稀疏_百度百科</a></li>
+  <li class="toc-h3"><a href="#toc-3">正文（抓取，非 AI）</a></li>
+</ul>
+</nav>
+<div class="content">
+<h1>知识流日报 2026-03-27：稀疏自编码、降噪自编码、收缩自编码、堆叠自编码、深度自编码</h1>
+<p>共 2 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。</p>
+<p>（以下含抓取正文，便于阅读。未调用任何 AI API。）</p>
+<p>（部分条目含模型提取的「易漏细节」关键点，页面上以颜色区分。）</p>
+<h2 id="toc-0">1. 稀疏的解释|稀疏的意思|汉典“稀疏”词语的解释</h2>
+<ul>
+<li>链接：https://www.zdic.net/hans/%E7%A8%80%E7%96%8F</li>
+<li>来源：bing</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-1">正文（抓取，非 AI）</h3>
+<p>稀疏的解释|稀疏的意思|汉典“稀疏”词语的解释 条目 稀疏 拼音 xī shū 注音 ㄒㄧ ㄕㄨ 稀疏 词语解释 解释 ◎ 稀疏 xīshū [thin] 宽松;不稠密 一片稀疏的树木 ----------------- 国语辞典 稀疏 稀少疏落。 《后汉书．卷五一．庞参传》：「三辅山原旷远，民庶稀疏。」 《西游记．第五回》：「只见那树上花果稀疏，止有几个毛蒂青皮的。」 近 寥落,稀少 反 茂密,茂盛,密集,繁茂,浓密,细密,稠密 英语 sparse, infrequent, thinly spread 德语 dünn, spärlich 法语 clairsemé, rare © 汉典 稀疏 网络解释 百度百科 稀疏 词目：稀疏 解释：（物体、声音等） 宽松；不稠密。 稀疏也有其数学概念。 © 汉典 【 加载评论 】 近同音 羲舒 西樞 稀疎 曦舒 犀梳 西枢 西蜀 細術 銑樹 系述 璽書 曦舒 析圭儋爵 息息相關 西荆 希颜 溪光 鼷穴 趙書 決心書 潇疎 愍書 電樞 进履之书 相关词语 稀糜 稀鬆平常 稀稀拉拉 稀有元素 稀土元素 稀落 地瘠人稀 依稀 月明星稀 緑暗红稀 地曠人稀 綠暗紅稀 疏內 疏圃 疏林 疏介 疏辣辣 疏悻 荒疏 意廣才疏 宣疏 尺疏 宽疏 章疏</p>
+</div></details><h2 id="toc-2">2. 稀疏_百度百科</h2>
+<ul>
+<li>链接：https://baike.baidu.com/item/%E7%A8%80%E7%96%8F/9994919</li>
+<li>来源：bing</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">物体在空间或时间上的间隔较大，表现为物体、声音等密度低、分布散的状态，这种状态在古籍中多有体现，如《后汉书·庞参传》中的“民庶稀疏”，《西游记》中的“花果稀疏”，以及《短歌行》中的“月明星稀”。反义词包括稠密、茂密，而近义词则有疏落、稀少，外语对译如英语中的“sparse”。在地理学中，稀疏概念用于描述人口分布稀疏的地区，如气候过于寒冷的极地地区、炎热干燥的热带沙漠地区、地势高峻的高原山区、气候过于湿热的热带雨林地区，以及干旱的荒漠、寒冷的极地、空气稀薄的高山高原和原始的热带雨林。这些地区都不适宜大量人口长期居住。例如，撒哈拉沙漠由于气候过于干旱而人口稀疏，大洋洲西部也属于人口稀疏地区。因此，稀疏不仅是一种物理状态，也是地理学中描述人口分布特征的重要概念。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>物体在空间或时间上的间隔较大</li>
+<li>物体、声音等密度低、分布散的状态</li>
+<li>反义词包括稠密、茂密</li>
+<li>近义词有疏落、稀少</li>
+<li>外语对译如英语sparse</li>
+<li>古籍中可见于《后汉书·庞参传》“民庶稀疏”</li>
+<li>《西游记》“花果稀疏”</li>
+<li>《短歌行》“月明星稀”</li>
+<li>《资治通鉴·唐纪》“边疆之地，民居稀疏”</li>
+<li>《水浒传》“那山冈之上,树木稀疏”</li>
+<li>《梦溪笔谈》“北地多风沙,草木稀疏”</li>
+<li>“稀”覆盖北方官话、西南官话等主要方言区</li>
+<li>“疏”“朗”等词在吴、闽、粤语区与“稀”并存</li>
+<li>反义词群涵盖“稠密”“茂密”“细密”“密集”“浓密”</li>
+<li>稀疏概念在地理学中用于描述人口分布稀疏的地区</li>
+<li>世界人口分布的四个稀疏地区为气候过于寒冷的极地地区</li>
+<li>炎热干燥的热带沙漠地区</li>
+<li>地势高峻的高原山区</li>
+<li>气候过于湿热的热带雨林地区</li>
+<li>干旱的荒漠</li>
+<li>寒冷的极地</li>
+<li>空气稀薄的高山高原</li>
+<li>原始的热带雨林都不适宜于大量人口长期居住</li>
+<li>撒哈拉沙漠由于气候过于干旱而人口稀疏</li>
+<li>大洋洲西部也属于人口稀疏地区</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-3">正文（抓取，非 AI）</h3>
+<p>稀疏_百度百科 网页 新闻 贴吧 知道 网盘 图片 视频 地图 文库 资讯 采购 百科 百度首页 登录 注册 进入词条 全站搜索 国际版 帮助 首页 秒懂百科 特色百科 知识专题 加入百科 百科团队 权威合作 个人中心 订阅 0 有用+1 0 稀疏 [xī shū] 播报 讨论 上传视频 汉语词语 稀疏是汉语词汇，拼音为xī shū，注音符号为ㄒㄧ ㄕㄨ，词性为形容词，基本含义指物体、声音等在空间或时间上间隔较大，即宽松不稠密。 [1] [3-4] 稀疏用于描述密度低、分布散的状态，反义词包括稠密、茂密，近义词有疏落、稀少，外语对译如英语sparse。 [1-4] 稀疏起源于上古汉语，由“稀”与“疏”构成的联合式复合词，古籍中可见于《后汉书·庞参传》“民庶稀疏”和《西游记》“花果稀疏”等用例。 [1] [3-4] 中文名 稀疏 近义词 疏落 稀少 反义词 稠密 反义词 茂密 拼 音 xī shū 注 音 ㄒㄧ ㄕㄨ 词 性 形容词 外语对译 英语 sparse 目录 1 古籍用例 2 语义演变 3 多语言对照 4 关联词汇网络 5 应用 古籍用例 播报 编辑 典型古籍应用包括： 《后汉书·庞参传》：“三辅山原旷远，民庶稀疏”，描述人口分布状态 《西游记》第五回：“树上花果稀疏，止有几个毛蒂青皮”，刻画物体空间排列 曹操《短歌行》：“月明星稀”，成为古典文学中经典意象 司马光《资治通鉴·唐纪》：“边疆之地，民居稀疏” 施耐庵《水浒传》：“那山冈之上,树木稀疏” 沈括《梦溪笔谈》：“北地多风沙,草木稀疏” 五代齐己《寒节日寄乡友》：“原野稀疏雨” 语义演变 播报 编辑 汉语表“稀疏”义的的主导词群在上古时期已确立，“稀”与“疏”作为核心成员，与“稠”“密”构成对立语义关系 [1] 。语义演变路径呈现跨域特征： 密度域→频度域 ：描述低频率事件，如“稀疏掌声” [1] 密度域→情感域 ：引申为人际疏远，如“往来稀疏” [1] 厚度域→密度域 ：如“稀薄”转指浓度低 [1] 方言调查显示，现代汉语中“稀”覆盖北方官话、西南官话等主要方言区，而“疏”“朗”等词在吴、闽、粤语区与“稀”并存 [1] 。 多语言对照 播报 编辑 外语对应词汇体系： 英语：sparse、infrequent、thinly spread [4] 德语：dünn、spärlich 法语：clairsemé、rare 关联词汇网络 播报 编辑 反义词群涵盖“稠密”（数量多且密集）、“茂密”（植被繁盛）、“细密”（质地精细）、“密集”、“浓密” [3-4] 。 疏落：零散分布（如疏落晨星） 稀少：强调数量稀缺 稀薄：形容密度低,不浓厚 [2] 零星：形容数量少且分散 [2] 寥寥：表示数量极少 [2] 组词能力上，“稀”构成“地广人稀”“月明星稀”等成语，强化“稀疏”语义辐射。 应用 播报 编辑 稀疏概念在地理学中用于描述人口分布稀疏的地区。世界人口分布的四个稀疏地区为气候过于寒冷的 极地地区 、炎热干燥的热带沙漠地区、地势高峻的高原山区和气候过于湿热的热带雨林地区 。人口的分布受自然条件和社会条件的影响，自然条件恶劣、经济落后的地区，人口分布稀疏 [5] 。干旱的荒漠、寒冷的极地、空气稀薄的高山高原和原始的热带雨林都不适宜于大量人口长期居住 [6] 。 撒哈拉沙漠 由于气候过于干旱而人口稀疏 [5] ，大洋洲西部也属于人口稀疏地区 [6] 。撒哈拉沙漠由于气候过于干旱而人口稀疏 [5] ，大洋洲西部也属于人口稀疏地区 [6] 。 新手上路 成长任务 编辑入门 编辑规则 本人编辑 我有疑问 内容质疑 在线客服 官方贴吧 意见反馈 投诉建议 举报不良信息 未通过词条申诉 投诉侵权信息 封禁查询与解封 ©2026 Baidu 使用百度前必读 | 百科协议 | 隐私政策 | 百度百科合作平台 | 京ICP证030173号 京公网安备11000002000001号</p></div></details>
+</div>
+<script>
+var READING_HIGHLIGHT_CLASS='reading-highlight';
+function getBlocksInOrder(container){
+ var blocks=[]; var blockTags=['P','DIV','H2','H3','H4','LI','PRE'];
+ function walk(el){
+  if(!el||!container.contains(el))return;
+  if(blockTags.indexOf(el.tagName)!==-1){
+   var hasBlockChild=false;
+   for(var k=0;k<el.children.length;k++){ var c=el.children[k]; if(blockTags.indexOf(c.tagName)!==-1){ hasBlockChild=true; break; } }
+   if(!hasBlockChild){ var t=(el.innerText||'').trim().replace(/\s+/g,' '); if(t)blocks.push({el:el,text:t}); }
+   else for(k=0;k<el.children.length;k++)walk(el.children[k]);
+  } else for(k=0;k<el.children.length;k++)walk(el.children[k]);
+ }
+ walk(container); return blocks;
+}
+function speakText(t,onDone){ if(!t){ document.getElementById('readStatus').textContent=''; if(onDone)onDone(); return; }
+ speechSynthesis.cancel(); var status=document.getElementById('readStatus'); status.textContent='准备中…';
+ var chunks=[]; var maxLen=280; for(var i=0;i<t.length;i+=maxLen){ var s=t.slice(i,i+maxLen); var j=s.lastIndexOf('。'); if(j>80){ chunks.push(s.slice(0,j+1)); i-=s.length-(j+1); } else chunks.push(s); }
+ if(chunks.length===0)chunks=[t]; var idx=0; var doneCalled=false; var chunkTimer=null; var segTimer=null;
+ function finish(){ if(doneCalled)return; doneCalled=true; if(chunkTimer){clearTimeout(chunkTimer);chunkTimer=null;} if(segTimer){clearTimeout(segTimer);segTimer=null;} status.textContent=''; if(onDone)onDone(); }
+ if(onDone){ var capMs=Math.min(3600000,Math.max(12000,t.length*420+chunks.length*3500)); segTimer=setTimeout(function(){ segTimer=null; if(!doneCalled){ idx=chunks.length; finish(); } },capMs); }
+ function speakNext(){ if(idx>=chunks.length){ finish(); return; } var u=new SpeechSynthesisUtterance(chunks[idx]); u.lang='zh-CN'; u.rate=0.95; var v=speechSynthesis.getVoices().filter(function(x){ return x.lang.indexOf('zh')>=0; })[0]; if(v)u.voice=v;
+  var cur=idx; var chunkDone=false; var estMs=Math.min(240000,Math.max(2200,chunks[idx].length*400+3200)); if(chunkTimer)clearTimeout(chunkTimer); chunkTimer=setTimeout(function(){ chunkTimer=null; if(idx===cur&&!chunkDone){ chunkDone=true; idx++; setTimeout(speakNext,80); } },estMs);
+  u.onend=function(){ if(chunkTimer){clearTimeout(chunkTimer);chunkTimer=null;} if(chunkDone)return; chunkDone=true; idx++; setTimeout(speakNext,80); };
+  u.onerror=function(){ if(chunkTimer){clearTimeout(chunkTimer);chunkTimer=null;} if(chunkDone)return; chunkDone=true; idx++; setTimeout(speakNext,80); };
+  status.textContent='朗读中 '+(idx+1)+'/'+chunks.length+'…'; speechSynthesis.speak(u); }
+ if(speechSynthesis.getVoices().length)speakNext(); else speechSynthesis.onvoiceschanged=function(){ speechSynthesis.onvoiceschanged=null; speakNext(); }; }
+function readFullText(){ var c=document.querySelector('.content'); if(!c){ document.getElementById('readStatus').textContent='无可读内容'; return; }
+ var segments=getBlocksInOrder(c); if(!segments.length){ document.getElementById('readStatus').textContent='无可读内容'; return; }
+ speechSynthesis.cancel(); document.querySelectorAll('.content .'+READING_HIGHLIGHT_CLASS).forEach(function(el){ el.classList.remove(READING_HIGHLIGHT_CLASS); });
+ var parts=[]; for(var si=0;si<segments.length;si++){ var tx=(segments[si].text||'').trim(); if(tx)parts.push(tx); }
+ var full=parts.join('。\n'); if(!full.trim()){ document.getElementById('readStatus').textContent='无可读内容'; return; }
+ try{ c.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){}
+ document.getElementById('readStatus').textContent='全文朗读（'+parts.length+' 段合并）…'; speakText(full,function(){ document.getElementById('readStatus').textContent=''; }); }
+function getBlockForTap(el){ var c=document.querySelector('.content'); var blockTags=['P','DIV','H2','H3','H4','LI','PRE']; while(el&&el!==c){ if(c.contains(el)&&blockTags.indexOf(el.tagName)!==-1) return el; el=el.parentElement; } return null; }
+function onContentTap(e){ if(e.target.closest&&e.target.closest('a')) return; var block=getBlockForTap(e.target); if(block){ var t=(block.innerText||'').trim().replace(/\s+/g,' '); if(t){ e.preventDefault(); speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读本段…'; speakText(t); } } }
+if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', function(){ var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }); } else { var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }
+setTimeout(function(){ try{ var u=new SpeechSynthesisUtterance('\u200b'); u.volume=0; speechSynthesis.speak(u); }catch(e){} }, 300);
+</script>
+</body>
+</html>

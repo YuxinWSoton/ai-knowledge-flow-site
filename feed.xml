@@ -5,8 +5,29 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Tue, 24 Mar 2026 14:55:22 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Mar 2026 09:20:25 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-03-28：降噪自编码、收缩自编码、堆叠自编码、深度自编码</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-28.html</link>
+      <description> 知识流日报 20260328：降噪自编码、收缩自编码、堆叠自编码、深度自编码 共 51 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 音频降噪处理软件有哪些推荐？ 知乎 链接：https://www.zhihu.com/question/587465890 来源：bing 摘要：音频降噪处理软件一：Audacity Audacity的降噪功能提供了许多可定制的参数，用户可以根据自己的需求进行调整，以达到最佳的音频降噪效果。 步骤1：打开Audacity软件并导入需要降噪的音频文件。 步 … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;首先，Audacity的降噪功能提供了许多可定制的参数，用户可以根据自己的需求进行调整，…</description>
+      <pubDate>2026-03-28 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-28.html</guid>
+    </item>
+    <item>
+      <title>知识流日报 2026-03-27：稀疏自编码、降噪自编码、收缩自编码、堆叠自编码、深度自编码</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-27.html</link>
+      <description> 知识流日报 20260327：稀疏自编码、降噪自编码、收缩自编码、堆叠自编码、深度自编码 共 2 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （部分条目含模型提取的「易漏细节」关键点，页面上以颜色区分。） 1. 稀疏的解释|稀疏的意思|汉典“稀疏”词语的解释 链接：https://www.zdic.net/hans/%E7%A8%80%E7%96%8F 来源：bing 正文（抓取，非 AI） 稀疏的解释|稀疏的意思|汉典“稀疏”词语的解释 条目 稀疏 拼音 xī shū 注音 ㄒㄧ ㄕㄨ 稀疏 词语解释 解释 ◎ 稀疏 xīshū [thin] 宽松;不稠密 一片稀疏的树木 国语辞典 稀疏 稀少疏落。 《后汉书．卷五一．庞参传》：「三辅山原旷远，民庶稀疏。」 《西游记．第五回》：「只见那树上花果稀疏，止有几个毛蒂青皮的。」 近 寥落,稀少 反 茂密,茂盛,密集,繁茂,浓密,细密,稠密 英语 sparse, infrequent, thinly spre…</description>
+      <pubDate>2026-03-27 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-27.html</guid>
+    </item>
+    <item>
+      <title>知识流日报 2026-03-26：稀疏自编码、降噪自编码、收缩自编码、堆叠自编码、深度自编码</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-26.html</link>
+      <description> 知识流日报 20260326：稀疏自编码、降噪自编码、收缩自编码、堆叠自编码、深度自编码 共 10 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （部分条目含模型提取的「易漏细节」关键点，页面上以颜色区分。） 1. 稀疏（sparse）在机器学习中很重要吗？为什么？ 知乎 链接：https://www.bing.com/ck/a?!&amp;&amp;p=250338203963dff0a02260aeb961799be0a332d60f0815e5b2cc5a8968973b4eJmltdHM9MTc3NDM5NjgwMA&amp;ptn=3&amp;ver=2&amp;hsh=4&amp;fclid=08e41d1c21ff685c03540a3420a06938&amp;u=a1aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzM4Mjg2Mzg1&amp;ntb=1 来源：bing 摘要：2015年12月7日 · 深度学习论文中经常看到&quot;sparse&quot;，所以应该是重要的概念，…</description>
+      <pubDate>2026-03-26 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-26.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-03-24：latent-dim、nn.Sequential()</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-03-24.html</link>

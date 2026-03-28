@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>知识流日报 2026-03-26：稀疏自编码、降噪自编码、收缩自编码、堆叠自编码、深度自编码</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: #fff;
+    min-height: 100vh;
+    background: #0a0e1a;
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.9), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1.5px 1.5px at 90px 40px, rgba(255,255,255,0.8), transparent),
+      radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1.5px 1.5px at 160px 120px, rgba(255,255,255,0.7), transparent),
+      radial-gradient(ellipse 120% 100% at 50% 0%, rgba(88,60,120,0.25), transparent 50%),
+      radial-gradient(ellipse 80% 80% at 80% 20%, rgba(40,60,100,0.2), transparent 40%);
+    background-size: 200px 200px;
+    background-repeat: repeat;
+  }
+  a { color: #a8d4ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+ html{scroll-behavior:smooth;} .content h2,.content h3{scroll-margin-top:1rem;} .content .reading-highlight{background:rgba(255,255,255,0.12);border-left:3px solid rgba(255,255,255,0.5);border-radius:2px;} h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;} .toc{margin:1rem 0;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border-radius:6px;} .toc .toc-title{margin:0 0 0.5rem 0;font-weight:bold;color:rgba(255,255,255,0.9);} .toc ul{list-style:none;padding-left:0;margin:0;} .toc li{margin:0.35rem 0;} .toc li.toc-h3{padding-left:1em;font-size:0.95em;} .toc a{color:#a8d4ff;text-decoration:none;} .toc a:hover{text-decoration:underline;} .content p,.content div,.content h2,.content h3,.content h4,.content li,.content pre{cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0.15);} .content .insight-summary{color:#c9a0dc;margin:0.5em 0 0.8em 0;} .content .insight-detail,.content .insight-detail li{color:#8dd4e8;list-style:disc;margin-left:1.2em;padding-left:0.3em;} .content .article-body-details{margin:0.8em 0;} .content .article-body-details summary{cursor:pointer;color:rgba(255,255,255,0.85);}</style>
+</head>
+<body>
+<p><a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/">← 返回首页</a></p>
+<h1>知识流日报 2026-03-26：稀疏自编码、降噪自编码、收缩自编码、堆叠自编码、深度自编码</h1>
+<p class="meta" style="margin-top:0;">最后更新：2026-03-28 17:20</p>
+<p class="toolbar"><button id="btnFull" onclick="readFullText()">全文朗读</button> <span id="readStatus"></span></p>
+<p class="meta" style="margin-top:0;">（点任意段落朗读该段；「全文朗读」合并本页全部可读块后连续播报，避免正文被折成单段时只听到一截）</p>
+<nav class="toc" aria-label="目录">
+<p class="toc-title">目录</p>
+<ul>
+  <li><a href="#toc-0">1. 稀疏（sparse）在机器学习中很重要吗？为什么？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-1">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-2">2. 如何评价 Kimi 开源的稀疏注意力框架 MoBA？与DeepSeek的NSA相 …</a></li>
+  <li class="toc-h3"><a href="#toc-3">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-4">3. 什么是稀疏特征 (Sparse Features)? - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-5">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-6">4. 稀疏表达的意义在于？为什么稀疏表达得到广泛的应用？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-7">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-8">5. 头顶上头发稀疏怎么办？</a></li>
+  <li class="toc-h3"><a href="#toc-9">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-10">6. 请问机器学习中的稀疏先验（sparse prior）是什么？</a></li>
+  <li class="toc-h3"><a href="#toc-11">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-12">7. 如何通俗易懂的解释稀疏表示与字典学习？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-13">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-14">8. 神经网络的稀疏表达是指什么，稀疏表达为什么可以提高神经网络的效 …</a></li>
+  <li class="toc-h3"><a href="#toc-15">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-16">9. 深度学习训练中是否有必要使用L1获得稀疏解? - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-17">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-18">10. 男生头发少，稀疏，细软适合留什么发型？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-19">正文（抓取，非 AI）</a></li>
+</ul>
+</nav>
+<div class="content">
+<h1>知识流日报 2026-03-26：稀疏自编码、降噪自编码、收缩自编码、堆叠自编码、深度自编码</h1>
+<p>共 10 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。</p>
+<p>（以下含抓取正文，便于阅读。未调用任何 AI API。）</p>
+<p>（部分条目含模型提取的「易漏细节」关键点，页面上以颜色区分。）</p>
+<h2 id="toc-0">1. 稀疏（sparse）在机器学习中很重要吗？为什么？ - 知乎</h2>
+<ul>
+<li>链接：https://www.bing.com/ck/a?!&amp;&amp;p=250338203963dff0a02260aeb961799be0a332d60f0815e5b2cc5a8968973b4eJmltdHM9MTc3NDM5NjgwMA&amp;ptn=3&amp;ver=2&amp;hsh=4&amp;fclid=08e41d1c-21ff-685c-0354-0a3420a06938&amp;u=a1aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzM4Mjg2Mzg1&amp;ntb=1</li>
+<li>来源：bing</li>
+<li>摘要：2015年12月7日 · 深度学习论文中经常看到"sparse"，所以应该是重要的概念，但一直不理解很困惑； 刚才在quora上的回答感觉很有帮助，尝试总结以下： sparse 代表数据为0，sparse数据的存在让不为0 …</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-1">正文（抓取，非 AI）</h3>
+<p>Please click here if the page does not redirect automatically ...</p>
+</div></details><h2 id="toc-2">2. 如何评价 Kimi 开源的稀疏注意力框架 MoBA？与DeepSeek的NSA相 …</h2>
+<ul>
+<li>链接：https://www.bing.com/ck/a?!&amp;&amp;p=490a93b3b7e195402cf3e32d637568a257f33626bfd25c19a678ad6299ecdaafJmltdHM9MTc3NDM5NjgwMA&amp;ptn=3&amp;ver=2&amp;hsh=4&amp;fclid=08e41d1c-21ff-685c-0354-0a3420a06938&amp;u=a1aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzEyNjk2NjM1NzEx&amp;ntb=1</li>
+<li>来源：bing</li>
+<li>摘要：SFT阶段部分数据带着非常稀疏的loss mask（使得只有1%甚至更少的token 有训练用的梯度），这导致MoBA在大部分sft任务上表现良好，但是越是长文总结类型任务，loss mask 越是稀疏，反应在出来 …</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-3">正文（抓取，非 AI）</h3>
+<p>Please click here if the page does not redirect automatically ...</p>
+</div></details><h2 id="toc-4">3. 什么是稀疏特征 (Sparse Features)? - 知乎</h2>
+<ul>
+<li>链接：https://www.bing.com/ck/a?!&amp;&amp;p=e10549010080f884d250d4bffa11cd13ea555920aa22bf5d7db40ab72c2a3f06JmltdHM9MTc3NDM5NjgwMA&amp;ptn=3&amp;ver=2&amp;hsh=4&amp;fclid=08e41d1c-21ff-685c-0354-0a3420a06938&amp;u=a1aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzMxOTUxMDky&amp;ntb=1</li>
+<li>来源：bing</li>
+<li>摘要：所谓”稀疏“，是很常见的一个词，比如稀疏矩阵，稀疏编码。 这里直白点讲，就是非零值很少。 就如对于矩阵而言，稀疏矩阵，就是大部分数据都为0，少部分不为0，稀疏正是指”非0数据很少。 那么”稀疏 …</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-5">正文（抓取，非 AI）</h3>
+<p>Please click here if the page does not redirect automatically ...</p>
+</div></details><h2 id="toc-6">4. 稀疏表达的意义在于？为什么稀疏表达得到广泛的应用？ - 知乎</h2>
+<ul>
+<li>链接：https://www.bing.com/ck/a?!&amp;&amp;p=4b273fa60827dd78e48e4c92cc7e25b1319439765cfd81d8200996498f3e9288JmltdHM9MTc3NDM5NjgwMA&amp;ptn=3&amp;ver=2&amp;hsh=4&amp;fclid=08e41d1c-21ff-685c-0354-0a3420a06938&amp;u=a1aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzI2NjAyNzk2&amp;ntb=1</li>
+<li>来源：bing</li>
+<li>摘要：和@Kevin Sun的指正）也是被广泛使用。 这里就不引用相关文献了，仅做科普使用。 排名第一的答案提到了compressed sensing和l1范数，值得指出的是，compressed sensing只是稀疏表达的用处之一。 …</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-7">正文（抓取，非 AI）</h3>
+<p>Please click here if the page does not redirect automatically ...</p>
+</div></details><h2 id="toc-8">5. 头顶上头发稀疏怎么办？</h2>
+<ul>
+<li>链接：https://www.bing.com/ck/a?!&amp;&amp;p=bd17b1377d9804fa69bc3d7623a88ce12d965465e87c9ee95c84b41dd93bfed8JmltdHM9MTc3NDM5NjgwMA&amp;ptn=3&amp;ver=2&amp;hsh=4&amp;fclid=08e41d1c-21ff-685c-0354-0a3420a06938&amp;u=a1aHR0cHM6Ly93d3cuemhpaHUuY29tL3RhcmRpcy9iZC9hbnMvMTg3NjY0OTgyNg&amp;ntb=1</li>
+<li>来源：bing</li>
+<li>摘要：头顶头发稀疏是比较常见的脱发类型，女性略多于男性， 从临床医学上来说，大多数头发稀疏，都是因为 雄激素 脱发所致。 目前医学上公认治疗头顶上头发稀疏的方法有3种：用药，医学养护，植发 今 …</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-9">正文（抓取，非 AI）</h3>
+<p>Please click here if the page does not redirect automatically ...</p>
+</div></details><h2 id="toc-10">6. 请问机器学习中的稀疏先验（sparse prior）是什么？</h2>
+<ul>
+<li>链接：https://www.bing.com/ck/a?!&amp;&amp;p=c308e00e88644a4b0655557bb71e1a50708fe21fc26be23eadd227d7c15798a9JmltdHM9MTc3NDM5NjgwMA&amp;ptn=3&amp;ver=2&amp;hsh=4&amp;fclid=08e41d1c-21ff-685c-0354-0a3420a06938&amp;u=a1aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzUwOTUwODUyOD93cml0ZQ&amp;ntb=1</li>
+<li>来源：bing</li>
+<li>摘要：还是离不开概率啊。 sparse prior是指在机器学习中，使用一个 概率 分布来描述参数的分布，其中大多数参数的值都是零或接近零。这个概念出自于2006年的论文《Sparse Bayesian Learning and the …</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-11">正文（抓取，非 AI）</h3>
+<p>Please click here if the page does not redirect automatically ...</p>
+</div></details><h2 id="toc-12">7. 如何通俗易懂的解释稀疏表示与字典学习？ - 知乎</h2>
+<ul>
+<li>链接：https://www.bing.com/ck/a?!&amp;&amp;p=589da7f08ee13deeb3ebb0385488c8620ec70478fe9a7a60b2984c909a379025JmltdHM9MTc3NDM5NjgwMA&amp;ptn=3&amp;ver=2&amp;hsh=4&amp;fclid=08e41d1c-21ff-685c-0354-0a3420a06938&amp;u=a1aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzYyODY5MjAz&amp;ntb=1</li>
+<li>来源：bing</li>
+<li>摘要：希望找到一个稀疏向量 \alpha ，它的非零元素尽量少，且满足重构误差小于等于 \epsilon = 0.7 。 使用优化算法（如 拉格朗日松弛法、交替方向乘子法 ADMM 或正交匹配追踪 OMP 等）来找到最优的稀疏 …</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-13">正文（抓取，非 AI）</h3>
+<p>Please click here if the page does not redirect automatically ...</p>
+</div></details><h2 id="toc-14">8. 神经网络的稀疏表达是指什么，稀疏表达为什么可以提高神经网络的效 …</h2>
+<ul>
+<li>链接：https://www.bing.com/ck/a?!&amp;&amp;p=3642231a79932745e55c7c82ef33e6d74b54eb25e59633dbc94110959cfcbe2aJmltdHM9MTc3NDM5NjgwMA&amp;ptn=3&amp;ver=2&amp;hsh=4&amp;fclid=08e41d1c-21ff-685c-0354-0a3420a06938&amp;u=a1aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzU1NzU0ODg5Nw&amp;ntb=1</li>
+<li>来源：bing</li>
+<li>摘要：神经网络中稀疏性的故事始于修剪，这是一种通过压缩来减小神经网络大小的方法。 第一篇提倡神经网络稀疏性的主要论文可以追溯到 1990 年，由 LeCun 及其同事在 AT&amp;T 贝尔实验室工作时撰写。 当 …</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-15">正文（抓取，非 AI）</h3>
+<p>Please click here if the page does not redirect automatically ...</p>
+</div></details><h2 id="toc-16">9. 深度学习训练中是否有必要使用L1获得稀疏解? - 知乎</h2>
+<ul>
+<li>链接：https://www.bing.com/ck/a?!&amp;&amp;p=8034b369dfa648de0e36d61f3a0892268738286362a465f56849ad9178bdf6e1JmltdHM9MTc3NDM5NjgwMA&amp;ptn=3&amp;ver=2&amp;hsh=4&amp;fclid=08e41d1c-21ff-685c-0354-0a3420a06938&amp;u=a1aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzUxODIyNzU5&amp;ntb=1</li>
+<li>来源：bing</li>
+<li>摘要：如果希望稀疏解的模式有规律， 往往需要更复杂的正则手段（例如 Group LASSO）来引导，这样一来 代码写起来就很麻烦：一方面是需要考虑自己想要的稀疏模式应该如何对权重分组（别整到最后大大影 …</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-17">正文（抓取，非 AI）</h3>
+<p>Please click here if the page does not redirect automatically ...</p>
+</div></details><h2 id="toc-18">10. 男生头发少，稀疏，细软适合留什么发型？ - 知乎</h2>
+<ul>
+<li>链接：https://www.bing.com/ck/a?!&amp;&amp;p=b42b661e62b3abc07313aca0eafad5859bce0a3c7ec599af4bd0ca4d0abb83a9JmltdHM9MTc3NDM5NjgwMA&amp;ptn=3&amp;ver=2&amp;hsh=4&amp;fclid=08e41d1c-21ff-685c-0354-0a3420a06938&amp;u=a1aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzQ3Mzg2MDE4&amp;ntb=1</li>
+<li>来源：bing</li>
+<li>摘要：男生头发少，稀疏，细软适合留什么发型？ [图片] 正面看起来可能觉得还好，也不是很明显 [图片] 但是侧后方看起来就能明显感觉到头发的稀疏。 从小就这样吧。 小时候生下来听大人说我是不长头发的… …</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-19">正文（抓取，非 AI）</h3>
+<p>Please click here if the page does not redirect automatically ...</p></div></details>
+</div>
+<script>
+var READING_HIGHLIGHT_CLASS='reading-highlight';
+function getBlocksInOrder(container){
+ var blocks=[]; var blockTags=['P','DIV','H2','H3','H4','LI','PRE'];
+ function walk(el){
+  if(!el||!container.contains(el))return;
+  if(blockTags.indexOf(el.tagName)!==-1){
+   var hasBlockChild=false;
+   for(var k=0;k<el.children.length;k++){ var c=el.children[k]; if(blockTags.indexOf(c.tagName)!==-1){ hasBlockChild=true; break; } }
+   if(!hasBlockChild){ var t=(el.innerText||'').trim().replace(/\s+/g,' '); if(t)blocks.push({el:el,text:t}); }
+   else for(k=0;k<el.children.length;k++)walk(el.children[k]);
+  } else for(k=0;k<el.children.length;k++)walk(el.children[k]);
+ }
+ walk(container); return blocks;
+}
+function speakText(t,onDone){ if(!t){ document.getElementById('readStatus').textContent=''; if(onDone)onDone(); return; }
+ speechSynthesis.cancel(); var status=document.getElementById('readStatus'); status.textContent='准备中…';
+ var chunks=[]; var maxLen=280; for(var i=0;i<t.length;i+=maxLen){ var s=t.slice(i,i+maxLen); var j=s.lastIndexOf('。'); if(j>80){ chunks.push(s.slice(0,j+1)); i-=s.length-(j+1); } else chunks.push(s); }
+ if(chunks.length===0)chunks=[t]; var idx=0; var doneCalled=false; var chunkTimer=null; var segTimer=null;
+ function finish(){ if(doneCalled)return; doneCalled=true; if(chunkTimer){clearTimeout(chunkTimer);chunkTimer=null;} if(segTimer){clearTimeout(segTimer);segTimer=null;} status.textContent=''; if(onDone)onDone(); }
+ if(onDone){ var capMs=Math.min(3600000,Math.max(12000,t.length*420+chunks.length*3500)); segTimer=setTimeout(function(){ segTimer=null; if(!doneCalled){ idx=chunks.length; finish(); } },capMs); }
+ function speakNext(){ if(idx>=chunks.length){ finish(); return; } var u=new SpeechSynthesisUtterance(chunks[idx]); u.lang='zh-CN'; u.rate=0.95; var v=speechSynthesis.getVoices().filter(function(x){ return x.lang.indexOf('zh')>=0; })[0]; if(v)u.voice=v;
+  var cur=idx; var chunkDone=false; var estMs=Math.min(240000,Math.max(2200,chunks[idx].length*400+3200)); if(chunkTimer)clearTimeout(chunkTimer); chunkTimer=setTimeout(function(){ chunkTimer=null; if(idx===cur&&!chunkDone){ chunkDone=true; idx++; setTimeout(speakNext,80); } },estMs);
+  u.onend=function(){ if(chunkTimer){clearTimeout(chunkTimer);chunkTimer=null;} if(chunkDone)return; chunkDone=true; idx++; setTimeout(speakNext,80); };
+  u.onerror=function(){ if(chunkTimer){clearTimeout(chunkTimer);chunkTimer=null;} if(chunkDone)return; chunkDone=true; idx++; setTimeout(speakNext,80); };
+  status.textContent='朗读中 '+(idx+1)+'/'+chunks.length+'…'; speechSynthesis.speak(u); }
+ if(speechSynthesis.getVoices().length)speakNext(); else speechSynthesis.onvoiceschanged=function(){ speechSynthesis.onvoiceschanged=null; speakNext(); }; }
+function readFullText(){ var c=document.querySelector('.content'); if(!c){ document.getElementById('readStatus').textContent='无可读内容'; return; }
+ var segments=getBlocksInOrder(c); if(!segments.length){ document.getElementById('readStatus').textContent='无可读内容'; return; }
+ speechSynthesis.cancel(); document.querySelectorAll('.content .'+READING_HIGHLIGHT_CLASS).forEach(function(el){ el.classList.remove(READING_HIGHLIGHT_CLASS); });
+ var parts=[]; for(var si=0;si<segments.length;si++){ var tx=(segments[si].text||'').trim(); if(tx)parts.push(tx); }
+ var full=parts.join('。\n'); if(!full.trim()){ document.getElementById('readStatus').textContent='无可读内容'; return; }
+ try{ c.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){}
+ document.getElementById('readStatus').textContent='全文朗读（'+parts.length+' 段合并）…'; speakText(full,function(){ document.getElementById('readStatus').textContent=''; }); }
+function getBlockForTap(el){ var c=document.querySelector('.content'); var blockTags=['P','DIV','H2','H3','H4','LI','PRE']; while(el&&el!==c){ if(c.contains(el)&&blockTags.indexOf(el.tagName)!==-1) return el; el=el.parentElement; } return null; }
+function onContentTap(e){ if(e.target.closest&&e.target.closest('a')) return; var block=getBlockForTap(e.target); if(block){ var t=(block.innerText||'').trim().replace(/\s+/g,' '); if(t){ e.preventDefault(); speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读本段…'; speakText(t); } } }
+if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', function(){ var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }); } else { var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }
+setTimeout(function(){ try{ var u=new SpeechSynthesisUtterance('\u200b'); u.volume=0; speechSynthesis.speak(u); }catch(e){} }, 300);
+</script>
+</body>
+</html>

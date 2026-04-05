@@ -5,8 +5,15 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Wed, 01 Apr 2026 14:43:50 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 05 Apr 2026 08:41:32 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-04-05：VAE 变分自编码</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-05.html</link>
+      <description> 知识流日报 20260405：VAE 变分自编码 共 23 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 23 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 24 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. VAE、GAN 这种生成模型和 transformer 有什么区别？ 链接：https://www.zhihu.com/question/558574918?write 来源：bing 摘要：想问问为什么在分子生成中大部分选择使用VAE、GAN这种生成模型，而不使用transformer进行生成，这两种直… 正文 （知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。） 2. AE，VAE，VQVAE/DVAE为什么是离散连续离散？ 链接：https://www.zhihu.com/question/655548376 来源：bing …</description>
+      <pubDate>2026-04-05 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-05.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-04-01：multi-intent + interference + LLM、compositional generaliztion + intent、task interference +neural networks、多意图识别 + 智能客服</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-01.html</link>

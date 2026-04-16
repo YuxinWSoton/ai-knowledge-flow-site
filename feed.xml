@@ -5,8 +5,15 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Sun, 05 Apr 2026 08:41:32 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 16 Apr 2026 14:21:57 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-04-16：池化下采样、卷积下采样、pad下采样、像素通道变换下采样、像素差值上采样、转置卷积上采样、像素融合上采样</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-16.html</link>
+      <description> 知识流日报 20260416：池化下采样、卷积下采样、pad下采样、像素通道变换下采样、像素差值上采样、转置卷积上采样、像素融合上采样 共 17 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 17 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 18 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 首页 像塑桌面版 链接：https://effect.douyin.com/guides 来源：bing 摘要：像塑桌面版是抖音推出的特效工具，提供人脸、身体及场景的AR视效创建功能。 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;AR视效的创建过程中，需要特别关注用户隐私保护，这是确保技术应用合法性和用户信任的关键。首先，AR技术通过摄像头获取用户的实时图像和位置信息，这可能涉及用户的隐私数据。因此，开发者在设计AR应用时，必须严格…</description>
+      <pubDate>2026-04-16 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-16.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-04-05：VAE 变分自编码</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-05.html</link>

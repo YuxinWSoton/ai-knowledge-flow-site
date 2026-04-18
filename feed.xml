@@ -5,8 +5,15 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Thu, 16 Apr 2026 14:21:57 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 18 Apr 2026 13:52:40 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-04-18：转置卷积</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-18.html</link>
+      <description> 知识流日报 20260418：转置卷积 共 9 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 9 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 10 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 怎样通俗易懂地解释反卷积？ 知乎 链接：https://www.zhihu.com/question/48279880?d=123 来源：bing 摘要：转置卷积定义 对于很多生成模型（如GAN中的生成器、自动编码器（Autoencoder）、语义分割等模型）。我们通常希望进行与正常卷积相反的转换，即我们希望执行上采样，比如自动编码器或者语义分 … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;反卷积是一种用于上采样的技术，其核心功能是恢复特征图的尺寸，这与卷积操作相反。反卷积在生成模型中广泛应用，通过将特征图的尺寸逐步恢复，能够实…</description>
+      <pubDate>2026-04-18 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-18.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-04-16：池化下采样、卷积下采样、pad下采样、像素通道变换下采样、像素差值上采样、转置卷积上采样、像素融合上采样</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-16.html</link>

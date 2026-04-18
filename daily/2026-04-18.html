@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>知识流日报 2026-04-18：转置卷积</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: #fff;
+    min-height: 100vh;
+    background: #0a0e1a;
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.9), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1.5px 1.5px at 90px 40px, rgba(255,255,255,0.8), transparent),
+      radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1.5px 1.5px at 160px 120px, rgba(255,255,255,0.7), transparent),
+      radial-gradient(ellipse 120% 100% at 50% 0%, rgba(88,60,120,0.25), transparent 50%),
+      radial-gradient(ellipse 80% 80% at 80% 20%, rgba(40,60,100,0.2), transparent 40%);
+    background-size: 200px 200px;
+    background-repeat: repeat;
+  }
+  a { color: #a8d4ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+ html{scroll-behavior:smooth;} .content h2,.content h3{scroll-margin-top:1rem;} .content .reading-highlight{background:rgba(255,255,255,0.12);border-left:3px solid rgba(255,255,255,0.5);border-radius:2px;} h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;} .toc{margin:1rem 0;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border-radius:6px;} .toc .toc-title{margin:0 0 0.5rem 0;font-weight:bold;color:rgba(255,255,255,0.9);} .toc ul{list-style:none;padding-left:0;margin:0;} .toc li{margin:0.35rem 0;} .toc li.toc-h3{padding-left:1em;font-size:0.95em;} .toc a{color:#a8d4ff;text-decoration:none;} .toc a:hover{text-decoration:underline;} .content p,.content div,.content h2,.content h3,.content h4,.content li,.content pre{cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0.15);} .content .insight-summary{color:#c9a0dc;margin:0.5em 0 0.8em 0;} .content .insight-detail,.content .insight-detail li{color:#8dd4e8;list-style:disc;margin-left:1.2em;padding-left:0.3em;} .content .article-body-details{margin:0.8em 0;} .content .article-body-details summary{cursor:pointer;color:rgba(255,255,255,0.85);}</style>
+</head>
+<body>
+<p><a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/">← 返回首页</a></p>
+<h1>知识流日报 2026-04-18：转置卷积</h1>
+<p class="meta" style="margin-top:0;">最后更新：2026-04-18 21:52</p>
+<p class="toolbar"><button id="btnFull" onclick="readFullText()">全文朗读</button> <span id="readStatus"></span></p>
+<p class="meta" style="margin-top:0;">（点任意段落朗读该段；「全文朗读」合并本页全部可读块后连续播报，避免正文被折成单段时只听到一截）</p>
+<nav class="toc" aria-label="目录">
+<p class="toc-title">目录</p>
+<ul>
+  <li><a href="#toc-0">1. 怎样通俗易懂地解释反卷积？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-1">正文</a></li>
+  <li><a href="#toc-2">2. Upsample、ConvTranspose2d、conv后PixelShuffle用法上有 ...</a></li>
+  <li class="toc-h3"><a href="#toc-3">正文</a></li>
+  <li><a href="#toc-4">3. 在网络结构进行特征融合时，哪种上采样方式比较好，反卷积 ...</a></li>
+  <li class="toc-h3"><a href="#toc-5">正文</a></li>
+  <li><a href="#toc-6">4. 反卷积和上采样+卷积的区别？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-7">正文</a></li>
+  <li><a href="#toc-8">5. 转置卷积是卷积的逆操作吗？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-9">正文</a></li>
+  <li><a href="#toc-10">6. 请问3D卷积中的卷积核应该是什么样的？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-11">正文</a></li>
+  <li><a href="#toc-12">7. 转置卷积（反卷积）</a></li>
+  <li class="toc-h3"><a href="#toc-13">正文</a></li>
+  <li><a href="#toc-14">8. 上采样时，转置卷积比起简单的线性插值，优势在哪里呢？</a></li>
+  <li class="toc-h3"><a href="#toc-15">正文</a></li>
+  <li><a href="#toc-16">9. 什么是strided convolution？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-17">正文</a></li>
+</ul>
+</nav>
+<div class="content">
+<h1>知识流日报 2026-04-18：转置卷积</h1>
+<p>共 9 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。</p>
+<p>（以下含抓取正文，便于阅读。未调用任何 AI API。）</p>
+<p>（仅前 9 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 10 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。）</p>
+<h2 id="toc-0">1. 怎样通俗易懂地解释反卷积？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/48279880?d=123</li>
+<li>来源：bing</li>
+<li>摘要：转置卷积定义 对于很多生成模型（如GAN中的生成器、自动编码器（Autoencoder）、语义分割等模型）。我们通常希望进行与正常卷积相反的转换，即我们希望执行上采样，比如自动编码器或者语义分 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">反卷积是一种用于上采样的技术，其核心功能是恢复特征图的尺寸，这与卷积操作相反。反卷积在生成模型中广泛应用，通过将特征图的尺寸逐步恢复，能够实现从低分辨率到高分辨率的图像生成。这一过程不仅有助于特征信息的恢复，还能够提高生成图像的清晰度和细节。因此，反卷积在生成模型中扮演着至关重要的角色，是实现高质量图像生成的关键步骤。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>反卷积用于上采样；反卷积是卷积的逆操作；反卷积常用于生成模型中；反卷积实现特征图的尺寸恢复。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-1">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-2">2. Upsample、ConvTranspose2d、conv后PixelShuffle用法上有 ...</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/342143752</li>
+<li>来源：bing</li>
+<li>摘要：2021年1月30日 · 2. 转置卷积应该是上采样力度最大的，所以有些时候的结果看起来会不太真实。 任务：GAN，分割，超分。 3. pixel shuffle最开始也是用在超分上的，把channel通道放大r^2倍，然后再 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">转置卷积因其强大的上采样能力，在生成对抗网络、分割任务和超分辨率等场景中被广泛应用。转置卷积能够有效地恢复图像的尺寸，使其在图像生成和分割任务中发挥关键作用。此外，PixelShuffle最初应用于超分辨率任务，通过放大通道数的方式实现上采样，从而提高图像的分辨率。尽管PixelShuffle和转置卷积在实现上采样的机制上有所不同，但它们都致力于解决图像尺寸恢复的问题，从而在图像处理领域中扮演着重要角色。因此，这两种技术在图像生成和超分辨率等任务中可以相互补充，共同提升图像的质量和细节。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>转置卷积具有最强的上采样能力。</li>
+<li>转置卷积常用于生成对抗网络、分割任务和超分辨率。</li>
+<li>PixelShuffle最初应用于超分辨率。</li>
+<li>PixelShuffle通过放大通道数来实现上采样。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-3">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-4">3. 在网络结构进行特征融合时，哪种上采样方式比较好，反卷积 ...</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/314390272</li>
+<li>来源：bing</li>
+<li>摘要：2019年7月4日 · 转置卷积是一种神经网络层，转置卷积也被称为反卷积用于通过学习得到一个权重矩阵来进行上采样。 这种方法通常用于深度学习模型中，特别是在生成对抗网络（GAN）和自编码器中用 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">转置卷积通过学习得到权重矩阵来进行上采样，这一过程实际上是反卷积的别称。转置卷积在生成对抗网络和自编码器中被广泛应用，因为它们能够有效地进行上采样，从而生成或重构高分辨率的图像。因此，尽管转置卷积和反卷积在名称上有所不同，但在实际应用中它们的功能和作用是相同的，都是为了实现图像的上采样。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>转置卷积通过学习得到权重矩阵来进行上采样。</li>
+<li>反卷积实际上是转置卷积的别称。</li>
+<li>转置卷积在生成对抗网络和自编码器中常用。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-5">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-6">4. 反卷积和上采样+卷积的区别？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/328891283</li>
+<li>来源：bing</li>
+<li>摘要：2019年6月16日 · deconvolution, kernel4, stride2 所以可以看到，棋盘状消失了。所以在实际应用中对于一些像素级别的预测任务，比如分割，风格化，gan这类的任务，对于视觉效果有要求的，在使用反 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">反卷积在像素级别预测任务中更受欢迎，因为它能有效改善视觉效果，而上采样+卷积则难以完全消除棋盘状伪影。因此，在实际应用中，反卷积更为常用，这进一步证明了其在提升图像质量和用户体验方面的优势。反卷积通过在像素级别进行预测，不仅能够处理复杂的图像数据，还能在保持图像细节的同时，显著提高图像的整体质量。因此，反卷积成为图像处理领域中的重要技术之一。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>反卷积能改善视觉效果。</li>
+<li>反卷积在像素级别预测任务中更受欢迎。</li>
+<li>上采样+卷积不能完全消除棋盘状伪影。</li>
+<li>反卷积在实际应用中更为常用。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-7">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-8">5. 转置卷积是卷积的逆操作吗？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/536360033</li>
+<li>来源：bing</li>
+<li>摘要：转置卷积是卷积的逆操作吗？ 就可以使神经网络自主的学习，来获取最优的上采样方式。 因此，转置卷积在处理复杂的上采样任务时更加的灵活和有效。 1.转置卷积的计算方法 转置卷积的计算过程如下 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">转置卷积并非严格意义上的卷积的逆操作，而是专门用于上采样的技术。尽管如此，转置卷积在神经网络中扮演着至关重要的角色，它不仅能够灵活地执行上采样任务，还能够帮助网络学习到最优的上采样策略。通过这种方式，转置卷积不仅提升了模型的性能，还增强了其在图像处理等领域的应用能力。因此，尽管转置卷积不是卷积的逆操作，但它的重要性不容忽视。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>转置卷积不是严格意义上的卷积的逆操作。</li>
+<li>转置卷积用于上采样任务。</li>
+<li>转置卷积提供灵活的上采样方式。</li>
+<li>转置卷积有助于神经网络学习最优上采样策略。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-9">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-10">6. 请问3D卷积中的卷积核应该是什么样的？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/402674728</li>
+<li>来源：bing</li>
+<li>摘要：2020年6月21日 · 请问3D卷积中的卷积核应该是什么样的？ 比如说输入的图像序列为L1（也就是说该序列里有L1张连续图像）,每一张图像通道数C1、宽W1、高H1，那么这时候的卷积核是长什么样呢？ 这 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">D卷积核在处理序列数据时具有深度维度，这一特性使得它能够同时处理多个连续的图像帧。卷积核的深度应与输入序列的通道数相匹配，确保每一通道的数据都能被有效处理。卷积核的大小通常包括深度、宽度和高度三个维度，其中输入序列的宽度和高度决定了卷积核在空间维度上的大小，而卷积核的深度则决定了它能同时处理多少个连续的图像帧。因此，根据具体应用场景，卷积核的大小需灵活选择，以达到最佳的处理效果。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>D卷积核在处理序列数据时具有深度维度。</li>
+<li>卷积核的深度应与输入序列的通道数相匹配。</li>
+<li>卷积核的大小通常包括深度、宽度和高度三个维度。</li>
+<li>卷积核的大小需根据具体应用场景灵活选择。</li>
+<li>输入序列的宽度和高度决定了卷积核在空间维度上的大小。</li>
+<li>卷积核的深度决定了它能同时处理多少个连续的图像帧。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-11">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-12">7. 转置卷积（反卷积）</h2>
+<ul>
+<li>链接：https://www.zhihu.com/column/p/113525131</li>
+<li>来源：bing</li>
+<li>摘要：2020年1月23日 · 转置卷积又称反卷积，逆卷积。在主流的深度学习框架之中，如Tensorflow，Pytorch,Kreas中的函数名都是conv_transpose 将一个4<em>4的输入通过3</em>3的卷积核核进 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">转置卷积并非真正的卷积逆运算，而是具有类似功能的一种操作。在不同的深度学习框架中，转置卷积的函数名统一为conv_transpose，这表明其在功能和实现上具有一定的通用性。转置卷积的输出尺寸受填充、步幅和核大小的影响，因此在设计网络结构时，需要根据具体需求调整这些参数，以确保生成的特征图尺寸符合预期。因此，理解转置卷积的工作原理及其对输出尺寸的影响是构建和优化深度学习模型的关键步骤。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>转置卷积并非真正的卷积逆运算。</li>
+<li>转置卷积在不同框架中的函数名一致为conv_transpose。</li>
+<li>转置卷积的输出尺寸取决于填充、步幅和核大小。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-13">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-14">8. 上采样时，转置卷积比起简单的线性插值，优势在哪里呢？</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/393096179</li>
+<li>来源：bing</li>
+<li>摘要：2020年5月6日 · 如果把pooling型下采样替换为步长大于1的卷积，其优点理解为信息损失小，映射能力大；则把interpolation型上菜样替换为步长小于1的卷积（分数步长卷积，转置卷积），其优点理解为 信 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">转置卷积因其独特的结构，能够更好地保留原始特征信息，这使得它在进行上采样时更为有效。转置卷积不仅能够更有效地进行上采样，还具有更强的映射能力，这意味着它可以更准确地将低维特征空间映射到高维特征空间，从而在保留细节的同时提升模型的性能。因此，转置卷积成为许多深度学习模型中不可或缺的组件，特别是在需要精细特征重建和高分辨率输出的应用场景中。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>转置卷积能更好地保留原始特征信息。</li>
+<li>转置卷积具有更强的映射能力。</li>
+<li>转置卷积可以更有效地进行上采样。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-15">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-16">9. 什么是strided convolution？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/323635038</li>
+<li>来源：bing</li>
+<li>摘要：2019年5月9日 · 通常指跨步大于1，具有下采样作用的卷积。 如果是分数步长的话，那么就是上卷积，反卷积或者转置卷积了。</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">跨步大于1的卷积具有下采样作用，这意味着在卷积过程中，输入的特征图会被缩小尺寸，从而减少计算量和参数数量。此外，分数步长的卷积则被称为上卷积、反卷积或转置卷积，这类卷积通过引入非整数步长，可以在特征图上进行上采样操作，恢复或增加特征图的尺寸，常用于生成模型和语义分割任务中，以实现特征图的尺寸与原始输入相匹配。因此，这两种卷积方法在深度学习模型中扮演着互补的角色，前者用于特征图的下采样，后者用于上采样，共同支持模型在不同层次上的特征提取和重建。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>跨步大于1的卷积具有下采样作用。</li>
+<li>分数步长的卷积被称为上卷积、反卷积或转置卷积。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-17">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p></div></details>
+</div>
+<script>
+var READING_HIGHLIGHT_CLASS='reading-highlight';
+function getBlocksInOrder(container){
+ var blocks=[]; var blockTags=['P','DIV','H2','H3','H4','LI','PRE'];
+ function walk(el){
+  if(!el||!container.contains(el))return;
+  if(blockTags.indexOf(el.tagName)!==-1){
+   var hasBlockChild=false;
+   for(var k=0;k<el.children.length;k++){ var c=el.children[k]; if(blockTags.indexOf(c.tagName)!==-1){ hasBlockChild=true; break; } }
+   if(!hasBlockChild){ var t=(el.innerText||'').trim().replace(/\s+/g,' '); if(t)blocks.push({el:el,text:t}); }
+   else for(k=0;k<el.children.length;k++)walk(el.children[k]);
+  } else for(k=0;k<el.children.length;k++)walk(el.children[k]);
+ }
+ walk(container); return blocks;
+}
+function speakText(t,onDone){ if(!t){ document.getElementById('readStatus').textContent=''; if(onDone)onDone(); return; }
+ speechSynthesis.cancel(); var status=document.getElementById('readStatus'); status.textContent='准备中…';
+ var chunks=[]; var maxLen=280; for(var i=0;i<t.length;i+=maxLen){ var s=t.slice(i,i+maxLen); var j=s.lastIndexOf('。'); if(j>80){ chunks.push(s.slice(0,j+1)); i-=s.length-(j+1); } else chunks.push(s); }
+ if(chunks.length===0)chunks=[t]; var idx=0; var doneCalled=false; var chunkTimer=null; var segTimer=null;
+ function finish(){ if(doneCalled)return; doneCalled=true; if(chunkTimer){clearTimeout(chunkTimer);chunkTimer=null;} if(segTimer){clearTimeout(segTimer);segTimer=null;} status.textContent=''; if(onDone)onDone(); }
+ if(onDone){ var capMs=Math.min(3600000,Math.max(12000,t.length*420+chunks.length*3500)); segTimer=setTimeout(function(){ segTimer=null; if(!doneCalled){ idx=chunks.length; finish(); } },capMs); }
+ function speakNext(){ if(idx>=chunks.length){ finish(); return; } var u=new SpeechSynthesisUtterance(chunks[idx]); u.lang='zh-CN'; u.rate=0.95; var v=speechSynthesis.getVoices().filter(function(x){ return x.lang.indexOf('zh')>=0; })[0]; if(v)u.voice=v;
+  var cur=idx; var chunkDone=false; var estMs=Math.min(240000,Math.max(2200,chunks[idx].length*400+3200)); if(chunkTimer)clearTimeout(chunkTimer); chunkTimer=setTimeout(function(){ chunkTimer=null; if(idx===cur&&!chunkDone){ chunkDone=true; idx++; setTimeout(speakNext,80); } },estMs);
+  u.onend=function(){ if(chunkTimer){clearTimeout(chunkTimer);chunkTimer=null;} if(chunkDone)return; chunkDone=true; idx++; setTimeout(speakNext,80); };
+  u.onerror=function(){ if(chunkTimer){clearTimeout(chunkTimer);chunkTimer=null;} if(chunkDone)return; chunkDone=true; idx++; setTimeout(speakNext,80); };
+  status.textContent='朗读中 '+(idx+1)+'/'+chunks.length+'…'; speechSynthesis.speak(u); }
+ if(speechSynthesis.getVoices().length)speakNext(); else speechSynthesis.onvoiceschanged=function(){ speechSynthesis.onvoiceschanged=null; speakNext(); }; }
+function readFullText(){ var c=document.querySelector('.content'); if(!c){ document.getElementById('readStatus').textContent='无可读内容'; return; }
+ var segments=getBlocksInOrder(c); if(!segments.length){ document.getElementById('readStatus').textContent='无可读内容'; return; }
+ speechSynthesis.cancel(); document.querySelectorAll('.content .'+READING_HIGHLIGHT_CLASS).forEach(function(el){ el.classList.remove(READING_HIGHLIGHT_CLASS); });
+ var parts=[]; for(var si=0;si<segments.length;si++){ var tx=(segments[si].text||'').trim(); if(tx)parts.push(tx); }
+ var full=parts.join('。\n'); if(!full.trim()){ document.getElementById('readStatus').textContent='无可读内容'; return; }
+ try{ c.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){}
+ document.getElementById('readStatus').textContent='全文朗读（'+parts.length+' 段合并）…'; speakText(full,function(){ document.getElementById('readStatus').textContent=''; }); }
+function getBlockForTap(el){ var c=document.querySelector('.content'); var blockTags=['P','DIV','H2','H3','H4','LI','PRE']; while(el&&el!==c){ if(c.contains(el)&&blockTags.indexOf(el.tagName)!==-1) return el; el=el.parentElement; } return null; }
+function onContentTap(e){ if(e.target.closest&&e.target.closest('a')) return; var block=getBlockForTap(e.target); if(block){ var t=(block.innerText||'').trim().replace(/\s+/g,' '); if(t){ e.preventDefault(); speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读本段…'; speakText(t); } } }
+if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', function(){ var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }); } else { var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }
+setTimeout(function(){ try{ var u=new SpeechSynthesisUtterance('\u200b'); u.volume=0; speechSynthesis.speak(u); }catch(e){} }, 300);
+</script>
+</body>
+</html>

@@ -5,12 +5,19 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Mon, 20 Apr 2026 14:32:32 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2026 14:01:08 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>知识流日报 2026-04-20：深度自编码、三元组损失函数、自编码模型内部结构</title>
+      <title>知识流日报 2026-04-21：深度自编码、三元组损失函数、自编码模型内部结构、变分自编码最终生成、变分自编码解码器的输出、判别器的输入数据、双线性插值</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-21.html</link>
+      <description> 知识流日报 20260421：深度自编码、三元组损失函数、自编码模型内部结构、变分自编码最终生成、变分自编码解码器的输出、判别器的输入数据、双线性插值 共 96 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 50 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 51 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 机器学习的多分类问题可用的模型都有哪些？各优缺点是什么 ... 链接：https://www.zhihu.com/question/343828523 来源：bing 摘要：图1.度量学习架构 四、选择适当的损失函数来训练大规模分类问题 本节我来介绍一组可用于训练大规模分类模型的损失函数。选择 正确的损失函数 在算法的成功中发挥关键作用。 对比损失（Contrastive … 易漏细节梳理： &lt;p class=&quot;insightsummary…</description>
+      <pubDate>2026-04-21 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-21.html</guid>
+    </item>
+    <item>
+      <title>知识流日报 2026-04-20：余弦相似度也称余弦距离、YOLO的核心思想图像金字塔缩放图像和h滑动检测框来检测目标、YOLOv3和YOLOv4的网络输出结构都使用残差拼接模块</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-20.html</link>
-      <description> 知识流日报 20260420：深度自编码、三元组损失函数、自编码模型内部结构 共 45 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 45 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 46 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 机器学习的多分类问题可用的模型都有哪些？各优缺点是什么 ... 链接：https://www.zhihu.com/question/343828523 来源：bing 摘要：图1.度量学习架构 四、选择适当的损失函数来训练大规模分类问题 本节我来介绍一组可用于训练大规模分类模型的损失函数。选择 正确的损失函数 在算法的成功中发挥关键作用。 对比损失（Contrastive … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;损失函数的选择对算法成功至关重要，因为它直接影响模型的训练效果。对比损…</description>
+      <description> 知识流日报 20260420：余弦相似度也称余弦距离、YOLO的核心思想图像金字塔缩放图像和h滑动检测框来检测目标、YOLOv3和YOLOv4的网络输出结构都使用残差拼接模块 共 24 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 24 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 25 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 向量之间夹角的余弦值怎么算? 知乎 链接：https://www.zhihu.com/question/537727684 来源：bing 摘要：当两个向量同向时，余弦值为1；当它们反向时，余弦值为1；当它们正交（垂直）时，余弦值为0。 通过取反余弦函数（arccos），可以进一步求得夹角 \ (\theta\) 的度数或弧度。 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;夹角余弦值的范围是[…</description>
       <pubDate>2026-04-20 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-20.html</guid>
     </item>

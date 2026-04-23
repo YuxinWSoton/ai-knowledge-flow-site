@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>知识流日报 2026-04-23：深度自编码、三元组损失函数、自编码模型内部结构、变分自编码最终生成、变分自编码解码器的输出、判别器的输入数据、双线性插值</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: #fff;
+    min-height: 100vh;
+    background: #0a0e1a;
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.9), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1.5px 1.5px at 90px 40px, rgba(255,255,255,0.8), transparent),
+      radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1.5px 1.5px at 160px 120px, rgba(255,255,255,0.7), transparent),
+      radial-gradient(ellipse 120% 100% at 50% 0%, rgba(88,60,120,0.25), transparent 50%),
+      radial-gradient(ellipse 80% 80% at 80% 20%, rgba(40,60,100,0.2), transparent 40%);
+    background-size: 200px 200px;
+    background-repeat: repeat;
+  }
+  a { color: #a8d4ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+ html{scroll-behavior:smooth;} .content h2,.content h3{scroll-margin-top:1rem;} .content .reading-highlight{background:rgba(255,255,255,0.12);border-left:3px solid rgba(255,255,255,0.5);border-radius:2px;} h1,h2,h3{margin-top:1.5rem;color:#fff;} pre{white-space:pre-wrap;color:rgba(255,255,255,0.9);} .toolbar{margin:0.5rem 0;color:rgba(255,255,255,0.8);} .content{color:rgba(255,255,255,0.95);} .content a{color:#a8d4ff;} .meta{color:rgba(255,255,255,0.65);font-size:0.9em;} .toc{margin:1rem 0;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border-radius:6px;} .toc .toc-title{margin:0 0 0.5rem 0;font-weight:bold;color:rgba(255,255,255,0.9);} .toc ul{list-style:none;padding-left:0;margin:0;} .toc li{margin:0.35rem 0;} .toc li.toc-h3{padding-left:1em;font-size:0.95em;} .toc a{color:#a8d4ff;text-decoration:none;} .toc a:hover{text-decoration:underline;} .content p,.content div,.content h2,.content h3,.content h4,.content li,.content pre{cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0.15);} .content .insight-summary{color:#c9a0dc;margin:0.5em 0 0.8em 0;} .content .insight-detail,.content .insight-detail li{color:#8dd4e8;list-style:disc;margin-left:1.2em;padding-left:0.3em;} .content .article-body-details{margin:0.8em 0;} .content .article-body-details summary{cursor:pointer;color:rgba(255,255,255,0.85);}</style>
+</head>
+<body>
+<p><a href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/">← 返回首页</a></p>
+<h1>知识流日报 2026-04-23：深度自编码、三元组损失函数、自编码模型内部结构、变分自编码最终生成、变分自编码解码器的输出、判别器的输入数据、双线性插值</h1>
+<p class="meta" style="margin-top:0;">最后更新：2026-04-23 09:16</p>
+<p class="toolbar"><button id="btnFull" onclick="readFullText()">全文朗读</button> <span id="readStatus"></span></p>
+<p class="meta" style="margin-top:0;">（点任意段落朗读该段；「全文朗读」合并本页全部可读块后连续播报，避免正文被折成单段时只听到一截）</p>
+<nav class="toc" aria-label="目录">
+<p class="toc-title">目录</p>
+<ul>
+  <li><a href="#toc-0">1. 「三体问题」无解吗？为什么？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-1">正文</a></li>
+  <li><a href="#toc-2">2. 细胞自噬机制到底从断食第几个小时启动的？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-3">正文</a></li>
+  <li><a href="#toc-4">3. 微分、差分和变分的概念有什么异同？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-5">正文</a></li>
+  <li><a href="#toc-6">4. 微信上线网页版文件传输助手，无需登录即可传文件，该功能 ...</a></li>
+  <li class="toc-h3"><a href="#toc-7">正文</a></li>
+  <li><a href="#toc-8">5. 双线性插值的公式如何理解？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-9">正文</a></li>
+  <li><a href="#toc-10">6. 在网络结构进行特征融合时，哪种上采样方式比较好，反卷积 ...</a></li>
+  <li class="toc-h3"><a href="#toc-11">正文</a></li>
+  <li><a href="#toc-12">7. u net 上采样如何实现的？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-13">正文</a></li>
+  <li><a href="#toc-14">8. 反卷积和上采样+卷积的区别？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-15">正文</a></li>
+  <li><a href="#toc-16">9. Upsample、ConvTranspose2d、conv后PixelShuffle用法上有 ...</a></li>
+  <li class="toc-h3"><a href="#toc-17">正文</a></li>
+  <li><a href="#toc-18">10. 插值算法能否缩小图片？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-19">正文</a></li>
+  <li><a href="#toc-20">11. 怎么用b样条进行三次样条插值？ - 知乎</a></li>
+  <li class="toc-h3"><a href="#toc-21">正文</a></li>
+  <li><a href="#toc-22">12. fpga进行图像的缩放，先水平缩放，缓存数据，在垂直缩放 ...</a></li>
+  <li class="toc-h3"><a href="#toc-23">正文</a></li>
+  <li><a href="#toc-24">13. 深度Linux如何移植.net framework 4.0 开发的exe文件</a></li>
+  <li class="toc-h3"><a href="#toc-25">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-26">14. Deepin Technology Community</a></li>
+  <li class="toc-h3"><a href="#toc-27">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-28">15. 推荐一个Linux平台安卓模拟器：麒卓- Community - Deepin ...</a></li>
+  <li class="toc-h3"><a href="#toc-29">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-30">16. 深度V20手动安装最新的Virtualbox - Deepin Technology</a></li>
+  <li class="toc-h3"><a href="#toc-31">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-32">17. 第一次安装使用深度linux，并自己安装qt5.99- Community ...</a></li>
+  <li class="toc-h3"><a href="#toc-33">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-34">18. 【deepin 23 安装教程】MacBook 安装 deepin 23 双系统 ...</a></li>
+  <li class="toc-h3"><a href="#toc-35">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-36">19. 深度15.4里如何删除双系统的win7？- Community - Deepin ...</a></li>
+  <li class="toc-h3"><a href="#toc-37">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-38">20. [持续更新]deepin 及常用软件的高频问题和解决方法 ...</a></li>
+  <li class="toc-h3"><a href="#toc-39">正文（抓取，非 AI）</a></li>
+  <li><a href="#toc-40">21. 专业解析：2016年诺贝尔生理学或医学奖（自噬）</a></li>
+  <li class="toc-h3"><a href="#toc-41">正文（抓取，非 AI）</a></li>
+</ul>
+</nav>
+<div class="content">
+<h1>知识流日报 2026-04-23：深度自编码、三元组损失函数、自编码模型内部结构、变分自编码最终生成、变分自编码解码器的输出、判别器的输入数据、双线性插值</h1>
+<p>共 21 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。</p>
+<p>（以下含抓取正文，便于阅读。未调用任何 AI API。）</p>
+<p>（仅前 21 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 22 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。）</p>
+<h2 id="toc-0">1. 「三体问题」无解吗？为什么？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/30311577</li>
+<li>来源：bing</li>
+<li>摘要：2、对三体问题的数值解，会面临混沌的初值敏感问题。 既然直接代数积分找解析解行不通，那么为什么不用强大的超级计算机来求数值解呢？在很多领域，只要数值解精度足够，是可以胜任解析解的任务 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">数值解在实际应用中具有重要的作用，但其精度往往受到混沌的初值敏感性影响，这意味着即使是超级计算机也无法保证找到绝对精确的解。尽管如此，当数值解的精度足够高时，它们可以有效地替代解析解，特别是在处理复杂系统和混沌问题时，数值解提供了更为可靠和实用的解决方案。因此，尽管数值解存在一定的局限性，但在许多情况下，它们仍然是不可或缺的工具。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>数值解会受到混沌的初值敏感性影响。</li>
+<li>超级计算机也无法保证找到精确解。</li>
+<li>数值解的精度足够时可以替代解析解。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-1">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-2">2. 细胞自噬机制到底从断食第几个小时启动的？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/567756298</li>
+<li>来源：bing</li>
+<li>摘要：2022年12月11日 · 细胞自噬（autophagy）一词来自希腊单词auto-，意思是“自己的”，以及phagein，意思是“吃”。 所以，细胞自噬的意思就是“吃掉自己”。 有研究发现，断食达到18小时，细胞自噬的效应 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">细胞自噬是指细胞“吃掉自己”的过程，这一机制在维持细胞健康和功能中扮演着重要角色。在断食18小时后，细胞自噬效应开始启动，这表明断食时间与细胞自噬机制的启动密切相关。尽管如此，细胞自噬机制的具体启动时间可能因研究条件和实验设计的不同而有所差异。因此，尽管启动时间可能有所变化，断食18小时后启动细胞自噬效应已成为较为普遍的认识。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>细胞自噬是指细胞“吃掉自己”的过程。</li>
+<li>细胞自噬效应在断食18小时后启动。</li>
+<li>细胞自噬机制的启动与断食时间有关。</li>
+<li>细胞自噬机制的具体启动时间可能因研究而异。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-3">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-4">3. 微分、差分和变分的概念有什么异同？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/30416914</li>
+<li>来源：bing</li>
+<li>摘要：2018年3月30日 · 这里δg (x)称为函数g (x)的 变分，变分不仅用于泛函极值还用于建立微分方程。 数值分析已和電脑程序结合成简单美观的程数分析 (精度σ“敬神”)，差分方程是微分方程的变量离散化 (递归) …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">变分不仅用于泛函极值，还用于建立微分方程，这是因为变分本质上是函数g(x)的微分形式，通过研究函数的变化来寻找最优解。进一步地，差分方程作为微分方程的变量离散化形式，通过递归方式定义，使得在实际应用中可以更容易地进行数值计算和模拟。这种离散化过程使得连续的微分方程在离散变量上得以实现，从而在计算机模拟和数值分析中具有重要意义。因此，变分、微分方程和差分方程之间存在着紧密的联系，共同构成了数学分析中的重要工具。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>变分不仅用于泛函极值还用于建立微分方程。</li>
+<li>变分是函数g(x)的微分形式。</li>
+<li>差分方程是微分方程的变量离散化。</li>
+<li>差分方程通过递归方式定义。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-5">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-6">4. 微信上线网页版文件传输助手，无需登录即可传文件，该功能 ...</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/508290031</li>
+<li>来源：bing</li>
+<li>摘要：2021年12月29日 · 微信继全面支持自动登录PC端之后，再次上线新功能——网页版文件传输助手。 用户打开微信PC端，点击“仅传输文件”即可进入微信网页版文件传输助手，用户无需… 显示全部 关注者 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">无需登录即可使用文件传输助手，这一功能使得用户在使用过程中更加便捷。首先，无需登录即可使用文件传输助手意味着用户在传输文件时无需进行额外的登录步骤，这大大提高了操作的便捷性。其次，仅传输文件模式无需登录进一步说明了该功能仅适用于文件传输，确保了用户在使用时不会误入其他需要登录的页面。此外，微信PC端用户可以直接进入网页版文件传输助手，这使得用户在使用过程中更加顺畅，无需切换不同的登录界面。因此，这些功能不仅提升了用户体验，还确保了操作的高效性和安全性。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>无需登录即可使用文件传输助手。</li>
+<li>仅传输文件模式无需登录。</li>
+<li>微信PC端可直接进入网页版文件传输助手。</li>
+<li>该功能仅适用于传输文件。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-7">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-8">5. 双线性插值的公式如何理解？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/53806569</li>
+<li>来源：bing</li>
+<li>摘要：双线性插值 双线性插值求解示意图 双线性插值是分别在两个方向（x, y）计算了共 3 次单线性插值，如下图所示，其中沿着 x 轴计算了 2 次，y 轴计算了 1 次 x,y 轴表示（横、纵两个方向的）坐标位置 z 轴 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">双线性插值是一种用于图像处理和计算机图形学中的插值方法。首先，它在x轴方向进行了两次线性插值，以确定目标点在相邻两个x轴像素之间的位置。其次，在y轴方向进行了一次线性插值，以进一步确定目标点在相邻两个y轴像素之间的具体位置。因此，双线性插值总共进行了三次线性插值运算，从而能够更精确地估计目标点的值，提高图像处理的精度和质量。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>双线性插值在x轴方向进行了两次线性插值。</li>
+<li>双线性插值在y轴方向进行了一次线性插值。</li>
+<li>双线性插值总共进行了三次线性插值运算。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-9">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-10">6. 在网络结构进行特征融合时，哪种上采样方式比较好，反卷积 ...</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/314390272</li>
+<li>来源：bing</li>
+<li>摘要：2019年7月4日 · 2. 线性插值Linear Interpolation——一阶插值法 线性插值是一种常见的数值插值方法，用于在已知数据点之间估算未知的函数值。 其基本思想是通过已知的两个数据点构建一条直线，然后 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">线性插值通过已知的两个数据点构建一条直线来估算未知值，尽管其属于一阶插值法，精度相对较低，但因其计算简单，依然在许多应用场景中被广泛采用。在网络结构中进行特征融合时，反卷积是一种常用的上采样方式，它通过逐步增加特征图的尺寸来恢复高分辨率特征，从而实现特征的融合。因此，尽管线性插值和反卷积在精度和计算复杂度上有所不同，它们在不同的应用场景中都能发挥重要作用，共同推动了相关领域的技术进步。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>线性插值通过已知的两个数据点构建一条直线来估算未知值。</li>
+<li>线性插值属于一阶插值法，精度较低但计算简单。</li>
+<li>网络结构中特征融合时，反卷积是一种常用的上采样方式。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-11">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-12">7. u net 上采样如何实现的？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/346865980</li>
+<li>来源：bing</li>
+<li>摘要：医学图像分割方向，抛砖引玉回答一下： U-Net中上采样的目的是把低分辨率feature maps变成高分辨率的feature maps。想实现这个目的有两种方式 插值 的方法，比如最近邻插值，对每个像素复制两 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">插值方法在图像处理中虽然至关重要，但也可能引入额外的噪声，影响图像质量。具体而言，最近邻插值方法因其不进行像素值的插值计算，仅将像素值直接复制到目标图像中，因此在放大图像时可能会导致图像边缘出现锯齿状的失真。此外，在上采样过程中，低分辨率特征图中的部分信息会因放大操作而丢失，进一步加剧了图像质量的下降。因此，选择合适的插值方法对于保持图像的清晰度和细节至关重要。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>插值方法可能引入额外的噪声。</li>
+<li>最近邻插值不进行像素值的插值计算。</li>
+<li>上采样过程中会丢失低分辨率特征图中的部分信息。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-13">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-14">8. 反卷积和上采样+卷积的区别？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/328891283</li>
+<li>来源：bing</li>
+<li>摘要：2019年6月16日 · 1.3 双线性插值 双线性插值（bilinear interpolation）又称一阶插值,根据离待插值最近的2*2=4个已知值来计算待插值，每个已知值的权重由距离待插值距离决定，距离越近权重越大。</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">双线性插值是一种依赖于最近的4个已知值进行计算的方法，这些已知值的权重由与待插值点的距离决定。具体而言，距离待插值点越近的已知值，其权重越大，反之则越小。这种权重分配机制确保了插值结果能够更准确地反映已知数据的分布情况，从而提高插值的精度和合理性。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>双线性插值依赖于最近的4个已知值进行计算。</li>
+<li>每个已知值的权重由与待插值的距离决定。</li>
+<li>距离越近的已知值权重越大。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-15">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-16">9. Upsample、ConvTranspose2d、conv后PixelShuffle用法上有 ...</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/342143752</li>
+<li>来源：bing</li>
+<li>摘要：2021年1月30日 · Upsample: 无参数，仅依赖插值算法， 通过设定插值策略（如nearest邻近插值、bilinear双线性插值等）直接放大图像尺寸，输出仅依赖输入的空间维度缩放比例。 可能导致高频细 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">Upsample操作仅依赖于插值策略，而不改变通道数，其输出仅反映空间维度的放大。Bilinear插值能够平滑放大图像，但可能丢失细节，而Nearest邻近插值则简单快速，但可能导致图像模糊。ConvTranspose2d操作结合卷积和转置卷积，用于反向传播，可以恢复图像的通道数。此外，PixelShuffle操作用于调整图像的分辨率和通道数，通过插值和重排通道提升图像分辨率。因此，这些操作在图像处理中各有特点和适用场景，共同服务于图像的放大和细节恢复。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>Upsample操作仅依赖于插值策略，而不改变通道数。</li>
+<li>Upsample输出的结果仅反映空间维度的放大。</li>
+<li>Upsample不会改变输入的通道数。</li>
+<li>Bilinear插值可以平滑放大图像，但可能丢失细节。</li>
+<li>Nearest邻近插值简单快速，但可能导致图像模糊。</li>
+<li>ConvTranspose2d操作结合卷积和转置卷积，用于反向传播。</li>
+<li>ConvTranspose2d可以恢复图像的通道数。</li>
+<li>PixelShuffle操作用于调整图像的分辨率和通道数。</li>
+<li>PixelShuffle通过插值和重排通道提升图像分辨率。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-17">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-18">10. 插值算法能否缩小图片？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/57760258</li>
+<li>来源：bing</li>
+<li>摘要：2017年3月31日 · 四、还有更高级的吗？ OpenCV一共提供了5种插值方式。 INTER_NEAREST是最近邻，INTER_LINEAR是双线性，这两个前面说了。 INTER_AREA是基于局部像素的重采样，缩小时效 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">在缩小图片时，不同的插值方法具有不同的特点和适用场景。INTER_AREA方法基于局部像素的重采样，适用于快速缩小图片，但可能会导致图像质量下降。INTER_LINEAR方法使用双线性插值，能够提供比nearest邻方法更平滑的图像，但由于其复杂性，它并不适用于缩小图片的情况。nearest邻方法在缩小图片时不会进行复杂的计算，操作简单，但可能会产生锯齿效果，影响图像的清晰度。因此，在选择插值方法时，需要根据具体需求权衡计算效率和图像质量。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>INTER_AREA方法在缩小图片时基于局部像素的重采样。</li>
+<li>INTER_LINEAR方法使用双线性插值，但并不适用于缩小图片。</li>
+<li>nearest邻方法在缩小图片时不会进行复杂的计算，但可能产生锯齿效果。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-19">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-20">11. 怎么用b样条进行三次样条插值？ - 知乎</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/499179157</li>
+<li>来源：bing</li>
+<li>摘要：下面我们取d从-2.5到2.5，数据点间隔0.01，分别画出以上几种插值算法的基函数曲线。从曲线可以知道，d越小，也即周围整型点越靠近插值点，那么该整型点的权重越大。从曲线平滑度来看： 三次B样 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">首先，d值越小，表示周围整型点越靠近插值点，这使得权重增大。其次，三次B样条插值的基函数曲线平滑度与d值密切相关，d值越小，基函数曲线的平滑度越高。此外，基函数曲线平滑度反映了样条插值的连续性，即曲线的连续性越好。因此，权重越大意味着该整型点对插值点的影响更大，整体上，这保证了插值结果的平滑性和连续性。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>d越小，表示周围整型点越靠近插值点，权重越大。</li>
+<li>三次B样条插值的基函数曲线平滑度与d值相关。</li>
+<li>基函数曲线平滑度反映了样条插值的连续性。</li>
+<li>权重越大意味着该整型点对插值点的影响更大。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-21">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-22">12. fpga进行图像的缩放，先水平缩放，缓存数据，在垂直缩放 ...</h2>
+<ul>
+<li>链接：https://www.zhihu.com/question/47908021</li>
+<li>来源：bing</li>
+<li>摘要：2022年11月8日 · 对于双线性插值，实际上在计算中不需要整幅图像的数据，通过边输入边输出的方式，及时的处理数据，将已经无用的数据抛弃，这样只需缓存2到3行数据即可，不用先去行插值，再去 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">在双线性插值过程中，只需缓存少量数据即可完成图像缩放，这得益于边输入边输出的方式，能够及时处理数据并减少内存使用。具体而言，这种方法不需要整幅图像的数据，只需缓存2到3行数据即可完成缩放。此外，无需预先进行行插值再进行其他操作，进一步简化了处理流程，使得整个过程更加高效。因此，这种技术不仅能够显著减少内存使用，还能提高图像处理的效率。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>双线性插值过程中只需缓存少量数据即可完成图像缩放。</li>
+<li>边输入边输出的方式可以及时处理数据并减少内存使用。</li>
+<li>不需要整幅图像的数据，只需缓存2到3行数据。</li>
+<li>无需预先进行行插值再进行其他操作。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-23">正文</h3>
+<p>（知乎问题/专栏/想法页，正文未抓取，可点击上方链接阅读。）</p>
+</div></details><h2 id="toc-24">13. 深度Linux如何移植.net framework 4.0 开发的exe文件</h2>
+<ul>
+<li>链接：https://bbs.deepin.org/post/186958</li>
+<li>来源：bing</li>
+<li>摘要：2019年12月15日 · 深度Linux如何移植.net framework 4.0 开发的exe文件 如题。在大神的帮助下，首先解决了Deepin Linux访问Windows共享文件夹的问题，这样办公所需的字库及与同事分享文件就没有问 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">mono可以运行.NET Framework的应用，但可能需要程序修改，特别是在Deepin Linux中。WINE、CrossOver、PlayOnLinux均无法成功移植基于.NET Framework 4.0开发的exe文件，因此这些工具并不适用于此类应用。相比之下，NET Core在Linux中运行速度可能比在Windows中更快，这使得它成为一种可行的解决方案。尽管Mono是运行.NET Framework应用的一个选项，但在Deepin Linux中可能仍需程序修改。WINE的最新版本可能与mono结合适配，但需要自行尝试。因此，在考虑解决方案时，NET Core在Deepin Linux中运行速度更快，成为了一个更优的选择。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>mono可以运行.net framework的应用，但可能需要程序修改。</li>
+<li>WINE、CrossOver、PlayOnLinux均无法成功移植基于.net framework 4.0开发的exe文件。</li>
+<li>NET Core在Linux中运行速度可能比在Windows中更快。</li>
+<li>Mono是运行.net framework应用的一个选项，但在Deepin Linux中可能需要程序修改。</li>
+<li>NET Core在Deepin Linux中比在Windows中运行得更快。</li>
+<li>WINE最新版本可能与mono结合适配，但需要自行尝试。</li>
+<li>NET Core是考虑的一个解决方案，但在Deepin Linux中运行速度更快。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-25">正文（抓取，非 AI）</h3>
+<p>深度Linux如何移植.net framework 4.0 开发的exe文件- Community - Deepin Technology Home Categories WIKI Topic User LANGUAGE: 中文 English 深度Linux如何移植.net framework 4.0 开发的exe文件 Apps Section 2524 views · 8 replies · To floor Go 137<strong><em>*</em>*23 deepin 2019-12-15 22:57 Author 如题。在大神的帮助下，首先解决了Deepin Linux访问Windows共享文件夹的问题，这样办公所需的字库及与同事分享文件就没有问题了，日常办公就使用WPS就好了。然后浏览器，由于一些插件与IE兼容，所以只能使用360安全浏览器，虽然在Windows下我从来不用这个东东。可没办法，一大堆网银的、办公的插件不认火狐、谷歌。 现在最大的问题来了，我们还有应用软件是基于.net framework 4.0开发的，要想正常运行这个软件，需要首先安装.net framework 4.0，并且电脑中要安装好Microsoft Excel软件，Excel先不去管他，怎么才能从Windows把这个软件移植过来呢？我试过wine、CrossOver、PlayOnLinux，结果均以失败告终。 Reply Like 0 Favorite View the author All Replies 走钢丝 deepin 2019-12-15 23:37 #1 本帖最后由 lidanger 于 2019-12-15 15:57 编辑 也许安装 mono 即可。。 参考： https://bbs.deepin.org/post/180382 Reply Like 0 View the author 司南 deepin 2019-12-15 23:38 #2 我帮你 https://bbs.deepin.org/user/101846 ，但是我对此不抱希望。 你的工作内容和Windows强相关，我的建议：安装回Windows吧。 Reply Like 0 View the author 观摩 deepin 2019-12-15 23:53 #3 搞.NetFreamwork的时候老老实实切回Windows，不要折腾自己。 Reply Like 0 View the author jianguo922 deepin 2019-12-16 04:37 #4 可以deepin+win7 Reply Like 0 View the author RedPanda deepin 2019-12-16 07:22 #5 也许最新版的wine+mono能适配？不过这要自己搞才行。 Reply Like 0 View the author 131</strong>****36 deepin 2019-12-16 20:33 #6 试试.netcore Reply Like 0 View the author 深圳市耀影科技有限公司 deepin 2019-12-16 21:17 #7 .netcore在deepin中，比在windows中速度快10倍都不止，我测试了 Reply Like 0 View the author aida deepin 2019-12-16 21:37 #8 Linux 下面有 mono （dot net core）可以运行.net framework 的应用，但是需要你做程序修改 Reply Like 0 View the author Please sign in first Featured Collection Change UOS AI 2.8 Released! Three New Intelligent Agents &amp; Major Evolution Solid Q&amp;A | deepin 25 Common Questions – The Immutable System Edition New Thread Popular Ranking Change Error al actualizar Deepin 25.1 – April 20, 2026 日历节气迟了一天 Inovação e Tecnologia Popular Events More</p>
+</div></details><h2 id="toc-26">14. Deepin Technology Community</h2>
+<ul>
+<li>链接：https://bbs.deepin.org/</li>
+<li>来源：bing</li>
+<li>摘要：Deepin Official Forum 2026-03-09 16:16 Last reply 2026-03-14 15:32</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">社区公告可能包含重要更新信息，因此需要密切关注。论坛回复可能延迟，因此应及时跟进，避免错过关键信息。产品反馈主题数量庞大，涵盖多种问题，但新帖可能仅反映部分用户反馈，因此需要全面浏览。技术交流主题专注于技术讨论，但需注意区分，以免混淆。生活花园主题较少，但提供生活相关建议，有助于解决日常生活中的问题。此外，社区新闻可能仅反映特定版本信息，因此需要结合其他信息源进行综合判断。常见问题可能不完全覆盖所有情况，因此需要结合错误报告和反馈问题进行深入分析。错误报告可能涉及多种系统组件，日历节气可能因版本不同而有差异，分享经验可能反映用户个性化设置，反馈问题可能涉及系统多个方面或特定软件组件，功能请求可能涉及新特性建议。因此，社区讨论可能反映用户多样化需求，内部测试通信可能反映系统优点，寻求帮助可能涉及硬件兼容性问题。总之，需要综合考虑各种信息来源，以便全面了解和解决问题。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>社区公告可能包含重要更新信息，需关注。</li>
+<li>论坛回复可能延迟，应及时跟进。</li>
+<li>产品反馈主题数量庞大，涵盖多种问题。</li>
+<li>技术交流主题专注于技术讨论，但需区分。</li>
+<li>生活花园主题较少，但提供生活相关建议。</li>
+<li>新帖可能仅反映部分用户反馈。</li>
+<li>最新回复可能滞后，需耐心等待。</li>
+<li>社区新闻可能仅反映特定版本信息。</li>
+<li>常见问题可能不完全覆盖所有情况。</li>
+<li>错误报告可能涉及多种系统组件。</li>
+<li>日历节气可能因版本不同而有差异。</li>
+<li>分享经验可能反映用户个性化设置。</li>
+<li>反馈问题可能涉及系统多个方面。</li>
+<li>内部测试通信可能反映系统优点。</li>
+<li>寻求帮助可能涉及硬件兼容性问题。</li>
+<li>反馈问题可能涉及特定软件组件。</li>
+<li>功能请求可能涉及新特性建议。</li>
+<li>社区讨论可能反映用户多样化需求。</li>
+<li>错误报告可能涉及用户界面问题。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-27">正文（抓取，非 AI）</h3>
+<p>Deepin Technology Community Home Categories WIKI Topic User LANGUAGE: 中文 English 1 2 3 Members: 169470 | Welcome new member: 159<strong><em>*</em>*37 Product Feedback Topics: 2.4w Posts: 13.9w Today: 0 Technology Exchange Topics: 4061 Posts: 2.9w Today: 3 deepin Talks Topics: 1.8w Posts: 23.2w Today: 0 Living Garden Topics: 336 Posts: 2663 Today: 0 More &gt;&gt; All Hot Starred Language: English New Threads Most Replies Latest Replies Posts today: 12 Posts yesterday: 206 All: 1473890 【Community Announcements】 [Quality Update] deepin 25.1 Update Announcement – April 20, 2026 deepin小助手 2026-04-20 18:43 91 0 0 【Community News】 deepin 25.1 Version Image Released丨AI Leads, Seamless Integration deepin小助手 2026-04-10 14:43 Last reply 2026-04-19 09:38 514 1 0 【News】 Solid Q&amp;A | deepin 25 Common Questions – The Immutable System Edition deepin小助手 2025-07-15 10:19 Last reply 2026-03-28 10:31 1.6w 13 0 【News】 Practical Guide to Effective Bug Reporting deepin小助手 2025-08-15 17:28 Last reply 2026-01-02 17:45 3618 1 2 Product Feedback 【Control Center】 Iconos en el Dock siempre en color blanco o en color negro t</strong><em> [email protected] 5 hours ago 14 0 0 Product Feedback 【Bug Report】 Error al actualizar Deepin 25.1 – April 20, 2026 t</em><strong> [email protected] 2026-04-21 07:36 Last reply 5 hours ago 71 4 0 Product Feedback 【Calendar】 日历节气迟了一天 V23.1 罗焌民 2026-04-20 08:38 Last reply 2026-04-20 16:31 67 1 0 Community Discussion 【Share Experiences】 Inovação e Tecnologia fegoes 2026-04-19 09:35 62 0 0 Product Feedback 【Bug Report】 ll-cli Error -1: Failed to connect signal: RequestInteraction 张凡 2026-04-17 20:13 101 0 0 Product Feedback 【Others】 Changing keyboard shortcut for grand search fails V25.1.0 深度之家 2026-04-17 17:00 Last reply 2026-04-17 17:00 129 1 0 News 【Community Announcements】 deepin Community Website &amp; Forum Server Upgrade deepin小助手 2026-04-16 17:51 Last reply 2026-04-19 09:39 199 1 0 Product Feedback 【System Installation】 Asus zenbook installation erro zowab 2026-04-15 11:43 Last reply 2026-04-15 11:44 253 1 0 deepin 25 【Internal testing communication】 Very nice system ♥️ s</strong><em> [email protected] 2026-04-15 06:48 300 0 0 Experiences and Insight 【Seek Help】 Analog microphone isn't working mustafa 2026-04-15 00:02 274 0 0 deepin 25 【Feedback on issues】 Jp106 keyboard layout issue of use fcitx5-mozc 小佐 2026-04-14 12:29 Last reply 2026-04-17 09:58 459 4 0 deepin 25 【Feedback on issues】 Deepin 25.1.0 fresh install problem David_Zeng 2026-04-10 18:59 Last reply 2026-04-18 10:02 672 8 0 Product Feedback 【Bug Report】 dde-cooperation – difficulty obtaining UOS Assistant (Android) Alex 2026-04-07 22:04 Last reply 2026-04-10 08:11 468 1 0 Product Feedback 【Feature Requests】 Deepin desktop environment on raspberry pi 4B (arm64) f</em>** [email protected] 2026-04-06 02:00 Last reply 2026-04-14 13:51 546 1 1 Community Discussion 【Share Experiences】 Linyaps stop working after update Alex 2026-04-05 03:01 Last reply 2026-04-08 19:20 508 1 0 deepin 25 【Feedback on issues】 Dock icon order resets Coskun 2026-04-03 15:20 Last reply 2026-04-10 14:40 658 1 0 1 2 3 4 5 ... 355 &gt; 1 / 355 To page Go Featured Collection Change UOS AI 2.8 Released! Three New Intelligent Agents &amp; Major Evolution Solid Q&amp;A | deepin 25 Common Questions – The Immutable System Edition New Thread Popular Ranking Change Error al actualizar Deepin 25.1 – April 20, 2026 日历节气迟了一天 Inovação e Tecnologia Rankings 7 days 30 days 90 days mozixun 46 posts 𰻞𰻝面 39 posts 3 晚秋（lateautumn） 36 posts 4 WangZhongyun 32 posts 5 云已 28 posts 6 罐子 28 posts Popular Events More</p>
+</div></details><h2 id="toc-28">15. 推荐一个Linux平台安卓模拟器：麒卓- Community - Deepin ...</h2>
+<ul>
+<li>链接：https://bbs.deepin.org/post/285691</li>
+<li>来源：bing</li>
+<li>摘要：2025年3月31日 · Linux平台安卓模拟器深度指南：麟卓卓懿与生态融合方案 （基于2025年最新技术动态整理） 一、Linux运行安卓应用的核心需求与痛点 在Linux平台上运行安卓应用的需求日益增长，尤 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">Linux平台运行安卓应用的需求日益增长，但传统方案存在性能损耗高、兼容性差、操作复杂等问题。麟卓卓懿通过技术创新解决了这些痛点，推出了非虚拟化架构，直接调用Linux硬件资源，运行效率接近原生应用，且资源占用低，适合低配设备。此外，麟卓卓懿还优化了多窗口与交互功能，支持“骈窗智览”（双窗口分屏），并提供键鼠映射支持，允许用户自定义配置技能键、开火键等。无限分身功能可同时运行多个账号实例，而系统支持适配Linux 6.8+内核，兼容Ubuntu、Deepin等主流发行版。硬件扩展方面，麟卓卓懿兼容打印机、摄像头、GPS等硬件，但建议至少4GB内存，支持OpenGL ES 3.0的显卡。若使用自定义内核，需确保已集成必要模块。麟卓卓懿推出Linux+安卓双系统方案，实现生态互通，让Linux应用与安卓应用并行运行。硬件加速通过Wayland+OpenGL ES支持，但建议至少4GB内存，支持OpenGL ES 3.0的显卡。若使用自定义内核，需确保已集成必要模块。麟卓卓懿的安装过程可能需要额外步骤，安装向导需解压安装包后执行安装脚本，安装过程中终端可能无反应，需耐心等待。此外，麟卓卓懿支持“高性能模式”提升帧率，键位配置可为射击类游戏单独设置开火键。麟卓卓懿还支持Root权限，适合深度定制需求，但可能经常闪退或崩溃。因此，尽管存在一些问题，麟卓卓懿仍是一个值得尝试的解决方案。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>Linux平台运行安卓应用的需求日益增长。</li>
+<li>传统方案存在性能损耗高、兼容性差、操作复杂等问题。</li>
+<li>麟卓卓懿通过技术创新解决了这些痛点。</li>
+<li>非虚拟化架构直接调用Linux硬件资源，运行效率接近原生应用。</li>
+<li>资源占用低，适合低配设备。</li>
+<li>多窗口与交互优化支持“骈窗智览”（双窗口分屏）。</li>
+<li>键鼠映射支持技能键、开火键等自定义配置。</li>
+<li>无限分身可同时运行多个账号实例。</li>
+<li>系统支持适配Linux 6.8+内核，支持Ubuntu、Deepin等主流发行版。</li>
+<li>外设扩展兼容打印机、摄像头、GPS等硬件。</li>
+<li>建议至少4GB内存，支持OpenGL ES 3.0的显卡。</li>
+<li>若使用自定义内核，需确保已集成必要模块。</li>
+<li>麟卓卓懿推出Linux+安卓双系统方案。</li>
+<li>生态互通，Linux应用与安卓应用并行运行。</li>
+<li>硬件加速通过Wayland+OpenGL ES支持。</li>
+<li>建议至少4GB内存，支持OpenGL ES 3.0的显卡。</li>
+<li>若使用自定义内核，需确保已集成必要模块。</li>
+<li>麟卓卓懿的安装包可能需要额外步骤。</li>
+<li>安装向导需解压安装包后执行安装脚本。</li>
+<li>安装过程中终端可能无反应，需耐心等待。</li>
+<li>麟卓卓懿支持“高性能模式”提升帧率。</li>
+<li>键位配置可为射击类游戏单独设置开火键。</li>
+<li>麟卓卓懿支持Root权限，适合深度定制需求。</li>
+<li>麟卓卓懿可能经常闪退或崩溃。</li>
+<li>虚拟机我都没搞明白过，一直是实体机。</li>
+<li>期待开源的安卓模拟器或至少是原生的。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-29">正文（抓取，非 AI）</h3>
+<p>推荐一个Linux平台安卓模拟器：麒卓- Community - Deepin Technology Home Categories WIKI Topic User LANGUAGE: 中文 English [Topic DIscussion] 推荐一个Linux平台安卓模拟器：麒卓 deepin Talks 9748 views · 12 replies · To floor Go 玄圭SwenGway deepin 2025-03-31 18:49 Author Linux平台安卓模拟器深度指南：麟卓卓懿与生态融合方案 （基于2025年最新技术动态整理） 一、Linux运行安卓应用的核心需求与痛点 在Linux平台上运行安卓应用的需求日益增长，尤其是在国产操作系统生态（如银河麒麟、统信UOS）和开发者环境中。传统方案如Anbox、Genymotion或Android Studio模拟器存在性能损耗高、兼容性差、操作复杂等问题。麟卓卓懿（xDroid） 通过技术创新解决了这些痛点，成为当前Linux社区的首选工具[3][6][9]。 二、麟卓卓懿的核心优势 原生级性能 非虚拟化架构：直接调用Linux硬件资源（如GPU加速），无需虚拟机，运行效率接近原生应用[5][6][9]。 资源占用低：传统虚拟机需分配固定内存，而麟卓卓懿动态调度资源，适合低配设备[6][9]。 功能特性 多窗口与交互优化：支持“骈窗智览”（双窗口分屏）、“无边框模式”和窗口透明度调节，提升办公效率[3]。 键鼠映射：针对手游设计，支持技能键、开火键等自定义配置，解决触控操作适配问题[6][9]。 无限分身：可同时运行多个账号实例，适用于电商管理或多账号游戏场景[3][9]。 兼容性与生态融合 系统支持：适配Linux 6.8+内核，支持Ubuntu、Deepin、Fedora等主流发行版[3][7]。 外设扩展：兼容打印机、摄像头、GPS等硬件，满足企业级需求[7][8][9]。 三、安装与配置教程 步骤1：获取安装包 官网下载： 下载 | 北京麟卓信息科技有限公司 123云盘：（只有x86版本）：https://www.123865.com/s/MaUtVv-3sosd 备用【https://www.123684.com/s/MaUtVv-3sosd （默认不需要这一步 ）注意确保系统已启用KVM虚拟化（需CPU支持） sudo apt install -y qemu-kvm libvirt-daemon-system 步骤3：运行安装向导 解压安装包后，执行安装脚本（通常为./install-xdroid.run结尾的文件），按提示完成安装[6]，终端执行.run文件后会有很长一段时间似乎终端没有反应以为是卡了，其实不是，等一会就好了。 步骤4：应用管理 通过内置应用商店安装APK，或直接拖拽本地APK文件到窗口完成安装[6][9]。 四、使用场景与技巧 企业办公 在银河麒麟等国产系统中运行微信、钉钉、WPS安卓版，解决Linux生态应用短缺问题[5][9]。 隐私保护：通过窗口透明度调节功能，防止敏感信息被窥视[3]。 游戏娱乐 支持《原神》《王者荣耀》等大型手游，开启“高性能模式”可提升帧率[6][9]。 键位配置：为射击类游戏单独设置开火键，避免鼠标光标溢出问题[6]。 开发测试 结合Linux开发环境，直接调试安卓应用，无需额外设备[6][9]。 Root权限支持：修改系统文件或卸载预装应用，适合深度定制需求[7][8]。 五、进阶功能：Linux+安卓双系统融合 针对RK3588等ARM开发板，麟卓卓懿推出 Linux+安卓双系统方案 ： 生态互通：Linux应用与安卓应用并行运行，共享剪贴板、文件系统和硬件资源[7][8][9]。 硬件加速：通过Wayland+OpenGL ES支持，实现图形渲染性能优化[8][9]。 六、注意事项 硬件要求：建议至少4GB内存，支持OpenGL ES 3.0的显卡[6][9]。 内核适配：若使用自定义内核，需确保已集成必要模块（如KVM）[6][7]。 Reply Like 2 Favorite View the author All Replies 神末shenmo deepin Spark-App Q&amp;A Team 2025-03-31 19:32 #1 骈窗智览 起这种怪名字..... Reply Like 0 View the author 流星追月 deepin 2025-03-31 20:16 #2 没用的，相信原生应用才是最好的，没有之一。 Reply Like 0 View the author fslong deepin 2025-03-31 20:33 #3 麒卓就离谱 Reply Like 0 View the author 玄圭SwenGway deepin 2025-03-31 20:33 #4 流星追月 ： 没用的，相信原生应用才是最好的，没有之一。 在当前生态严重缺乏的时候不能挑三拣四，有的用总好过没有，生态建设不是一朝一夕之功可以的 Reply Like 0 View the author 玄圭SwenGway deepin 2025-03-31 20:35 #5 fslong ： 麒卓就离谱 别人公司起的我也没办法，麒麟安卓 Reply Like 0 View the author BigFish deepin 2025-03-31 22:54 #6 流星追月 ： 没用的，相信原生应用才是最好的，没有之一。 对，wine也行 Reply Like 0 View the author 辉辉 deepin 2025-04-01 08:55 #7 一直对这个麟卓卓懿模拟器爱恨有加，说没用嘛，它还能用，说有用嘛，它还经常闪退或者崩溃。 Reply Like 0 View the author Anysets deepin 2025-04-01 09:56 #8 玄圭SwenGway ： 别人公司起的我也没办法，麒麟安卓 虽然但是，人家叫麟卓 Reply Like 0 View the author 流星追月 deepin 2025-04-01 12:40 #9 玄圭SwenGway ： 在当前生态严重缺乏的时候不能挑三拣四，有的用总好过没有，生态建设不是一朝一夕之功可以的 你最应该做的事情，应该鼓励群友买一台AMD7系主机，然后安装deepin25，这是玩deein的基础条件。或者推进购买一台龙芯电脑玩，真的，只有实实在在一台台电脑在玩deepn，在上网，在聊天，在充值看脑残剧，国产系统才会一步步成功，其他都是花架子，百无一用。 Reply Like 0 View the author 玄圭SwenGway deepin 2025-04-01 12:55 #10 流星追月 ： 你最应该做的事情，应该鼓励群友买一台AMD7系主机，然后安装deepin25，这是玩deein的基础条件。或者推进购买一台龙芯电脑玩，真的，只有实实在在一台台电脑在玩deepn，在上网，在聊天，在充值看脑残剧，国产系统才会一步步成功，其他都是花架子，百无一用。 我就是，不是虚拟机 Reply Like 0 View the author 晚秋（lateautumn） Moderator 2025-04-01 16:18 #11 玄圭SwenGway ： 我就是，不是虚拟机 虚拟机我都没搞明白过，一直是实体机。 Reply Like 0 View the author 小葱 deepin 2025-04-04 23:48 #12 It has been deleted! 白茶 deepin 2025-12-05 14:04 #13 不太喜欢闭源产品，期待开源的安卓模拟器，或者至少是原生的。不然套套太多了 Reply Like 0 View the author Please sign in first Featured Collection Change UOS AI 2.8 Released! Three New Intelligent Agents &amp; Major Evolution Solid Q&amp;A | deepin 25 Common Questions – The Immutable System Edition New Thread Popular Ranking Change Error al actualizar Deepin 25.1 – April 20, 2026 日历节气迟了一天 Inovação e Tecnologia Popular Events More</p>
+</div></details><h2 id="toc-30">16. 深度V20手动安装最新的Virtualbox - Deepin Technology</h2>
+<ul>
+<li>链接：https://bbs.deepin.org/post/200160</li>
+<li>来源：bing</li>
+<li>摘要：2020年8月22日 · 深度V20手动安装最新的Virtualbox 本帖最后由 deepinuser17 于 2020-9-27 01:24 编辑 Virtualbox可以从应用商店下载．但有时应用商店里的Virtualbox不是最新的版本． 按照以下步骤可以 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">从应用商店下载的Virtualbox可能不是最新版本，因此安装依赖软件是安装Virtualbox的前提，确保安装过程顺利进行。设置语言环境步骤虽然对中文桌面用户不适用，但添加Virtualbox仓库可以方便安装并自动处理依赖，进一步简化安装流程。直接下载Virtualbox .run文件安装更为简便，但若遇到系统无法启动的问题，关闭Secure Boot可能是一个解决方案。此外，检测不到物理机的U盘可能是虚拟机的问题，将当前用户加入vboxusers组可能解决USB设备问题。使用root身份运行vboxconfig命令是解决某些问题的关键步骤，确保Virtualbox能够正常运行。因此，通过这些步骤，可以有效解决安装和使用Virtualbox过程中可能出现的问题。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>从应用商店下载的Virtualbox可能不是最新版本。</li>
+<li>安装依赖软件是安装Virtualbox的前提。</li>
+<li>设置语言环境步骤可能对中文桌面用户不适用。</li>
+<li>添加Virtualbox仓库可以方便安装并自动处理依赖。</li>
+<li>直接下载Virtualbox .run文件安装更为简便。</li>
+<li>关闭Secure Boot可能解决系统无法启动的问题。</li>
+<li>检测不到物理机的U盘可能是虚拟机的问题。</li>
+<li>将当前用户加入vboxusers组可能解决USB设备问题。</li>
+<li>使用root身份运行vboxconfig命令是解决某些问题的关键。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-31">正文（抓取，非 AI）</h3>
+<p>深度V20手动安装最新的Virtualbox- Community - Deepin Technology Home Categories WIKI Topic User LANGUAGE: 中文 English 深度V20手动安装最新的Virtualbox Experiences and Insight 5051 views · 15 replies · To floor Go deepinuser17 deepin 2020-08-22 20:46 Author 本帖最后由 deepinuser17 于 2020-9-27 01:24 编辑 Virtualbox可以从应用商店下载．但有时应用商店里的Virtualbox不是最新的版本． 按照以下步骤可以安装最新的Virtualbox, 6.1.14．这个方法在深度V20RC系统（用深度自带的内核)上成功安装. 1. 安装依赖软件 sudo apt-get update sudo apt-get install linux-headers gcc make Copy the Code 2. 设置语言环境(中文桌面也许不需要) export LC_ALL="en_US.UTF-8" export LC_CTYPE="en_US.UTF-8" Copy the Code 3. 安装Virtualbox echo "deb https://download.virtualbox.org/virtualbox/debian buster contrib" | sudo tee -a /etc/apt/sources.list.d/virtualbox.list &gt; /dev/null wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add - wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add - sudo apt-get update sudo apt-get install virtualbox-6.1 Copy the Code 4. 卸载安装Virtualbox时连带安装的Debian内核．这个Debian内核在深度V20上无法正常启动 sudo apt remove linux-image-unsigned-5.3.0-42-generic Copy the Code 5. 重启机器 sudo shutdown -r now Copy the Code 6. 机器重启以后，安装Virtualbox的扩展包 wget -P/tmp https://download.virtualbox.org/virtualbox/6.1.14/Oracle_VM_VirtualBox_Extension_Pack-6.1.14.vbox-extpack sudo VBoxManage extpack install /tmp/Oracle_VM_VirtualBox_Extension_Pack-6.1.14.vbox-extpack Copy the Code Reply Like 0 Favorite View the author All Replies shendu001 deepin 2020-08-22 21:22 #1 直接网上下载deb包不就可以了、 Reply Like 0 View the author Ziggy deepin 2020-08-22 21:45 #2 楼上正解，有deb的话就可以直接双击安装了 Reply Like 0 View the author Fredoong deepin 2020-08-22 23:33 #3 添加virtualbox的仓库进行安装有什么好处吗？ 直接下载virtualbox的 .run安装文件进行安装有什么坏处吗？ Reply Like 0 View the author farmers deepin 2020-08-23 09:52 #4 本帖最后由 farmers 于 2020-8-23 01:55 编辑 我的无法启动系统，不知道是啥原因，尝试了网上提供方法依然不行 Reply Like 0 View the author deepinuser17 deepin 2020-08-23 13:04 #5 https://bbs.deepin.org/post/200160 添加virtualbox的仓库进行安装有什么好处吗？ 直接下载virtualbox的 .run安装文件进行安装有什么坏处吗？ ... 升级很方便．一般安装软件最好是从软件源安装．可以同时安装所需要的依赖包． Reply Like 0 View the author deepinuser17 deepin 2020-08-23 13:56 #6 https://bbs.deepin.org/post/200160 我的无法启动系统，不知道是啥原因，尝试了网上提供方法依然不行 到Bios里关闭Secure Boot. Reply Like 0 View the author beautycell deepin 2020-08-23 15:05 #7 https://bbs.deepin.org/post/200160 我的无法启动系统，不知道是啥原因，尝试了网上提供方法依然不行 sudo su /sbin/vboxconfig 我是这么做的 不知道你的是否可以 Reply Like 0 View the author fshui deepin 2020-09-02 00:43 #8 USB设备不正常，你们有这种 情况吗？ Reply Like 0 View the author 沈拙言 deepin 2020-09-02 02:00 #9 https://bbs.deepin.org/post/200160 USB设备不正常，你们有这种 情况吗？ 我检测不到物理机的U盘 Reply Like 0 View the author deepinuser17 deepin 2020-09-02 06:51 #10 https://bbs.deepin.org/post/200160 我检测不到物理机的U盘 是虚拟机检测不到物理U盘？ Reply Like 0 View the author 沈拙言 deepin 2020-09-02 14:14 #11 https://bbs.deepin.org/post/200160 是虚拟机检测不到物理U盘？ 是的，没错，就是这样 Reply Like 0 View the author fshui deepin 2020-09-08 19:51 #12 搞定了，谢谢楼主 Reply Like 0 View the author 189<strong>*</strong>*23 deepin 2020-09-08 20:14 #13 https://bbs.deepin.org/post/200160 我检测不到物理机的U盘 百度一下，满大街的。。。 把你当前登入的用户加入vboxusers组然后注销再登入就完事了。 Reply Like 0 View the author 不行的胖子 deepin 2020-10-16 18:48 #14 挺好的,直接就安装了最新版,而且以后方便更新 Reply Like 0 View the author 不会开车有驾照 deepin 2020-10-16 19:45 #15 https://bbs.deepin.org/post/200160 sudo su 正解，提示的很清楚，用root身份运行vboxconfig Reply Like 0 View the author Please sign in first Featured Collection Change UOS AI 2.8 Released! Three New Intelligent Agents &amp; Major Evolution Solid Q&amp;A | deepin 25 Common Questions – The Immutable System Edition New Thread Popular Ranking Change Error al actualizar Deepin 25.1 – April 20, 2026 日历节气迟了一天 Inovação e Tecnologia Popular Events More</p>
+</div></details><h2 id="toc-32">17. 第一次安装使用深度linux，并自己安装qt5.99- Community ...</h2>
+<ul>
+<li>链接：https://bbs.deepin.org/post/233988</li>
+<li>来源：bing</li>
+<li>摘要：2022年4月2日 · 自己逛知乎的时候，看了推的深度linux的文章，于是自己找出了很久不用的ibmx220，自己的用的是win7精简版，ssd。从官网下载的安装ISO文件，和指定的u盘刻录软件，运行后把系统安 …</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-33">正文（抓取，非 AI）</h3>
+<p>第一次安装使用深度linux，并自己安装qt5.99- Community - Deepin Technology Home Categories WIKI Topic User LANGUAGE: 中文 English [Tutorials] 第一次安装使用深度linux，并自己安装qt5.99 Newbies 1926 views · 11 replies · To floor Go 187<strong><em>*</em>*95 deepin 2022-04-02 04:49 Author 自己逛知乎的时候，看了推的深度linux的文章，于是自己找出了很久不用的ibmx220，自己的用的是win7精简版，ssd。从官网下载的安装ISO文件，和指定的u盘刻录软件，运行后把系统安装u盘搞定。 用u盘启动运行，自己是独占整个硬盘于是选择的是自动安装全部分区。等了几分钟就自己安装完成。 运行起来，确实让我惊喜，我最早的时候安装过红旗，那时候真是惨不忍睹。基本上感觉自己需要都可以满足。因为自己不打游戏，所以感觉系统比较适合自己，就是上网看视频。 传递文件用的百度云盘。在系统的软件市场里安装了wps。epub、pdf文件的软件。 在安装系统提供qt的时候发现狠麻烦。下载不下来，于是自己搜索了下。 在开始菜单先找到终端，就是类似windows的命令行状态。然后运行下面三个命令，遇到提示选YES 1、更新QT依赖 在深度系统的终端中运行以下命令： sudo apt-get install build-essential sudo apt-get install libgl1-mesa-dev sudo apt-get install gdb 别问我三个命令啥意思，我也不知道，大概意思就是修复安装c语言调试需要的编译环境从软件库下载一些文件。 2、因为我在笔记本的深度系统里感觉下载qt速度太慢了，于是自己是在windows电脑里下载的5.99软件。 这里给大家推荐几个，主要是各个高校的： 中国科学技术大学：http://mirrors.ustc.edu.cn/qtproject/ 清华大学：https://mirrors.tuna.tsinghua.edu.cn/qt/ 北京理工大学：http://mirror.bit.edu.cn/qtproject/ 中国互联网络信息中心：http://mirror.bit.edu.cn/qtproject/ 我是在北理工的镜像里下的5.99，选择的是尾部名字是run的文件下载。然后用u盘拷贝到深度系统的下载目录下。因为 6以上的系统教程少，4的系统得分成几个软件安装。所以我选择的是5.99能找到的最高版。 在深度系统里，点击安装的尾部名字为run的文件，会提示你是否授权运行，点击同意。然后就像win系统安装程序一样，记得把网络先断了，因为一般我们没有qt的社区账号。有网的情况下就让你输入qt社区账号，没有就安装不下去。 然后一路下一步，安装成功。 打开一个例子，然后运行下，看能不能编译成功。 Reply Like 0 Favorite View the author All Replies depend deepin 2022-04-02 05:02 #1 官方源里面就有qt，并且是5.15的版本 sudo apt install qtcreator 即可开始开发，如果不行，放出src的源sudo apt build-dep deepin-image-viewer 开始开发，很简单 Reply Like 0 View the author SamLukeYes deepin 2022-04-02 05:33 #2 qt6 的正式版不是已经出了吗，为什么要用 5.99 Reply Like 0 View the author 187</strong><strong><em>*95 deepin 2022-04-02 15:50 #3 作为新手我不知道啊,只会在系统提供的软件应用商店里点击下载,问题是速度太慢了,而且不知道为什么装不上. 所以我就上网搜索栏一下.看怎么自主安装qt。然后在笔记本电脑里自己试了一下，没想到装成功了。 作为菜鸟到深度系统里基本上就是没啥会做的。在新手论坛里也没有教程。于是结合自己的操作就发个帖子，感觉自己的问题肯定也会有新手遇到啊。 为啥不选qt6，是因为我能找到的电子书基本上都是qt5的教程。我就是刚才window系统转过来的新手，想试试深度的linux系统。所以就慢慢尝试，都是最基础的，新手问题。 Reply Like 0 View the author 187</em></strong><strong><em>95 deepin 2022-04-02 15:52 #4 depend ： 官方源里面就有qt，并且是5.15的版本 sudo apt install qtcreator 即可开始开发，如果不行，放出src的源sudo apt build-dep deepin-image-viewer 开始开发，很简单 感谢让我知道了，安装qt的命令行。作为新手我是不知道的。 从软件库里安装只能安装指定的版本，我的方法可以安装自己想装的版本。 作为新手，根本是一点都不知道怎么操作的。 Reply Like 0 View the author depend deepin 2022-04-02 17:50 #5 既然你比较喜欢新的版本，就可以选择系统默认的，一般其他系统可能有几个包，qtbase5-dev qtcreator装上，基本上都有了把，好像是，我在ubuntu弄过，Ubuntu20.04默认是5.12 ,debian10是5.11.3 Reply Like 0 View the author 135</em></strong><strong><em>01 deepin 2022-04-03 05:42 #6 qt是什么呢？超级小白。 Reply Like 0 View the author 187</em></strong><strong><em>95 deepin 2022-04-27 17:30 #7 135</em></strong><strong><em>01 ： qt是什么呢？超级小白。 c语言的跨平台开发软件，就是相当于大家熟悉的vc6.只不过vc是微软公司的软件，qt是大家一起开发维护的免费变成软件。 Reply Like 0 View the author 187</em></strong><strong><em>95 deepin 2022-04-27 17:33 #8 depend ： 既然你比较喜欢新的版本，就可以选择系统默认的，一般其他系统可能有几个包，qtbase5-dev qtcreator装上，基本上都有了把，好像是，我在ubuntu弄过，Ubuntu20.04默认是5.12 ,debian10是5.11.3 谢谢，我没敢操作，因为我啥也不会。感觉需要自己慢慢学习研究。今天刚下了搜狗输入法安装在系统里，感觉基本上输入的问题解决了，系统自带的讯飞输入法也很好。只不过我是为了字库通用，毕竟自己积累了很多自己专用的词组了。 Reply Like 0 View the author 187</em></strong><strong><em>95 deepin 2022-04-27 17:48 #9 depend ： 官方源里面就有qt，并且是5.15的版本 sudo apt install qtcreator 即可开始开发，如果不行，放出src的源sudo apt build-dep deepin-image-viewer 开始开发，很简单 谢谢您的源，提示安装了70个软件包，特别是速度很快。非常感谢，虽然不懂怎么安装的，反正安装完了，也许大白就是这样不求甚解吧。 Reply Like 0 View the author 187</em></strong><strong><em>95 deepin 2022-04-27 17:59 #10 135</em></strong><strong><em>01 ： qt是什么呢？超级小白。 也许咱们两个就是大白和二白的区别，今天才学会在搜狗输入法网站下了系统里的输入法。感觉像这样的系统最大的问题就是这些大公司重视，开发对应版本的软件，比如输入法，比如微信等等常用的软件，让基本用户可以用起来。这样才可以更好的推广。 Reply Like 0 View the author depend deepin 2022-04-27 21:06 #11 187</em></strong>***95 ： 谢谢您的源，提示安装了70个软件包，特别是速度很快。非常感谢，虽然不懂怎么安装的，反正安装完了，也许大白就是这样不求甚解吧。 build-dep就是安装某个程序的编译以来的方法，有一些应用有，比如这样就是安装看图的所有编译依赖 qt 和dtk的编译的一些的东西都被安装上了 Reply Like 0 View the author Please sign in first Featured Collection Change UOS AI 2.8 Released! Three New Intelligent Agents &amp; Major Evolution Solid Q&amp;A | deepin 25 Common Questions – The Immutable System Edition New Thread Popular Ranking Change Error al actualizar Deepin 25.1 – April 20, 2026 日历节气迟了一天 Inovação e Tecnologia Popular Events More</p>
+</div></details><h2 id="toc-34">18. 【deepin 23 安装教程】MacBook 安装 deepin 23 双系统 ...</h2>
+<ul>
+<li>链接：https://bbs.deepin.org/post/281157</li>
+<li>来源：bing</li>
+<li>摘要：2024年11月12日 · 深度操作系统deepin 23安装指南 大家希望在deepin社区看到什么内容，以及大家对系统安装的需求和问题也欢迎在评论区讨论补充，后续将根据大家的需求持续完善内容，感谢大家的支 …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">首先，U盘内请勿存放资料，因为制作系统启动盘时会对其进行格式化。其次，新分区的格式应设置为“MS-DOS（FAT）”，且最小大小应为65GB。此外，安装过程中请不要选择“Boot in normal mode”，因为这适用于只安装一个deepin 23系统的情况。全盘安装后，电脑将自动重启进入deepin 23系统，首次进入时需要配置账号、语言、网络等设置。安装指南针对许多用户的安装问题近期会逐步更新，而SIG组开发的安装指南则专门面向社区用户，且不占用deepin的开发资源。SIG组的介绍可以在官网找到，但目前有些SIG还没有更新上去。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>U盘内请勿存放资料（制作系统启动盘时会格式化U盘）。</li>
+<li>深信不要选择“添加宗卷”！</li>
+<li>新分区的格式设置为“MS-DOS（FAT）”。</li>
+<li>新分区的大小至少为65GB。</li>
+<li>这里请不要选择“Boot in normal mode”。</li>
+<li>全盘安装适用于只安装一个deepin 23系统。</li>
+<li>安装成功后，电脑将自动重启进入deepin 23系统。</li>
+<li>首次进入deepin 23系统，需要配置账号、语言、网络等。</li>
+<li>安装指南针对很多用户的安装问题近期会逐步更新。</li>
+<li>SIG组开发的安装指南面向社区用户。</li>
+<li>安装指南并不占用deepin的开发资源。</li>
+<li>SIG组的介绍在官网可以找到。</li>
+<li>有些SIG还没有更新上去。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-35">正文（抓取，非 AI）</h3>
+<p>【deepin 23 安装教程】MacBook 安装 deepin 23 双系统- Community - Deepin Technology Home Categories WIKI Topic User LANGUAGE: 中文 English [deepin exploration] 【deepin 23 安装教程】MacBook 安装 deepin 23 双系统 Technology Exchange 6313 views · 22 replies · To floor Go deepin小助手 Super Moderator OM 2024-11-12 16:21 Author 欢迎大家去官网查看更多deepin相关文档，海量系统安装问题在社区官网持续更新发布当中，敬请关注！ 深度操作系统deepin 23安装指南 大家希望在deepin社区看到什么内容，以及大家对系统安装的需求和问题也欢迎在评论区讨论补充，后续将根据大家的需求持续完善内容，感谢大家的支持！ 本教程仅供旧版 Intel 芯片的 Mac 电脑安装 deepin 23 等 Linux 操作系统作为参考，新版 M 芯片的 Mac 电脑原则上也可以参考本教程，但是需要下载 ARM 架构的镜像。 一、安装前准备 1、软硬件准备 1、U 盘一个：用来制作 U 盘启动盘，需要 8G 以上空间，U 盘内请勿存放资料（制作系统启动盘时会格式化 U 盘）； 2、deepin 23 镜像：请下载 X86 架构镜像（M 芯片请下载 ARM 架构）； &gt;&gt;&gt; deepin 23 镜像下载地址 2、制作 U 盘启动盘 <strong>方法1：</strong>在 Mac OS 下可以直接使用 Etcher 来制作启动盘 下载安装软件后，可以参考本教程来制作 U 盘启动盘： 《如何使用 Etcher 制作 U 盘安装系统盘》 <strong>方法2：</strong>可以在Windows下使用Ventoy来制作U盘启动盘。 下载安装软件后，可以参考本教程来制作U盘启动盘： 《如何使用 Ventoy 制作 U 盘安装系统盘》 本次教程使用Ventoy系统安装U盘进行装机演示。 3、Mac OS 分区准备 因为本教程演示的是 Mac OS 和 deepin 23 双系统的安装，所以需要提前在 Mac OS 下进行分区操作，在新建的分区上安装 deepin 23。 如果只在 Mac 上安装 deepin 23 一个系统，可以直接略过此步骤，直接看“安装系统”环节。 在 Mac 上使用 Mac OS 系统自带的“磁盘工具”进行磁盘分区 打开“磁盘工具”应用后，在工具栏选择“分区”按钮进入下一步界面 点击磁盘空间分布饼状图下的“+”号进入下一步操作 重要提醒：因为我们是要装一个新的系统，因此在弹出的窗口选择“添加分区”（千万不要选择“添加宗卷”！） 新建分区，设置分区格式。因为 deepin 和 Mac OS 磁盘分区格式不一样，这里在新建分区的时候请将新分区的格式设置为“MS-DOS（FAT）”，以便 deepin 安装的时候能够进一步格式化为 EXT4 分区。另外，新分区的大小至少为 65GB，低于此空间大小可能无法安装。 设置完成，点击“应用”进入下一步： 点击“分区”进入下一步： 点击“继续”进入下一步： 至此，Mac OS 开始进行分区，因为系统需要对磁盘重新进行空间分配，因此这个步骤持续的时间较长，请耐心等待！ 根据 Mac OS 磁盘大小以及磁盘中存储内容的多少，本步骤需要几分钟或几小时不等，分区完成后点击“完成”既可完成分区操作。 二、安装系统 在制作好系统安装启动U盘，并且对Mac电脑进行分区后，便可重启 Mac 电脑来安装 deepin 23系统。 1、进入 EFI Boot 重启电脑，在系统关机了开始重启的时候按住键盘上的 option 键。电脑屏幕将出现选择启动磁盘的的界面（类似 Windows 电脑的 BIOS 引导界面），我们选择 EFI boot 进入 deepin 23 系统安装U盘： 2、进入 deepin 23 安装器 选择从 EFI Boo t启动后，电脑将从 deepin 23 的系统安装U盘来启动，本教材采用的 Ventoy 制作的U盘启动盘，因此我们看到的是如下画面（如果你只拷贝了一个镜像在 Ventoy 启动盘，那么这里只会有一个镜像，图片里有多个镜像是因为 U 盘里放了很多其他发行版的镜像）： 接下来的步骤和在 Windows 电脑下使用 Ventoy 安装 deepin 23 系统一样，我们选择对应的镜像，本教程是 Intel 芯片的电脑，我们选择：deepin-desktop-community-23-amd64.iso 进入下一步界面。 然后选择“Boot in grub2 mode”进入下一步界面。 重要提醒，这里请不要和 Windows 下一样选择“Boot in normal mode”！！！ 正式进入deepin 23 镜像安装器的界面，如下图： 因为苹果最后一代 Intel 芯片的电脑已经是 2019 年发布的了，我们这里直接选择 6.6 内核进行安装：Install Deepin 23 with kernel 6.6 desktop。 接下来，我们将看到熟悉的 deepin 23 安装界面： 重点说明：我们是保留 Mac OS 系统安装的 deepin 23 双系统，此前前面我们在 Mac OS 下进行了分区，因此在这里我们选择“自定义安装”。 如果是在 Mac 上只安装一个 deepin 23 系统的用户，在这里直接选择“全盘安装”。 选择“自定义安装”后我们将看到如下界面，在这里我们可以看到之前在macOS下创建的分区： 我们点击编辑按钮来对分区进行设置，deepin 23 分区格式为Ext4格式，且此分区需要挂在为根分区，点击“确定”进入下一步界面 点击“开始安装”正式开始安装 deepin 23 系统 三、系统安装成功 看到安装成功界面，点击“立即重启”并立即拔下U盘，电脑将自动重启进入 deepin 23 系统。首次进入deepin 23系统，我们需要对电脑系统进行账号、语言、网络等的配置，最后便可正常使用。 Reply Like 0 Favorite View the author All Replies 1 2 2 &gt; 1 / 2 To page Go deepin小助手 Super Moderator OM 2024-11-12 16:37 #1 支持社区 Reply Like 0 View the author buyike deepin 2024-11-12 17:26 #2 支持社区，必须支持， 只是不用苹果系统来用deepin社区版真的多吗？ 好想知道，如何办？试着投票？ 这个投标是专为苹果用户开设，其他用户绕行！！！ https://bbs.deepin.org/post/281164 Reply Like 0 View the author yanbing deepin 2024-11-12 17:43 #3 优秀，请问是不是已知BUG修了完，有多余时间开始准备替换苹果了。 Reply Like 0 View the author 瑞莎Radxa deepin 2024-11-12 17:47 #4 yanbing ： 优秀，请问是不是已知BUG修了完，有多余时间开始准备替换苹果了。 其实早就在苹果上安装了，这个也是SIG组开发的。现在发这个只是面向社区用户的一个安装指南中的一部分内容，针对很多用户的安装问题近期会逐步更新汇总一大批安装手册，这并不占用deepin的开发资源。 Reply Like 1 View the author yanbing deepin 2024-11-12 17:52 #5 瑞莎Radxa ： 其实早就在苹果上安装了，这个也是SIG组开发的。现在发这个只是面向社区用户的一个安装指南中的一部分内容，针对很多用户的安装问题近期会逐步更新汇总一大批安装手册，这并不占用deepin的开发资源。 原来如此，感谢解惑，是我见识少了。 Reply Like 0 View the author Claw龙虾bot deepin Backbone of ecological co-construction group 2024-11-12 18:40 #6 yanbing ： 原来如此，感谢解惑，是我见识少了。 这个是SIG组的介绍：https://www.deepin.org/index/zh/docs/sig/sig/LISTS 貌似有些SIG也没有更新上去。 Reply Like 0 View the author 小小怪冲啊！ deepin 2024-11-13 00:02 #7 支持支持 Reply Like 0 View the author 小小怪冲啊！ deepin 2024-11-13 00:02 #8 Reply Like 0 View the author 小小怪冲啊！ deepin 2024-11-13 00:03 #9 支持社区 Reply Like 0 View the author Oli deepin 2024-11-13 04:23 #10 Reply Like 0 View the author xuguoquan123 deepin 2024-11-13 15:44 #11 如何普通电脑安装macOS，相比deepin。我对macos更感兴趣。 Reply Like 1 View the author Amber deepin 2024-11-13 17:52 #12 xuguoquan123 ： 如何普通电脑安装macOS，相比deepin。我对macos更感兴趣。 应该是很难实现，你看IOS有安装在其他非苹果设备过吗？ Reply Like 0 View the author 网络对线操盘手 deepin 2024-11-14 10:30 #13 xuguoquan123 ： 如何普通电脑安装macOS，相比deepin。我对macos更感兴趣。 你可以了解下“黑苹果”系统，大概就是在Windows设备上安装macOS系统 Reply Like 0 View the author 网络对线操盘手 deepin 2024-11-14 10:34 #14 如果有人想在M芯片的Mac上安装deepin 23系统，也是可以的： 1、开机引导的方式不一样，得在开机的时候长按电源键，按住不放，看到开机引导项再松开，然后选择EFI Boot引导； 2、镜像得下载M芯片的专用镜像，不能用deepin官网的ARM镜像，专用镜像下载请点击 Apple M芯片的deepin 23镜像下载 Reply Like 0 View the author xuguoquan123 deepin 2024-11-14 14:31 #15 网络对线操盘手 ： 你可以了解下“黑苹果”系统，大概就是在Windows设备上安装macOS系统 比在MAC上装deepin要复杂的多 Reply Like 0 View the author 宁南 deepin 2024-11-14 19:23 #16 xuguoquan123 ： 如何普通电脑安装macOS，相比deepin。我对macos更感兴趣。 opencore了解一下，英特尔9代、10代的CPU还是很好安装的 Reply Like 0 View the author 残缺旳记忆ヾ deepin 2024-11-14 20:10 #17 苹果 2141 安装 deepin23 键盘、触摸用不了？ 有大神知道什么原因不？ Reply Like 0 View the author 西装系统之蝶 deepin 2024-11-15 20:29 #18 The user is banned, and the content is hidden. vo deepin 2024-11-17 15:59 #19 Deepin23ARM版本在Parallel虚拟机下安装会黑屏，期待修复。。。 Reply Like 0 View the author hinata deepin 2024-11-18 06:26 #20 感谢分享 Reply Like 0 View the author 1 2 2 &gt; 1 / 2 To page Go Please sign in first Featured Collection Change UOS AI 2.8 Released! Three New Intelligent Agents &amp; Major Evolution Solid Q&amp;A | deepin 25 Common Questions – The Immutable System Edition New Thread Popular Ranking Change Error al actualizar Deepin 25.1 – April 20, 2026 日历节气迟了一天 Inovação e Tecnologia Popular Events More</p>
+</div></details><h2 id="toc-36">19. 深度15.4里如何删除双系统的win7？- Community - Deepin ...</h2>
+<ul>
+<li>链接：https://bbs.deepin.org/zh/post/139901</li>
+<li>来源：bing</li>
+<li>摘要：2017年5月24日 · 深度15.4里如何删除双系统的win7？- Community - Deepin Technology deepin Talks 248618 To sclmusic deepin 2017-05-24 01:55 win7和深度15.4双系统，uefi主板，gpt分区， 现在15.4 …</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-37">正文（抓取，非 AI）</h3>
+<p>深度15.4里如何删除双系统的win7？- Community - Deepin Technology Home Categories WIKI Topic User LANGUAGE: 中文 English 深度15.4里如何删除双系统的win7？ deepin Talks 2547 views · 18 replies · To floor Go sclmusic deepin 2017-05-24 01:55 Author win7和深度15.4双系统，uefi主板，gpt分区， 现在15.4满足所有需要了， 如何完整的删除win7？包括启动菜单里开机直接启动深度 Reply Like 0 Favorite View the author All Replies arlen deepin 2017-05-24 05:04 #1 要是我的话只能直接重装Deepin 单系统了。。。顺便重新分区。没办法，水平在这摆着呢。 Reply Like 0 View the author comzhong deepin 2017-05-24 17:53 #2 格式化Windows系统分区，执行命令：sudo update-grub Reply Like 0 View the author Feng Yu deepin 2017-05-24 18:23 #3 UEFI的话除了删掉windows的分区之外，还需要从/boot/efi删掉windows的efi引导项 Reply Like 0 View the author sclmusic deepin 2017-05-25 01:05 #4 comzhong 发表于 2017-5-24 09:53 格式化Windows系统分区，执行命令：sudo update-grub 格式化后，又update-grub，开机仍然有Windows的入口选项 Reply Like 0 View the author comzhong deepin 2017-05-25 03:17 #5 https://bbs.deepin.org/post/139901 格式化后，又update-grub，开机仍然有Windows的入口选项 额，去挂载 esp分区 或 启动分区，一般是：sudo mount /dev/sda1 /mnt 然后去 /mnt 目录删除和Windows 有关的文件，再执行命令：sudo update-grub 卸载：sudo umount /dev/sda1 /mnt Windows UEFI 启动文件为 esp分区 下面两个目录 /EFI/boot/ /EFI/microsoft/ Windows BIOS 启动文件为 启动分区 下面目录和文件 /boot/ /bootmgr Reply Like 0 View the author sclmusic deepin 2017-05-25 05:50 #6 comzhong 发表于 2017-5-24 19:17 额，去挂载 esp分区 或 启动分区，一般是：sudo mount /dev/sda1 /mnt 然后去 /mnt 目录删除和Windows 有 ... uefi开启的话，深度自己不占用EFI文件夹吗？ 还有①/boot/efi/EFI/Boot文件夹和②/boot/efi/EFI/deepin文件夹，这两个才是必须的吧？ Reply Like 0 View the author comzhong deepin 2017-05-25 06:36 #7 https://bbs.deepin.org/post/139901 uefi开启的话，深度自己不占用EFI文件夹吗？ 还有①/boot/efi/EFI/Boot文件夹和②/boot/efi/EFI/deepin文 ... 文件管理器以管理员权限打开就可以删了 ESP 分区的 /EFI/Boot 文件夹并不是必须的，那里是主板自动寻找的位置 Windows会建立 /EFI/Boot 和 /EFI/microsoft/ Deepin 建立的是 /EFI/deepin 和 /EFI/Ubuntu 两个文件夹 Reply Like 0 View the author sclmusic deepin 2017-05-25 08:48 #8 comzhong 发表于 2017-5-24 22:36 文件管理器以管理员权限打开就可以删了 ESP 分区的 /EFI/Boot 文件夹并不是必须的，那里 ... 只保留EFI/deepin这一个就行了吧？ Reply Like 0 View the author comzhong deepin 2017-05-25 19:17 #9 https://bbs.deepin.org/post/139901 只保留EFI/deepin这一个就行了吧？ /EFI/deepin 和 /EFI/Ubuntu 两个文件夹都要 Deepin的 grub2 签名没走完，所以还用的 Ubuntu 的 ，需要 /EFI/Ubuntu/grub.cfg Reply Like 0 View the author sclmusic deepin 2017-05-27 00:31 #10 comzhong 发表于 2017-5-25 11:17 /EFI/deepin 和 /EFI/Ubuntu 两个文件夹都要 Deepin的 grub2 签名没走完，所以还用的 Ubuntu 的 ，需要 ... deepin在/boot/efi/EFI下建立deepin和ubuntu文件夹； windows在/boot/efi/EFI下建立Microsoft和Boot文件夹； 那么/boot/efi下的Boot文件夹是预装系统留下的吗？(里面都是语言、启动的动态链接库和内存测试文件，并没有efi后缀的文件) 如果是的话，删除以下3个文件夹吗？ ①/boot/efi/Boot ②/boot/efi/EFI/Microsoft ③/boot/efi/EFI/Boot Reply Like 0 View the author comzhong deepin 2017-05-27 01:32 #11 本帖最后由 comzhong 于 2017-5-26 17:35 编辑 https://bbs.deepin.org/post/139901 deepin在/boot/efi/EFI下建立deepin和ubuntu文件夹； windows在/boot/efi/EFI下建立Microsoft和Boot文件 ... /boot/efi/ 这个目录里面实际就是ESP分区的内容 ①/boot/efi/Boot ——Windows BIOS启动文件 ②/boot/efi/EFI/Microsoft ——Windows UEFI启动文件 ③/boot/efi/EFI/Boot/bootx64.efi ——UEFI 主板默认启动文件，比如安装 Windows 会用 /EFI/Microsoft/boot/bootmgrfw.efi 替换，安装Linux会用 grubx64.efi 来替换。可以把你设置的默认启动的efi文件拿来替换一下，好像没有的话有些主板会有出错提示。 Reply Like 0 View the author sclmusic deepin 2017-05-27 01:50 #12 本帖最后由 sclmusic 于 2017-5-26 17:56 编辑 https://bbs.deepin.org/post/139901 /boot/efi/ 这个目录里面实际就是ESP分区的内容 ①/boot/efi/Boot ——Windows BIOS ... （1）①/boot/efi/Boot ——Windows BIOS启动文件 BIOS启动方式，不是主板自检后直接对接读取MBR，由windows引导程序继续引导吗？ 这个/boot/efi/Boot文件夹会起作用吗？ ----------------------------------------------------------------------------------------------分割线--------------------------------------------- （2） ①/boot/efi/Boot 删除 ②/boot/efi/EFI/Microsoft 删除 ③/boot/efi/EFI/Boot 清空文件夹，然后留下grubx64.efi 这样可行吗？ Reply Like 0 View the author comzhong deepin 2017-05-27 01:59 #13 本帖最后由 comzhong 于 2017-5-26 18:02 编辑 https://bbs.deepin.org/post/139901 ①/boot/efi/Boot ——Windows BIOS启动文件 BIOS启动方式，不是主板自检后直接对 ... 你是UEFI启动Deepin，才会挂载出/boot/efi/ 如果是BIOS启动方式，先读取MBR，再根据MBR继续，win NT6.0引导的MBR是读取活动分区的BPR，win NT6.0的BPR是bootmgr引导，会启动此分区/bootmgr引导文件，读取 /boot/BCD 菜单配置文件，然后就看到Windows菜单了。 你要有兴趣去研究一下这个帖子里面的U盘引导，如果你能搞懂，修复引导根本不是事儿。 简单手动制作BIOS+UEFI的syslinux+grub+boomgr+grub2互转U盘 https://bbs.deepin.org/post/38714 Reply Like 0 View the author sclmusic deepin 2017-05-27 02:07 #14 https://bbs.deepin.org/post/139901 你是UEFI启动Deepin，才会挂载出/boot/efi/ 如果是BIOS启动方式，先读取MBR，再根据MBR继续 ... 先不管/boot/efi/Boot文件夹了。 ①/boot/efi/Boot 删除 ②/boot/efi/EFI/Microsoft 删除 ③/boot/efi/EFI/Boot 清空文件夹，然后留下grubx64.efi 这样可行吗？ Reply Like 0 View the author Comments comzhong 2017-05-27 04:30 grubx64.efi 复制一个改名bootx64.efi 放到 /boot/efi/EFI/Boot/ sclmusic deepin 2017-05-27 02:14 #15 https://bbs.deepin.org/post/139901 你是UEFI启动Deepin，才会挂载出/boot/efi/ 如果是BIOS启动方式，先读取MBR，再根据MBR继续 ... 另外我有个想法，制作多合一的超级安装U盘。 U盘启动后，可选①WinXP②Win7③Win10④Ubuntu⑤Deepin⑥Ghost恢复盘中的任意系统安装/恢复。 这个U盘能实现吗？ 可以的话，说下实现思路，非常感谢。 Reply Like 0 View the author comzhong deepin 2017-05-27 04:28 #16 https://bbs.deepin.org/post/139901 另外我有个想法，制作多合一的超级安装U盘。 U盘启动后，可选①WinXP②Win7③Win10④Ubuntu⑤Deepin⑥Gho ... 你可以试试这个，win PE可以去无忧论坛找，Linux 基本上都可以直接启动 IOS live. 简单手动制作BIOS+UEFI的syslinux+grub+boomgr+grub2互转U盘 https://bbs.deepin.org/post/38714 Reply Like 0 View the author dee2017pin deepin 2017-05-28 04:06 #17 sclmusic 发表于 2017-5-26 18:14 另外我有个想法，制作多合一的超级安装U盘。 U盘启动后，可选①WinXP②Win7③Win10④Ubuntu⑤Deepin⑥Gho ... 好期待这个超级U盘！ Reply Like 0 View the author sclmusic deepin 2017-05-28 05:09 #18 comzhong 发表于 2017-5-26 20:28 你可以试试这个，win PE可以去无忧论坛找，Linux 基本上都可以直接启动 IOS live. 简单手动制作BIOS+UEF ... 好的，多谢，我研究下 Reply Like 0 View the author Please sign in first Featured Collection Change UOS AI 2.8 Released! Three New Intelligent Agents &amp; Major Evolution Solid Q&amp;A | deepin 25 Common Questions – The Immutable System Edition New Thread Popular Ranking Change Error al actualizar Deepin 25.1 – April 20, 2026 日历节气迟了一天 Inovação e Tecnologia Popular Events More</p>
+</div></details><h2 id="toc-38">20. [持续更新]deepin 及常用软件的高频问题和解决方法 ...</h2>
+<ul>
+<li>链接：https://bbs.deepin.org/post/272867</li>
+<li>来源：bing</li>
+<li>摘要：2024年5月22日 · --Live系统一步修改用户密码 如何安装Windows和deepin双系统： 【史上最详细】win10下的Deepin双系统安装小白教程－论坛－深度科技 上面看不懂的这里还有双系统的图文教程： …</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-39">正文（抓取，非 AI）</h3>
+<p>[持续更新]deepin 及常用软件的高频问题和解决方法- Community - Deepin Technology Home Categories WIKI Topic User LANGUAGE: 中文 English [Share Experiences] [持续更新]deepin 及常用软件的高频问题和解决方法 Experiences and Insight 2.4w views · 26 replies · To floor Go 网络对线操盘手 deepin 2024-05-22 15:58 Author deepin系统相关的问题 系统安装 deepin 23 安装指南： https://bbs.deepin.org/post/277912 《deepin 23 安装指南——全新安装》 《deepin 23 安装指南——deepin 23 RC/RC2 升级》 《deepin 23 安装指南——deepin 20.9 升级》 系统问题 V23 RC玲珑应用丢失问题： 升级deepin v23 RC玲珑应用丢失解决方案及FAQ－论坛－深度科技 V23 正式版桌面黑屏/文件管理器卡/浏览器下载文件后另存为的时候闪退： 关于近期安装玲珑应用后系统XDG相关组件性能下降的解决方案 输入法的问题可以参考： 分享一个让 Fcitx5 更符合简中用户使用习惯的优化脚本－论坛－深度科技 (deepin.org) V20.9上体验Fcitx5： 推荐一个Rime自动部署的脚本 字体缺失/安装字体（版权原因，一些win上的字体只能自行安装）： 请问如何装字体－论坛－深度科技 (deepin.org) 喜欢折腾内核或者经常遇到系统底层问题的可以学习下： 操作系统的内核到底是什么？－论坛－深度科技 (deepin.org) Linux内核安装教程（安装内核包）： Linux 6.6内核的新特性介绍及其安装教程 deepin 23/25 安装显卡驱动（32位和64位，Nvidia和AMD）： deepin 23 如何安装显卡驱动 硬件和驱动 声卡 声卡-华为笔电声音异常可以参考： HUAWEI (C233) Notebook无音频输出的用户请看过来－论坛－深度科技 (deepin.org) 显卡 显卡-安装英伟达Nvidia闭源驱动： 双显卡笔记本安装N卡闭源驱动教程(可能是对新手最友好的教程) 显卡-Nvidia驱动安装和常见问题： Ubuntu 安装 Nvidia 显卡驱动及常见问题解决 显卡-Nvidia闭源驱动更新： V23笔记本电脑安装NVIDIA闭源驱动心得－论坛－深度科技 (deepin.org) 显卡-AMD R7 6800H 驱动安装： AMD R7 6800H 官网显卡驱动安装，解决kwin-x11的cpu占用过高问题 显卡-AMD 7840HS 驱动安装： AMD apu 锐龙7 7840HS 显卡驱动和文件升级教程 迷你主机攻略 这里插一个浏览器硬件加速自查的帖子： 浏览器硬件加速和解码支持能力自查 网卡 网卡-博通BCM43系列网卡驱动： deepin20.8博通无线网卡(BCM4313 802.11bgn)驱动安装－论坛－深度科技 网卡- V23 博通BCM43显卡问题：下载安装最新的 broadcom-sta-dkms （6.30.223.271-23 版本支持 6.0 及以上内核） 网卡-瑞昱Realtek/RTL网卡驱动： 几款 Realtek 无线网卡的 DKMS 驱动 DEB 安装包介绍－论坛－深度科技 (deepin.org) 网卡-联发科网卡驱动： 联发科7921型号的网卡无法连接网络－论坛－深度科技 (deepin.org) 网卡-英特尔AX211： thinkbook14+2023 intel wifi 6e AX211网卡识别不了 （其实就是升级内核） 网卡-英特尔AX211： thinkbook14+ 2024安装完系统后无法连接wifi （其实，还是升级内核，哈哈） 打印机与扫描仪 如何在 Linux 下愉快的配置和使用打印机 deepin V23上使用毕昇驱动引擎的方法： https://bbs.deepin.org/post/254680 一些打印机品牌提供了完备的跨平台支持，提供了 Linux 平台下的驱动。你可以在打印机官方网站的「技术支持」板块下载。 佳能打印机驱动官网 佳能打印机2900驱动安装：https://bbs.deepin.org/post/253871 Canon-IR 2625 2630 UFR-II 打印机的驱动： sudo apt install com.canon.ufr2 爱普森打印机驱动官网 得力打印机驱动官网 惠普打印机驱动官网 惠普的 Linux 驱动由第三方的 HPLIP 项目提供支持。通常各大 Linux 发行版都提供了 hplip 软件包，开箱即用。 惠普打印机驱动安装后打印遇到问题，可以尝试重新安装驱动： sudo apt reinstall libssl* hplip deepin上扫描仪配置与使用攻略： Linux 扫描仪配置与使用攻略 系统使用技巧 没有设置交换分区，或者内存太小交换分区不够用的可以参考： 开启swap交换空间－论坛－深度科技 (deepin.org) 手动分区安装系统： 【系统安装】手动分区你们都是如何操作的？我这有一剂。－论坛－深度科技 (deepin.org) 文件共享和传输： 局域网传输文件你们用哪些手段？－论坛－深度科技 (deepin.org) 国内大模型账号白嫖攻略： UOS AI 大模型账号申请攻略－论坛－深度科技 (deepin.org) 终端操作常用的命令行： deepin上常用命令行分享－论坛－深度科技 玲玲应用的安装和卸载可以参考： 玲珑系列文章——命令行工具－论坛－深度科技 (deepin.org) deepin自研应用软件包名清单： Deepin原生软件包列表－论坛－深度科技 deepin上常用的快捷键组合： Deepin常用快捷键整理－论坛－深度科技 更新系统但是不想花时间等备份（暂时，后续官方会推出此功能）： sudo apt update &amp;&amp; sudo apt dist-upgrade 如何进入live系统（解决忘记登陆密码的方法）： deepin忘记密码怎么办？--Live系统一步修改用户密码 如何安装Windows和deepin双系统： 【史上最详细】win10下的Deepin双系统安装小白教程－论坛－深度科技 上面看不懂的这里还有双系统的图文教程： 深度操作系统deepin下载与安装攻略-双系统安装及手动分区方法－论坛－深度科技 如何把deepin安装到U盘即插即用（Windows To Go）： 关于 Linux/Deepin to go 的一些心得－论坛－深度科技 在deepin 上实现系统快照备份和还原功能（平时喜欢折腾系统的可以玩下，方便还原）： 记自己使用btrfs+timeshift秒级自动快照备份的流程 常用软件的问题 如果没有方向单纯的找软件玩可以参考： deepin软件推荐（很多）－论坛－深度科技 某坛友制作的玲珑商店客户端： 自制的玲珑商店客户端【版本升级至1.2.5】－论坛－深度科技 (deepin.org) 事实上目前玲珑的官方网页版商店： Linglong Web Store 授人以渔：自己制作wine软件： 使用wine运行器打包无安装包的软件－论坛－深度科技 (deepin.org) AppImage安装器（喜欢用AppIamge软件包的不要错过）： 一个非常方便的AppImage软件部署工具——AppImage安装器－论坛－深度科技 (deepin.org) 应用商店安装wine应用卸载后，在启动器有快捷方式残留问题：路径1：/usr/share/applications下面。路径2：~/.local/share/applications下面 【干货】如何简单实现Windows应用在Linux系统上的无缝运行？ 微信多开： Deepin/linux下多开微信的方法分享 办公软件 WPS字体加粗显示异常、画面是空白花的等问题： 关于wps部分加粗字体显示不清晰问题修复公告－论坛－深度科技 (deepin.org) WPS无法打开PDF文件： WPS打不开PDF文件，之前的修复命令提示已存在－论坛－深度科技 (deepin.org) WPS提示字体缺失的问题： V23 WPS 提示缺字体解决 PDF编辑（媲美Office和WPS，还可以编辑PDF，还开源免费）： LibreOffice | DeepinWiki 系统工具 官方源切换工具，助你分流，顺畅使用仓库资源： https://bbs.deepin.org/post/277042 VMware的安装和卸载可以参考 deepin安装VMware-Workstation－论坛－深度科技 VMware卸载： sudo vmware-installer -u vmware-workstation Linux kernel 6.6以上内核版本无法使用VMware的问题： https://bbs.deepin.org/post/277244 V23任务栏系统监控插件： 适配 V23 Release 的任务栏系统监控插件 V23 通知中心天气插件 科研和教学 MATLAB/ANSYS/SIMULIA等软件： V20下MATLAB/AMESim/ANSYS/SIMULIA安装笔记－论坛－深度科技 (deepin.org) 希沃白板： https://easinote.seewo.com/linux 希沃白板Linux版（免激活）： https://bbs.deepin.org.cn/post/292153 使用deepin V23 RC2 在本地搭建Stable Diffusion 美图秀秀linux原生版：UOS用户直接应用商店安装，V23用户安装玲珑包 ll-cli install mtxx 游戏和娱乐 在deepin上玩Steam游戏可以参考： Steam启动星穹列车的教程－论坛－深度科技 (deepin.org) 在deepin上玩游戏的几种常用方法： 谁说deepin不能玩游戏－论坛－深度科技 AI大模型 UOS AI 接入自定义大模型 UOS AI使用chatgpt-4o-mini(无需换语言) [深度探索] UOSAI绑定本地模型，告别模型付费（CPU） <a href="UOS AI 大模型账号申请攻略">国内常见大模型账号申请攻略</a> 电脑本地部署Stable Diffusion webui和汉化 Reply Like 14 Favorite View the author All Replies 1 2 2 &gt; 1 / 2 To page Go 说书人 deepin 2024-05-22 16:14 #1 感谢整理和分享 Reply Like 0 View the author pzm9012 Moderator 2024-05-22 17:10 #2 可以啊，感谢整理 我那个最近没动力更新了 Reply Like 0 View the author 网络对线操盘手 deepin 2024-05-22 17:14 #3 pzm9012 ： 可以啊，感谢整理 我那个最近没动力更新了 我这纯粹是看到【深度之家】的帖子还有很多用户重复发帖，就把最近常见的问题摘出来了😂 Reply Like 0 View the author 乾豫恒益 deepin 2024-05-22 18:46 #4 Reply Like 0 View the author WangZhongyun deepin 2024-05-22 21:56 #5 WPS不能打开PDF文件是个容易遇到的问题 Reply Like 0 View the author 网络对线操盘手 deepin 2024-05-23 11:03 #6 WangZhongyun ： WPS不能打开PDF文件是个容易遇到的问题 已加入豪华午餐，搜了下论坛好像是厂家的问题，厂家一直没出版本修复 Reply Like 0 View the author 网络对线操盘手 deepin 2024-05-23 11:28 #7 deepin自研应用列表和对应的包名 Reply Like 0 View the author WangZhongyun deepin 2024-05-23 19:37 #8 网络对线操盘手 ： deepin自研应用列表和对应的包名 这个深度浏览器6.5.1.1的玲珑包怎么下载？ Reply Like 0 View the author 树先生tree666 deepin 2024-06-02 20:17 #9 感谢整理和分享 Reply Like 0 View the author 网络对线操盘手 deepin 2024-06-05 16:09 #10 WangZhongyun ： 这个深度浏览器6.5.1.1的玲珑包怎么下载？ 我只知道玲珑包安装命令 这个命令默认安装最新的玲珑包 ll-cli install org.deepin.browser 如果想安装制定版本可以： ll-cli install org.deepin.calculator/6.5.1.1 Reply Like 0 View the author 珊瑚礁全体检基金会 deepin 2024-06-21 23:15 #11 感谢博主的整理分享 开启swap交换空间：小内存或者Intel傲腾内存用户可以设置开启swap交换空间，不是每个用Deepin的小白都是垃圾佬，国产内存条还有旧服务器内存条也便宜了嘛，就算是垃圾佬，弄个32G内存的台式机也不是难事😂 希望有大神能出来讲一讲怎么构建Linux的ramdisk吧，然后把tem、Var、Usr/local等这种小容量的分区挂载到ramdisk提升一下系统速度嘛。 现在Intel傲腾内存都停产了，应该有大神出来讲一下大内存机器构建ramdisk的教程了 在win系统下的ramdisk技术都用了多少年了，但国产Pro Ramdisk不是免费的，而Linux系统下可以用户自己免费构建的。这个教程可以应该有了。 Reply Like 0 View the author 昵称111 deepin 2024-07-19 18:31 #12 感谢整理和分享 Reply Like 0 View the author 聪明蛋 deepin 2024-07-31 19:58 #13 The user is banned, and the content is hidden. 聪明蛋 deepin 2024-07-31 19:58 #14 The user is banned, and the content is hidden. 欧阳娜娜 deepin 2024-10-31 22:26 #15 It has been deleted! pzm9012 Moderator 2024-11-01 08:30 #16 回来看一下你是不是在持续更新 Reply Like 0 View the author 网络对线操盘手 deepin 2024-11-01 10:01 #17 pzm9012 ： 回来看一下你是不是在持续更新 偶尔还是会更新下的，全段时间玲珑应用商店发布了，我还收录了。 不过现在很少去找内容了，感觉找来找去问题都那些，太个例的问题就不想收录了。 Reply Like 0 View the author zhouzhengzzcc deepin 2024-12-03 16:12 #18 楼主，我解决了一个小问题，是否能收录进您的帖子里面去呢？ https://bbs.deepin.org/post/277579?id=277579&amp;limit=20&amp;offset=0&amp;postId=1676450 Reply Like 0 View the author 网络对线操盘手 deepin 2024-12-04 09:36 #19 zhouzhengzzcc ： 楼主，我解决了一个小问题，是否能收录进您的帖子里面去呢？ https://bbs.deepin.org/post/277579?id=277579&amp;limit=20&amp;offset=0&amp;postId=1676450 系统安装后默认是最大亮度，但是手动调整下亮度就行。 Reply Like 0 View the author zhouzhengzzcc deepin 2024-12-04 13:03 #20 网络对线操盘手 ： 系统安装后默认是最大亮度，但是手动调整下亮度就行。 你说的那个问题是设置问题，我的笔记本上没有出现。 我这个不是设置上的问题。是Linux不能很好识别新的笔记本触摸板的硬件产生的故障问题。 故障的特点是：“你在正常使用笔记本的时候，突然出现系统自行调节亮度到100%或10%的现象。不是一下子就到100%或10%的，或是逐渐改变的。”这个问题，曾经影响我在这个笔记本上使用Linux。 而Windows下则没有这个问题，应该是Linux内核驱动的原因造成的。 我从八月份在deepin论坛提出这个问题，到前天解决这个问题，用了近4个月。 当然相信，使用新笔记本的用户，能够像我这样用实体机安装Linux的并不多。所以，是否收录意义都不大的。 Reply Like 0 View the author 1 2 2 &gt; 1 / 2 To page Go Please sign in first Featured Collection Change UOS AI 2.8 Released! Three New Intelligent Agents &amp; Major Evolution Solid Q&amp;A | deepin 25 Common Questions – The Immutable System Edition New Thread Popular Ranking Change Error al actualizar Deepin 25.1 – April 20, 2026 日历节气迟了一天 Inovação e Tecnologia Popular Events More</p>
+</div></details><h2 id="toc-40">21. 专业解析：2016年诺贝尔生理学或医学奖（自噬）</h2>
+<ul>
+<li>链接：https://www.zhihu.com/tardis/bd/art/663434453</li>
+<li>来源：bing</li>
+<li>摘要：2025年10月7日 · 科学背景：自噬机制的发现 2016年诺贝尔生理学或医学奖授予大隅良典（Yoshinori Ohsumi），以表彰他在自噬机制方面所做的发现（for his discoveries of mechanisms for …</li>
+<li><strong>易漏细节梳理：</strong></li>
+</ul>
+<p class="insight-summary">自噬机制的发现最初依赖于酵母模型，这为理解自噬过程提供了基础。自噬体的形成涉及多个蛋白质复合体，这些复合体在细胞内的特定信号传导下发挥作用。自噬启动与TOR激酶活性密切相关，当细胞处于饥饿状态时，TOR激酶活性降低，从而触发自噬过程。Atg8的膜定位依赖于两个泛素样连接系统，这确保了自噬体的正确形成。自噬体的形成是通过膜扩展完成的，这一过程是自噬体能够包裹受损或不需要的细胞器的关键步骤。最终，自噬体与溶酶体的融合是降解过程的一部分，通过这一过程，细胞能够回收利用降解产物。因此，自噬不仅在饥饿条件下被激活，还通过一系列复杂的蛋白质相互作用和信号传导机制，确保了细胞内环境的稳定和资源的有效利用。</p>
+<ul>
+<li><strong>关键点（易漏细节）：</strong></li>
+</ul>
+<ul class="insight-detail">
+<li>自噬机制的发现依赖于酵母模型。</li>
+<li>自噬体的形成涉及多个蛋白质复合体。</li>
+<li>自噬启动与TOR激酶活性有关。</li>
+<li>Atg8的膜定位依赖于两个泛素样连接系统。</li>
+<li>自噬体的形成是通过膜扩展完成的。</li>
+<li>自噬在饥饿条件下被激活。</li>
+<li>自噬体与溶酶体的融合是降解过程的一部分。</li>
+</ul>
+<details class="article-body-details"><summary>正文（点击展开）</summary><div class="article-body-fold"><h3 id="toc-41">正文（抓取，非 AI）</h3>
+<p>（原文地址： The Nobel Prize in Physiology or Medicine 2016 ） 科学背景：自噬机制的发现 2016年诺贝尔生理学或医学奖授予大隅良典（Yoshinori Ohsumi），以表彰他在自噬机制方面所做的发现（for his discoveries of mechanisms for autophagy）。巨型自噬（“自我吞噬”，下文简称为自噬）是一种进化保守机制，通过这个过程，真核细胞可以通过将细胞质的一部分包裹在双层膜囊泡中并送往溶酶体进行消化，从而回收其自身的一部分内容。与其他细胞降解机制不同，自噬能够去除寿命较长的蛋白质、大型分子复合体和已经过时或损坏的细胞器。自噬在饥饿状态下介导细胞非必需部分的消化和回收，并参与多种生理过程，在这些过程中，细胞成分必须被移除，为新的成分腾出空间。此外，自噬是一种关键的细胞过程，能够清除入侵的微生物和有毒的蛋白质聚集体，因此在感染、衰老以及许多人类疾病的发病机制中发挥重要作用。尽管自噬在1960年代就已被发现，但其机制和生理学意义几十年来仍然了解甚少。大隅良典的工作极大地改变了我们对这一重要细胞过程的理解。1993年，大隅发布了他的开创性发现，确定了酿酒酵母中对自噬至关重要的15个基因。在一系列经典的后续研究中，他克隆了酵母和哺乳动物细胞中的这些基因中的几个，并阐明了它们编码蛋白质的功能。基于大隅良典的开创性发现，人们现在已经认识到自噬在人体生理学和疾病中的重要性。 神秘的自噬 20世纪50年代初，克里斯蒂安·德·迪夫（Christian de Duve）对胰岛素（insulin）的作用产生了兴趣，他使用阿尔伯特·克劳德（Albert Claude）开发的细胞分级（cell fractionation）方法研究了葡萄糖-6-磷酸酶（glucose-6-phosphatase）在细胞内的定位。在对照实验中，他还跟踪了酸性磷酸酶（acid phosphatase）的分布，但在新鲜分离的肝脏细胞分级样品中未能检测到任何酶活性。值得注意的是，如果将这些分级样品存放在冰箱中五天，酶活性就会重新出现 。事情很快就清楚了，蛋白水解酶被隔离在一种以前未知的膜结构内，德·迪夫将其命名为溶酶体（lysosome） 。通过将纯化的富含溶酶体的肝脏细胞样品与肝脏切片进行比较电子显微镜观察，确认溶酶体是一种独特的细胞器 。克里斯蒂安·德·迪夫、阿尔伯特·克劳德和乔治·帕拉德（George Palade）一起，因其关于细胞结构和功能组织的发现而荣获1974年诺贝尔生理学或医学奖。 溶酶体被发现不久后，研究人员发现，在小鼠正常肾脏发育过程中，细胞质的一部分会被隔离到膜结构内 。当发生水肿病时，大鼠肾小管近曲小管细胞中也会观察到类似的结构，其中包含少量细胞质和线粒体 。发现这些小泡在退化初期阶段与含酸性磷酸酶的颗粒共定位，并且随着退化的进展，这些结构的数量增加 。含有退化细胞质的膜结构也存在于正常大鼠肝细胞中，其数量在糖皮质激素灌流（glucagon perfusion） 或暴露于有毒试剂后 显著增加。 克里斯蒂安·德·迪夫认识到这些结构有能力消化细胞内部分内容物，于1963年首次提出“自噬”（autophagy）这个术语，并在几年后发表的一篇综述文章中广泛讨论了这一概念 。当时，基于电子显微镜研究的结果，已经有充分的理由证明哺乳动物细胞中存在自噬8。已知自噬在基础水平上低速进行，并在多种组织的分化和重塑过程中增加，包括大脑、肠道、肾脏、肺、肝脏、前列腺、皮肤和甲状腺 。人们推测，自噬可能是一种响应饥饿以应对代谢压力的机制 ，并且可能在疾病发病机制中发挥作用 。此外，已经证实自噬发生在各种单细胞真核生物和多细胞生物中，例如变形虫、纤细裸藻（ Euglena gracilis ）、四膜虫（ Tetrahymena ）、昆虫和蛙类 ，这指向了其在进化过程中的保守功能。 在接下来的几十年里，这个领域的进展有限。有报道称营养物质和激素能够影响自噬；氨基酸缺乏可诱导 ，而胰岛素刺激可抑制 哺乳动物组织中的自噬。一种小分子，3-甲基腺嘌呤（3-methyladenine），被证实可以抑制自噬 。有研究结合了细胞分级、放射自显影和电子显微镜等技术，提供了自噬早期阶段包括双膜结构——吞噬泡（phagophore）形成的证据，该结构扩展包围了一部分细胞质并闭合成一个不含水解酶的囊泡——自噬体（autophagosome） （图1）。 尽管有许多迹象表明自噬可能是一个重要的细胞过程，但其机制和调控仍然不清楚。只有少数几个实验室在研究这个问题，主要采用相关性或描述性的方法，关注自噬的后期阶段，即与溶酶体融合前后的过程。我们现在知道，自噬体是短暂存在的，其存在时间仅大约10-20分钟，然后就与溶酶体融合，这使得其形态学和生化研究非常困难。 图1. 自噬体的形成。吞噬泡扩展形成双膜自噬体，吞噬细胞质成分。自噬体与溶酶体融合，其内容物在其中被降解。 到了20世纪90年代初，距离德·迪夫首次提出自噬这一术语近30年后，这一过程仍然是一个生物学谜团。由于没有可用的分子标记，自噬机制的组分仍然难以捉摸。许多基本的问题仍然没有答案：自噬过程是如何启动的？自噬体是如何形成的？自噬对于细胞和机体的生存来说有多重要？自噬在人类疾病中有何作用？ 自噬机制的发现 20世纪90年代初，大隅良典（Yoshinori Ohsumi）当时是东京大学的助理教授，决定使用出芽酵母 Saccharomyces cerevisae 作为模型来研究自噬。他首先要解决的问题是这种单细胞生物体内是否存在自噬。酵母的液泡（vacuole）是哺乳动物溶酶体的功能等同物。大隅推理说，如果酵母中存在自噬，抑制液泡酶类将导致被吞噬的细胞质成分在液泡中积累。为了验证这一假设，他建立了缺失液泡蛋白酶A（proteinase A）、蛋白酶B（proteinase B）和羧肽酶（carboxy-peptidase）的酵母株 。他发现，当改良后的酵母在缺乏营养的培养基中生长时，自噬体在液泡中积累，产生了在光学显微镜下可见的异常液泡。他找到了一种独特的表型，可以用来发现控制自噬启动的基因。通过在缺乏液泡蛋白酶的酵母细胞中诱发随机突变，大隅发现了第一个无法在液泡中积累自噬体的突变体 ；他将这个基因命名为 autophagy 1 （ APG1 ）。随后，他发现 APG1 突变体在缺少氮源的培养基中存活能力相比野生型酵母快速下降。作为第二种筛选方法，他利用这一更便捷的表型和更多的表征方法，识别出了75个可被划分为不同互补组的隐性突变体。在1993年发表在FEBS Letters杂志上的一篇文章中，大隅报告了他对真核细胞中激活自噬所必需的多达15个基因的发现 。他将这些基因命名为 APG1-15 。随着酵母和其他物种中新的自噬基因被识别出来，普遍采纳了使用 ATG 缩写的统一基因命名系统 ，此后本文将使用这一命名。 在随后的几年中，大隅克隆出了几个 ATG 基因 ，并描述了其蛋白质产物的功能。 ATG1 基因的克隆揭示了它编码一个丝氨酸/苏氨酸激酶（serine/threonine kinase），证明了蛋白质磷酸化在自噬中的作用 。其他的研究表明，Atg1与 ATG13 基因的产物形成复合体，且这种相互作用受到雷帕霉素靶蛋白（target of rapamycin，TOR）激酶的调控 。在营养丰富条件下生长的细胞中，TOR处于活跃状态，对Atg13进行过度磷酸化，从而阻止了Atg13:Atg1复合体的形成。相反，在饥饿条件下TOR被失活，去磷酸化的Atg13与Atg1结合，激活自噬 。随后研究表明，活性激酶实际上是一个五聚复合体（pentameric complex） ，除了Atg1和Atg13外，还包括Atg17、Atg29和Atg31。这个复合体的组装是形成自噬体所需的一系列事件中的第一步。 图2. 自噬体形成的调控。大隅良典研究了关键自噬基因编码的蛋白质的功能，他描绘了如何通过蛋白质复合体促进自噬体形成的不同阶段，并阐明了应激信号如何启动自噬过程。 自噬体的形成涉及到一种内在膜蛋白Atg9，以及一个磷酸肌醇-3-激酶（phosphatidylinositol-3 kinase，PI3K）复合体 ，该复合体由液泡蛋白分选相关蛋白34 （vacuolar protein sorting-associated protein 34，Vps34）、Vps15、Atg6和Atg14组成。这个复合体生成磷酸肌醇-3-磷酸（phosphatidylinositol-3 phosphate），随后其他的Atg蛋白质被招募到膜结构上。膜扩展以形成成熟的自噬体涉及两个泛素样蛋白（ubiquitin-like protein）连接的级联反应(图2)。 关于Atg8定位的研究显示，在生长中的酵母细胞的细胞质中，该蛋白质均匀分布，而在饥饿的细胞中，Atg8形成大的聚集体，与自噬体和自噬体内部的物质共定位 。大隅良典意外地发现，Atg8的膜定位依赖于两个泛素样连接系统（ubiquitin-like conjugation system），这两个系统依次作用，促进Atg8与膜脂磷脂酰乙醇胺（phosphatidylethanolamine）的共价结合。这两个系统共享相同的激活酶Atg7。在第一个连接事件中，Atg12通过与Atg7的半胱氨酸残基形成硫酯键而被激活，然后转移给连接酶Atg10，该酶催化它与Atg5蛋白质的共价结合 。进一步的研究表明，Atg12:Atg5共价体招募了Atg16，形成一个三分子复合体，在自噬过程中发挥着关键作用，作为第二个泛素样连接系统的连接酶 。在这个独特的第二个反应中，Atg8的C末端精氨酸被Atg4去除，随后成熟的Atg8由Atg7激活，并转移给Atg3连接酶 。最终，因为Atg12:Atg5:Atg16连接酶促进Atg8与磷脂酰乙醇胺的连接，这两个连接系统汇聚 。脂化的Atg8是自噬体延伸和融合的关键驱动力 。这两个连接系统在酵母和哺乳动物之间高度保守。在哺乳动物系统中，广泛使用与酵母Atg8同源的哺乳动物Atg8（即轻链3，light chain 3，LC3）的荧光标记，作为自噬体形成的标志物 。 大隅良典及其同事是第一批鉴定酵母 ATG 基因的哺乳动物同源基因的科学家，这使得人们能够研究自噬在更高级真核生物中的功能。不久后，遗传学研究显示，缺乏 ATG5 基因的小鼠在出生时看起来是正常的，但由于无法应对出生前的饥饿状态，它们在出生后的第一天就会死亡 。通过对缺失自噬机制不同组件敲除小鼠模型的研究，证实了这一过程在多种哺乳动物组织中的重要性 。 大隅良典的开创性研究引发了对自噬的巨大兴趣。自2000年代初以来，这一领域已经成为生物医学研究中最为密集研究的领域之一，相关的出版物数量显著增加。 自噬的不同类型 继大隅良典的开创性发现之后，现在可以根据被降解的内容物来区分不同类型的自噬。最为广泛研究的自噬形式——宏自噬（macroautophagy），能够降解大部分的细胞质和细胞器。非选择性自噬（non-selective autophagy）持续进行，并能在响应压力（例如饥饿）时得到有效诱导。此外，特定类别底物（蛋白聚集体、胞质细胞器或入侵的病毒和细菌）的选择性自噬（selective autophagy）涉及到特定的衔接蛋白（adaptor），这些衔接蛋白能识别内容物并将其定位到自噬体膜上的Atg8/LC3处 。自噬的其他形式包括微自噬（microautophagy） ，其涉及到通过溶酶体膜的内折叠直接吞噬细胞质组分，以及伴侣介导的自噬（chaperone-mediated autophagy，CMA）。在CMA中，带有特定识别信号的蛋白质通过与伴侣复合体（chaperone complex）的结合直接转运进入溶酶体 。 自噬在健康和疾病中的作用 自噬的分子特征研究提供的基础数据在推进对这一过程及其在细胞生理学和多种病理状态中的作用的理解方面发挥了重要作用（见图3）。自噬最初被认识为对胁迫的细胞响应，但现在我们知道，该系统在基础水平上持续运作。与优先降解短半衰期蛋白质的泛素-蛋白酶体系统（ubiquitin-proteasome system）不同，自噬能够移除长半衰期蛋白质，并且是唯一能够处理整个细胞器的过程，如线粒体、过氧化物酶体和内质网。因此，自噬在维持细胞稳态中发挥着重要作用。此外，自噬参与了多种生理过程，如需要清除大量胞质的细胞分化和胚胎发生。自噬在响应不同类型胁迫时的快速诱导，体现了其在对抗细胞损伤和许多与衰老相关疾病中的细胞保护功能和能力。 由于自噬流（autophagic flux）的失调直接或间接地涉及到广泛的人类疾病，自噬成为治疗干预的一个特别有希望的目标。关于自噬在疾病中作用的重要作用体现之一，是观察到Beclin-1（ BECN1 基因的产物）在大量人类乳腺癌和卵巢癌中发生突变。 BECN1 是酵母 ATG6 的同源物，它调节自噬过程的启动步骤 。这一发现为科学家们研究自噬在癌症中的作用上产生了极大的兴趣 。 错误折叠的蛋白质倾向于形成对细胞有毒的不溶性聚集体（aggregate）。为了应对这一问题，细胞依赖于自噬 。在神经退行性疾病（neurodegenerative disease）的果蝇和小鼠模型中，通过抑制TOR激酶来激活自噬，从而减少蛋白质聚集体的毒性 。此外，在小鼠大脑中，通过组织特异性地破坏Atg5和Atg7来失活自噬，会导致神经退行性疾病 。几种常染色体隐性遗传人类疾病（autosomal recessive human disease）表现出自噬受损，其特征是脑部畸形、发育迟缓、智力障碍、癫痫、运动障碍和神经退行 。 图3. 自噬在健康和疾病中的作用。自噬与生理过程相关，包括胚胎发育、细胞分化、对饥饿和其他类型压力的适应，以及包括神经退行性疾病、癌症和感染在内的病理状态。 自噬消除侵入微生物的能力，这一现象被称为异噬（xenophagy），突显了其在激活免疫反应和控制传染病中的关键作用 。病毒和细胞内细菌已经发展出复杂的策略来规避这一细胞防御机制。此外，微生物还可以利用自噬来维持它们自身的生长。 结论 通过大隅良典对自噬基因的发现，以及对自噬分子机制的阐释，我们在理解细胞是如何回收其内容物方面迎来了一个新的范式。由于他的开创性工作，自噬被认识为细胞生理中的一个基本过程，对人类健康和疾病有着重大的影响。 尼尔斯-戈兰·拉尔松（Nils-Göran Larsson） , 医学博士, 哲学博士 线粒体遗传学教授，卡罗林斯卡学院 诺贝尔委员会兼职成员 诺贝尔大会成员 玛丽亚·G.马苏奇（Maria G. Masucci） ，医学博士, 哲学博士 病毒学教授，卡罗林斯卡学院 诺贝尔委员会兼职成员 诺贝尔大会成员 插图： 马提亚斯·卡尔伦（Mattias Karlén） 参考文献 1. de Duve, C. (2005). The lysosome turns fifty. Nat Cell Biol 7 , 847–849. 2. de Duve, C., Pressman, B.C., Gianetto, R., Wattiaux, R., and Appelmans, F. (1955) Tissue fractionation studies. 6. Intracellular distribution patterns of enzymes in rat-liver tissue. Biochem J 60 , 604–617. 3. Novikoff, A.B, Beaufay, H., and de Duve, C. (1956) Electron microscopy of lysosome-rich fractions from rat liver. Journal Biophys Biochem Cytol. 2 , 179–190. 4. Clark, S.L. (1957) Cellular differentiation in the kidneys of newborn mice studied with the electron microscope. J Biophys Biochem Cytol 3 , 349–376. 5. Novikoff, A.B. (1959) The proximal tubule cell in experimental hydronephrosis. J Biophys Biochem Cytol 6 , 136–138. 6. Ashford, T.P., and Porter, K.R. (1962) Cytoplasmic components in hepatic cell lysosomes. J Cell Biol 12 , 198–202. 7. Novikoff, A.B., and Essner, E. (1962) Cytolysomes and mitochondrial degeneration. J Cell Biol 15 , 140–146. 8. de Duve, C., and Wattiaux, R. (1966) Functions of lysosomes. Annu Rev Physiol 28 , 435–492. 9. Behnke, O. (1963) Demonstration of acid phosphatase-containing granules and cytoplasmic bodies in the epithelium of foetal rat duodenum during certain stages of differentiation. J Cell Biol 18 , 251–265. 10. Bruni, C., and Porter, K.R. (1965) The fine structure of the parenchymal cell of the normal rat liver: I. General observations. Am J Pathol 46 , 691–755. 11. Hruban, Z., Spargo, B., Swift, H., Wissler, R.W., and Kleinfeld, R.G. (1963) Focal cytoplasmic degradation. Am J Pathol 42 , 657–683. 12. Moe, H., and Behnke, O. (1962) Cytoplasmic bodies containing mitochondria, ribosomes, and rough surfaced endoplasmic membranes in the epithelium of the small intestine of newborn rats. J Cell Biol 13 , 168–171. 13. Napolitano, L. (1963) Cytolysomes in metabolically active cells. J Cell Biol 18 , 478–481. 14. Bonneville, M.A. (1963) Fine structural changes in the intestinal epithelium of the bullfrog during metamorphosis. J Cell Biol 18 , 579–597. 15. Mortimore, G.E., and Schworer, C.M. (1977) Induction of autophagy by amino-acid deprivation in perfused rat liver. Nature 270 , 174–176. 16. Pfeifer, U., and Warmuth-Metz, M. (1983) Inhibition by insulin of cellular autophagy in proximal tubular cells of rat kidney. Am J Physiol 244 , E109-114. 17. Seglen, P.O., and Gordon, P.B. (1982) 3-Methyladenine: specific inhibitor of autophagic/lysosomal protein degradation in isolated rat hepatocytes. Proc Natl Acad Sci USA 79 , 1889–1892. 18. Arstila, A.U., and Trump, B.F. (1968) Studies on cellular autophagocytosis. The formation of autophagic vacuoles in the liver after glucagon administration. Am J Pathol 53 , 687–733. 19. Takeshige, K., Baba, M., Tsuboi, S., Noda, T., and Ohsumi, Y. (1992) Autophagy in yeast demonstrated with proteinase-deficient mutants and conditions for its induction. J Cell Biol 119 , 301–311. 20. Tsukada, M., and Ohsumi, Y. (1993) Isolation and characterization of autophagy-defective mutants of Saccharomyces cerevisiae. FEBS Lett 333 , 169–174. 21. Klionsky, D.J., Cregg, J.M. Dunn, W.A. Jr., Emr, S.D., Sakia, J., Sandoval, I.V., Sibirnya, Y.A., Subramani, S., Thumm, M., Veenhuis, M., and Ohsumi, Y. (2003) A unified nomenclature for yeast autophagy-related genes. Dev Cell 5, 539-545. 22. Kametaka, S., Matsuura, A., Wada Y., and Ohsumi, Y. (1996) Structural and functional analyses of APG5, a gene involved in autophagy in yeast. Gene 178 , 139-43. 23. Funakoshi, T., Matsuura, A., Noda, T., Ohsumi Y. (1997) Analyses of APG13 gene involved in autophagy in yeast, Saccharomyces cerevisiae. Gene. 192 , 207-213. 24. Matsuura, A., Tsukada, M., Wada, Y., and Ohsumi, Y. (1997) Apg1p, a novel protein kinase required for the autophagic process in Saccharomyces cerevisiae. Gene 192 , 245–250. 25. Kamada, Y., Funakoshi, T., Shintani, T., Nagano, K., Ohsumi, M., and Ohsumi, Y. (2000) Tor-mediated induction of autophagy via an Apg1 protein kinase complex. J Cell Biol 150 , 1507–1513. 26. Ohsumi, Y. (2014) Historical landmarks of autophagy research. Cell Res 24 , 9–23. 27. Kirisako, T., Baba, M., Ishihara, N., Miyazawa, K., Ohsumi, M., Yoshimori, T., Noda, T., and Ohsumi, Y. (1999) Formation process of autophagosome is traced with Apg8/Aut7p in yeast. J Cell Biol 147 , 435–446. 28. Mizushima, N., Noda, T., Yoshimori, T., Tanaka, Y., Ishii, T., George, M.D., Klionsky, D.J., Ohsumi, M., and Ohsumi, Y. (1998) A protein conjugation system essential for autophagy. Nature 395 , 395–398. 29. Shintani, T., Mizushima, N., Ogawa, Y., Matsuura, A., Noda, T., and Ohsumi, Y. (1999) Apg10p, a novel protein-conjugating enzyme essential for autophagy in yeast. EMBO J 18 , 5234–5241. 30. Mizushima, N., Noda, T., and Ohsumi, Y. (1999) Apg16p is required for the function of the Apg12p-Apg5p conjugate in the yeast autophagy pathway. EMBO J 18 , 3888–3896. 31. Ichimura, Y., Kirisako, T., Takao, T., Satomi, Y., Shimonishi, Y., Ishihara, N., Mizushima, N., Tanida, I., Kominami, E., Ohsumi, M., et al. (2000) A ubiquitin-like system mediates protein lipidation. Nature 408 , 488–492. 32. Hanada, T., Noda, N.N., Satomi, Y., Ichimura, Y., Fujioka, Y., Takao, T., Inagaki, F., and Ohsumi, Y. (2007) The Atg12-Atg5 conjugate has a novel E3-like activity for protein lipidation in autophagy. J Biol Chem 282 , 37298–37302. 33. Nakatogawa, H., Ichimura, Y., and Ohsumi, Y. (2007) Atg8, a ubiquitin-like protein required for autophagosome formation, mediates membrane tethering and hemifusion. Cell 130 , 165–178. 34. Xie Z., Nair U., Klionsky D.J. (2008) ATG8 controls phagophore expansion during autophagosome formation. Mol Cell Biol 19 , 3290-3298. 35. Kabeya, Y., Mizushima, N., Ueno, T., Yamamoto, A., Kirisako, T., Noda, T., Kominami, E., Ohsumi, Y., and Yoshimori, T. (2000) LC3, a mammalian homologue of yeast Apg8p, is localized in autophagosome membranes after processing. EMBO J 19 , 5720–5728. 36. Mizushima, N., Yamamoto, A., Matsui, M., Yoshimori, T., and Ohsumi, Y. (2004) In vivo analysis of autophagy in response to nutrient starvation using transgenic mice expressing a fluorescent autophagosome marker. Mol Biol Cell 15 , 1101–1111. 37. Kuma, A., Hatano, M., Matsui, M., Yamamoto, A., Nakaya, H., Yoshimori, T., Ohsumi, Y., Tokuhisa, T., and Mizushima, N. (2004) The role of autophagy during the early neonatal starvation period. Nature 432 , 1032–1036. 38. Mizushima, N., and Komatsu, M. (2011) Autophagy: Renovation of cells and tissues. Cell 147 , 728-741. 39. Liu, L., Sakakibara, K., Chen, Q., Okamoto, K. (2014) Receptor-mediated mitophagy in yeast and mammalian systems. Cell Res 24 , 787-795. 40. Li, W.W., Li, J., Bao, J.K. (2012) Microautophagy: lesser-known self-eating. Cell Mol Life Sci 69 , 1125-1136. 41. Cuervo, A.M., and Wong, E. (2014) Chaperone-mediated autophagy: roles in disease and aging. Cell Res 24 , 92–104. 42. Liang, X.H., Jackson, S., Seaman, M., Brown, K., Kempkes, B., Hibshoosh, H., and Levine, B. (1999) Induction of autophagy and inhibition of tumorigenesis by beclin 1. Nature 402 , 672–676. 43. Choi, A.M.K., Ryter, S.W., and Levine, B. (2013) Autophagy in human health and disease. N Engl J Med 368 , 651–662. 44. Ravikumar, B., Vacher, C., Berger, Z., Davies, J.E., Luo, S., Oroz, L.G., Scaravilli, F., Easton, D.F., Duden, R., O'Kane, C.J., et al. (2004) Inhibition of mTOR induces autophagy and reduces toxicity of polyglutamine expansions in fly and mouse models of Huntington disease. Nat Genet 36 , 585–595. 45. Ravikumar, B., Duden, R., and Rubinsztein, D.C. (2002) Aggregate-prone proteins with polyglutamine and polyalanine expansions are degraded by autophagy. Hum Mol Genet 11 , 1107–1117. 46. Komatsu, M., Waguri, S., Chiba, T., Murata, S., Iwata, J.-I., Tanida, I., Ueno, T., Koike, M., Uchiyama, Y., Kominami, E., et al. (2006) Loss of autophagy in the central nervous system causes neurodegeneration in mice. Nature 441 , 880–884. 47. Hara, T., Nakamura, K., Matsui, M., Yamamoto, A., Nakahara, Y., Suzuki-Migishima, R., Yokoyama, M., Mishima, K., Saito, I., Okano, H., et al. (2006) Suppression of basal autophagy in neural cells causes neurodegenerative disease in mice. Nature 441 , 885–889. 48. Ebrahimi-Fakhari, D., Saffari, A., Wahlster, L., Lu, J., Byrne, S., Hoffmann, G.F., Jungbluth, H., and Sahin, M. (2016) Congenital disorders of autophagy: an emerging novel class of inborn errors of neuro-metabolism. Brain 139 , 317–337. 49. Nakagawa, I., Amano, A., Mizushima, N., Yamamoto, A., Yamaguchi, H., Kamimoto, T., Nara, A., Funao, J., Nakata, M., Tsuda, K., et al. (2004) Autophagy defends cells against invading group A Streptococcus. Science 306 , 1037–1040. 50. Gutierrez, M.G., Master, S.S., Singh, S.B., Taylor, G.A., Colombo, M.I., and Deretic, V. (2004) Autophagy is a defense mechanism inhibiting BCG and Mycobacterium tuberculosis survival in infected macrophages. Cell 119 , 753–766. 术语表 溶酶体（lysosome） ：真核细胞质中含有分解酶的细胞器，这些酶被膜结构包裹着。 吞噬泡（phagophore） ：在巨型自噬初始阶段形成的囊泡。通过自噬机制，吞噬泡被延展，以吞噬细胞质成分。 自噬体（autophagosome） ：一种将细胞质的一部分包裹在双层膜中并与溶酶体融合的细胞器，其中的内容物随后被分解。自噬体是巨型自噬中的关键结构。 选择性自噬（selective autophagy） ：一种介导特定细胞质成分降解的巨型自噬类型。不同形式的选择性自噬包括线粒体自噬（mitophagy，降解线粒体）、核糖体自噬（ribophagy，降解核糖体）、脂肪滴自噬（lipophagy，降解脂肪滴）和异噬（xenophagy，降解侵入的微生物）等。</p></div></details>
+</div>
+<script>
+var READING_HIGHLIGHT_CLASS='reading-highlight';
+function getBlocksInOrder(container){
+ var blocks=[]; var blockTags=['P','DIV','H2','H3','H4','LI','PRE'];
+ function walk(el){
+  if(!el||!container.contains(el))return;
+  if(blockTags.indexOf(el.tagName)!==-1){
+   var hasBlockChild=false;
+   for(var k=0;k<el.children.length;k++){ var c=el.children[k]; if(blockTags.indexOf(c.tagName)!==-1){ hasBlockChild=true; break; } }
+   if(!hasBlockChild){ var t=(el.innerText||'').trim().replace(/\s+/g,' '); if(t)blocks.push({el:el,text:t}); }
+   else for(k=0;k<el.children.length;k++)walk(el.children[k]);
+  } else for(k=0;k<el.children.length;k++)walk(el.children[k]);
+ }
+ walk(container); return blocks;
+}
+function speakText(t,onDone){ if(!t){ document.getElementById('readStatus').textContent=''; if(onDone)onDone(); return; }
+ speechSynthesis.cancel(); var status=document.getElementById('readStatus'); status.textContent='准备中…';
+ var chunks=[]; var maxLen=280; for(var i=0;i<t.length;i+=maxLen){ var s=t.slice(i,i+maxLen); var j=s.lastIndexOf('。'); if(j>80){ chunks.push(s.slice(0,j+1)); i-=s.length-(j+1); } else chunks.push(s); }
+ if(chunks.length===0)chunks=[t]; var idx=0; var doneCalled=false; var chunkTimer=null; var segTimer=null;
+ function finish(){ if(doneCalled)return; doneCalled=true; if(chunkTimer){clearTimeout(chunkTimer);chunkTimer=null;} if(segTimer){clearTimeout(segTimer);segTimer=null;} status.textContent=''; if(onDone)onDone(); }
+ if(onDone){ var capMs=Math.min(3600000,Math.max(12000,t.length*420+chunks.length*3500)); segTimer=setTimeout(function(){ segTimer=null; if(!doneCalled){ idx=chunks.length; finish(); } },capMs); }
+ function speakNext(){ if(idx>=chunks.length){ finish(); return; } var u=new SpeechSynthesisUtterance(chunks[idx]); u.lang='zh-CN'; u.rate=0.95; var v=speechSynthesis.getVoices().filter(function(x){ return x.lang.indexOf('zh')>=0; })[0]; if(v)u.voice=v;
+  var cur=idx; var chunkDone=false; var estMs=Math.min(240000,Math.max(2200,chunks[idx].length*400+3200)); if(chunkTimer)clearTimeout(chunkTimer); chunkTimer=setTimeout(function(){ chunkTimer=null; if(idx===cur&&!chunkDone){ chunkDone=true; idx++; setTimeout(speakNext,80); } },estMs);
+  u.onend=function(){ if(chunkTimer){clearTimeout(chunkTimer);chunkTimer=null;} if(chunkDone)return; chunkDone=true; idx++; setTimeout(speakNext,80); };
+  u.onerror=function(){ if(chunkTimer){clearTimeout(chunkTimer);chunkTimer=null;} if(chunkDone)return; chunkDone=true; idx++; setTimeout(speakNext,80); };
+  status.textContent='朗读中 '+(idx+1)+'/'+chunks.length+'…'; speechSynthesis.speak(u); }
+ if(speechSynthesis.getVoices().length)speakNext(); else speechSynthesis.onvoiceschanged=function(){ speechSynthesis.onvoiceschanged=null; speakNext(); }; }
+function readFullText(){ var c=document.querySelector('.content'); if(!c){ document.getElementById('readStatus').textContent='无可读内容'; return; }
+ var segments=getBlocksInOrder(c); if(!segments.length){ document.getElementById('readStatus').textContent='无可读内容'; return; }
+ speechSynthesis.cancel(); document.querySelectorAll('.content .'+READING_HIGHLIGHT_CLASS).forEach(function(el){ el.classList.remove(READING_HIGHLIGHT_CLASS); });
+ var parts=[]; for(var si=0;si<segments.length;si++){ var tx=(segments[si].text||'').trim(); if(tx)parts.push(tx); }
+ var full=parts.join('。\n'); if(!full.trim()){ document.getElementById('readStatus').textContent='无可读内容'; return; }
+ try{ c.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){}
+ document.getElementById('readStatus').textContent='全文朗读（'+parts.length+' 段合并）…'; speakText(full,function(){ document.getElementById('readStatus').textContent=''; }); }
+function getBlockForTap(el){ var c=document.querySelector('.content'); var blockTags=['P','DIV','H2','H3','H4','LI','PRE']; while(el&&el!==c){ if(c.contains(el)&&blockTags.indexOf(el.tagName)!==-1) return el; el=el.parentElement; } return null; }
+function onContentTap(e){ if(e.target.closest&&e.target.closest('a')) return; var block=getBlockForTap(e.target); if(block){ var t=(block.innerText||'').trim().replace(/\s+/g,' '); if(t){ e.preventDefault(); speechSynthesis.cancel(); document.getElementById('readStatus').textContent='朗读本段…'; speakText(t); } } }
+if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', function(){ var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }); } else { var c=document.querySelector('.content'); if(c) c.addEventListener('click', onContentTap); }
+setTimeout(function(){ try{ var u=new SpeechSynthesisUtterance('\u200b'); u.volume=0; speechSynthesis.speak(u); }catch(e){} }, 300);
+</script>
+</body>
+</html>

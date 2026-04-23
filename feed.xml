@@ -5,8 +5,15 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Tue, 21 Apr 2026 14:01:08 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 23 Apr 2026 01:16:05 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>知识流日报 2026-04-23：深度自编码、三元组损失函数、自编码模型内部结构、变分自编码最终生成、变分自编码解码器的输出、判别器的输入数据、双线性插值</title>
+      <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-23.html</link>
+      <description> 知识流日报 20260423：深度自编码、三元组损失函数、自编码模型内部结构、变分自编码最终生成、变分自编码解码器的输出、判别器的输入数据、双线性插值 共 21 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 21 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 22 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. 「三体问题」无解吗？为什么？ 知乎 链接：https://www.zhihu.com/question/30311577 来源：bing 摘要：2、对三体问题的数值解，会面临混沌的初值敏感问题。 既然直接代数积分找解析解行不通，那么为什么不用强大的超级计算机来求数值解呢？在很多领域，只要数值解精度足够，是可以胜任解析解的任务 … 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;数值解在实际应用中具有重要的作用，但其精度往…</description>
+      <pubDate>2026-04-23 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-23.html</guid>
+    </item>
     <item>
       <title>知识流日报 2026-04-21：深度自编码、三元组损失函数、自编码模型内部结构、变分自编码最终生成、变分自编码解码器的输出、判别器的输入数据、双线性插值</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-04-21.html</link>

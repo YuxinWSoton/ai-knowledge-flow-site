@@ -5,12 +5,12 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Thu, 14 May 2026 00:46:41 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 14 May 2026 03:23:21 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>知识流日报 2026-05-14：new-type power system dispatch architecture</title>
+      <title>知识流日报 2026-05-14：hierachical reinforcement learning power system</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-05-14.html</link>
-      <description> 知识流日报 20260514：newtype power system dispatch architecture 共 11 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 11 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 12 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. Anomalies in Neural Network Field Theory 链接：https://arxiv.org/abs/2605.12488v1 来源：arxiv 摘要：Neural network field theory (NNFT) formulates field theory in terms of a network architecture and a density on its parameters. We derive SchwingerDys…</description>
+      <description> 知识流日报 20260514：hierachical reinforcement learning power system 共 10 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 10 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 11 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. TopologyPreserving Neural Operator Learning via Hodge Decomposition 链接：https://arxiv.org/abs/2605.13834v1 来源：arxiv 摘要：In this paper, we study solution operators of physical field equations on geometric meshes from a functionspace persp…</description>
       <pubDate>2026-05-14 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-05-14.html</guid>
     </item>

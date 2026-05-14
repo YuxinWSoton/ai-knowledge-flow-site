@@ -5,12 +5,12 @@
     <title>AI 知识流日报</title>
     <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site</link>
     <description>用碎片时间吸收一点真正的学术与 AI 营养。</description>
-    <lastBuildDate>Thu, 14 May 2026 03:23:21 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 14 May 2026 06:11:58 GMT</lastBuildDate>
     <atom:link href="https://YuxinWSoton.github.io/ai-knowledge-flow-site/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>知识流日报 2026-05-14：hierachical reinforcement learning power system</title>
       <link>https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-05-14.html</link>
-      <description> 知识流日报 20260514：hierachical reinforcement learning power system 共 10 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 10 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 11 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. TopologyPreserving Neural Operator Learning via Hodge Decomposition 链接：https://arxiv.org/abs/2605.13834v1 来源：arxiv 摘要：In this paper, we study solution operators of physical field equations on geometric meshes from a functionspace persp…</description>
+      <description> 知识流日报 20260514：hierachical reinforcement learning power system 共 6 条（来自百度学术 / Google / Bing 等，仅含正文抓取成功的条目；按正文长度从短到长排列，便于先听短的）。 （以下含抓取正文，便于阅读。未调用任何 AI API。） （仅前 6 条含模型提取的「易漏细节」关键点，页面上以颜色区分；第 7 条及之后未调用模型，故无易漏细节。可在 config 中调大 extract_insights_max_items 以增加条数。） 1. hierarchical是什么意思？中文释义、例句与同义词 ... 链接：https://www.dictionary.net/zh/dictionary/hierarchical 来源：bing 摘要：hierarchical的准确中文释义、定义与同义词辨析，Dictionary.net 提供 hierarchical的真实场景例句、发音怎么读及用法指南，助您轻松掌握单词含义。 易漏细节梳理： &lt;p class=&quot;insightsummary&quot;&gt;hierarchical…</description>
       <pubDate>2026-05-14 12:00:00 +0800</pubDate>
       <guid isPermaLink="true">https://YuxinWSoton.github.io/ai-knowledge-flow-site/daily/2026-05-14.html</guid>
     </item>
